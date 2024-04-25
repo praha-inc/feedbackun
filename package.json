@@ -4,6 +4,14 @@
   "private": true,
   "packageManager": "pnpm@9.0.6",
   "devDependencies": {
-    "@tsconfig/strictest": "2.0.5"
+    "@agaroot/eslint-config-common": "2.1.12",
+    "@tsconfig/strictest": "2.0.5",
+    "@typescript-eslint/eslint-plugin": "7.7.1",
+    "@typescript-eslint/parser": "7.7.1",
+    "eslint": "8.57.0",
+    "eslint-import-resolver-typescript": "3.6.1",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-unicorn": "52.0.0",
+    "eslint-plugin-unused-imports": "3.1.0"
   }
 }
