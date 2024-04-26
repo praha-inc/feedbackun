@@ -1,0 +1,9 @@
+name = "feedbackun"
+main = "src/index.ts"
+compatibility_date = "2024-04-25"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_id = "<id-for-your-database>"
+database_name = "<name-for-your-database>"

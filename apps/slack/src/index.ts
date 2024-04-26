@@ -1,3 +1,4 @@
+import { withDatabase } from '@feedbackun/package-database';
 import { SlackApp } from 'slack-edge';
 
 import { reactionAddedHandler } from './event/reaction-added';
@@ -17,6 +18,6 @@ export default {
     app.event('reaction_added', reactionAddedHandler);
     app.event('reaction_removed', reactionRemovedHandler);
 
-    return await app.run(request, context);
+    return withDatabase(env.DB, async () => await app.run(request, context));
   },
 };

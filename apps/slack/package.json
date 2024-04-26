@@ -9,6 +9,7 @@
     "lint:type": "tsc --pretty --noEmit"
   },
   "dependencies": {
+    "@feedbackun/package-database": "workspace:*",
     "slack-edge": "0.12.0"
   },
   "devDependencies": {
