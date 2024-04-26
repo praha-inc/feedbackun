@@ -1,6 +1,7 @@
 import { relations } from 'drizzle-orm';
 import { sqliteTable, text } from 'drizzle-orm/sqlite-core';
 
+import { slackChannels } from './slack-channels';
 import { slackEmojis } from './slack-emojis';
 
 export const slackTeams = sqliteTable('slack_teams', {
@@ -11,4 +12,5 @@ export const slackTeams = sqliteTable('slack_teams', {
 
 export const slackTeamsRelations = relations(slackTeams, ({ many }) => ({
   emojis: many(slackEmojis),
+  channels: many(slackChannels),
 }));

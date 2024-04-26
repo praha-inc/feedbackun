@@ -15,6 +15,13 @@
       "when": 1714370290910,
       "tag": "0001_kind_nemesis",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1714370319455,
+      "tag": "0002_graceful_moondragon",
+      "breakpoints": true
     }
   ]
 }
