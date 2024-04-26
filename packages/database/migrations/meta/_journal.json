@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1714370263095,
+      "tag": "0000_equal_ted_forrester",
+      "breakpoints": true
+    }
+  ]
+}
