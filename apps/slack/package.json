@@ -8,6 +8,9 @@
     "lint:code": "eslint",
     "lint:type": "tsc --pretty --noEmit"
   },
+  "dependencies": {
+    "slack-edge": "0.12.0"
+  },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20240423.0",
     "eslint": "8.57.0",

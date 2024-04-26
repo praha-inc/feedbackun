@@ -5,6 +5,7 @@
   ],
   "compilerOptions": {
     "target": "ESNext",
+    "moduleResolution": "Bundler",
     "types": [
       "@cloudflare/workers-types"
     ]
