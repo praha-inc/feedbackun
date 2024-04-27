@@ -3,6 +3,7 @@ import { slackCustomEmojis, slackCustomEmojisRelations } from './tables/slack-cu
 import { slackEmojis, slackEmojisRelations } from './tables/slack-emojis';
 import { slackTeams, slackTeamsRelations } from './tables/slack-teams';
 import { slackUnicodeEmojis, slackUnicodeEmojisRelations } from './tables/slack-unicode-emojis';
+import { slackUsers, slackUsersRelations } from './tables/slack-users';
 
 import type { Relations, AnyTable } from 'drizzle-orm';
 
@@ -17,4 +18,6 @@ export const schema = {
   slackTeamsRelations,
   slackUnicodeEmojis,
   slackUnicodeEmojisRelations,
+  slackUsers,
+  slackUsersRelations,
 } satisfies Record<string, AnyTable<NonNullable<unknown>> | Relations>;
