@@ -2,6 +2,7 @@ import { relations } from 'drizzle-orm';
 import { sqliteTable, text } from 'drizzle-orm/sqlite-core';
 
 import { slackChannels } from './slack-channels';
+import { slackReactions } from './slack-reactions';
 import { slackUsers } from './slack-users';
 
 export const slackMessages = sqliteTable('slack_messages', {
@@ -12,7 +13,7 @@ export const slackMessages = sqliteTable('slack_messages', {
   ts: text('ts').notNull(),
 });
 
-export const slackMessagesRelations = relations(slackMessages, ({ one }) => ({
+export const slackMessagesRelations = relations(slackMessages, ({ one, many }) => ({
   channel: one(slackChannels, {
     fields: [slackMessages.slackChannelId],
     references: [slackChannels.id],
@@ -21,4 +22,5 @@ export const slackMessagesRelations = relations(slackMessages, ({ one }) => ({
     fields: [slackMessages.slackUserId],
     references: [slackUsers.id],
   }),
+  reactions: many(slackReactions),
 }));

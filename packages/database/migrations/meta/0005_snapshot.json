@@ -1,0 +1,423 @@
+{
+  "version": "5",
+  "dialect": "sqlite",
+  "id": "aa2c31e7-3bc6-421f-9006-c4eed71cd9ad",
+  "prevId": "1a3709bd-9cb2-450c-83cd-11c59b2fe3f7",
+  "tables": {
+    "slack_channels": {
+      "name": "slack_channels",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "slack_team_id": {
+          "name": "slack_team_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "slack_channels_slack_team_id_slack_teams_id_fk": {
+          "name": "slack_channels_slack_team_id_slack_teams_id_fk",
+          "tableFrom": "slack_channels",
+          "tableTo": "slack_teams",
+          "columnsFrom": [
+            "slack_team_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "slack_custom_emojis": {
+      "name": "slack_custom_emojis",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "url": {
+          "name": "url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "slack_custom_emojis_id_slack_emojis_id_fk": {
+          "name": "slack_custom_emojis_id_slack_emojis_id_fk",
+          "tableFrom": "slack_custom_emojis",
+          "tableTo": "slack_emojis",
+          "columnsFrom": [
+            "id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "slack_emojis": {
+      "name": "slack_emojis",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "type": {
+          "name": "type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "slack_team_id": {
+          "name": "slack_team_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "slack_emojis_slack_team_id_name_unique": {
+          "name": "slack_emojis_slack_team_id_name_unique",
+          "columns": [
+            "slack_team_id",
+            "name"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "slack_emojis_slack_team_id_slack_teams_id_fk": {
+          "name": "slack_emojis_slack_team_id_slack_teams_id_fk",
+          "tableFrom": "slack_emojis",
+          "tableTo": "slack_teams",
+          "columnsFrom": [
+            "slack_team_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "slack_messages": {
+      "name": "slack_messages",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "slack_channel_id": {
+          "name": "slack_channel_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "slack_user_id": {
+          "name": "slack_user_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "text": {
+          "name": "text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "ts": {
+          "name": "ts",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "slack_messages_slack_channel_id_slack_channels_id_fk": {
+          "name": "slack_messages_slack_channel_id_slack_channels_id_fk",
+          "tableFrom": "slack_messages",
+          "tableTo": "slack_channels",
+          "columnsFrom": [
+            "slack_channel_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "slack_messages_slack_user_id_slack_users_id_fk": {
+          "name": "slack_messages_slack_user_id_slack_users_id_fk",
+          "tableFrom": "slack_messages",
+          "tableTo": "slack_users",
+          "columnsFrom": [
+            "slack_user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "slack_reactions": {
+      "name": "slack_reactions",
+      "columns": {
+        "slack_message_id": {
+          "name": "slack_message_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "slack_emoji_id": {
+          "name": "slack_emoji_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "slack_user_id": {
+          "name": "slack_user_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "ts": {
+          "name": "ts",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "slack_reactions_slack_message_id_slack_messages_id_fk": {
+          "name": "slack_reactions_slack_message_id_slack_messages_id_fk",
+          "tableFrom": "slack_reactions",
+          "tableTo": "slack_messages",
+          "columnsFrom": [
+            "slack_message_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "slack_reactions_slack_emoji_id_slack_emojis_id_fk": {
+          "name": "slack_reactions_slack_emoji_id_slack_emojis_id_fk",
+          "tableFrom": "slack_reactions",
+          "tableTo": "slack_emojis",
+          "columnsFrom": [
+            "slack_emoji_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "slack_reactions_slack_user_id_slack_users_id_fk": {
+          "name": "slack_reactions_slack_user_id_slack_users_id_fk",
+          "tableFrom": "slack_reactions",
+          "tableTo": "slack_users",
+          "columnsFrom": [
+            "slack_user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "slack_reactions_slack_message_id_slack_emoji_id_slack_user_id_pk": {
+          "columns": [
+            "slack_emoji_id",
+            "slack_message_id",
+            "slack_user_id"
+          ],
+          "name": "slack_reactions_slack_message_id_slack_emoji_id_slack_user_id_pk"
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "slack_teams": {
+      "name": "slack_teams",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "domain": {
+          "name": "domain",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "slack_unicode_emojis": {
+      "name": "slack_unicode_emojis",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "code": {
+          "name": "code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "slack_unicode_emojis_id_slack_emojis_id_fk": {
+          "name": "slack_unicode_emojis_id_slack_emojis_id_fk",
+          "tableFrom": "slack_unicode_emojis",
+          "tableTo": "slack_emojis",
+          "columnsFrom": [
+            "id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "slack_users": {
+      "name": "slack_users",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "slack_team_id": {
+          "name": "slack_team_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "slack_users_slack_team_id_slack_teams_id_fk": {
+          "name": "slack_users_slack_team_id_slack_teams_id_fk",
+          "tableFrom": "slack_users",
+          "tableTo": "slack_teams",
+          "columnsFrom": [
+            "slack_team_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}

@@ -2,6 +2,7 @@ import { slackChannels, slackChannelsRelations } from './tables/slack-channels';
 import { slackCustomEmojis, slackCustomEmojisRelations } from './tables/slack-custom-emojis';
 import { slackEmojis, slackEmojisRelations } from './tables/slack-emojis';
 import { slackMessages, slackMessagesRelations } from './tables/slack-messages';
+import { slackReactions, slackReactionsRelations } from './tables/slack-reactions';
 import { slackTeams, slackTeamsRelations } from './tables/slack-teams';
 import { slackUnicodeEmojis, slackUnicodeEmojisRelations } from './tables/slack-unicode-emojis';
 import { slackUsers, slackUsersRelations } from './tables/slack-users';
@@ -17,6 +18,8 @@ export const schema = {
   slackEmojisRelations,
   slackMessages,
   slackMessagesRelations,
+  slackReactions,
+  slackReactionsRelations,
   slackTeams,
   slackTeamsRelations,
   slackUnicodeEmojis,
