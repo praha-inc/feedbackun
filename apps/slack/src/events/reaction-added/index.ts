@@ -1,12 +1,17 @@
 import {
+  SlackChannel,
+  SlackChannelId,
   SlackTeamId,
   SlackUser,
   SlackUserId,
+  FindSlackChannelBySlackTeamIdAndSlackChannelIdNotFoundError,
+  findSlackChannelBySlackTeamIdAndSlackChannelId,
   findSlackTeamBySlackTeamId,
   findSlackEmojiBySlackTeamIdAndSlackEmojiName,
   findSlackUserBySlackTeamIdAndSlackUserId,
   FindSlackUserBySlackTeamIdAndSlackUserIdNotFoundError,
   saveSlackUser,
+  saveSlackChannel,
 } from '@feedbackun/package-domain';
 import { errAsync, Result, ResultAsync } from 'neverthrow';
 
@@ -20,6 +25,7 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
 }) => {
   const input = Result.combineWithAllErrors([
     SlackTeamId.create({ value: context.teamId ?? '' }),
+    SlackChannelId.create({ value: payload.item.channel }),
     SlackUserId.create({ value: payload.item_user }),
     SlackUserId.create({ value: payload.user }),
   ]);
@@ -28,21 +34,45 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
     return await context.client.users.info({ user: userId.value });
   });
 
+  const getChannel = ResultAsync.fromThrowable(async (channelId: SlackChannelId) => {
+    return await context.client.conversations.info({ channel: channelId.value });
+  });
+
   await input
-    .map(([teamId, messageUserId, reactionUserId]) => ({
+    .map((inputs) => ({
       input: {
-        teamId,
-        messageUserId,
-        reactionUserId,
+        teamId: inputs[0],
+        channelId: inputs[1],
+        messageUserId: inputs[2],
+        reactionUserId: inputs[3],
+        reactionName: payload.reaction,
       },
     }))
     .asyncAndThen(({ input }) => {
       return findSlackTeamBySlackTeamId({ slackTeamId: input.teamId })
         .map(team => ({ input, team }));
     })
-    .andThen(({ team, ...rest }) => {
-      return findSlackEmojiBySlackTeamIdAndSlackEmojiName({ slackTeamId: team.id, name: payload.reaction })
-        .map(() => ({ team, ...rest }));
+    .andThen(({ input, team, ...rest }) => {
+      return findSlackEmojiBySlackTeamIdAndSlackEmojiName({ slackTeamId: team.id, name: input.reactionName })
+        .map(() => ({ input, team, ...rest }));
+    })
+    .andThen(({ input, team, ...rest }) => {
+      return findSlackChannelBySlackTeamIdAndSlackChannelId({ slackTeamId: team.id, slackChannelId: input.channelId })
+        .orElse(error => {
+          if (!(error instanceof FindSlackChannelBySlackTeamIdAndSlackChannelIdNotFoundError)) {
+            return errAsync(error);
+          }
+
+          return getChannel(input.channelId)
+            .andThen(channel => {
+              return saveSlackChannel(new SlackChannel({
+                id: input.channelId,
+                slackTeamId: team.id,
+                name: channel.channel?.name ?? '',
+              }));
+            });
+        })
+        .map(channel => ({ input, team, channel, ...rest }));
     })
     .andThen(({ input, team, ...rest }) => {
       return findSlackUserBySlackTeamIdAndSlackUserId({ slackTeamId: team.id, slackUserId: input.messageUserId })
