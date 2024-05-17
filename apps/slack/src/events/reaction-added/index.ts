@@ -62,6 +62,24 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
         })
         .map(messageUser => ({ input, team, messageUser, ...rest }));
     })
+    .andThen(({ input, team, ...rest }) => {
+      return findSlackUserBySlackTeamIdAndSlackUserId({ slackTeamId: team.id, slackUserId: input.reactionUserId })
+        .orElse(error => {
+          if (!(error instanceof FindSlackUserBySlackTeamIdAndSlackUserIdNotFoundError)) {
+            return errAsync(error);
+          }
+
+          return getUser(input.reactionUserId)
+            .andThen(user => {
+              return saveSlackUser(new SlackUser({
+                id: input.reactionUserId,
+                slackTeamId: team.id,
+                name: user.user?.name ?? '',
+              }));
+            });
+        })
+        .map(reactionUser => ({ input, team, reactionUser, ...rest }));
+    })
     .match(
       () => {},
       error => console.error(error),
