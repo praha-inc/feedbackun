@@ -10,6 +10,10 @@
   },
   "dependencies": {
     "@feedbackun/package-database": "workspace:*",
+    "@feedbackun/package-domain": "workspace:*",
+    "@paralleldrive/cuid2": "2.2.2",
+    "drizzle-orm": "0.30.9",
+    "neverthrow": "6.2.1",
     "slack-edge": "0.12.0"
   },
   "devDependencies": {

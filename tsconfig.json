@@ -4,6 +4,7 @@
     "@tsconfig/strictest/tsconfig.json"
   ],
   "compilerOptions": {
-    "target": "ESNext"
+    "target": "ESNext",
+    "moduleResolution": "Bundler"
   }
 }
