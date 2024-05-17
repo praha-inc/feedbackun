@@ -1,10 +1,10 @@
 import { withDatabase } from '@feedbackun/package-database';
 import { SlackApp } from 'slack-edge';
 
-import { reactionAddedHandler } from './event/reaction-added';
-import { reactionRemovedHandler } from './event/reaction-removed';
+import { reactionAddedHandler } from './events/reaction-added';
+import { reactionRemovedHandler } from './events/reaction-removed';
 
-import type { Env } from './type/env';
+import type { Env } from './types/env';
 
 export default {
   async fetch(
