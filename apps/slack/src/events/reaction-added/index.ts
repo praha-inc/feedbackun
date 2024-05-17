@@ -2,8 +2,9 @@ import {
   SlackTeamId,
   SlackUserId,
   findSlackTeamBySlackTeamId,
+  findSlackEmojiBySlackTeamIdAndSlackEmojiName,
 } from '@feedbackun/package-domain';
-import { Result } from 'neverthrow';
+import { Result, ResultAsync } from 'neverthrow';
 
 import type { Env } from '../../types/env';
 import type { EventLazyHandler } from 'slack-edge/dist/handler/handler';
@@ -30,6 +31,10 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
     .asyncAndThen(({ input }) => {
       return findSlackTeamBySlackTeamId({ slackTeamId: input.teamId })
         .map(team => ({ input, team }));
+    })
+    .andThen(({ team, ...rest }) => {
+      return findSlackEmojiBySlackTeamIdAndSlackEmojiName({ slackTeamId: team.id, name: payload.reaction })
+        .map(() => ({ team, ...rest }));
     })
     .match(
       () => {},
