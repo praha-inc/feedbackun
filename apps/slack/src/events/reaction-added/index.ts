@@ -1,6 +1,8 @@
 import {
   SlackChannel,
   SlackChannelId,
+  SlackMessage,
+  SlackMessageId,
   SlackTeamId,
   SlackUser,
   SlackUserId,
@@ -8,11 +10,15 @@ import {
   findSlackChannelBySlackTeamIdAndSlackChannelId,
   findSlackTeamBySlackTeamId,
   findSlackEmojiBySlackTeamIdAndSlackEmojiName,
+  findSlackMessageBySlackChannelIdAndSlackUserIdAndSlackMessageTs,
+  FindSlackMessageBySlackChannelIdAndSlackUserIdAndSlackMessageTsNotFoundError,
+  saveSlackMessage,
   findSlackUserBySlackTeamIdAndSlackUserId,
   FindSlackUserBySlackTeamIdAndSlackUserIdNotFoundError,
   saveSlackUser,
   saveSlackChannel,
 } from '@feedbackun/package-domain';
+import { createId } from '@paralleldrive/cuid2';
 import { errAsync, Result, ResultAsync } from 'neverthrow';
 
 import type { Env } from '../../types/env';
@@ -23,13 +29,6 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
   context,
   payload,
 }) => {
-  const input = Result.combineWithAllErrors([
-    SlackTeamId.create({ value: context.teamId ?? '' }),
-    SlackChannelId.create({ value: payload.item.channel }),
-    SlackUserId.create({ value: payload.item_user }),
-    SlackUserId.create({ value: payload.user }),
-  ]);
-
   const getUser = ResultAsync.fromThrowable(async (userId: SlackUserId) => {
     return await context.client.users.info({ user: userId.value });
   });
@@ -37,6 +36,17 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
   const getChannel = ResultAsync.fromThrowable(async (channelId: SlackChannelId) => {
     return await context.client.conversations.info({ channel: channelId.value });
   });
+
+  const getMessage = ResultAsync.fromThrowable(async (channelId: SlackChannelId, ts: string) => {
+    return await context.client.conversations.history({ channel: channelId.value, latest: ts, inclusive: true, limit: 1 });
+  });
+
+  const input = Result.combineWithAllErrors([
+    SlackTeamId.create({ value: context.teamId ?? '' }),
+    SlackChannelId.create({ value: payload.item.channel }),
+    SlackUserId.create({ value: payload.item_user }),
+    SlackUserId.create({ value: payload.user }),
+  ]);
 
   await input
     .map((inputs) => ({
@@ -64,11 +74,11 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
           }
 
           return getChannel(input.channelId)
-            .andThen(channel => {
+            .andThen(result => {
               return saveSlackChannel(new SlackChannel({
                 id: input.channelId,
                 slackTeamId: team.id,
-                name: channel.channel?.name ?? '',
+                name: result.channel!.name!,
               }));
             });
         })
@@ -82,11 +92,11 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
           }
 
           return getUser(input.messageUserId)
-            .andThen(user => {
+            .andThen(result => {
               return saveSlackUser(new SlackUser({
                 id: input.messageUserId,
                 slackTeamId: team.id,
-                name: user.user?.name ?? '',
+                name: result.user!.name!,
               }));
             });
         })
@@ -100,15 +110,34 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
           }
 
           return getUser(input.reactionUserId)
-            .andThen(user => {
+            .andThen(result => {
               return saveSlackUser(new SlackUser({
                 id: input.reactionUserId,
                 slackTeamId: team.id,
-                name: user.user?.name ?? '',
+                name: result.user!.name!,
               }));
             });
         })
         .map(reactionUser => ({ input, team, reactionUser, ...rest }));
+    })
+    .andThen(({ channel, messageUser }) => {
+      return findSlackMessageBySlackChannelIdAndSlackUserIdAndSlackMessageTs({ slackChannelId: channel.id, slackUserId: messageUser.id, slackMessageTs: payload.item.ts })
+        .orElse(error => {
+          if (!(error instanceof FindSlackMessageBySlackChannelIdAndSlackUserIdAndSlackMessageTsNotFoundError)) {
+            return errAsync(error);
+          }
+
+          return getMessage(channel.id, payload.item.ts)
+            .andThen(result => {
+              return saveSlackMessage(new SlackMessage({
+                id: SlackMessageId.create({ value: createId() })._unsafeUnwrap(),
+                slackChannelId: channel.id,
+                slackUserId: messageUser.id,
+                text: result.messages![0]!.text!,
+                ts: result.messages![0]!.ts!,
+              }));
+            });
+        });
     })
     .match(
       () => {},
