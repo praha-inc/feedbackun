@@ -36,11 +36,11 @@ export const saveSlackChannel: SaveSlackChannel = input => {
   );
 
   return result
-    .andThen(slackChannel => {
+    .andThen(row => {
       return ok(new SlackChannel({
-        id: SlackChannelId.create({ value: slackChannel.id })._unsafeUnwrap(),
-        slackTeamId: SlackTeamId.create({ value: slackChannel.slackTeamId })._unsafeUnwrap(),
-        name: slackChannel.name,
+        id: SlackChannelId.create({ value: row.id })._unsafeUnwrap(),
+        slackTeamId: SlackTeamId.create({ value: row.slackTeamId })._unsafeUnwrap(),
+        name: row.name,
       }));
     });
 };

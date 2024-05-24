@@ -6,20 +6,20 @@ import {
   SlackTeamId,
   SlackUser,
   SlackUserId,
-  FindSlackChannelBySlackTeamIdAndSlackChannelIdNotFoundError,
-  findSlackChannelBySlackTeamIdAndSlackChannelId,
-  findSlackTeamBySlackTeamId,
-  findSlackEmojiBySlackTeamIdAndSlackEmojiName,
-  findSlackMessageBySlackChannelIdAndSlackUserIdAndSlackMessageTs,
-  FindSlackMessageBySlackChannelIdAndSlackUserIdAndSlackMessageTsNotFoundError,
+  FindSlackChannelNotFoundError,
+  findSlackChannel,
+  findSlackTeam,
+  findSlackEmoji,
+  findSlackMessage,
+  FindSlackMessageNotFoundError,
   saveSlackMessage,
-  findSlackUserBySlackTeamIdAndSlackUserId,
-  FindSlackUserBySlackTeamIdAndSlackUserIdNotFoundError,
+  findSlackUser,
+  FindSlackUserNotFoundError,
   saveSlackUser,
   saveSlackChannel,
 } from '@feedbackun/package-domain';
 import { createId } from '@paralleldrive/cuid2';
-import { errAsync, Result, ResultAsync } from 'neverthrow';
+import { errAsync, okAsync, Result, ResultAsync } from 'neverthrow';
 
 import type { Env } from '../../types/env';
 import type { EventLazyHandler } from 'slack-edge/dist/handler/handler';
@@ -59,17 +59,31 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
       },
     }))
     .asyncAndThen(({ input }) => {
-      return findSlackTeamBySlackTeamId({ slackTeamId: input.teamId })
+      return okAsync({})
+        .andThen(() => findSlackTeam({
+          type: 'slack-team-id',
+          slackTeamId: input.teamId,
+        }))
         .map(team => ({ input, team }));
     })
     .andThen(({ input, team, ...rest }) => {
-      return findSlackEmojiBySlackTeamIdAndSlackEmojiName({ slackTeamId: team.id, name: input.reactionName })
+      return okAsync({})
+        .andThen(() => findSlackEmoji({
+          type: 'slack-team-id-and-slack-emoji-name',
+          slackTeamId: team.id,
+          name: input.reactionName,
+        }))
         .map(() => ({ input, team, ...rest }));
     })
     .andThen(({ input, team, ...rest }) => {
-      return findSlackChannelBySlackTeamIdAndSlackChannelId({ slackTeamId: team.id, slackChannelId: input.channelId })
+      return okAsync({})
+        .andThen(() => findSlackChannel({
+          type: 'slack-team-id-and-slack-channel-id',
+          slackTeamId: team.id,
+          slackChannelId: input.channelId,
+        }))
         .orElse(error => {
-          if (!(error instanceof FindSlackChannelBySlackTeamIdAndSlackChannelIdNotFoundError)) {
+          if (!(error instanceof FindSlackChannelNotFoundError)) {
             return errAsync(error);
           }
 
@@ -85,9 +99,14 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
         .map(channel => ({ input, team, channel, ...rest }));
     })
     .andThen(({ input, team, ...rest }) => {
-      return findSlackUserBySlackTeamIdAndSlackUserId({ slackTeamId: team.id, slackUserId: input.messageUserId })
+      return okAsync({})
+        .andThen(() => findSlackUser({
+          type: 'slack-team-id-and-slack-user-id',
+          slackTeamId: team.id,
+          slackUserId: input.messageUserId,
+        }))
         .orElse(error => {
-          if (!(error instanceof FindSlackUserBySlackTeamIdAndSlackUserIdNotFoundError)) {
+          if (!(error instanceof FindSlackUserNotFoundError)) {
             return errAsync(error);
           }
 
@@ -103,9 +122,14 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
         .map(messageUser => ({ input, team, messageUser, ...rest }));
     })
     .andThen(({ input, team, ...rest }) => {
-      return findSlackUserBySlackTeamIdAndSlackUserId({ slackTeamId: team.id, slackUserId: input.reactionUserId })
+      return okAsync({})
+        .andThen(() => findSlackUser({
+          type: 'slack-team-id-and-slack-user-id',
+          slackTeamId: team.id,
+          slackUserId: input.reactionUserId,
+        }))
         .orElse(error => {
-          if (!(error instanceof FindSlackUserBySlackTeamIdAndSlackUserIdNotFoundError)) {
+          if (!(error instanceof FindSlackUserNotFoundError)) {
             return errAsync(error);
           }
 
@@ -121,9 +145,15 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
         .map(reactionUser => ({ input, team, reactionUser, ...rest }));
     })
     .andThen(({ channel, messageUser }) => {
-      return findSlackMessageBySlackChannelIdAndSlackUserIdAndSlackMessageTs({ slackChannelId: channel.id, slackUserId: messageUser.id, slackMessageTs: payload.item.ts })
+      return okAsync({})
+        .andThen(() => findSlackMessage({
+          type: 'slack-channel-id-and-slack-user-id-and-slack-message-ts',
+          slackChannelId: channel.id,
+          slackUserId: messageUser.id,
+          slackMessageTs: payload.item.ts,
+        }))
         .orElse(error => {
-          if (!(error instanceof FindSlackMessageBySlackChannelIdAndSlackUserIdAndSlackMessageTsNotFoundError)) {
+          if (!(error instanceof FindSlackMessageNotFoundError)) {
             return errAsync(error);
           }
 

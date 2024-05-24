@@ -39,13 +39,13 @@ export const saveSlackMessage: SaveSlackMessage = input => {
   );
 
   return result
-    .andThen(slackMessage => {
+    .andThen(row => {
       return ok(new SlackMessage({
-        id: SlackMessageId.create({ value: slackMessage.id })._unsafeUnwrap(),
-        slackChannelId: SlackChannelId.create({ value: slackMessage.slackChannelId })._unsafeUnwrap(),
-        slackUserId: SlackUserId.create({ value: slackMessage.slackUserId })._unsafeUnwrap(),
-        text: slackMessage.text,
-        ts: slackMessage.ts,
+        id: SlackMessageId.create({ value: row.id })._unsafeUnwrap(),
+        slackChannelId: SlackChannelId.create({ value: row.slackChannelId })._unsafeUnwrap(),
+        slackUserId: SlackUserId.create({ value: row.slackUserId })._unsafeUnwrap(),
+        text: row.text,
+        ts: row.ts,
       }));
     });
 };

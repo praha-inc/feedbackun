@@ -36,11 +36,11 @@ export const saveSlackUser: SaveSlackUser = input => {
   );
 
   return result
-    .andThen(slackUser => {
+    .andThen(row => {
       return ok(new SlackUser({
-        id: SlackUserId.create({ value: slackUser.id })._unsafeUnwrap(),
-        slackTeamId: SlackTeamId.create({ value: slackUser.slackTeamId })._unsafeUnwrap(),
-        name: slackUser.name,
+        id: SlackUserId.create({ value: row.id })._unsafeUnwrap(),
+        slackTeamId: SlackTeamId.create({ value: row.slackTeamId })._unsafeUnwrap(),
+        name: row.name,
       }));
     });
 };
