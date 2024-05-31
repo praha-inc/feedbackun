@@ -3,6 +3,8 @@ import {
   SlackChannelId,
   SlackMessage,
   SlackMessageId,
+  SlackReaction,
+  SlackReactionId,
   SlackTeamId,
   SlackUser,
   SlackUserId,
@@ -13,6 +15,9 @@ import {
   findSlackMessage,
   FindSlackMessageNotFoundError,
   saveSlackMessage,
+  findSlackReaction,
+  FindSlackReactionNotFoundError,
+  saveSlackReaction,
   findSlackUser,
   FindSlackUserNotFoundError,
   saveSlackUser,
@@ -73,7 +78,7 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
           slackTeamId: team.id,
           name: input.reactionName,
         }))
-        .map(() => ({ input, team, ...rest }));
+        .map(emoji => ({ input, team, emoji, ...rest }));
     })
     .andThen(({ input, team, ...rest }) => {
       return okAsync({})
@@ -144,7 +149,7 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
         })
         .map(reactionUser => ({ input, team, reactionUser, ...rest }));
     })
-    .andThen(({ channel, messageUser }) => {
+    .andThen(({ channel, messageUser, ...rest }) => {
       return okAsync({})
         .andThen(() => findSlackMessage({
           type: 'slack-channel-id-and-slack-user-id-and-slack-message-ts',
@@ -167,6 +172,29 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
                 ts: result.messages![0]!.ts!,
               }));
             });
+        })
+        .map(message => ({ channel, messageUser, message, ...rest }));
+    })
+    .andThen(({ message, emoji, messageUser }) => {
+      return okAsync({})
+        .andThen(() => findSlackReaction({
+          type: 'slack-message-id-and-slack-emoji-id-and-slack-user-id',
+          slackMessageId: message.id,
+          slackEmojiId: emoji.id,
+          slackUserId: messageUser.id,
+        }))
+        .orElse(error => {
+          if (!(error instanceof FindSlackReactionNotFoundError)) {
+            return errAsync(error);
+          }
+
+          return saveSlackReaction(new SlackReaction({
+            id: SlackReactionId.create({ value: createId() })._unsafeUnwrap(),
+            slackMessageId: message.id,
+            slackEmojiId: emoji.id,
+            slackUserId: messageUser.id,
+            ts: payload.event_ts,
+          }));
         });
     })
     .match(
