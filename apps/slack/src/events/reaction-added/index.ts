@@ -46,6 +46,76 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
     return await context.client.conversations.history({ channel: channelId.value, latest: ts, inclusive: true, limit: 1 });
   });
 
+  const postQuestion = ResultAsync.fromThrowable(async (channelId: SlackChannelId, reactionUserId: SlackUserId, messageTs: string) => {
+    const link = await context.client.chat.getPermalink({
+      channel: channelId.value,
+      message_ts: messageTs,
+    });
+
+    await context.client.chat.postEphemeral({
+      channel: channelId.value,
+      user: reactionUserId.value,
+      text: '良いと思ったことをフィードバックして欲しいにゃ！',
+      blocks: [
+        {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: `<${link.permalink}|メッセージ>へのフィードバックをお願いするにゃん！`,
+          },
+        },
+        {
+          type: 'input',
+          label: {
+            type: 'plain_text',
+            text: 'どういう所が良かったのかにゃ？',
+          },
+          element: {
+            type: 'plain_text_input',
+            multiline: true,
+          },
+        },
+        {
+          type: 'input',
+          label: {
+            type: 'plain_text',
+            text: 'どのスキルに該当しそうかにゃ？',
+          },
+          element: {
+            type: 'multi_static_select',
+            placeholder: {
+              type: 'plain_text',
+              text: 'スキルを選択する',
+            },
+            options: [
+              {
+                text: {
+                  type: 'plain_text',
+                  text: 'スキル1-1 (ミスが起きた際、自力ですぐに修正できる)',
+                },
+              },
+            ],
+          },
+        },
+        {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: ' ',
+          },
+          accessory: {
+            type: 'button',
+            style: 'primary',
+            text: {
+              type: 'plain_text',
+              text: '送信するにゃ！',
+            },
+          },
+        },
+      ],
+    });
+  });
+
   const input = Result.combineWithAllErrors([
     SlackTeamId.create({ value: context.teamId ?? '' }),
     SlackChannelId.create({ value: payload.item.channel }),
@@ -175,7 +245,7 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
         })
         .map(message => ({ channel, messageUser, message, ...rest }));
     })
-    .andThen(({ message, emoji, messageUser }) => {
+    .andThen(({ message, emoji, messageUser, ...rest }) => {
       return okAsync({})
         .andThen(() => findSlackReaction({
           type: 'slack-message-id-and-slack-emoji-id-and-slack-user-id',
@@ -195,7 +265,11 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
             slackUserId: messageUser.id,
             ts: payload.event_ts,
           }));
-        });
+        })
+        .map(reaction => ({ message, emoji, messageUser, reaction, ...rest }));
+    })
+    .andThen(({ channel, reactionUser }) => {
+      return postQuestion(channel.id, reactionUser.id, payload.item.ts);
     })
     .match(
       () => {},
