@@ -35,7 +35,7 @@ export type FindSlackTeam = (
   input: FindSlackTeamInput,
 ) => ResultAsync<SlackTeam, FindSlackTeamError>;
 
-export const findSlackTeam: FindSlackTeam = input => {
+export const findSlackTeam: FindSlackTeam = (input) => {
   const result = ResultAsync.fromThrowable((input: FindSlackTeamInputSlackTeamId) =>
     database()
       .select()
@@ -47,10 +47,10 @@ export const findSlackTeam: FindSlackTeam = input => {
   );
 
   return match(input)
-    .with({ type: 'slack-team-id' }, input => result(input))
+    .with({ type: 'slack-team-id' }, (input) => result(input))
     .exhaustive()
-    .mapErr(error => new FindSlackTeamUnexpectedError({ cause: error }))
-    .andThen(row => {
+    .mapErr((error) => new FindSlackTeamUnexpectedError({ cause: error }))
+    .andThen((row) => {
       if (!row) return err(new FindSlackTeamNotFoundError());
       return ok(new SlackTeam({
         id: SlackTeamId.create({ value: row.id })._unsafeUnwrap(),

@@ -39,7 +39,7 @@ export type FindSlackMessage = (
   input: FindSlackMessageInput,
 ) => ResultAsync<SlackMessage, FindSlackMessageError>;
 
-export const findSlackMessage: FindSlackMessage = input => {
+export const findSlackMessage: FindSlackMessage = (input) => {
   const slackChannelIdAndSlackUserIdAndSlackMessageTs = ResultAsync.fromThrowable((input: FindSlackMessageInputSlackChannelIdAndSlackUserIdAndSlackMessageTs) =>
     database()
       .select()
@@ -55,10 +55,10 @@ export const findSlackMessage: FindSlackMessage = input => {
   );
 
   return match(input)
-    .with({ type: 'slack-channel-id-and-slack-user-id-and-slack-message-ts' }, input => slackChannelIdAndSlackUserIdAndSlackMessageTs(input))
+    .with({ type: 'slack-channel-id-and-slack-user-id-and-slack-message-ts' }, (input) => slackChannelIdAndSlackUserIdAndSlackMessageTs(input))
     .exhaustive()
-    .mapErr(error => new FindSlackMessageUnexpectedError({ cause: error }))
-    .andThen(row => {
+    .mapErr((error) => new FindSlackMessageUnexpectedError({ cause: error }))
+    .andThen((row) => {
       if (!row) return err(new FindSlackMessageNotFoundError());
       return ok(new SlackMessage({
         id: SlackMessageId.create({ value: row.id })._unsafeUnwrap(),

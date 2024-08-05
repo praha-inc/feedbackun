@@ -22,7 +22,7 @@ export type SaveSlackMessage = (
   input: SaveSlackMessageInput,
 ) => ResultAsync<SlackMessage, SaveSlackMessageError>;
 
-export const saveSlackMessage: SaveSlackMessage = input => {
+export const saveSlackMessage: SaveSlackMessage = (input) => {
   const result = ResultAsync.fromPromise(
     database()
       .insert(schema.slackMessages)
@@ -35,11 +35,11 @@ export const saveSlackMessage: SaveSlackMessage = input => {
       })
       .returning()
       .get(),
-    error => new SaveSlackMessageUnexpectedError({ cause: error }),
+    (error) => new SaveSlackMessageUnexpectedError({ cause: error }),
   );
 
   return result
-    .andThen(row => {
+    .andThen((row) => {
       return ok(new SlackMessage({
         id: SlackMessageId.create({ value: row.id })._unsafeUnwrap(),
         slackChannelId: SlackChannelId.create({ value: row.slackChannelId })._unsafeUnwrap(),

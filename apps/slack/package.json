@@ -2,6 +2,7 @@
   "name": "@feedbackun/app-slack",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "deploy:agaroot": "wrangler deploy -e agaroot",
     "deploy:praha": "wrangler deploy -e praha",

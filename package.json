@@ -2,16 +2,16 @@
   "name": "feedbackun",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@9.0.6",
+  "type": "module",
   "devDependencies": {
-    "@agaroot/eslint-config-common": "2.1.12",
+    "@agaroot/eslint-config-common": "3.0.5",
+    "@agaroot/eslint-config-definer": "1.0.5",
+    "@agaroot/eslint-config-javascript": "2.0.5",
+    "@agaroot/eslint-config-jest": "3.0.5",
+    "@agaroot/eslint-config-style": "2.0.5",
+    "@agaroot/eslint-config-typescript": "2.0.5",
     "@tsconfig/strictest": "2.0.5",
-    "@typescript-eslint/eslint-plugin": "7.7.1",
-    "@typescript-eslint/parser": "7.7.1",
-    "eslint": "8.57.0",
-    "eslint-import-resolver-typescript": "3.6.1",
-    "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-unicorn": "52.0.0",
-    "eslint-plugin-unused-imports": "3.1.0"
-  }
+    "eslint": "8.57.0"
+  },
+  "packageManager": "pnpm@9.0.6"
 }

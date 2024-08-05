@@ -38,7 +38,7 @@ export type FindSlackEmoji = (
   input: FindSlackEmojiInput,
 ) => ResultAsync<SlackEmoji, FindSlackEmojiError>;
 
-export const findSlackEmoji: FindSlackEmoji = input => {
+export const findSlackEmoji: FindSlackEmoji = (input) => {
   const slackTeamIdAndSlackEmojiName = ResultAsync.fromThrowable((input: FindSlackEmojiInputSlackTeamIdAndSlackEmojiName) =>
     database()
       .select()
@@ -53,10 +53,10 @@ export const findSlackEmoji: FindSlackEmoji = input => {
   );
 
   return match(input)
-    .with({ type: 'slack-team-id-and-slack-emoji-name' }, input => slackTeamIdAndSlackEmojiName(input))
+    .with({ type: 'slack-team-id-and-slack-emoji-name' }, (input) => slackTeamIdAndSlackEmojiName(input))
     .exhaustive()
-    .mapErr(error => new FindSlackEmojiUnexpectedError({ cause: error }))
-    .andThen(row => {
+    .mapErr((error) => new FindSlackEmojiUnexpectedError({ cause: error }))
+    .andThen((row) => {
       if (!row) return err(new FindSlackEmojiNotFoundError());
       return ok(new SlackEmoji({
         id: SlackEmojiId.create({ value: row.id })._unsafeUnwrap(),

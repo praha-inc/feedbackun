@@ -40,7 +40,7 @@ export type FindSlackReaction = (
   input: FindSlackReactionInput,
 ) => ResultAsync<SlackReaction, FindSlackReactionError>;
 
-export const findSlackReaction: FindSlackReaction = input => {
+export const findSlackReaction: FindSlackReaction = (input) => {
   const result = ResultAsync.fromThrowable((input: FindSlackReactionInputSlackMessageIdAndSlackEmojiIdAndSlackUserId) =>
     database()
       .select()
@@ -56,10 +56,10 @@ export const findSlackReaction: FindSlackReaction = input => {
   );
 
   return match(input)
-    .with({ type: 'slack-message-id-and-slack-emoji-id-and-slack-user-id' }, input => result(input))
+    .with({ type: 'slack-message-id-and-slack-emoji-id-and-slack-user-id' }, (input) => result(input))
     .exhaustive()
-    .mapErr(error => new FindSlackReactionUnexpectedError({ cause: error }))
-    .andThen(row => {
+    .mapErr((error) => new FindSlackReactionUnexpectedError({ cause: error }))
+    .andThen((row) => {
       if (!row) return err(new FindSlackReactionNotFoundError());
       return ok(new SlackReaction({
         id: SlackReactionId.create({ value: row.id })._unsafeUnwrap(),

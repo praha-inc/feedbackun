@@ -23,7 +23,7 @@ export type SaveSlackReaction = (
   input: SaveSlackReactionInput,
 ) => ResultAsync<SlackReaction, SaveSlackReactionError>;
 
-export const saveSlackReaction: SaveSlackReaction = input => {
+export const saveSlackReaction: SaveSlackReaction = (input) => {
   const result = ResultAsync.fromPromise(
     database()
       .insert(schema.slackReactions)
@@ -36,11 +36,11 @@ export const saveSlackReaction: SaveSlackReaction = input => {
       })
       .returning()
       .get(),
-    error => new SaveSlackReactionUnexpectedError({ cause: error }),
+    (error) => new SaveSlackReactionUnexpectedError({ cause: error }),
   );
 
   return result
-    .andThen(row => {
+    .andThen((row) => {
       return ok(new SlackReaction({
         id: SlackReactionId.create({ value: row.id })._unsafeUnwrap(),
         slackMessageId: SlackMessageId.create({ value: row.slackMessageId })._unsafeUnwrap(),

@@ -11,7 +11,7 @@ export const slackEmojis = sqliteTable('slack_emojis', {
   type: text('type', { enum: ['custom', 'unicode'] }).notNull(),
   slackTeamId: text('slack_team_id').notNull().references(() => slackTeams.id),
   name: text('name').notNull(),
-}, table => ({
+}, (table) => ({
   uniqueName: unique().on(table.slackTeamId, table.name),
 }));
 

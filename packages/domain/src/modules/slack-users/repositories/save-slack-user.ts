@@ -21,7 +21,7 @@ export type SaveSlackUser = (
   input: SaveSlackUserInput,
 ) => ResultAsync<SlackUser, SaveSlackUserError>;
 
-export const saveSlackUser: SaveSlackUser = input => {
+export const saveSlackUser: SaveSlackUser = (input) => {
   const result = ResultAsync.fromPromise(
     database()
       .insert(schema.slackUsers)
@@ -32,11 +32,11 @@ export const saveSlackUser: SaveSlackUser = input => {
       })
       .returning()
       .get(),
-    error => new SaveSlackUserUnexpectedError({ cause: error }),
+    (error) => new SaveSlackUserUnexpectedError({ cause: error }),
   );
 
   return result
-    .andThen(row => {
+    .andThen((row) => {
       return ok(new SlackUser({
         id: SlackUserId.create({ value: row.id })._unsafeUnwrap(),
         slackTeamId: SlackTeamId.create({ value: row.slackTeamId })._unsafeUnwrap(),
