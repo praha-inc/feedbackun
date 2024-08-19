@@ -23,7 +23,7 @@ import {
   saveSlackUser,
   saveSlackChannel,
 } from '@feedbackun/package-domain';
-import { doAsync } from '@feedbackun/package-neverthrow';
+import { bindAsync, doAsync } from '@feedbackun/package-neverthrow';
 import { createId } from '@paralleldrive/cuid2';
 import { errAsync, Result } from 'neverthrow';
 
@@ -57,24 +57,20 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
         reactionName: payload.reaction,
       },
     }))
-    .asyncAndThen(({ input }) => {
-      return doAsync
-        .andThen(() => findSlackTeam({
-          type: 'slack-team-id',
-          slackTeamId: input.teamId,
-        }))
-        .map((team) => ({ input, team }));
-    })
-    .andThen(({ input, team, ...rest }) => {
-      return doAsync
-        .andThen(() => findSlackEmoji({
-          type: 'slack-team-id-and-slack-emoji-name',
-          slackTeamId: team.id,
-          name: input.reactionName,
-        }))
-        .map((emoji) => ({ input, team, emoji, ...rest }));
-    })
-    .andThen(({ input, team, ...rest }) => {
+    .asyncAndThen(bindAsync('team', ({ input }) => {
+      return findSlackTeam({
+        type: 'slack-team-id',
+        slackTeamId: input.teamId,
+      });
+    }))
+    .andThen(bindAsync('emoji', ({ input, team }) => {
+      return findSlackEmoji({
+        type: 'slack-team-id-and-slack-emoji-name',
+        slackTeamId: team.id,
+        name: input.reactionName,
+      });
+    }))
+    .andThen(bindAsync('channel', ({ input, team }) => {
       return doAsync
         .andThen(() => findSlackChannel({
           type: 'slack-team-id-and-slack-channel-id',
@@ -94,10 +90,9 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
                 name: result.channel!.name!,
               }));
             });
-        })
-        .map((channel) => ({ input, team, channel, ...rest }));
-    })
-    .andThen(({ input, team, ...rest }) => {
+        });
+    }))
+    .andThen(bindAsync('messageUser', ({ input, team }) => {
       return doAsync
         .andThen(() => findSlackUser({
           type: 'slack-team-id-and-slack-user-id',
@@ -117,10 +112,9 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
                 name: result.user!.name!,
               }));
             });
-        })
-        .map((messageUser) => ({ input, team, messageUser, ...rest }));
-    })
-    .andThen(({ input, team, ...rest }) => {
+        });
+    }))
+    .andThen(bindAsync('reactionUser', ({ input, team }) => {
       return doAsync
         .andThen(() => findSlackUser({
           type: 'slack-team-id-and-slack-user-id',
@@ -140,10 +134,9 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
                 name: result.user!.name!,
               }));
             });
-        })
-        .map((reactionUser) => ({ input, team, reactionUser, ...rest }));
-    })
-    .andThen(({ channel, messageUser, ...rest }) => {
+        });
+    }))
+    .andThen(bindAsync('message', ({ channel, messageUser }) => {
       return doAsync
         .andThen(() => findSlackMessage({
           type: 'slack-channel-id-and-slack-user-id-and-slack-message-ts',
@@ -166,10 +159,9 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
                 ts: result.messages![0]!.ts!,
               }));
             });
-        })
-        .map((message) => ({ channel, messageUser, message, ...rest }));
-    })
-    .andThen(({ message, emoji, messageUser, ...rest }) => {
+        });
+    }))
+    .andThen(bindAsync('reaction', ({ message, emoji, messageUser }) => {
       return doAsync
         .andThen(() => findSlackReaction({
           type: 'slack-message-id-and-slack-emoji-id-and-slack-user-id',
@@ -189,9 +181,8 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
             slackUserId: messageUser.id,
             ts: payload.event_ts,
           }));
-        })
-        .map((reaction) => ({ message, emoji, messageUser, reaction, ...rest }));
-    })
+        });
+    }))
     .andThen(({ channel, reactionUser }) => {
       return postQuestion(context.client, channel.id, reactionUser.id, payload.item.ts);
     })
