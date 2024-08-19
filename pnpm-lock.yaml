@@ -41,6 +41,9 @@ importers:
       '@feedbackun/package-domain':
         specifier: workspace:*
         version: link:../../packages/domain
+      '@feedbackun/package-neverthrow':
+        specifier: workspace:*
+        version: link:../../packages/neverthrow
       '@paralleldrive/cuid2':
         specifier: 2.2.2
         version: 2.2.2
@@ -131,6 +134,22 @@ importers:
       valibot:
         specifier: 0.37.0
         version: 0.37.0(typescript@5.5.4)
+    devDependencies:
+      eslint:
+        specifier: 8.57.0
+        version: 8.57.0
+      typescript:
+        specifier: 5.5.4
+        version: 5.5.4
+
+  packages/neverthrow:
+    dependencies:
+      '@feedbackun/package-database':
+        specifier: workspace:*
+        version: link:../database
+      neverthrow:
+        specifier: 7.0.1
+        version: 7.0.1
     devDependencies:
       eslint:
         specifier: 8.57.0

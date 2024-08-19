@@ -23,8 +23,9 @@ import {
   saveSlackUser,
   saveSlackChannel,
 } from '@feedbackun/package-domain';
+import { doAsync } from '@feedbackun/package-neverthrow';
 import { createId } from '@paralleldrive/cuid2';
-import { errAsync, okAsync, Result } from 'neverthrow';
+import { errAsync, Result } from 'neverthrow';
 
 import { getChannel } from './helpers/get-channel';
 import { getMessage } from './helpers/get-message';
@@ -57,7 +58,7 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
       },
     }))
     .asyncAndThen(({ input }) => {
-      return okAsync({})
+      return doAsync
         .andThen(() => findSlackTeam({
           type: 'slack-team-id',
           slackTeamId: input.teamId,
@@ -65,7 +66,7 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
         .map((team) => ({ input, team }));
     })
     .andThen(({ input, team, ...rest }) => {
-      return okAsync({})
+      return doAsync
         .andThen(() => findSlackEmoji({
           type: 'slack-team-id-and-slack-emoji-name',
           slackTeamId: team.id,
@@ -74,7 +75,7 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
         .map((emoji) => ({ input, team, emoji, ...rest }));
     })
     .andThen(({ input, team, ...rest }) => {
-      return okAsync({})
+      return doAsync
         .andThen(() => findSlackChannel({
           type: 'slack-team-id-and-slack-channel-id',
           slackTeamId: team.id,
@@ -97,7 +98,7 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
         .map((channel) => ({ input, team, channel, ...rest }));
     })
     .andThen(({ input, team, ...rest }) => {
-      return okAsync({})
+      return doAsync
         .andThen(() => findSlackUser({
           type: 'slack-team-id-and-slack-user-id',
           slackTeamId: team.id,
@@ -120,7 +121,7 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
         .map((messageUser) => ({ input, team, messageUser, ...rest }));
     })
     .andThen(({ input, team, ...rest }) => {
-      return okAsync({})
+      return doAsync
         .andThen(() => findSlackUser({
           type: 'slack-team-id-and-slack-user-id',
           slackTeamId: team.id,
@@ -143,7 +144,7 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
         .map((reactionUser) => ({ input, team, reactionUser, ...rest }));
     })
     .andThen(({ channel, messageUser, ...rest }) => {
-      return okAsync({})
+      return doAsync
         .andThen(() => findSlackMessage({
           type: 'slack-channel-id-and-slack-user-id-and-slack-message-ts',
           slackChannelId: channel.id,
@@ -169,7 +170,7 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
         .map((message) => ({ channel, messageUser, message, ...rest }));
     })
     .andThen(({ message, emoji, messageUser, ...rest }) => {
-      return okAsync({})
+      return doAsync
         .andThen(() => findSlackReaction({
           type: 'slack-message-id-and-slack-emoji-id-and-slack-user-id',
           slackMessageId: message.id,

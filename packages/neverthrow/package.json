@@ -1,0 +1,20 @@
+{
+  "name": "@feedbackun/package-neverthrow",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "lint:code": "eslint",
+    "lint:type": "tsc --pretty --noEmit"
+  },
+  "dependencies": {
+    "@feedbackun/package-database": "workspace:*",
+    "neverthrow": "7.0.1"
+  },
+  "devDependencies": {
+    "eslint": "8.57.0",
+    "typescript": "5.5.4"
+  }
+}
