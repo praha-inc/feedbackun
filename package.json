@@ -4,14 +4,14 @@
   "private": true,
   "type": "module",
   "devDependencies": {
-    "@agaroot/eslint-config-common": "3.0.5",
+    "@agaroot/eslint-config-common": "3.0.6",
     "@agaroot/eslint-config-definer": "1.0.5",
-    "@agaroot/eslint-config-javascript": "2.0.5",
-    "@agaroot/eslint-config-jest": "3.0.5",
-    "@agaroot/eslint-config-style": "2.0.5",
-    "@agaroot/eslint-config-typescript": "2.0.5",
+    "@agaroot/eslint-config-javascript": "2.0.7",
+    "@agaroot/eslint-config-jest": "3.0.8",
+    "@agaroot/eslint-config-style": "2.0.8",
+    "@agaroot/eslint-config-typescript": "2.0.8",
     "@tsconfig/strictest": "2.0.5",
     "eslint": "8.57.0"
   },
-  "packageManager": "pnpm@9.0.6"
+  "packageManager": "pnpm@9.7.1"
 }
