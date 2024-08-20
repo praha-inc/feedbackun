@@ -23,9 +23,9 @@ import {
   saveSlackUser,
   saveSlackChannel,
 } from '@feedbackun/package-domain';
-import { bindAsync, doAsync } from '@feedbackun/package-neverthrow';
+import { bindAsync, doAsync, structAsync } from '@feedbackun/package-neverthrow';
 import { createId } from '@paralleldrive/cuid2';
-import { errAsync, Result } from 'neverthrow';
+import { errAsync, ok } from 'neverthrow';
 
 import { getChannel } from './helpers/get-channel';
 import { getMessage } from './helpers/get-message';
@@ -40,24 +40,17 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
   context,
   payload,
 }) => {
-  const input = Result.combineWithAllErrors([
-    SlackTeamId.create({ value: context.teamId ?? '' }),
-    SlackChannelId.create({ value: payload.item.channel }),
-    SlackUserId.create({ value: payload.item_user }),
-    SlackUserId.create({ value: payload.user }),
-  ]);
-
-  await input
-    .map((inputs) => ({
-      input: {
-        teamId: inputs[0],
-        channelId: inputs[1],
-        messageUserId: inputs[2],
-        reactionUserId: inputs[3],
-        reactionName: payload.reaction,
-      },
+  await doAsync
+    .andThen(bindAsync('input', () => {
+      return structAsync({
+        teamId: SlackTeamId.create({ value: context.teamId ?? '' }),
+        channelId: SlackChannelId.create({ value: payload.item.channel }),
+        messageUserId: SlackUserId.create({ value: payload.item_user }),
+        reactionUserId: SlackUserId.create({ value: payload.user }),
+        reactionName: ok(payload.reaction),
+      });
     }))
-    .asyncAndThen(bindAsync('team', ({ input }) => {
+    .andThen(bindAsync('team', ({ input }) => {
       return findSlackTeam({
         type: 'slack-team-id',
         slackTeamId: input.teamId,

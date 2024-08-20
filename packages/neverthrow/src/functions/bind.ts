@@ -1,18 +1,5 @@
+import type { InferErrorTypes, InferOkTypes } from '../types/infer';
 import type { ResultAsync, Result } from 'neverthrow';
-
-type InferOkTypes<R> =
-  R extends Result<infer T, unknown>
-    ? T
-    : R extends ResultAsync<infer T, unknown>
-      ? T
-      : never;
-
-type InferErrorTypes<R> =
-  R extends Result<unknown, infer E>
-    ? E
-    : R extends ResultAsync<unknown, infer E>
-      ? E
-      : never;
 
 export const bindSync = <
   K extends string,
