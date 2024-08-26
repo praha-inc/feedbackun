@@ -1,8 +1,6 @@
 {
-  "version": "5",
+  "version": "6",
   "dialect": "sqlite",
-  "id": "c21ae850-8157-4813-9a67-2537615419fa",
-  "prevId": "f28dbce9-c95e-4f4e-a66f-aadd01fd9db2",
   "tables": {
     "slack_channels": {
       "name": "slack_channels",
@@ -34,15 +32,15 @@
         "slack_channels_slack_team_id_slack_teams_id_fk": {
           "name": "slack_channels_slack_team_id_slack_teams_id_fk",
           "tableFrom": "slack_channels",
-          "tableTo": "slack_teams",
           "columnsFrom": [
             "slack_team_id"
           ],
+          "tableTo": "slack_teams",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
@@ -71,15 +69,15 @@
         "slack_custom_emojis_id_slack_emojis_id_fk": {
           "name": "slack_custom_emojis_id_slack_emojis_id_fk",
           "tableFrom": "slack_custom_emojis",
-          "tableTo": "slack_emojis",
           "columnsFrom": [
             "id"
           ],
+          "tableTo": "slack_emojis",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
@@ -131,15 +129,15 @@
         "slack_emojis_slack_team_id_slack_teams_id_fk": {
           "name": "slack_emojis_slack_team_id_slack_teams_id_fk",
           "tableFrom": "slack_emojis",
-          "tableTo": "slack_teams",
           "columnsFrom": [
             "slack_team_id"
           ],
+          "tableTo": "slack_teams",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
@@ -198,15 +196,15 @@
         "slack_unicode_emojis_id_slack_emojis_id_fk": {
           "name": "slack_unicode_emojis_id_slack_emojis_id_fk",
           "tableFrom": "slack_unicode_emojis",
-          "tableTo": "slack_emojis",
           "columnsFrom": [
             "id"
           ],
+          "tableTo": "slack_emojis",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
@@ -242,15 +240,15 @@
         "slack_users_slack_team_id_slack_teams_id_fk": {
           "name": "slack_users_slack_team_id_slack_teams_id_fk",
           "tableFrom": "slack_users",
-          "tableTo": "slack_teams",
           "columnsFrom": [
             "slack_team_id"
           ],
+          "tableTo": "slack_teams",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
@@ -259,8 +257,9 @@
   },
   "enums": {},
   "_meta": {
-    "schemas": {},
     "tables": {},
     "columns": {}
-  }
+  },
+  "id": "c21ae850-8157-4813-9a67-2537615419fa",
+  "prevId": "f28dbce9-c95e-4f4e-a66f-aadd01fd9db2"
 }

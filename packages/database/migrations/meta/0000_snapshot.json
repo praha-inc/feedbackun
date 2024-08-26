@@ -1,8 +1,6 @@
 {
-  "version": "5",
+  "version": "6",
   "dialect": "sqlite",
-  "id": "68fdcf8f-e62b-49bc-9f0d-5f2c3e6427da",
-  "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "slack_teams": {
       "name": "slack_teams",
@@ -37,8 +35,9 @@
   },
   "enums": {},
   "_meta": {
-    "schemas": {},
     "tables": {},
     "columns": {}
-  }
+  },
+  "id": "68fdcf8f-e62b-49bc-9f0d-5f2c3e6427da",
+  "prevId": "00000000-0000-0000-0000-000000000000"
 }

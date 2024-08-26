@@ -1,8 +1,6 @@
 {
-  "version": "5",
+  "version": "6",
   "dialect": "sqlite",
-  "id": "b0a97d7e-22f4-4d95-a69f-1c06a782004a",
-  "prevId": "68fdcf8f-e62b-49bc-9f0d-5f2c3e6427da",
   "tables": {
     "slack_custom_emojis": {
       "name": "slack_custom_emojis",
@@ -27,15 +25,15 @@
         "slack_custom_emojis_id_slack_emojis_id_fk": {
           "name": "slack_custom_emojis_id_slack_emojis_id_fk",
           "tableFrom": "slack_custom_emojis",
-          "tableTo": "slack_emojis",
           "columnsFrom": [
             "id"
           ],
+          "tableTo": "slack_emojis",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
@@ -87,15 +85,15 @@
         "slack_emojis_slack_team_id_slack_teams_id_fk": {
           "name": "slack_emojis_slack_team_id_slack_teams_id_fk",
           "tableFrom": "slack_emojis",
-          "tableTo": "slack_teams",
           "columnsFrom": [
             "slack_team_id"
           ],
+          "tableTo": "slack_teams",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
@@ -154,15 +152,15 @@
         "slack_unicode_emojis_id_slack_emojis_id_fk": {
           "name": "slack_unicode_emojis_id_slack_emojis_id_fk",
           "tableFrom": "slack_unicode_emojis",
-          "tableTo": "slack_emojis",
           "columnsFrom": [
             "id"
           ],
+          "tableTo": "slack_emojis",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
@@ -171,8 +169,9 @@
   },
   "enums": {},
   "_meta": {
-    "schemas": {},
     "tables": {},
     "columns": {}
-  }
+  },
+  "id": "b0a97d7e-22f4-4d95-a69f-1c06a782004a",
+  "prevId": "68fdcf8f-e62b-49bc-9f0d-5f2c3e6427da"
 }
