@@ -64,6 +64,13 @@
       "when": 1724662618573,
       "tag": "0008_ambiguous_terrax",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "6",
+      "when": 1724668319266,
+      "tag": "0009_white_punisher",
+      "breakpoints": true
     }
   ]
 }

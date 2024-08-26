@@ -6,6 +6,7 @@ import { slackReactions, slackReactionsRelations } from './tables/slack-reaction
 import { slackTeams, slackTeamsRelations } from './tables/slack-teams';
 import { slackUnicodeEmojis, slackUnicodeEmojisRelations } from './tables/slack-unicode-emojis';
 import { slackUsers, slackUsersRelations } from './tables/slack-users';
+import { users, usersRelations } from './tables/users';
 import { workSkillElements, workSkillElementsRelations } from './tables/work-skill-elements';
 import { workSkillRelations, workSkills } from './tables/work-skills';
 
@@ -28,6 +29,8 @@ export const schema = {
   slackUnicodeEmojisRelations,
   slackUsers,
   slackUsersRelations,
+  users,
+  usersRelations,
   workSkillElements,
   workSkillElementsRelations,
   workSkills,
