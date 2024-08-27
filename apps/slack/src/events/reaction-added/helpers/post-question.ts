@@ -19,6 +19,7 @@ type Option = {
 export const postQuestion = ResultAsync.fromThrowable(async (
   client: SlackAPIClient,
   channelId: SlackChannelId,
+  messageUserId: SlackUserId,
   reactionUserId: SlackUserId,
   messageTs: string,
 ) => {
@@ -31,8 +32,16 @@ export const postQuestion = ResultAsync.fromThrowable(async (
     .select()
     .from(schema.workSkills)
     .innerJoin(schema.workSkillElements, eq(schema.workSkills.id, schema.workSkillElements.workSkillId))
-    // TODO: engineer、designerを判定して返すようにする
-    .where(eq(schema.workSkills.type, 'engineer'))
+    .where(
+      eq(
+        schema.workSkills.type,
+        database()
+          .select({ type: schema.users.type })
+          .from(schema.users)
+          .innerJoin(schema.slackUsers, eq(schema.users.id, schema.slackUsers.userId))
+          .where(eq(schema.slackUsers.id, messageUserId.value)),
+      ),
+    )
     .orderBy(asc(schema.workSkills.level), asc(schema.workSkillElements.order))
     .then((rows) => rows.reduce<Option[]>((previous, current) => {
       const skill = previous.find((option) => option.id === current.work_skills.id);
