@@ -1,6 +1,6 @@
 import { CustomError } from '@feedbackun/package-custom-error';
 import { err, ok } from 'neverthrow';
-import { object, regex, safeParse, string } from 'valibot';
+import * as v from 'valibot';
 
 import { ValueObject } from '../../../core/value-object';
 
@@ -23,8 +23,8 @@ export class SlackTeamId extends ValueObject('SlackTeamId')<Properties> {
   }
 
   public static create(value: Properties): Result<SlackTeamId, SlackTeamIdError> {
-    const result = safeParse(object({
-      value: string([regex(/^T.*$/)]),
+    const result = v.safeParse(v.object({
+      value: v.pipe(v.string(), v.regex(/^T.*$/)),
     }), value);
 
     if (result.success) {

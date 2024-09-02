@@ -1,6 +1,6 @@
 import { CustomError } from '@feedbackun/package-custom-error';
 import { err, ok } from 'neverthrow';
-import { literal, object, safeParse, union } from 'valibot';
+import * as v from 'valibot';
 
 import { ValueObject } from '../../../core/value-object';
 
@@ -23,8 +23,8 @@ export class SlackEmojiType extends ValueObject('SlackEmojiType')<Properties> {
   }
 
   public static create(value: Properties): Result<SlackEmojiType, SlackEmojiTypeError> {
-    const result = safeParse(object({
-      value: union([literal('unicode'), literal('custom')]),
+    const result = v.safeParse(v.object({
+      value: v.union([v.literal('unicode'), v.literal('custom')]),
     }), value);
 
     if (result.success) {

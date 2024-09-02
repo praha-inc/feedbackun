@@ -1,6 +1,6 @@
 import { CustomError } from '@feedbackun/package-custom-error';
 import { err, ok } from 'neverthrow';
-import { cuid2, object, safeParse, string } from 'valibot';
+import * as v from 'valibot';
 
 import { ValueObject } from '../../../core/value-object';
 
@@ -23,8 +23,8 @@ export class SlackMessageId extends ValueObject('SlackMessageId')<Properties> {
   }
 
   public static create(value: Properties): Result<SlackMessageId, SlackMessageIdError> {
-    const result = safeParse(object({
-      value: string([cuid2()]),
+    const result = v.safeParse(v.object({
+      value: v.pipe(v.string(), v.cuid2()),
     }), value);
 
     if (result.success) {
