@@ -1,6 +1,7 @@
 import { relations } from 'drizzle-orm';
 import { sqliteTable, text } from 'drizzle-orm/sqlite-core';
 
+import { feedbacks } from './feedbacks';
 import { slackChannels } from './slack-channels';
 import { slackReactions } from './slack-reactions';
 import { slackUsers } from './slack-users';
@@ -23,4 +24,5 @@ export const slackMessagesRelations = relations(slackMessages, ({ one, many }) =
     references: [slackUsers.id],
   }),
   reactions: many(slackReactions),
+  feedbacks: many(feedbacks),
 }));

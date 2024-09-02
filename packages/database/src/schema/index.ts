@@ -1,3 +1,5 @@
+import { feedbackWorkSkills, feedbackWorkSkillsRelations } from './tables/feedback-work-skills';
+import { feedbacks, feedbacksRelations } from './tables/feedbacks';
 import { slackChannels, slackChannelsRelations } from './tables/slack-channels';
 import { slackCustomEmojis, slackCustomEmojisRelations } from './tables/slack-custom-emojis';
 import { slackEmojis, slackEmojisRelations } from './tables/slack-emojis';
@@ -13,6 +15,10 @@ import { workSkillRelations, workSkills } from './tables/work-skills';
 import type { Relations, AnyTable } from 'drizzle-orm';
 
 export const schema = {
+  feedbacks,
+  feedbacksRelations,
+  feedbackWorkSkills,
+  feedbackWorkSkillsRelations,
   slackChannels,
   slackChannelsRelations,
   slackCustomEmojis,

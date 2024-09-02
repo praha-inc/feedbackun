@@ -71,6 +71,13 @@
       "when": 1724668319266,
       "tag": "0009_white_punisher",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "6",
+      "when": 1725270892348,
+      "tag": "0010_handy_silk_fever",
+      "breakpoints": true
     }
   ]
 }
