@@ -16,7 +16,8 @@
     "@paralleldrive/cuid2": "2.2.2",
     "drizzle-orm": "0.33.0",
     "neverthrow": "7.0.1",
-    "slack-edge": "1.0.0"
+    "slack-edge": "1.0.0",
+    "valibot": "0.37.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20240815.0",

@@ -1,6 +1,7 @@
 import { withDatabase } from '@feedbackun/package-database';
 import { SlackApp } from 'slack-edge';
 
+import { submitQuestionHandler } from './actions/submit-question';
 import { reactionAddedHandler } from './events/reaction-added';
 import { reactionRemovedHandler } from './events/reaction-removed';
 
@@ -17,6 +18,7 @@ export default {
     // Add event handlers
     app.event('reaction_added', reactionAddedHandler);
     app.event('reaction_removed', reactionRemovedHandler);
+    app.action('submit_question', submitQuestionHandler);
 
     return withDatabase(env.DB, async () => await app.run(request, context));
   },

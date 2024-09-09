@@ -56,6 +56,9 @@ importers:
       slack-edge:
         specifier: 1.0.0
         version: 1.0.0
+      valibot:
+        specifier: 0.37.0
+        version: 0.37.0(typescript@5.5.4)
     devDependencies:
       '@cloudflare/workers-types':
         specifier: 4.20240815.0
@@ -119,6 +122,9 @@ importers:
       '@feedbackun/package-database':
         specifier: workspace:*
         version: link:../database
+      '@feedbackun/package-neverthrow':
+        specifier: workspace:*
+        version: link:../neverthrow
       drizzle-orm:
         specifier: 0.33.0
         version: 0.33.0(@cloudflare/workers-types@4.20240815.0)

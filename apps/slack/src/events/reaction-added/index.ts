@@ -174,7 +174,7 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
     .andThen(bindAsync('reactionUser', ({ input, team }) => findOrCreateUser(context.client, team.id, input.reactionUserId)))
     .andThen(bindAsync('message', ({ channel, messageUser }) => findOrCreateMessage(context.client, channel.id, messageUser.id, payload.item.ts)))
     .andThen(bindAsync('reaction', ({ message, emoji, reactionUser }) => findOrCreateReaction(message.id, emoji.id, reactionUser.id, payload.event_ts)))
-    .andThen(({ channel, messageUser, reactionUser }) => postQuestion(context.client, channel.id, messageUser.id, reactionUser.id, payload.item.ts))
+    .andThen(({ channel, messageUser, reactionUser, message }) => postQuestion(context.client, channel, messageUser, reactionUser, message))
     .match(
       () => {},
       (error) => console.error(error),

@@ -2,7 +2,7 @@ import { database, schema } from '@feedbackun/package-database';
 import { asc, eq } from 'drizzle-orm';
 import { ResultAsync } from 'neverthrow';
 
-import type { SlackChannelId, SlackUserId } from '@feedbackun/package-domain';
+import type { SlackChannel, SlackMessage, SlackUser } from '@feedbackun/package-domain';
 import type { SlackAPIClient } from 'slack-edge';
 
 type Option = {
@@ -18,14 +18,14 @@ type Option = {
 
 export const postQuestion = ResultAsync.fromThrowable(async (
   client: SlackAPIClient,
-  channelId: SlackChannelId,
-  messageUserId: SlackUserId,
-  reactionUserId: SlackUserId,
-  messageTs: string,
+  channel: SlackChannel,
+  messageUser: SlackUser,
+  reactionUser: SlackUser,
+  message: SlackMessage,
 ) => {
   const link = await client.chat.getPermalink({
-    channel: channelId.value,
-    message_ts: messageTs,
+    channel: channel.id.value,
+    message_ts: message.ts,
   });
 
   const skills = await database()
@@ -39,7 +39,7 @@ export const postQuestion = ResultAsync.fromThrowable(async (
           .select({ type: schema.users.type })
           .from(schema.users)
           .innerJoin(schema.slackUsers, eq(schema.users.id, schema.slackUsers.userId))
-          .where(eq(schema.slackUsers.id, messageUserId.value)),
+          .where(eq(schema.slackUsers.id, messageUser.id.value)),
       ),
     )
     .orderBy(asc(schema.workSkills.level), asc(schema.workSkillElements.order))
@@ -69,36 +69,40 @@ export const postQuestion = ResultAsync.fromThrowable(async (
     }, []));
 
   await client.chat.postEphemeral({
-    channel: channelId.value,
-    user: reactionUserId.value,
-    text: '良いと思ったことをフィードバックして欲しいにゃ！',
+    channel: channel.id.value,
+    user: reactionUser.id.value,
+    text: '良かったところをフィードバックして欲しいにゃ！',
     blocks: [
       {
         type: 'section',
         text: {
           type: 'mrkdwn',
-          text: `<${link.permalink}|メッセージ>へのフィードバックをお願いするにゃん！`,
+          text: `<@${reactionUser.id.value}>\n<${link.permalink}|このメッセージ>へのフィードバックをお願いするにゃん！`,
         },
       },
       {
         type: 'input',
+        block_id: 'content',
         label: {
           type: 'plain_text',
           text: 'どういう所が良かったのかにゃ？',
         },
         element: {
           type: 'plain_text_input',
+          action_id: 'input',
           multiline: true,
         },
       },
       {
         type: 'input',
+        block_id: 'skills',
         label: {
           type: 'plain_text',
           text: 'どのスキルに該当しそうかにゃ？',
         },
         element: {
           type: 'multi_static_select',
+          action_id: 'input',
           placeholder: {
             type: 'plain_text',
             text: 'スキルを選択する',
@@ -131,6 +135,12 @@ export const postQuestion = ResultAsync.fromThrowable(async (
         accessory: {
           type: 'button',
           style: 'primary',
+          action_id: 'submit_question',
+          value: JSON.stringify({
+            slackMessageId: message.id.value,
+            sendSlackUserId: reactionUser.id.value,
+            receiveSlackUserId: messageUser.id.value,
+          }),
           text: {
             type: 'plain_text',
             text: '送信するにゃ！',
