@@ -68,16 +68,16 @@ export const postQuestion = ResultAsync.fromThrowable(async (
       return previous;
     }, []));
 
-  await client.chat.postEphemeral({
-    channel: channel.id.value,
-    user: reactionUser.id.value,
+  const conversations = await client.conversations.open({ users: reactionUser.id.value });
+  await client.chat.postMessage({
+    channel: conversations.channel!.id!,
     text: '良かったところをフィードバックして欲しいにゃ！',
     blocks: [
       {
         type: 'section',
         text: {
           type: 'mrkdwn',
-          text: `<@${reactionUser.id.value}>\n<${link.permalink}|このメッセージ>へのフィードバックをお願いするにゃん！`,
+          text: `<${link.permalink}|このメッセージ>へのフィードバックをお願いするにゃん！`,
         },
       },
       {

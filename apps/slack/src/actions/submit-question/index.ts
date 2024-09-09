@@ -4,7 +4,8 @@ import {
   SlackMessageId,
   WorkSkillElementId,
   saveFeedback,
-  SlackUserId, SlackChannelId,
+  SlackUserId,
+  SlackChannelId,
 } from '@feedbackun/package-domain';
 import {
   bindSync,
@@ -17,7 +18,7 @@ import { createId } from '@paralleldrive/cuid2';
 import { ok, Result } from 'neverthrow';
 import * as v from 'valibot';
 
-import { deleteMessage } from './helpers/delete-message';
+import { completeQuestion } from './helpers/complete-question';
 import { postFailureMessage } from './helpers/post-failure-message';
 import { postSuccessMessage } from './helpers/post-success-message';
 
@@ -69,13 +70,13 @@ export const submitQuestionHandler: BlockActionAckHandler<'button', Env> = async
     })))
     .asyncAndThen(({ container, values }) => {
       return doAsync
-        .andThen(passThroughAsync(() => deleteMessage(context.client, container.channelId, container.messageTs)))
+        .andThen(passThroughAsync(() => completeQuestion(context.client, container.channelId, container.messageTs)))
         .andThen(bindSync('feedback', () => ok(new Feedback(values))))
         .andThen(passThroughAsync(({ feedback }) => saveFeedback(feedback)))
-        .andThen(() => postSuccessMessage(context.client, container.channelId, values.sendSlackUserId))
+        .andThen(() => postSuccessMessage(context.client, container.channelId, container.messageTs))
         .orElse((error) => {
           console.error(error);
-          return postFailureMessage(context.client, container.channelId, values.sendSlackUserId);
+          return postFailureMessage(context.client, container.channelId, container.messageTs);
         });
     })
     .match(

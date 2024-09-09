@@ -24,7 +24,7 @@ export class SlackChannelId extends ValueObject('SlackChannelId')<Properties> {
 
   public static create(value: Properties): Result<SlackChannelId, SlackChannelIdError> {
     const result = v.safeParse(v.object({
-      value: v.pipe(v.string(), v.regex(/^C.*$/)),
+      value: v.pipe(v.string(), v.regex(/^([CD]).*$/)),
     }), value);
 
     if (result.success) {
