@@ -25,7 +25,7 @@ import { postSuccessMessage } from './helpers/post-success-message';
 import type { Env } from '../../types/env';
 import type { BlockActionAckHandler } from 'slack-edge';
 
-export const submitQuestionHandler: BlockActionAckHandler<'button', Env> = async ({
+export const submitFeedbackHandler: BlockActionAckHandler<'button', Env> = async ({
   payload,
   context,
 }) => {

@@ -135,7 +135,7 @@ export const postQuestion = ResultAsync.fromThrowable(async (
         accessory: {
           type: 'button',
           style: 'primary',
-          action_id: 'submit_question',
+          action_id: 'submit_feedback',
           value: JSON.stringify({
             slackMessageId: message.id.value,
             sendSlackUserId: reactionUser.id.value,
