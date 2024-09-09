@@ -3,8 +3,6 @@ import {
   SlackChannelId,
   SlackMessage,
   SlackMessageId,
-  SlackReaction,
-  SlackReactionId,
   SlackTeamId,
   SlackUser,
   SlackUserId,
@@ -15,9 +13,6 @@ import {
   findSlackMessage,
   FindSlackMessageNotFoundError,
   saveSlackMessage,
-  findSlackReaction,
-  FindSlackReactionNotFoundError,
-  saveSlackReaction,
   findSlackUser,
   FindSlackUserNotFoundError,
   saveSlackUser,
@@ -33,7 +28,6 @@ import { getUser } from './helpers/get-user';
 import { postQuestion } from './helpers/post-question';
 
 import type { Env } from '../../types/env';
-import type { SlackEmojiId } from '@feedbackun/package-domain';
 import type { EventLazyHandler, ReactionAddedEvent, SlackAPIClient, SlackAppContext } from 'slack-edge';
 
 const constructInput = (context: SlackAppContext, payload: ReactionAddedEvent) => structAsync({
@@ -134,32 +128,6 @@ const findOrCreateMessage = (
       });
   });
 
-const findOrCreateReaction = (
-  slackMessageId: SlackMessageId,
-  slackEmojiId: SlackEmojiId,
-  slackUserId: SlackUserId,
-  slackEmojiTs: string,
-) => doAsync
-  .andThen(() => findSlackReaction({
-    type: 'slack-message-id-and-slack-emoji-id-and-slack-user-id',
-    slackMessageId,
-    slackEmojiId,
-    slackUserId,
-  }))
-  .orElse((error) => {
-    if (!(error instanceof FindSlackReactionNotFoundError)) {
-      return errAsync(error);
-    }
-
-    return saveSlackReaction(new SlackReaction({
-      id: SlackReactionId.create(createId())._unsafeUnwrap(),
-      slackMessageId,
-      slackEmojiId,
-      slackUserId,
-      ts: slackEmojiTs,
-    }));
-  });
-
 export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = async ({
   env: _env,
   context,
@@ -173,7 +141,6 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
     .andThen(bindAsync('messageUser', ({ input, team }) => findOrCreateUser(context.client, team.id, input.messageUserId)))
     .andThen(bindAsync('reactionUser', ({ input, team }) => findOrCreateUser(context.client, team.id, input.reactionUserId)))
     .andThen(bindAsync('message', ({ channel, messageUser }) => findOrCreateMessage(context.client, channel.id, messageUser.id, payload.item.ts)))
-    .andThen(bindAsync('reaction', ({ message, emoji, reactionUser }) => findOrCreateReaction(message.id, emoji.id, reactionUser.id, payload.event_ts)))
     .andThen(({ channel, messageUser, reactionUser, message }) => postQuestion(context.client, channel, messageUser, reactionUser, message))
     .match(
       () => {},

@@ -3,7 +3,6 @@ import { sqliteTable, text } from 'drizzle-orm/sqlite-core';
 
 import { feedbacks } from './feedbacks';
 import { slackMessages } from './slack-messages';
-import { slackReactions } from './slack-reactions';
 import { slackTeams } from './slack-teams';
 import { users } from './users';
 
@@ -24,7 +23,6 @@ export const slackUsersRelations = relations(slackUsers, ({ one, many }) => ({
     references: [slackTeams.id],
   }),
   messages: many(slackMessages),
-  reactions: many(slackReactions),
   sendFeedbacks: many(feedbacks, { relationName: 'sendUser' }),
   receiveFeedbacks: many(feedbacks, { relationName: 'receiveUser' }),
 }));
