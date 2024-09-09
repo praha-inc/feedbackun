@@ -1,6 +1,5 @@
 import { CustomError } from '@feedbackun/package-custom-error';
 import { database, schema } from '@feedbackun/package-database';
-import { bindAsync, doAsync } from '@feedbackun/package-neverthrow';
 import { ok, ResultAsync } from 'neverthrow';
 
 import { SlackMessageId } from '../../slack-messages';
@@ -25,47 +24,42 @@ export type SaveFeedback = (
 ) => ResultAsync<Feedback, SaveFeedbackError>;
 
 export const saveFeedback: SaveFeedback = (input) => {
-  const insertFeedback = ResultAsync.fromPromise(
-    database()
-      .insert(schema.feedbacks)
-      .values({
-        id: input.id.value,
-        sendSlackUserId: input.sendSlackUserId.value,
-        receiveSlackUserId: input.receiveSlackUserId.value,
-        slackMessageId: input.slackMessageId.value,
-        content: input.content,
-        createdAt: input.createdAt,
-      })
-      .returning()
-      .get(),
+  const result = ResultAsync.fromPromise(
+    database().batch([
+      database()
+        .insert(schema.feedbacks)
+        .values({
+          id: input.id.value,
+          sendSlackUserId: input.sendSlackUserId.value,
+          receiveSlackUserId: input.receiveSlackUserId.value,
+          slackMessageId: input.slackMessageId.value,
+          content: input.content,
+          createdAt: input.createdAt,
+        })
+        .returning(),
+      database()
+        .insert(schema.feedbackWorkSkills)
+        .values(
+          input.workSkillElementIds.map((workSkillElementId) => ({
+            feedbackId: input.id.value,
+            workSkillElementId: workSkillElementId.value,
+          })),
+        )
+        .returning(),
+    ]),
     (error) => new SaveFeedbackUnexpectedError({ cause: error }),
   );
 
-  const insertFeedbackWorkSkills = ResultAsync.fromPromise(
-    database()
-      .insert(schema.feedbackWorkSkills)
-      .values(
-        input.workSkillElementIds.map((workSkillElementId) => ({
-          feedbackId: input.id.value,
-          workSkillElementId: workSkillElementId.value,
-        })),
-      )
-      .returning(),
-    (error) => new SaveFeedbackUnexpectedError({ cause: error }),
-  );
-
-  return doAsync
-    .andThen(bindAsync('feedback', () => insertFeedback))
-    .andThen(bindAsync('feedbackWorkSkills', () => insertFeedbackWorkSkills))
-    .andThen(({ feedback, feedbackWorkSkills }) => {
+  return result
+    .andThen(([[feedback], feedbackWorkSkills]) => {
       return ok(new Feedback({
-        id: FeedbackId.create(feedback.id)._unsafeUnwrap(),
-        sendSlackUserId: SlackUserId.create(feedback.sendSlackUserId)._unsafeUnwrap(),
-        receiveSlackUserId: SlackUserId.create(feedback.receiveSlackUserId)._unsafeUnwrap(),
-        slackMessageId: SlackMessageId.create(feedback.slackMessageId)._unsafeUnwrap(),
+        id: FeedbackId.create(feedback!.id)._unsafeUnwrap(),
+        sendSlackUserId: SlackUserId.create(feedback!.sendSlackUserId)._unsafeUnwrap(),
+        receiveSlackUserId: SlackUserId.create(feedback!.receiveSlackUserId)._unsafeUnwrap(),
+        slackMessageId: SlackMessageId.create(feedback!.slackMessageId)._unsafeUnwrap(),
         workSkillElementIds: feedbackWorkSkills.map((row) => WorkSkillElementId.create(row.workSkillElementId)._unsafeUnwrap()),
-        content: feedback.content,
-        createdAt: feedback.createdAt,
+        content: feedback!.content,
+        createdAt: feedback!.createdAt,
       }));
     });
 };
