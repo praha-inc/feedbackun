@@ -42,7 +42,7 @@ export const submitQuestionHandler: BlockActionAckHandler<'button', Env> = async
   const values = v.parse(v.object({
     content: v.object({
       input: v.object({
-        value: v.string(),
+        value: v.fallback(v.string(), ''),
       }),
     }),
     skills: v.object({
