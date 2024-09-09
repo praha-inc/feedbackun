@@ -22,13 +22,14 @@ export class SlackMessageId extends ValueObject('SlackMessageId')<Properties> {
     super(properties);
   }
 
-  public static create(value: Properties): Result<SlackMessageId, SlackMessageIdError> {
-    const result = v.safeParse(v.object({
-      value: v.pipe(v.string(), v.cuid2()),
-    }), value);
+  public static create(value: string): Result<SlackMessageId, SlackMessageIdError> {
+    const result = v.safeParse(
+      v.pipe(v.string(), v.cuid2()),
+      value,
+    );
 
     if (result.success) {
-      return ok(new SlackMessageId(value));
+      return ok(new SlackMessageId({ value }));
     }
 
     return err(new SlackMessageIdInvalidFormatError());

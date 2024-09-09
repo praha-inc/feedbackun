@@ -58,8 +58,8 @@ export const findSlackUser: FindSlackUser = (input) => {
     .andThen((row) => {
       if (!row) return err(new FindSlackUserNotFoundError());
       return ok(new SlackUser({
-        id: SlackUserId.create({ value: row.id })._unsafeUnwrap(),
-        slackTeamId: SlackTeamId.create({ value: row.slackTeamId })._unsafeUnwrap(),
+        id: SlackUserId.create(row.id)._unsafeUnwrap(),
+        slackTeamId: SlackTeamId.create(row.slackTeamId)._unsafeUnwrap(),
         name: row.name,
       }));
     });

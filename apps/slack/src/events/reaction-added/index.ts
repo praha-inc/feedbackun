@@ -37,10 +37,10 @@ import type { SlackEmojiId } from '@feedbackun/package-domain';
 import type { EventLazyHandler, ReactionAddedEvent, SlackAPIClient, SlackAppContext } from 'slack-edge';
 
 const constructInput = (context: SlackAppContext, payload: ReactionAddedEvent) => structAsync({
-  teamId: SlackTeamId.create({ value: context.teamId ?? '' }),
-  channelId: SlackChannelId.create({ value: payload.item.channel }),
-  messageUserId: SlackUserId.create({ value: payload.item_user }),
-  reactionUserId: SlackUserId.create({ value: payload.user }),
+  teamId: SlackTeamId.create(context.teamId ?? ''),
+  channelId: SlackChannelId.create(payload.item.channel),
+  messageUserId: SlackUserId.create(payload.item_user),
+  reactionUserId: SlackUserId.create(payload.user),
   reactionName: ok(payload.reaction),
 });
 
@@ -125,7 +125,7 @@ const findOrCreateMessage = (
     return getMessage(client, slackChannelId, slackMessageTs)
       .andThen((result) => {
         return saveSlackMessage(new SlackMessage({
-          id: SlackMessageId.create({ value: createId() })._unsafeUnwrap(),
+          id: SlackMessageId.create(createId())._unsafeUnwrap(),
           slackChannelId,
           slackUserId,
           text: result.messages![0]!.text!,
@@ -152,7 +152,7 @@ const findOrCreateReaction = (
     }
 
     return saveSlackReaction(new SlackReaction({
-      id: SlackReactionId.create({ value: createId() })._unsafeUnwrap(),
+      id: SlackReactionId.create(createId())._unsafeUnwrap(),
       slackMessageId,
       slackEmojiId,
       slackUserId,

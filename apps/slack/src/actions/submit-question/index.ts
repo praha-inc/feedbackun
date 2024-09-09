@@ -56,15 +56,15 @@ export const submitQuestionHandler: BlockActionAckHandler<'button', Env> = async
 
   await doSync
     .andThen(bindSync('container', () => structSync({
-      channelId: SlackChannelId.create({ value: payload.container.channel_id ?? '' }),
+      channelId: SlackChannelId.create(payload.container.channel_id ?? ''),
       messageTs: ok(payload.container.message_ts!),
     })))
     .andThen(bindSync('values', () => structSync({
-      id: FeedbackId.create({ value: createId() }),
-      sendSlackUserId: SlackUserId.create({ value: sendSlackUserId }),
-      receiveSlackUserId: SlackUserId.create({ value: receiveSlackUserId }),
-      slackMessageId: SlackMessageId.create({ value: slackMessageId }),
-      workSkillElementIds: Result.combine(values.skills.input.selected_options.map(({ value }) => WorkSkillElementId.create({ value }))),
+      id: FeedbackId.create(createId()),
+      sendSlackUserId: SlackUserId.create(sendSlackUserId),
+      receiveSlackUserId: SlackUserId.create(receiveSlackUserId),
+      slackMessageId: SlackMessageId.create(slackMessageId),
+      workSkillElementIds: Result.combine(values.skills.input.selected_options.map(({ value }) => WorkSkillElementId.create(value))),
       content: ok(values.content.input.value),
       createdAt: ok(new Date()),
     })))

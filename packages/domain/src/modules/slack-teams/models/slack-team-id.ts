@@ -22,13 +22,14 @@ export class SlackTeamId extends ValueObject('SlackTeamId')<Properties> {
     super(properties);
   }
 
-  public static create(value: Properties): Result<SlackTeamId, SlackTeamIdError> {
-    const result = v.safeParse(v.object({
-      value: v.pipe(v.string(), v.regex(/^T.*$/)),
-    }), value);
+  public static create(value: string): Result<SlackTeamId, SlackTeamIdError> {
+    const result = v.safeParse(
+      v.pipe(v.string(), v.regex(/^T.*$/)),
+      value,
+    );
 
     if (result.success) {
-      return ok(new SlackTeamId(value));
+      return ok(new SlackTeamId({ value }));
     }
 
     return err(new SlackTeamIdInvalidFormatError());

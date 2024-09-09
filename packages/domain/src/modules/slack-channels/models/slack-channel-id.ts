@@ -22,13 +22,14 @@ export class SlackChannelId extends ValueObject('SlackChannelId')<Properties> {
     super(properties);
   }
 
-  public static create(value: Properties): Result<SlackChannelId, SlackChannelIdError> {
-    const result = v.safeParse(v.object({
-      value: v.pipe(v.string(), v.regex(/^([CD]).*$/)),
-    }), value);
+  public static create(value: string): Result<SlackChannelId, SlackChannelIdError> {
+    const result = v.safeParse(
+      v.pipe(v.string(), v.regex(/^([CD]).*$/)),
+      value,
+    );
 
     if (result.success) {
-      return ok(new SlackChannelId(value));
+      return ok(new SlackChannelId({ value }));
     }
 
     return err(new SlackChannelIdInvalidFormatError());

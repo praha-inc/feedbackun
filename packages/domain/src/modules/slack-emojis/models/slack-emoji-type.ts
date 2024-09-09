@@ -22,13 +22,14 @@ export class SlackEmojiType extends ValueObject('SlackEmojiType')<Properties> {
     super(properties);
   }
 
-  public static create(value: Properties): Result<SlackEmojiType, SlackEmojiTypeError> {
-    const result = v.safeParse(v.object({
-      value: v.union([v.literal('unicode'), v.literal('custom')]),
-    }), value);
+  public static create(value: string): Result<SlackEmojiType, SlackEmojiTypeError> {
+    const result = v.safeParse(
+      v.union([v.literal('unicode'), v.literal('custom')]),
+      value,
+    );
 
     if (result.success) {
-      return ok(new SlackEmojiType(value));
+      return ok(new SlackEmojiType({ value }));
     }
 
     return err(new SlackEmojiTypeInvaltypeFormatError());

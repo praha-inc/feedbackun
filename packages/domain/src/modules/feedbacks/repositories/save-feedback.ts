@@ -59,11 +59,11 @@ export const saveFeedback: SaveFeedback = (input) => {
     .andThen(bindAsync('feedbackWorkSkills', () => insertFeedbackWorkSkills))
     .andThen(({ feedback, feedbackWorkSkills }) => {
       return ok(new Feedback({
-        id: FeedbackId.create({ value: feedback.id })._unsafeUnwrap(),
-        sendSlackUserId: SlackUserId.create({ value: feedback.sendSlackUserId })._unsafeUnwrap(),
-        receiveSlackUserId: SlackUserId.create({ value: feedback.receiveSlackUserId })._unsafeUnwrap(),
-        slackMessageId: SlackMessageId.create({ value: feedback.slackMessageId })._unsafeUnwrap(),
-        workSkillElementIds: feedbackWorkSkills.map((row) => WorkSkillElementId.create({ value: row.workSkillElementId })._unsafeUnwrap()),
+        id: FeedbackId.create(feedback.id)._unsafeUnwrap(),
+        sendSlackUserId: SlackUserId.create(feedback.sendSlackUserId)._unsafeUnwrap(),
+        receiveSlackUserId: SlackUserId.create(feedback.receiveSlackUserId)._unsafeUnwrap(),
+        slackMessageId: SlackMessageId.create(feedback.slackMessageId)._unsafeUnwrap(),
+        workSkillElementIds: feedbackWorkSkills.map((row) => WorkSkillElementId.create(row.workSkillElementId)._unsafeUnwrap()),
         content: feedback.content,
         createdAt: feedback.createdAt,
       }));

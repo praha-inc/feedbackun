@@ -41,9 +41,9 @@ export const saveSlackMessage: SaveSlackMessage = (input) => {
   return result
     .andThen((row) => {
       return ok(new SlackMessage({
-        id: SlackMessageId.create({ value: row.id })._unsafeUnwrap(),
-        slackChannelId: SlackChannelId.create({ value: row.slackChannelId })._unsafeUnwrap(),
-        slackUserId: SlackUserId.create({ value: row.slackUserId })._unsafeUnwrap(),
+        id: SlackMessageId.create(row.id)._unsafeUnwrap(),
+        slackChannelId: SlackChannelId.create(row.slackChannelId)._unsafeUnwrap(),
+        slackUserId: SlackUserId.create(row.slackUserId)._unsafeUnwrap(),
         text: row.text,
         ts: row.ts,
       }));

@@ -22,13 +22,14 @@ export class WorkSkillElementId extends ValueObject('WorkSkillElementId')<Proper
     super(properties);
   }
 
-  public static create(value: Properties): Result<WorkSkillElementId, WorkSkillElementIdError> {
-    const result = v.safeParse(v.object({
-      value: v.pipe(v.string(), v.cuid2()),
-    }), value);
+  public static create(value: string): Result<WorkSkillElementId, WorkSkillElementIdError> {
+    const result = v.safeParse(
+      v.pipe(v.string(), v.cuid2()),
+      value,
+    );
 
     if (result.success) {
-      return ok(new WorkSkillElementId(value));
+      return ok(new WorkSkillElementId({ value }));
     }
 
     return err(new WorkSkillElementIdInvalidFormatError());

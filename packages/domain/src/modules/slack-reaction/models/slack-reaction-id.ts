@@ -22,13 +22,14 @@ export class SlackReactionId extends ValueObject('SlackReactionId')<Properties> 
     super(properties);
   }
 
-  public static create(value: Properties): Result<SlackReactionId, SlackReactionIdError> {
-    const result = v.safeParse(v.object({
-      value: v.pipe(v.string(), v.cuid2()),
-    }), value);
+  public static create(value: string): Result<SlackReactionId, SlackReactionIdError> {
+    const result = v.safeParse(
+      v.pipe(v.string(), v.cuid2()),
+      value,
+    );
 
     if (result.success) {
-      return ok(new SlackReactionId(value));
+      return ok(new SlackReactionId({ value }));
     }
 
     return err(new SlackReactionIdInvalidFormatError());

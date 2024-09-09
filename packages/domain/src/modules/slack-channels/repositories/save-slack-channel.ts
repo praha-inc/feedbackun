@@ -38,8 +38,8 @@ export const saveSlackChannel: SaveSlackChannel = (input) => {
   return result
     .andThen((row) => {
       return ok(new SlackChannel({
-        id: SlackChannelId.create({ value: row.id })._unsafeUnwrap(),
-        slackTeamId: SlackTeamId.create({ value: row.slackTeamId })._unsafeUnwrap(),
+        id: SlackChannelId.create(row.id)._unsafeUnwrap(),
+        slackTeamId: SlackTeamId.create(row.slackTeamId)._unsafeUnwrap(),
         name: row.name,
       }));
     });

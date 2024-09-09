@@ -42,10 +42,10 @@ export const saveSlackReaction: SaveSlackReaction = (input) => {
   return result
     .andThen((row) => {
       return ok(new SlackReaction({
-        id: SlackReactionId.create({ value: row.id })._unsafeUnwrap(),
-        slackMessageId: SlackMessageId.create({ value: row.slackMessageId })._unsafeUnwrap(),
-        slackEmojiId: SlackEmojiId.create({ value: row.slackEmojiId })._unsafeUnwrap(),
-        slackUserId: SlackUserId.create({ value: row.slackUserId })._unsafeUnwrap(),
+        id: SlackReactionId.create(row.id)._unsafeUnwrap(),
+        slackMessageId: SlackMessageId.create(row.slackMessageId)._unsafeUnwrap(),
+        slackEmojiId: SlackEmojiId.create(row.slackEmojiId)._unsafeUnwrap(),
+        slackUserId: SlackUserId.create(row.slackUserId)._unsafeUnwrap(),
         ts: row.ts,
       }));
     });

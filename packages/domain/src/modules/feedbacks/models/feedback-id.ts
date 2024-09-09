@@ -22,13 +22,14 @@ export class FeedbackId extends ValueObject('FeedbackId')<Properties> {
     super(properties);
   }
 
-  public static create(value: Properties): Result<FeedbackId, FeedbackIdError> {
-    const result = v.safeParse(v.object({
-      value: v.pipe(v.string(), v.cuid2()),
-    }), value);
+  public static create(value: string): Result<FeedbackId, FeedbackIdError> {
+    const result = v.safeParse(
+      v.pipe(v.string(), v.cuid2()),
+      value,
+    );
 
     if (result.success) {
-      return ok(new FeedbackId(value));
+      return ok(new FeedbackId({ value }));
     }
 
     return err(new FeedbackIdInvalidFormatError());
