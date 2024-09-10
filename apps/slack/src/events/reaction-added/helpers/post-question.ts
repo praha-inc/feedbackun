@@ -127,25 +127,31 @@ export const postQuestion = ResultAsync.fromThrowable(async (
         },
       },
       {
-        type: 'section',
-        text: {
-          type: 'mrkdwn',
-          text: ' ',
-        },
-        accessory: {
-          type: 'button',
-          style: 'primary',
-          action_id: 'submit_feedback',
-          value: JSON.stringify({
-            slackMessageId: message.id.value,
-            sendSlackUserId: reactionUser.id.value,
-            receiveSlackUserId: messageUser.id.value,
-          }),
-          text: {
-            type: 'plain_text',
-            text: '送信するにゃ！',
+        type: 'actions',
+        elements: [
+          {
+            type: 'button',
+            action_id: 'discard_feedback',
+            text: {
+              type: 'plain_text',
+              text: 'キャンセルするにゃ！',
+            },
           },
-        },
+          {
+            type: 'button',
+            style: 'primary',
+            action_id: 'submit_feedback',
+            value: JSON.stringify({
+              slackMessageId: message.id.value,
+              sendSlackUserId: reactionUser.id.value,
+              receiveSlackUserId: messageUser.id.value,
+            }),
+            text: {
+              type: 'plain_text',
+              text: '送信するにゃ！',
+            },
+          },
+        ],
       },
     ],
   });
