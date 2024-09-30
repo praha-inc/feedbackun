@@ -68,6 +68,80 @@ export const theme = createGlobalTheme(':root', {
         overlay: '',
         shadow: '',
       },
+      button: {
+        normal: {
+          text: '',
+          icon: '',
+          border: '',
+          background: '',
+          hover: {
+            text: '',
+            icon: '',
+            border: '',
+            background: '',
+          },
+          disabled: {
+            text: '',
+            icon: '',
+            border: '',
+            background: '',
+          },
+        },
+        primary: {
+          text: '',
+          icon: '',
+          border: '',
+          background: '',
+          hover: {
+            text: '',
+            icon: '',
+            border: '',
+            background: '',
+          },
+          disabled: {
+            text: '',
+            icon: '',
+            border: '',
+            background: '',
+          },
+        },
+        danger: {
+          text: '',
+          icon: '',
+          border: '',
+          background: '',
+          hover: {
+            text: '',
+            icon: '',
+            border: '',
+            background: '',
+          },
+          disabled: {
+            text: '',
+            icon: '',
+            border: '',
+            background: '',
+          },
+        },
+        ghost: {
+          text: '',
+          icon: '',
+          border: '',
+          background: '',
+          hover: {
+            text: '',
+            icon: '',
+            border: '',
+            background: '',
+          },
+          disabled: {
+            text: '',
+            icon: '',
+            border: '',
+            background: '',
+          },
+        },
+      },
     },
   },
   size: {
@@ -94,5 +168,10 @@ export const theme = createGlobalTheme(':root', {
     avatar: {
       base: '1.25rem',
     },
+  },
+  duration: {
+    fast: '100ms',
+    normal: '250ms',
+    slow: '500ms',
   },
 });
