@@ -18,4 +18,8 @@ dist
 
 # Wrangler
 .wrangler
+.worker-next
 wrangler.toml
+
+# Next.js
+.next
