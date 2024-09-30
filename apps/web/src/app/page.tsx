@@ -1,3 +1,5 @@
+import * as styles from './page.css';
+
 import type { FC } from 'react';
 
 export type HomePageProps = {
@@ -6,7 +8,7 @@ export type HomePageProps = {
 
 const HomePage: FC<HomePageProps> = () => {
   return (
-    <main>
+    <main className={styles.hello}>
       Hello World!
     </main>
   );
