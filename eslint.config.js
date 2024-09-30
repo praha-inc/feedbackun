@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { common } from '@agaroot/eslint-config-common';
 import { define } from '@agaroot/eslint-config-definer';
 import { javascript } from '@agaroot/eslint-config-javascript';
