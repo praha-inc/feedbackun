@@ -16,7 +16,7 @@
     "@feedbackun/package-neverthrow": "workspace:*",
     "@paralleldrive/cuid2": "2.2.2",
     "drizzle-orm": "0.33.0",
-    "neverthrow": "7.2.0",
+    "neverthrow": "8.0.0",
     "slack-edge": "1.1.2",
     "valibot": "0.42.1"
   },
