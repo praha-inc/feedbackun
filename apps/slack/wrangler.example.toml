@@ -1,4 +1,4 @@
-name = "feedbackun"
+name = "feedbackun-slack"
 main = "src/index.ts"
 compatibility_date = "2024-04-25"
 compatibility_flags = ["nodejs_compat"]
