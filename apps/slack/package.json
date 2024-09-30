@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "wrangler deploy --dry-run --outdir=dist",
     "deploy:agaroot": "wrangler deploy -e agaroot",
     "deploy:praha": "wrangler deploy -e praha",
     "lint:code": "eslint",

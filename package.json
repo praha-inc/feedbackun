@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "scripts": {
+    "build": "turbo build",
+    "lint:code": "turbo lint:code",
+    "lint:type": "turbo lint:type"
+  },
   "devDependencies": {
     "@agaroot/eslint-config-common": "3.0.6",
     "@agaroot/eslint-config-definer": "1.0.5",
@@ -11,7 +16,8 @@
     "@agaroot/eslint-config-style": "2.0.9",
     "@agaroot/eslint-config-typescript": "2.0.8",
     "@tsconfig/strictest": "2.0.5",
-    "eslint": "8.57.0"
+    "eslint": "8.57.0",
+    "turbo": "2.1.2"
   },
   "packageManager": "pnpm@9.7.1"
 }
