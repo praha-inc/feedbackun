@@ -9,7 +9,7 @@
     "migrate:create": "drizzle-kit generate",
     "migrate:apply": "wrangler d1 migrations apply feedbackun --local",
     "migrate:apply:remote": "wrangler d1 migrations apply feedbackun --remote",
-    "lint:code": "eslint",
+    "lint:code": "eslint .",
     "lint:type": "tsc --pretty --noEmit"
   },
   "dependencies": {
