@@ -57,8 +57,8 @@ importers:
         specifier: 7.2.0
         version: 7.2.0
       slack-edge:
-        specifier: 1.0.0
-        version: 1.0.0
+        specifier: 1.1.2
+        version: 1.1.2
       valibot:
         specifier: 0.42.1
         version: 0.42.1(typescript@5.5.4)
@@ -2035,11 +2035,11 @@ packages:
     resolution: {integrity: sha512-fDW/EZ6Q9RiO8eFG8Hj+7u/oW+XrPTIChwCOM2+th2A6OblDtYYIpve9m+KvI9Z4C9qSEXlaGR6bTEYHReuglA==}
     engines: {node: '>= 0.4'}
 
-  slack-edge@1.0.0:
-    resolution: {integrity: sha512-R+RaOp/RX90bgzVF2J1xojLB46kBp1gBXglIAQFwJrSQ6uTNWbXp5gGGDZluaoLhPuNq9V8wxWeh2m6OPRHALg==}
+  slack-edge@1.1.2:
+    resolution: {integrity: sha512-Zq22qUtLppqo22EcDT5LZKd/TnfQ+KA7lzLbJfxfHSbKDBuT8elF1eInpcWLEz4TkOdV033D+2XZjUH4q5fEiQ==}
 
-  slack-web-api-client@1.0.0:
-    resolution: {integrity: sha512-qIdEddzC2yyvDgUwJ5LSO4ZjHLnhfF8untU0FicLg+wiiPD1aiREeM80+AXJYHYaQJrtCB0Sm3NrYp0ntt0R/g==}
+  slack-web-api-client@1.1.2:
+    resolution: {integrity: sha512-d8NkIwDHPmneMCDbpQNMNNpgQSk9fx+USs3t/E3ZPrw+S+/kkq7RhEi6FSrf7vSPNgFmOMZ57p+45hfkFi7wjQ==}
 
   slash@3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
@@ -4165,11 +4165,11 @@ snapshots:
       get-intrinsic: 1.2.4
       object-inspect: 1.13.1
 
-  slack-edge@1.0.0:
+  slack-edge@1.1.2:
     dependencies:
-      slack-web-api-client: 1.0.0
+      slack-web-api-client: 1.1.2
 
-  slack-web-api-client@1.0.0: {}
+  slack-web-api-client@1.1.2: {}
 
   slash@3.0.0: {}
 
