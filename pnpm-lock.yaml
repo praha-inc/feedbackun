@@ -81,6 +81,9 @@ importers:
       '@vanilla-extract/css':
         specifier: 1.15.5
         version: 1.15.5
+      '@vanilla-extract/css-utils':
+        specifier: 0.1.4
+        version: 0.1.4
       modern-normalize:
         specifier: 3.0.1
         version: 3.0.1
@@ -1401,6 +1404,9 @@ packages:
 
   '@vanilla-extract/babel-plugin-debug-ids@1.0.6':
     resolution: {integrity: sha512-C188vUEYmw41yxg3QooTs8r1IdbDQQ2mH7L5RkORBnHx74QlmsNfqVmKwAVTgrlYt8JoRaWMtPfGm/Ql0BNQrA==}
+
+  '@vanilla-extract/css-utils@0.1.4':
+    resolution: {integrity: sha512-3WRxMGa/VQaL32jZqRUpnnoVFSws5iPIUpQr+XlT4jXhtMeKYcA20rFK2k2Amkg04sqrO84A8hNMeABWZQesEg==}
 
   '@vanilla-extract/css@1.15.5':
     resolution: {integrity: sha512-N1nQebRWnXvlcmu9fXKVUs145EVwmWtMD95bpiEKtvehHDpUhmO1l2bauS7FGYKbi3dU1IurJbGpQhBclTr1ng==}
@@ -4470,6 +4476,8 @@ snapshots:
       '@babel/core': 7.25.2
     transitivePeerDependencies:
       - supports-color
+
+  '@vanilla-extract/css-utils@0.1.4': {}
 
   '@vanilla-extract/css@1.15.5':
     dependencies:

@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import type { FC, ReactNode } from 'react';
 
 import 'modern-normalize';
+import './layout.css';
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
