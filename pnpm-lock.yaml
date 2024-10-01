@@ -122,8 +122,8 @@ importers:
         specifier: 4.20240925.0
         version: 4.20240925.0
       '@opennextjs/cloudflare':
-        specifier: 0.0.0-953d0b1
-        version: 0.0.0-953d0b1(wrangler@3.78.12(@cloudflare/workers-types@4.20240925.0))
+        specifier: 0.0.0-fd3c2b9
+        version: 0.0.0-fd3c2b9
       '@tsconfig/next':
         specifier: 2.0.3
         version: 2.0.3
@@ -138,7 +138,7 @@ importers:
         version: 18.3.0
       '@vanilla-extract/next-plugin':
         specifier: 2.4.5
-        version: 2.4.5(@types/node@20.16.10)(next@14.2.13(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.34.1)(webpack@5.95.0(esbuild@0.17.19))
+        version: 2.4.5(@types/node@20.16.10)(next@14.2.13(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.34.1)(webpack@5.95.0)
       eslint:
         specifier: 8.57.1
         version: 8.57.1
@@ -1171,11 +1171,9 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@opennextjs/cloudflare@0.0.0-953d0b1':
-    resolution: {integrity: sha512-PhjbUrHzD6HQXErcZmtYevyT+dfEgIWG53NQUMlIsDN5D7UKIu/89lCgDk6sEPhQR2fU8TKdl4TIbfOFbzjCCA==}
+  '@opennextjs/cloudflare@0.0.0-fd3c2b9':
+    resolution: {integrity: sha512-0+lZlvGy+kWWfagQBQaoJ6/QbPuA98ZFjV04YTLwjoxYwKocFjn56rl/nI3zopMxzz7DuO2BaQDHgkpdOO1VrA==}
     hasBin: true
-    peerDependencies:
-      wrangler: ^3.78.10
 
   '@paralleldrive/cuid2@2.2.2':
     resolution: {integrity: sha512-ZOBkgDwEdoYVlSeRbYYXs0S9MejQofiVYoTbKzy/6GQa39/q5tQU2IX46+shYnUkpEl3wc+J6wRlar7r2EK2xA==}
@@ -4258,10 +4256,9 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
-  '@opennextjs/cloudflare@0.0.0-953d0b1(wrangler@3.78.12(@cloudflare/workers-types@4.20240925.0))':
+  '@opennextjs/cloudflare@0.0.0-fd3c2b9':
     dependencies:
       ts-morph: 23.0.0
-      wrangler: 3.78.12(@cloudflare/workers-types@4.20240925.0)
 
   '@paralleldrive/cuid2@2.2.2':
     dependencies:
@@ -4579,9 +4576,9 @@ snapshots:
       - supports-color
       - terser
 
-  '@vanilla-extract/next-plugin@2.4.5(@types/node@20.16.10)(next@14.2.13(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.34.1)(webpack@5.95.0(esbuild@0.17.19))':
+  '@vanilla-extract/next-plugin@2.4.5(@types/node@20.16.10)(next@14.2.13(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.34.1)(webpack@5.95.0)':
     dependencies:
-      '@vanilla-extract/webpack-plugin': 2.3.13(@types/node@20.16.10)(terser@5.34.1)(webpack@5.95.0(esbuild@0.17.19))
+      '@vanilla-extract/webpack-plugin': 2.3.13(@types/node@20.16.10)(terser@5.34.1)(webpack@5.95.0)
       next: 14.2.13(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     transitivePeerDependencies:
       - '@types/node'
@@ -4602,13 +4599,13 @@ snapshots:
     dependencies:
       '@vanilla-extract/css': 1.15.5
 
-  '@vanilla-extract/webpack-plugin@2.3.13(@types/node@20.16.10)(terser@5.34.1)(webpack@5.95.0(esbuild@0.17.19))':
+  '@vanilla-extract/webpack-plugin@2.3.13(@types/node@20.16.10)(terser@5.34.1)(webpack@5.95.0)':
     dependencies:
       '@vanilla-extract/integration': 7.1.9(@types/node@20.16.10)(terser@5.34.1)
       debug: 4.3.4
       loader-utils: 2.0.4
       picocolors: 1.0.0
-      webpack: 5.95.0(esbuild@0.17.19)
+      webpack: 5.95.0
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -6711,16 +6708,14 @@ snapshots:
 
   tapable@2.2.1: {}
 
-  terser-webpack-plugin@5.3.10(esbuild@0.17.19)(webpack@5.95.0(esbuild@0.17.19)):
+  terser-webpack-plugin@5.3.10(webpack@5.95.0):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       jest-worker: 27.5.1
       schema-utils: 3.3.0
       serialize-javascript: 6.0.2
       terser: 5.34.1
-      webpack: 5.95.0(esbuild@0.17.19)
-    optionalDependencies:
-      esbuild: 0.17.19
+      webpack: 5.95.0
 
   terser@5.34.1:
     dependencies:
@@ -6921,7 +6916,7 @@ snapshots:
 
   webpack-sources@3.2.3: {}
 
-  webpack@5.95.0(esbuild@0.17.19):
+  webpack@5.95.0:
     dependencies:
       '@types/estree': 1.0.6
       '@webassemblyjs/ast': 1.12.1
@@ -6943,7 +6938,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 3.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.10(esbuild@0.17.19)(webpack@5.95.0(esbuild@0.17.19))
+      terser-webpack-plugin: 5.3.10(webpack@5.95.0)
       watchpack: 2.4.2
       webpack-sources: 3.2.3
     transitivePeerDependencies:
