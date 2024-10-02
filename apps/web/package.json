@@ -38,6 +38,6 @@
     "eslint": "8.57.1",
     "eslint-config-next": "14.2.14",
     "typescript": "5.6.2",
-    "wrangler": "3.78.12"
+    "wrangler": "3.79.0"
   }
 }
