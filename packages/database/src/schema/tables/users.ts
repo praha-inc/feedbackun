@@ -7,6 +7,7 @@ export const users = sqliteTable('users', {
   id: text('id').primaryKey(),
   type: text('type').notNull(),
   name: text('name').notNull(),
+  icon: text('icon').notNull(),
 });
 
 export const usersRelations = relations(users, ({ many }) => ({
