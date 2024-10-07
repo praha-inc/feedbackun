@@ -2,6 +2,7 @@ import { Building2Icon, MessageSquareHeartIcon, UsersIcon } from 'lucide-react';
 import Link from 'next/link';
 
 import * as styles from './layout.css';
+import { ApplicationHeader } from '../../components/domains/application/application-header';
 import { Button, ButtonIcon } from '../../components/elements/button';
 
 import type { FC, ReactNode } from 'react';
@@ -15,9 +16,7 @@ const AuthorizedLayout: FC<AuthorizedLayoutProps> = ({
 }) => {
   return (
     <div className={styles.wrapper}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>Feedbackun</h1>
-      </header>
+      <ApplicationHeader className={styles.header} />
       <aside className={styles.aside}>
         <nav className={styles.nav}>
           <Button variant="ghost" size="medium" borderless asChild>
