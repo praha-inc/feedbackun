@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "generate": "tsx scripts/write-schema.ts",
+    "generate": "tsx scripts/write-schema.ts && graphql-code-generator --config codegen.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -29,13 +29,18 @@
     "modern-normalize": "3.0.1",
     "next": "14.2.14",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "server-only": "0.0.1"
   },
   "devDependencies": {
     "@agaroot/eslint-config-definer": "1.0.5",
     "@agaroot/eslint-config-next": "3.0.9",
     "@agaroot/eslint-config-react": "3.0.9",
     "@cloudflare/workers-types": "4.20241004.0",
+    "@graphql-codegen/cli": "5.0.2",
+    "@graphql-codegen/client-preset": "4.3.3",
+    "@graphql-tools/utils": "10.5.4",
+    "@graphql-typed-document-node/core": "3.2.0",
     "@opennextjs/cloudflare": "0.0.0-59a1d9e",
     "@tsconfig/next": "2.0.3",
     "@types/node": "20.16.10",

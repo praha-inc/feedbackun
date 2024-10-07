@@ -24,3 +24,6 @@ wrangler.toml
 # Next.js
 .next
 .save.next
+
+# Graphql
+.graphql
