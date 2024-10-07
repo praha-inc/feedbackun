@@ -1,0 +1,18 @@
+type Mutation
+
+type Query {
+  """ログインユーザーを取得する"""
+  me: User!
+}
+
+"""ユーザー"""
+type User {
+  """ユーザーアイコン"""
+  icon: String!
+
+  """ユーザーID"""
+  id: ID!
+
+  """ユーザー名"""
+  name: String!
+}

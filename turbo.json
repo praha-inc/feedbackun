@@ -1,7 +1,15 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
+    "generate": {
+      "outputs": [
+        "schema.graphql"
+      ]
+    },
     "build": {
+      "dependsOn": [
+        "generate"
+      ],
       "outputs": [
         "dist/**"
       ]
