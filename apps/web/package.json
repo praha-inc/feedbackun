@@ -29,7 +29,7 @@
     "@agaroot/eslint-config-definer": "1.0.5",
     "@agaroot/eslint-config-next": "3.0.9",
     "@agaroot/eslint-config-react": "3.0.9",
-    "@cloudflare/workers-types": "4.20240925.0",
+    "@cloudflare/workers-types": "4.20241004.0",
     "@opennextjs/cloudflare": "0.0.0-59a1d9e",
     "@tsconfig/next": "2.0.3",
     "@types/node": "20.16.10",
