@@ -73,8 +73,8 @@ importers:
         specifier: 5.6.2
         version: 5.6.2
       wrangler:
-        specifier: 3.79.0
-        version: 3.79.0(@cloudflare/workers-types@4.20241004.0)
+        specifier: 3.80.0
+        version: 3.80.0(@cloudflare/workers-types@4.20241004.0)
 
   apps/web:
     dependencies:
@@ -138,7 +138,7 @@ importers:
         version: 4.20241004.0
       '@opennextjs/cloudflare':
         specifier: 0.0.0-59a1d9e
-        version: 0.0.0-59a1d9e(wrangler@3.79.0(@cloudflare/workers-types@4.20241004.0))
+        version: 0.0.0-59a1d9e(wrangler@3.80.0(@cloudflare/workers-types@4.20241004.0))
       '@tsconfig/next':
         specifier: 2.0.3
         version: 2.0.3
@@ -153,7 +153,7 @@ importers:
         version: 18.3.0
       '@vanilla-extract/next-plugin':
         specifier: 2.4.6
-        version: 2.4.6(@types/node@20.16.10)(next@14.2.14(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.34.1)(webpack@5.95.0(esbuild@0.17.19))
+        version: 2.4.6(@types/node@20.16.10)(next@14.2.14(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.34.1)(webpack@5.95.0)
       eslint:
         specifier: 8.57.1
         version: 8.57.1
@@ -167,8 +167,8 @@ importers:
         specifier: 5.6.2
         version: 5.6.2
       wrangler:
-        specifier: 3.79.0
-        version: 3.79.0(@cloudflare/workers-types@4.20241004.0)
+        specifier: 3.80.0
+        version: 3.80.0(@cloudflare/workers-types@4.20241004.0)
 
   packages/custom-error:
     dependencies:
@@ -208,8 +208,8 @@ importers:
         specifier: 5.6.2
         version: 5.6.2
       wrangler:
-        specifier: 3.79.0
-        version: 3.79.0(@cloudflare/workers-types@4.20241004.0)
+        specifier: 3.80.0
+        version: 3.80.0(@cloudflare/workers-types@4.20241004.0)
 
   packages/domain:
     dependencies:
@@ -3802,8 +3802,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@3.79.0:
-    resolution: {integrity: sha512-29wzQWc5qNKtD3bSyAEX11j/U5IIk8xy2/ZJ4wljJlS5ppff8qGqI+LtlLmqjqTSeQqFLb87xRkms0YFUgNLXg==}
+  wrangler@3.80.0:
+    resolution: {integrity: sha512-c9aN7Buf7XgTPpQkw1d0VjNRI4qg3m35PTg70Tg4mOeHwHGjsd74PAsP1G8BjpdqDjfWtsua7tj1g4M3/5dYNQ==}
     engines: {node: '>=16.17.0'}
     hasBin: true
     peerDependencies:
@@ -4708,10 +4708,10 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
-  '@opennextjs/cloudflare@0.0.0-59a1d9e(wrangler@3.79.0(@cloudflare/workers-types@4.20241004.0))':
+  '@opennextjs/cloudflare@0.0.0-59a1d9e(wrangler@3.80.0(@cloudflare/workers-types@4.20241004.0))':
     dependencies:
       ts-morph: 23.0.0
-      wrangler: 3.79.0(@cloudflare/workers-types@4.20241004.0)
+      wrangler: 3.80.0(@cloudflare/workers-types@4.20241004.0)
 
   '@paralleldrive/cuid2@2.2.2':
     dependencies:
@@ -5021,7 +5021,7 @@ snapshots:
       '@vanilla-extract/babel-plugin-debug-ids': 1.1.0
       '@vanilla-extract/css': 1.16.0
       dedent: 1.5.3
-      esbuild: 0.21.5
+      esbuild: 0.23.1
       eval: 0.1.8
       find-up: 5.0.0
       javascript-stringify: 2.1.0
@@ -5040,9 +5040,9 @@ snapshots:
       - supports-color
       - terser
 
-  '@vanilla-extract/next-plugin@2.4.6(@types/node@20.16.10)(next@14.2.14(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.34.1)(webpack@5.95.0(esbuild@0.17.19))':
+  '@vanilla-extract/next-plugin@2.4.6(@types/node@20.16.10)(next@14.2.14(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.34.1)(webpack@5.95.0)':
     dependencies:
-      '@vanilla-extract/webpack-plugin': 2.3.14(@types/node@20.16.10)(terser@5.34.1)(webpack@5.95.0(esbuild@0.17.19))
+      '@vanilla-extract/webpack-plugin': 2.3.14(@types/node@20.16.10)(terser@5.34.1)(webpack@5.95.0)
       next: 14.2.14(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     transitivePeerDependencies:
       - '@types/node'
@@ -5063,13 +5063,13 @@ snapshots:
     dependencies:
       '@vanilla-extract/css': 1.16.0
 
-  '@vanilla-extract/webpack-plugin@2.3.14(@types/node@20.16.10)(terser@5.34.1)(webpack@5.95.0(esbuild@0.17.19))':
+  '@vanilla-extract/webpack-plugin@2.3.14(@types/node@20.16.10)(terser@5.34.1)(webpack@5.95.0)':
     dependencies:
       '@vanilla-extract/integration': 7.1.10(@types/node@20.16.10)(terser@5.34.1)
       debug: 4.3.4
       loader-utils: 2.0.4
       picocolors: 1.1.0
-      webpack: 5.95.0(esbuild@0.17.19)
+      webpack: 5.95.0
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -5372,7 +5372,7 @@ snapshots:
   capnp-ts@0.7.0:
     dependencies:
       debug: 4.3.4
-      tslib: 2.6.2
+      tslib: 2.7.0
     transitivePeerDependencies:
       - supports-color
 
@@ -7250,16 +7250,14 @@ snapshots:
 
   tapable@2.2.1: {}
 
-  terser-webpack-plugin@5.3.10(esbuild@0.17.19)(webpack@5.95.0(esbuild@0.17.19)):
+  terser-webpack-plugin@5.3.10(webpack@5.95.0):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       jest-worker: 27.5.1
       schema-utils: 3.3.0
       serialize-javascript: 6.0.2
       terser: 5.34.1
-      webpack: 5.95.0(esbuild@0.17.19)
-    optionalDependencies:
-      esbuild: 0.17.19
+      webpack: 5.95.0
 
   terser@5.34.1:
     dependencies:
@@ -7473,7 +7471,7 @@ snapshots:
 
   webpack-sources@3.2.3: {}
 
-  webpack@5.95.0(esbuild@0.17.19):
+  webpack@5.95.0:
     dependencies:
       '@types/estree': 1.0.6
       '@webassemblyjs/ast': 1.12.1
@@ -7495,7 +7493,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 3.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.10(esbuild@0.17.19)(webpack@5.95.0(esbuild@0.17.19))
+      terser-webpack-plugin: 5.3.10(webpack@5.95.0)
       watchpack: 2.4.2
       webpack-sources: 3.2.3
     transitivePeerDependencies:
@@ -7553,7 +7551,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20240925.0
       '@cloudflare/workerd-windows-64': 1.20240925.0
 
-  wrangler@3.79.0(@cloudflare/workers-types@4.20241004.0):
+  wrangler@3.80.0(@cloudflare/workers-types@4.20241004.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@cloudflare/workers-shared': 0.5.4
