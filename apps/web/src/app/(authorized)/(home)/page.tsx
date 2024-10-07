@@ -2,7 +2,7 @@ import { Building2Icon, MessageSquareHeartIcon, UsersIcon } from 'lucide-react';
 import Link from 'next/link';
 
 import * as styles from './page.css';
-import { Button, ButtonIcon } from '../../components/elements/button';
+import { Button, ButtonIcon } from '../../../components/elements/button';
 
 import type { FC } from 'react';
 
