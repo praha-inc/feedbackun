@@ -11,8 +11,8 @@ export const discardFeedbackHandler: BlockActionAckHandler<'button', Env> = asyn
 }) => {
   await doSync
     .andThen(bindSync('container', () => structSync({
-      channelId: SlackChannelId.create(payload.container.channel_id ?? ''),
-      messageTs: ok(payload.container.message_ts!),
+      channelId: SlackChannelId.create('channel_id' in payload.container ? payload.container.channel_id : ''),
+      messageTs: ok('message_ts' in payload.container ? payload.container.message_ts : ''),
     })))
     .asyncAndThen(ResultAsync.fromThrowable(async ({ container }) => {
       return context.client.chat.delete({

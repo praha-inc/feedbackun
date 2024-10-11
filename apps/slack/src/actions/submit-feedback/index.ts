@@ -56,8 +56,8 @@ export const submitFeedbackHandler: BlockActionAckHandler<'button', Env> = async
 
   await doSync
     .andThen(bindSync('container', () => structSync({
-      channelId: SlackChannelId.create(payload.container.channel_id ?? ''),
-      messageTs: ok(payload.container.message_ts!),
+      channelId: SlackChannelId.create('channel_id' in payload.container ? payload.container.channel_id : ''),
+      messageTs: ok('message_ts' in payload.container ? payload.container.message_ts : ''),
     })))
     .andThen(bindSync('values', () => structSync({
       id: FeedbackId.create(createId()),
