@@ -41,7 +41,7 @@
     "@graphql-codegen/client-preset": "4.4.0",
     "@graphql-tools/utils": "10.5.4",
     "@graphql-typed-document-node/core": "3.2.0",
-    "@opennextjs/cloudflare": "0.0.0-59a1d9e",
+    "@opennextjs/cloudflare": "0.1.1",
     "@tsconfig/next": "2.0.3",
     "@types/node": "20.16.11",
     "@types/react": "18.3.11",
