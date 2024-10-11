@@ -27,7 +27,7 @@
     "graphql-yoga": "5.7.0",
     "lucide-react": "0.447.0",
     "modern-normalize": "3.0.1",
-    "next": "14.2.14",
+    "next": "14.2.15",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "server-only": "0.0.1"
@@ -48,7 +48,7 @@
     "@types/react-dom": "18.3.0",
     "@vanilla-extract/next-plugin": "2.4.6",
     "eslint": "8.57.1",
-    "eslint-config-next": "14.2.14",
+    "eslint-config-next": "14.2.15",
     "tsx": "4.19.1",
     "typescript": "5.6.2",
     "wrangler": "3.80.0"
