@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@graphql-tools/executor-http": "1.1.6",
-    "@pothos/core": "4.2.0",
+    "@pothos/core": "4.3.0",
     "@pothos/plugin-simple-objects": "4.1.0",
     "@radix-ui/react-slot": "1.1.0",
     "@vanilla-extract/css": "1.16.0",
