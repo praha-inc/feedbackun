@@ -4,4 +4,7 @@ export * from './modules/slack-emojis';
 export * from './modules/slack-messages';
 export * from './modules/slack-teams';
 export * from './modules/slack-users';
+export * from './modules/user-session-requests';
+export * from './modules/user-sessions';
+export * from './modules/users';
 export * from './modules/work-skill-elements';

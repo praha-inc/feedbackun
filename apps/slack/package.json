@@ -11,6 +11,7 @@
     "lint:type": "tsc --pretty --noEmit"
   },
   "dependencies": {
+    "@feedbackun/package-custom-error": "workspace:*",
     "@feedbackun/package-database": "workspace:*",
     "@feedbackun/package-domain": "workspace:*",
     "@feedbackun/package-neverthrow": "workspace:*",

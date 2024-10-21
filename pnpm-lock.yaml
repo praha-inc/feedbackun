@@ -38,6 +38,9 @@ importers:
 
   apps/slack:
     dependencies:
+      '@feedbackun/package-custom-error':
+        specifier: workspace:*
+        version: link:../../packages/custom-error
       '@feedbackun/package-database':
         specifier: workspace:*
         version: link:../../packages/database

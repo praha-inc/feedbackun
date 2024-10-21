@@ -5,6 +5,7 @@ import { err, ok, ResultAsync } from 'neverthrow';
 import { match } from 'ts-pattern';
 
 import { SlackTeamId } from '../../slack-teams';
+import { UserId } from '../../users/models/user-id';
 import { SlackUser } from '../models/slack-user';
 import { SlackUserId } from '../models/slack-user-id';
 
@@ -59,6 +60,7 @@ export const findSlackUser: FindSlackUser = (input) => {
       if (!row) return err(new FindSlackUserNotFoundError());
       return ok(new SlackUser({
         id: SlackUserId.create(row.id)._unsafeUnwrap(),
+        userId: row.userId ? UserId.create(row.userId)._unsafeUnwrap() : null,
         slackTeamId: SlackTeamId.create(row.slackTeamId)._unsafeUnwrap(),
         name: row.name,
       }));
