@@ -1,5 +1,6 @@
 import { CustomError } from '@feedbackun/package-custom-error';
 import { database, schema } from '@feedbackun/package-database';
+import { doAsync } from '@feedbackun/package-neverthrow';
 import { ok, ResultAsync } from 'neverthrow';
 
 import { SlackChannelId } from '../../slack-channels';
@@ -22,23 +23,24 @@ export type SaveSlackMessage = (
   input: SaveSlackMessageInput,
 ) => ResultAsync<SlackMessage, SaveSlackMessageError>;
 
-export const saveSlackMessage: SaveSlackMessage = (input) => {
-  const result = ResultAsync.fromPromise(
-    database()
-      .insert(schema.slackMessages)
-      .values({
-        id: input.id.value,
-        slackChannelId: input.slackChannelId.value,
-        slackUserId: input.slackUserId.value,
-        text: input.text,
-        ts: input.ts,
-      })
-      .returning()
-      .get(),
-    (error) => new SaveSlackMessageUnexpectedError({ cause: error }),
-  );
+const insrtSlackMessage = (slackMessage: SlackMessage) => ResultAsync.fromPromise(
+  database()
+    .insert(schema.slackMessages)
+    .values({
+      id: slackMessage.id.value,
+      slackChannelId: slackMessage.slackChannelId.value,
+      slackUserId: slackMessage.slackUserId.value,
+      text: slackMessage.text,
+      ts: slackMessage.ts,
+    })
+    .returning()
+    .get(),
+  (error) => new SaveSlackMessageUnexpectedError({ cause: error }),
+);
 
-  return result
+export const saveSlackMessage: SaveSlackMessage = (input) => {
+  return doAsync
+    .andThen(() => insrtSlackMessage(input))
     .andThen((row) => {
       return ok(new SlackMessage({
         id: SlackMessageId.create(row.id)._unsafeUnwrap(),

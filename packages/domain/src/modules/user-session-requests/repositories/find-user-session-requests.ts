@@ -30,16 +30,16 @@ export type FindUserSessionRequests = (
   input: FindUserSessionRequestsInput,
 ) => ResultAsync<UserSessionRequest[], FindUserSessionRequestsError>;
 
-export const findUserSessionRequests: FindUserSessionRequests = (input) => {
-  const result = ResultAsync.fromThrowable((input: FindUserSessionRequestsInput) =>
-    database()
-      .select()
-      .from(schema.userSessionRequests)
-      .where(eq(schema.userSessionRequests.userId, input.userId.value)),
-  );
+const findByUserId = ResultAsync.fromThrowable((input: FindUserSessionRequestsInput) =>
+  database()
+    .select()
+    .from(schema.userSessionRequests)
+    .where(eq(schema.userSessionRequests.userId, input.userId.value)),
+);
 
+export const findUserSessionRequests: FindUserSessionRequests = (input) => {
   return match(input)
-    .with({ type: 'user-id' }, (input) => result(input))
+    .with({ type: 'user-id' }, (input) => findByUserId(input))
     .exhaustive()
     .mapErr((error) => new FindUserSessionRequestsUnexpectedError({ cause: error }))
     .andThen((rows) => {

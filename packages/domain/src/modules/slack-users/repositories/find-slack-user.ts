@@ -5,7 +5,7 @@ import { err, ok, ResultAsync } from 'neverthrow';
 import { match } from 'ts-pattern';
 
 import { SlackTeamId } from '../../slack-teams';
-import { UserId } from '../../users/models/user-id';
+import { UserId } from '../../users';
 import { SlackUser } from '../models/slack-user';
 import { SlackUserId } from '../models/slack-user-id';
 
@@ -38,22 +38,22 @@ export type FindSlackUser = (
   input: FindSlackUserInput,
 ) => ResultAsync<SlackUser, FindSlackUserError>;
 
-export const findSlackUser: FindSlackUser = (input) => {
-  const result = ResultAsync.fromThrowable((input: FindSlackUserInputSlackTeamIdAndSlackUserId) =>
-    database()
-      .select()
-      .from(schema.slackUsers)
-      .where(
-        and(
-          eq(schema.slackUsers.slackTeamId, input.slackTeamId.value),
-          eq(schema.slackUsers.id, input.slackUserId.value),
-        ),
-      )
-      .get(),
-  );
+const findBySlackTeamIdAndSlackUserId = ResultAsync.fromThrowable((input: FindSlackUserInputSlackTeamIdAndSlackUserId) =>
+  database()
+    .select()
+    .from(schema.slackUsers)
+    .where(
+      and(
+        eq(schema.slackUsers.slackTeamId, input.slackTeamId.value),
+        eq(schema.slackUsers.id, input.slackUserId.value),
+      ),
+    )
+    .get(),
+);
 
+export const findSlackUser: FindSlackUser = (input) => {
   return match(input)
-    .with({ type: 'slack-team-id-and-slack-user-id' }, (input) => result(input))
+    .with({ type: 'slack-team-id-and-slack-user-id' }, (input) => findBySlackTeamIdAndSlackUserId(input))
     .exhaustive()
     .mapErr((error) => new FindSlackUserUnexpectedError({ cause: error }))
     .andThen((row) => {

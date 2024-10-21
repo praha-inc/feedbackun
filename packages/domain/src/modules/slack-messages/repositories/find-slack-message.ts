@@ -39,23 +39,23 @@ export type FindSlackMessage = (
   input: FindSlackMessageInput,
 ) => ResultAsync<SlackMessage, FindSlackMessageError>;
 
-export const findSlackMessage: FindSlackMessage = (input) => {
-  const slackChannelIdAndSlackUserIdAndSlackMessageTs = ResultAsync.fromThrowable((input: FindSlackMessageInputSlackChannelIdAndSlackUserIdAndSlackMessageTs) =>
-    database()
-      .select()
-      .from(schema.slackMessages)
-      .where(
-        and(
-          eq(schema.slackMessages.slackChannelId, input.slackChannelId.value),
-          eq(schema.slackMessages.slackUserId, input.slackUserId.value),
-          eq(schema.slackMessages.ts, input.slackMessageTs),
-        ),
-      )
-      .get(),
-  );
+const findBySlackChannelIdAndSlackUserIdAndSlackMessageTs = ResultAsync.fromThrowable((input: FindSlackMessageInputSlackChannelIdAndSlackUserIdAndSlackMessageTs) =>
+  database()
+    .select()
+    .from(schema.slackMessages)
+    .where(
+      and(
+        eq(schema.slackMessages.slackChannelId, input.slackChannelId.value),
+        eq(schema.slackMessages.slackUserId, input.slackUserId.value),
+        eq(schema.slackMessages.ts, input.slackMessageTs),
+      ),
+    )
+    .get(),
+);
 
+export const findSlackMessage: FindSlackMessage = (input) => {
   return match(input)
-    .with({ type: 'slack-channel-id-and-slack-user-id-and-slack-message-ts' }, (input) => slackChannelIdAndSlackUserIdAndSlackMessageTs(input))
+    .with({ type: 'slack-channel-id-and-slack-user-id-and-slack-message-ts' }, (input) => findBySlackChannelIdAndSlackUserIdAndSlackMessageTs(input))
     .exhaustive()
     .mapErr((error) => new FindSlackMessageUnexpectedError({ cause: error }))
     .andThen((row) => {

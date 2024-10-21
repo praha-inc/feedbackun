@@ -37,22 +37,22 @@ export type FindSlackChannel = (
   input: FindSlackChannelInput,
 ) => ResultAsync<SlackChannel, FindSlackChannelError>;
 
-export const findSlackChannel: FindSlackChannel = (input) => {
-  const slackTeamIdAndSlackChannelId = ResultAsync.fromThrowable((input: FindSlackChannelInputSlackTeamIdAndSlackChannelId) =>
-    database()
-      .select()
-      .from(schema.slackChannels)
-      .where(
-        and(
-          eq(schema.slackChannels.slackTeamId, input.slackTeamId.value),
-          eq(schema.slackChannels.id, input.slackChannelId.value),
-        ),
-      )
-      .get(),
-  );
+const findBySlackTeamIdAndSlackChannelId = ResultAsync.fromThrowable((input: FindSlackChannelInputSlackTeamIdAndSlackChannelId) =>
+  database()
+    .select()
+    .from(schema.slackChannels)
+    .where(
+      and(
+        eq(schema.slackChannels.slackTeamId, input.slackTeamId.value),
+        eq(schema.slackChannels.id, input.slackChannelId.value),
+      ),
+    )
+    .get(),
+);
 
+export const findSlackChannel: FindSlackChannel = (input) => {
   return match(input)
-    .with({ type: 'slack-team-id-and-slack-channel-id' }, (input) => slackTeamIdAndSlackChannelId(input))
+    .with({ type: 'slack-team-id-and-slack-channel-id' }, (input) => findBySlackTeamIdAndSlackChannelId(input))
     .exhaustive()
     .mapErr((error) => new FindSlackChannelUnexpectedError({ cause: error }))
     .andThen((row) => {

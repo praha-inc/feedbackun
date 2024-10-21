@@ -38,22 +38,22 @@ export type FindSlackEmoji = (
   input: FindSlackEmojiInput,
 ) => ResultAsync<SlackEmoji, FindSlackEmojiError>;
 
-export const findSlackEmoji: FindSlackEmoji = (input) => {
-  const slackTeamIdAndSlackEmojiName = ResultAsync.fromThrowable((input: FindSlackEmojiInputSlackTeamIdAndSlackEmojiName) =>
-    database()
-      .select()
-      .from(schema.slackEmojis)
-      .where(
-        and(
-          eq(schema.slackEmojis.slackTeamId, input.slackTeamId.value),
-          eq(schema.slackEmojis.name, input.name),
-        ),
-      )
-      .get(),
-  );
+const findBySlackTeamIdAndSlackEmojiName = ResultAsync.fromThrowable((input: FindSlackEmojiInputSlackTeamIdAndSlackEmojiName) =>
+  database()
+    .select()
+    .from(schema.slackEmojis)
+    .where(
+      and(
+        eq(schema.slackEmojis.slackTeamId, input.slackTeamId.value),
+        eq(schema.slackEmojis.name, input.name),
+      ),
+    )
+    .get(),
+);
 
+export const findSlackEmoji: FindSlackEmoji = (input) => {
   return match(input)
-    .with({ type: 'slack-team-id-and-slack-emoji-name' }, (input) => slackTeamIdAndSlackEmojiName(input))
+    .with({ type: 'slack-team-id-and-slack-emoji-name' }, (input) => findBySlackTeamIdAndSlackEmojiName(input))
     .exhaustive()
     .mapErr((error) => new FindSlackEmojiUnexpectedError({ cause: error }))
     .andThen((row) => {
