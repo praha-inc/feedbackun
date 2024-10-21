@@ -11,7 +11,6 @@ import {
   bindSync,
   doAsync,
   doSync,
-  passThroughAsync,
   structSync,
 } from '@feedbackun/package-neverthrow';
 import { createId } from '@paralleldrive/cuid2';
@@ -70,10 +69,11 @@ export const submitFeedbackHandler: BlockActionAckHandler<'button', Env> = async
     })))
     .asyncAndThen(({ container, values }) => {
       return doAsync
-        .andThen(passThroughAsync(() => completeQuestion(context.client, container.channelId, container.messageTs)))
-        .andThen(bindSync('feedback', () => ok(new Feedback(values))))
-        .andThen(passThroughAsync(({ feedback }) => saveFeedback(feedback)))
-        .andThen(() => postSuccessMessage(context.client, container.channelId, container.messageTs))
+        .andThrough(() => completeQuestion(context.client, container.channelId, container.messageTs))
+        .andThrough(() => {
+          return ok(new Feedback(values)).asyncAndThen((feedback) => saveFeedback(feedback));
+        })
+        .andThrough(() => postSuccessMessage(context.client, container.channelId, container.messageTs))
         .orElse((error) => {
           console.error(error);
           return postFailureMessage(context.client, container.channelId, container.messageTs);
