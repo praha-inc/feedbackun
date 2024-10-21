@@ -19,7 +19,6 @@ import {
   saveSlackChannel,
 } from '@feedbackun/package-domain';
 import { bindAsync, doAsync, structAsync } from '@feedbackun/package-neverthrow';
-import { createId } from '@paralleldrive/cuid2';
 import { errAsync, ok } from 'neverthrow';
 
 import { getChannel } from './helpers/get-channel';
@@ -120,7 +119,7 @@ const findOrCreateMessage = (
     return getMessage(client, slackChannelId, slackMessageTs)
       .andThen((result) => {
         return saveSlackMessage(new SlackMessage({
-          id: SlackMessageId.create(createId())._unsafeUnwrap(),
+          id: SlackMessageId.new(),
           slackChannelId,
           slackUserId,
           text: result.messages![0]!.text!,

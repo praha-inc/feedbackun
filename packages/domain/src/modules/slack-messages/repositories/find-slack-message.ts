@@ -61,9 +61,9 @@ export const findSlackMessage: FindSlackMessage = (input) => {
     .andThen((row) => {
       if (!row) return err(new FindSlackMessageNotFoundError());
       return ok(new SlackMessage({
-        id: SlackMessageId.create(row.id)._unsafeUnwrap(),
-        slackChannelId: SlackChannelId.create(row.slackChannelId)._unsafeUnwrap(),
-        slackUserId: SlackUserId.create(row.slackUserId)._unsafeUnwrap(),
+        id: SlackMessageId.reconstruct(row.id),
+        slackChannelId: SlackChannelId.reconstruct(row.slackChannelId),
+        slackUserId: SlackUserId.reconstruct(row.slackUserId),
         text: row.text,
         ts: row.ts,
       }));

@@ -13,7 +13,6 @@ import {
   doSync,
   structSync,
 } from '@feedbackun/package-neverthrow';
-import { createId } from '@paralleldrive/cuid2';
 import { ok, Result } from 'neverthrow';
 import * as v from 'valibot';
 
@@ -59,7 +58,7 @@ export const submitFeedbackHandler: BlockActionAckHandler<'button', Env> = async
       messageTs: ok('message_ts' in payload.container ? payload.container.message_ts : ''),
     })))
     .andThen(bindSync('values', () => structSync({
-      id: FeedbackId.create(createId()),
+      id: FeedbackId.new(),
       sendSlackUserId: SlackUserId.create(sendSlackUserId),
       receiveSlackUserId: SlackUserId.create(receiveSlackUserId),
       slackMessageId: SlackMessageId.create(slackMessageId),

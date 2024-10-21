@@ -13,8 +13,10 @@ export class UserSessionIdInvalidFormatError extends CustomError({
 
 export type UserSessionIdError = UserSessionIdInvalidFormatError;
 
+const schema = v.pipe(v.string(), v.cuid2());
+
 type Properties = {
-  value: string;
+  value: v.InferOutput<typeof schema>;
 };
 
 export class UserSessionId extends ValueObject('UserSessionId')<Properties> {
@@ -29,9 +31,13 @@ export class UserSessionId extends ValueObject('UserSessionId')<Properties> {
     );
 
     if (result.success) {
-      return ok(new UserSessionId({ value }));
+      return ok(new UserSessionId({ value: result.output }));
     }
 
     return err(new UserSessionIdInvalidFormatError());
+  }
+
+  public static reconstruct(value: string): UserSessionId {
+    return new UserSessionId({ value: v.parse(schema, value) });
   }
 }

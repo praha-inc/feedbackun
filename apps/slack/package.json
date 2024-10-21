@@ -15,7 +15,6 @@
     "@feedbackun/package-database": "workspace:*",
     "@feedbackun/package-domain": "workspace:*",
     "@feedbackun/package-neverthrow": "workspace:*",
-    "@paralleldrive/cuid2": "2.2.2",
     "drizzle-orm": "0.35.2",
     "neverthrow": "8.0.0",
     "slack-edge": "1.2.0",

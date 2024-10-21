@@ -1,4 +1,5 @@
 import { CustomError } from '@feedbackun/package-custom-error';
+import { createId } from '@paralleldrive/cuid2';
 import { err, ok } from 'neverthrow';
 import * as v from 'valibot';
 
@@ -13,8 +14,10 @@ export class FeedbackIdInvalidFormatError extends CustomError({
 
 export type FeedbackIdError = FeedbackIdInvalidFormatError;
 
+const schema = v.pipe(v.string(), v.cuid2());
+
 type Properties = {
-  value: string;
+  value: v.InferOutput<typeof schema>;
 };
 
 export class FeedbackId extends ValueObject('FeedbackId')<Properties> {
@@ -22,16 +25,21 @@ export class FeedbackId extends ValueObject('FeedbackId')<Properties> {
     super(properties);
   }
 
+  public static new(): FeedbackId {
+    return new FeedbackId({ value: createId() });
+  }
+
   public static create(value: string): Result<FeedbackId, FeedbackIdError> {
-    const result = v.safeParse(
-      v.pipe(v.string(), v.cuid2()),
-      value,
-    );
+    const result = v.safeParse(schema, value);
 
     if (result.success) {
-      return ok(new FeedbackId({ value }));
+      return ok(new FeedbackId({ value: result.output }));
     }
 
     return err(new FeedbackIdInvalidFormatError());
+  }
+
+  public static reconstruct(value: string): FeedbackId {
+    return new FeedbackId({ value: v.parse(schema, value) });
   }
 }

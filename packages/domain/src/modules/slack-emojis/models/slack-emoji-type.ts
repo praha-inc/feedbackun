@@ -13,8 +13,10 @@ export class SlackEmojiTypeInvaltypeFormatError extends CustomError({
 
 export type SlackEmojiTypeError = SlackEmojiTypeInvaltypeFormatError;
 
+const schema = v.union([v.literal('unicode'), v.literal('custom')]);
+
 type Properties = {
-  value: string;
+  value: v.InferOutput<typeof schema>;
 };
 
 export class SlackEmojiType extends ValueObject('SlackEmojiType')<Properties> {
@@ -23,15 +25,16 @@ export class SlackEmojiType extends ValueObject('SlackEmojiType')<Properties> {
   }
 
   public static create(value: string): Result<SlackEmojiType, SlackEmojiTypeError> {
-    const result = v.safeParse(
-      v.union([v.literal('unicode'), v.literal('custom')]),
-      value,
-    );
+    const result = v.safeParse(schema, value);
 
     if (result.success) {
-      return ok(new SlackEmojiType({ value }));
+      return ok(new SlackEmojiType({ value: result.output }));
     }
 
     return err(new SlackEmojiTypeInvaltypeFormatError());
+  }
+
+  public static reconstruct(value: string): SlackEmojiType {
+    return new SlackEmojiType({ value: v.parse(schema, value) });
   }
 }

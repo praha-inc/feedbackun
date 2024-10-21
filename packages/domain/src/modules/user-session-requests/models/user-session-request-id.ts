@@ -13,8 +13,10 @@ export class UserSessionRequestIdInvalidFormatError extends CustomError({
 
 export type UserSessionRequestIdError = UserSessionRequestIdInvalidFormatError;
 
+const schema = v.pipe(v.string(), v.cuid2());
+
 type Properties = {
-  value: string;
+  value: v.InferOutput<typeof schema>;
 };
 
 export class UserSessionRequestId extends ValueObject('UserSessionRequestId')<Properties> {
@@ -23,15 +25,16 @@ export class UserSessionRequestId extends ValueObject('UserSessionRequestId')<Pr
   }
 
   public static create(value: string): Result<UserSessionRequestId, UserSessionRequestIdError> {
-    const result = v.safeParse(
-      v.pipe(v.string(), v.cuid2()),
-      value,
-    );
+    const result = v.safeParse(schema, value);
 
     if (result.success) {
-      return ok(new UserSessionRequestId({ value }));
+      return ok(new UserSessionRequestId({ value: result.output }));
     }
 
     return err(new UserSessionRequestIdInvalidFormatError());
+  }
+
+  public static reconstruct(value: string): UserSessionRequestId {
+    return new UserSessionRequestId({ value: v.parse(schema, value) });
   }
 }

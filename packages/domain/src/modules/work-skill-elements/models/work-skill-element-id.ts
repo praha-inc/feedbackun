@@ -13,8 +13,10 @@ export class WorkSkillElementIdInvalidFormatError extends CustomError({
 
 export type WorkSkillElementIdError = WorkSkillElementIdInvalidFormatError;
 
+const schema = v.pipe(v.string(), v.cuid2());
+
 type Properties = {
-  value: string;
+  value: v.InferOutput<typeof schema>;
 };
 
 export class WorkSkillElementId extends ValueObject('WorkSkillElementId')<Properties> {
@@ -23,15 +25,16 @@ export class WorkSkillElementId extends ValueObject('WorkSkillElementId')<Proper
   }
 
   public static create(value: string): Result<WorkSkillElementId, WorkSkillElementIdError> {
-    const result = v.safeParse(
-      v.pipe(v.string(), v.cuid2()),
-      value,
-    );
+    const result = v.safeParse(schema, value);
 
     if (result.success) {
-      return ok(new WorkSkillElementId({ value }));
+      return ok(new WorkSkillElementId({ value: result.output }));
     }
 
     return err(new WorkSkillElementIdInvalidFormatError());
+  }
+
+  public static reconstruct(value: string): WorkSkillElementId {
+    return new WorkSkillElementId({ value: v.parse(schema, value) });
   }
 }

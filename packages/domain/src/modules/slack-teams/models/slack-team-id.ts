@@ -13,8 +13,10 @@ export class SlackTeamIdInvalidFormatError extends CustomError({
 
 export type SlackTeamIdError = SlackTeamIdInvalidFormatError;
 
+const schema = v.pipe(v.string(), v.regex(/^T.*$/));
+
 type Properties = {
-  value: string;
+  value: v.InferOutput<typeof schema>;
 };
 
 export class SlackTeamId extends ValueObject('SlackTeamId')<Properties> {
@@ -23,15 +25,16 @@ export class SlackTeamId extends ValueObject('SlackTeamId')<Properties> {
   }
 
   public static create(value: string): Result<SlackTeamId, SlackTeamIdError> {
-    const result = v.safeParse(
-      v.pipe(v.string(), v.regex(/^T.*$/)),
-      value,
-    );
+    const result = v.safeParse(schema, value);
 
     if (result.success) {
-      return ok(new SlackTeamId({ value }));
+      return ok(new SlackTeamId({ value: result.output }));
     }
 
     return err(new SlackTeamIdInvalidFormatError());
+  }
+
+  public static reconstruct(value: string): SlackTeamId {
+    return new SlackTeamId({ value: v.parse(schema, value) });
   }
 }

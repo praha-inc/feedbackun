@@ -50,9 +50,6 @@ importers:
       '@feedbackun/package-neverthrow':
         specifier: workspace:*
         version: link:../../packages/neverthrow
-      '@paralleldrive/cuid2':
-        specifier: 2.2.2
-        version: 2.2.2
       drizzle-orm:
         specifier: 0.35.2
         version: 0.35.2(@cloudflare/workers-types@4.20241018.0)(@types/react@18.3.11)(react@18.3.1)
@@ -246,6 +243,9 @@ importers:
       '@feedbackun/package-neverthrow':
         specifier: workspace:*
         version: link:../neverthrow
+      '@paralleldrive/cuid2':
+        specifier: 2.2.2
+        version: 2.2.2
       drizzle-orm:
         specifier: 0.35.2
         version: 0.35.2(@cloudflare/workers-types@4.20241018.0)(@types/react@18.3.11)(react@18.3.1)

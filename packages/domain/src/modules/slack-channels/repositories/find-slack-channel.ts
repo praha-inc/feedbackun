@@ -58,8 +58,8 @@ export const findSlackChannel: FindSlackChannel = (input) => {
     .andThen((row) => {
       if (!row) return err(new FindSlackChannelNotFoundError());
       return ok(new SlackChannel({
-        id: SlackChannelId.create(row.id)._unsafeUnwrap(),
-        slackTeamId: SlackTeamId.create(row.slackTeamId)._unsafeUnwrap(),
+        id: SlackChannelId.reconstruct(row.id),
+        slackTeamId: SlackTeamId.reconstruct(row.slackTeamId),
         name: row.name,
       }));
     });

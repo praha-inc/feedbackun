@@ -53,7 +53,7 @@ export const findSlackTeam: FindSlackTeam = (input) => {
     .andThen((row) => {
       if (!row) return err(new FindSlackTeamNotFoundError());
       return ok(new SlackTeam({
-        id: SlackTeamId.create(row.id)._unsafeUnwrap(),
+        id: SlackTeamId.reconstruct(row.id),
         name: row.name,
         domain: row.domain,
       }));

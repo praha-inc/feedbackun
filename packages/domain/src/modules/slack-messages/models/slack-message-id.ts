@@ -1,4 +1,5 @@
 import { CustomError } from '@feedbackun/package-custom-error';
+import { createId } from '@paralleldrive/cuid2';
 import { err, ok } from 'neverthrow';
 import * as v from 'valibot';
 
@@ -13,8 +14,10 @@ export class SlackMessageIdInvalidFormatError extends CustomError({
 
 export type SlackMessageIdError = SlackMessageIdInvalidFormatError;
 
+const schema = v.pipe(v.string(), v.cuid2());
+
 type Properties = {
-  value: string;
+  value: v.InferOutput<typeof schema>;
 };
 
 export class SlackMessageId extends ValueObject('SlackMessageId')<Properties> {
@@ -22,16 +25,21 @@ export class SlackMessageId extends ValueObject('SlackMessageId')<Properties> {
     super(properties);
   }
 
+  public static new(): SlackMessageId {
+    return new SlackMessageId({ value: createId() });
+  }
+
   public static create(value: string): Result<SlackMessageId, SlackMessageIdError> {
-    const result = v.safeParse(
-      v.pipe(v.string(), v.cuid2()),
-      value,
-    );
+    const result = v.safeParse(schema, value);
 
     if (result.success) {
-      return ok(new SlackMessageId({ value }));
+      return ok(new SlackMessageId({ value: result.output }));
     }
 
     return err(new SlackMessageIdInvalidFormatError());
+  }
+
+  public static reconstruct(value: string): SlackMessageId {
+    return new SlackMessageId({ value: v.parse(schema, value) });
   }
 }

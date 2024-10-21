@@ -77,12 +77,12 @@ export const saveFeedback: SaveFeedback = (input) => {
     })
     .andThen(([[feedback], feedbackWorkSkills]) => {
       return ok(new Feedback({
-        id: FeedbackId.create(feedback!.id)._unsafeUnwrap(),
-        sendSlackUserId: SlackUserId.create(feedback!.sendSlackUserId)._unsafeUnwrap(),
-        receiveSlackUserId: SlackUserId.create(feedback!.receiveSlackUserId)._unsafeUnwrap(),
-        slackMessageId: SlackMessageId.create(feedback!.slackMessageId)._unsafeUnwrap(),
+        id: FeedbackId.reconstruct(feedback!.id),
+        sendSlackUserId: SlackUserId.reconstruct(feedback!.sendSlackUserId),
+        receiveSlackUserId: SlackUserId.reconstruct(feedback!.receiveSlackUserId),
+        slackMessageId: SlackMessageId.reconstruct(feedback!.slackMessageId),
         workSkillElementIds: feedbackWorkSkills?.map((row) => {
-          return WorkSkillElementId.create(row.workSkillElementId)._unsafeUnwrap();
+          return WorkSkillElementId.reconstruct(row.workSkillElementId);
         }) ?? [],
         content: feedback!.content,
         createdAt: feedback!.createdAt,

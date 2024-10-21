@@ -44,8 +44,8 @@ export const findUserSessions: FindUserSessions = (input) => {
     .mapErr((error) => new FindUserSessionsUnexpectedError({ cause: error }))
     .andThen((rows) => {
       return ok(rows.map((row) => new UserSession({
-        id: UserSessionId.create(row.id)._unsafeUnwrap(),
-        userId: UserId.create(row.userId)._unsafeUnwrap(),
+        id: UserSessionId.reconstruct(row.id),
+        userId: UserId.reconstruct(row.userId),
         token: row.token,
         expiredAt: row.expiredAt,
       })));

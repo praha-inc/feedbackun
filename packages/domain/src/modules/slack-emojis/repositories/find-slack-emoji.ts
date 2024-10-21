@@ -59,9 +59,9 @@ export const findSlackEmoji: FindSlackEmoji = (input) => {
     .andThen((row) => {
       if (!row) return err(new FindSlackEmojiNotFoundError());
       return ok(new SlackEmoji({
-        id: SlackEmojiId.create(row.id)._unsafeUnwrap(),
-        type: SlackEmojiType.create(row.type)._unsafeUnwrap(),
-        slackTeamId: SlackTeamId.create(row.slackTeamId)._unsafeUnwrap(),
+        id: SlackEmojiId.reconstruct(row.id),
+        type: SlackEmojiType.reconstruct(row.type),
+        slackTeamId: SlackTeamId.reconstruct(row.slackTeamId),
         name: row.name,
       }));
     });

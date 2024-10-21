@@ -44,8 +44,8 @@ export const findUserSessionRequests: FindUserSessionRequests = (input) => {
     .mapErr((error) => new FindUserSessionRequestsUnexpectedError({ cause: error }))
     .andThen((rows) => {
       return ok(rows.map((row) => new UserSessionRequest({
-        id: UserSessionRequestId.create(row.id)._unsafeUnwrap(),
-        userId: UserId.create(row.userId)._unsafeUnwrap(),
+        id: UserSessionRequestId.reconstruct(row.id),
+        userId: UserId.reconstruct(row.userId),
         token: row.token,
         expiredAt: row.expiredAt,
       })));

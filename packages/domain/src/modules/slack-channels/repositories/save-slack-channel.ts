@@ -40,8 +40,8 @@ export const saveSlackChannel: SaveSlackChannel = (input) => {
     .andThen(() => insertSlackChannel(input))
     .andThen((row) => {
       return ok(new SlackChannel({
-        id: SlackChannelId.create(row.id)._unsafeUnwrap(),
-        slackTeamId: SlackTeamId.create(row.slackTeamId)._unsafeUnwrap(),
+        id: SlackChannelId.reconstruct(row.id),
+        slackTeamId: SlackTeamId.reconstruct(row.slackTeamId),
         name: row.name,
       }));
     });

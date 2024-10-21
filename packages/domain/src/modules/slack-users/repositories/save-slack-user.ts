@@ -42,9 +42,9 @@ export const saveSlackUser: SaveSlackUser = (input) => {
     .andThen(() => insertSlackUser(input))
     .andThen((row) => {
       return ok(new SlackUser({
-        id: SlackUserId.create(row.id)._unsafeUnwrap(),
-        userId: row.userId ? UserId.create(row.userId)._unsafeUnwrap() : null,
-        slackTeamId: SlackTeamId.create(row.slackTeamId)._unsafeUnwrap(),
+        id: SlackUserId.reconstruct(row.id),
+        userId: row.userId ? UserId.reconstruct(row.userId) : null,
+        slackTeamId: SlackTeamId.reconstruct(row.slackTeamId),
         name: row.name,
       }));
     });
