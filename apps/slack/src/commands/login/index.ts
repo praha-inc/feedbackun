@@ -6,13 +6,15 @@ import {
   findSlackUser,
   findUserSessionRequests,
   findUserSessions,
-  saveUserSessionRequest,
+  saveUserSessionRequest, SlackChannelId,
   SlackTeamId,
   SlackUserId,
   UserSessionRequest,
 } from '@feedbackun/package-domain';
 import { bindAsync, doAsync, structAsync } from '@feedbackun/package-neverthrow';
 import { err, ok } from 'neverthrow';
+
+import { postLoginUrl } from './helpers/post-login-url';
 
 import type { Env } from '../../types/env';
 import type { UserId } from '@feedbackun/package-domain';
@@ -26,6 +28,7 @@ class LoginCommandUserNotFoundError extends CustomError({
 
 const constructInput = (context: SlackAppContext, payload: SlashCommand) => structAsync({
   teamId: SlackTeamId.create(context.teamId ?? ''),
+  slackChannelId: SlackChannelId.create(payload.channel_id),
   slackUserId: SlackUserId.create(payload.user_id),
 });
 
@@ -46,6 +49,7 @@ const deleteUserSessionRequestsByUserId = (userId: UserId) => doAsync
 const createUserSessionRequest = (userId: UserId) => saveUserSessionRequest(UserSessionRequest.new(userId));
 
 export const loginCommandHandler: SlashCommandLazyHandler<Env> = async ({
+  env,
   context,
   payload,
 }) => {
@@ -67,6 +71,10 @@ export const loginCommandHandler: SlashCommandLazyHandler<Env> = async ({
     .andThrough(({ userId }) => deleteUserSessionsByUserId(userId))
     .andThrough(({ userId }) => deleteUserSessionRequestsByUserId(userId))
     .andThen(bindAsync('userSessionRequest', ({ userId }) => createUserSessionRequest(userId)))
+    .andThrough(({ input, userSessionRequest }) => {
+      const url = `${env.WEB_URL}/login/${userSessionRequest.token.value}`;
+      return postLoginUrl(context.client, input.slackChannelId, input.slackUserId, url);
+    })
     .match(
       () => {},
       (error) => console.error(error),
