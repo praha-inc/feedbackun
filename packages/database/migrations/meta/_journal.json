@@ -127,6 +127,13 @@
       "when": 1729485641033,
       "tag": "0017_friendly_husk",
       "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "6",
+      "when": 1729502525335,
+      "tag": "0018_amusing_lord_tyger",
+      "breakpoints": true
     }
   ]
 }

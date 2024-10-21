@@ -47,7 +47,7 @@ export const findUserSessions: FindUserSessions = (input) => {
         id: UserSessionId.reconstruct(row.id),
         userId: UserId.reconstruct(row.userId),
         token: row.token,
-        expiredAt: row.expiredAt,
+        createdAt: row.createdAt,
       })));
     });
 };

@@ -7,5 +7,5 @@ export class UserSession extends Entity('UserSession')<{
   id: UserSessionId;
   userId: UserId;
   token: string;
-  expiredAt: Date;
+  createdAt: Date;
 }> {}
