@@ -14,6 +14,7 @@
     "@feedbackun/package-database": "workspace:*",
     "@feedbackun/package-neverthrow": "workspace:*",
     "@paralleldrive/cuid2": "2.2.2",
+    "date-fns": "4.1.0",
     "drizzle-orm": "0.35.2",
     "fast-deep-equal": "3.1.3",
     "neverthrow": "8.0.0",

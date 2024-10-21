@@ -7,6 +7,7 @@ import { match } from 'ts-pattern';
 import { UserId } from '../../users';
 import { UserSessionRequest } from '../models/user-session-request';
 import { UserSessionRequestId } from '../models/user-session-request-id';
+import { UserSessionRequestToken } from '../models/user-session-request-token';
 
 export type FindUserSessionRequestsInputUserId = {
   type: 'user-id';

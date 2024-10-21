@@ -1,4 +1,5 @@
 import { CustomError } from '@feedbackun/package-custom-error';
+import { createId } from '@paralleldrive/cuid2';
 import { err, ok } from 'neverthrow';
 import * as v from 'valibot';
 
@@ -22,6 +23,10 @@ type Properties = {
 export class UserSessionRequestId extends ValueObject('UserSessionRequestId')<Properties> {
   private constructor(properties: Properties) {
     super(properties);
+  }
+
+  public static new(): UserSessionRequestId {
+    return new UserSessionRequestId({ value: createId() });
   }
 
   public static create(value: string): Result<UserSessionRequestId, UserSessionRequestIdError> {

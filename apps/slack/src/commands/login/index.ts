@@ -6,8 +6,10 @@ import {
   findSlackUser,
   findUserSessionRequests,
   findUserSessions,
+  saveUserSessionRequest,
   SlackTeamId,
   SlackUserId,
+  UserSessionRequest,
 } from '@feedbackun/package-domain';
 import { bindAsync, doAsync, structAsync } from '@feedbackun/package-neverthrow';
 import { err, ok } from 'neverthrow';
@@ -41,6 +43,8 @@ const deleteUserSessionRequestsByUserId = (userId: UserId) => doAsync
   }))
   .andThen((sessions) => deleteUserSessionRequests(sessions));
 
+const createUserSessionRequest = (userId: UserId) => saveUserSessionRequest(UserSessionRequest.new(userId));
+
 export const loginCommandHandler: SlashCommandLazyHandler<Env> = async ({
   context,
   payload,
@@ -56,14 +60,15 @@ export const loginCommandHandler: SlashCommandLazyHandler<Env> = async ({
       slackTeamId: team.id,
       slackUserId: input.slackUserId,
     })))
-    .andThen(({ slackUser }) => {
+    .andThen(bindAsync('userId', ({ slackUser }) => {
       if (slackUser.userId) return ok(slackUser.userId);
       return err(new LoginCommandUserNotFoundError());
-    })
-    .andThrough((userId) => deleteUserSessionsByUserId(userId))
-    .andThrough((userId) => deleteUserSessionRequestsByUserId(userId))
+    }))
+    .andThrough(({ userId }) => deleteUserSessionsByUserId(userId))
+    .andThrough(({ userId }) => deleteUserSessionRequestsByUserId(userId))
+    .andThen(bindAsync('userSessionRequest', ({ userId }) => createUserSessionRequest(userId)))
     .match(
-      (result) => console.log(result),
+      () => {},
       (error) => console.error(error),
     );
 };
