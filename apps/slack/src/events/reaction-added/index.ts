@@ -93,6 +93,7 @@ const findOrCreateUser = (
       .andThen((result) => {
         return saveSlackUser(new SlackUser({
           id: slackUserId,
+          userId: null,
           slackTeamId,
           name: result.user!.name!,
         }));
@@ -129,7 +130,6 @@ const findOrCreateMessage = (
   });
 
 export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = async ({
-  env: _env,
   context,
   payload,
 }) => {
