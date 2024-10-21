@@ -4,7 +4,7 @@ import { drizzle } from 'drizzle-orm/d1';
 
 import { schema } from './schema';
 
-import type { DrizzleD1Database } from 'drizzle-orm/d1';
+import type { AnyD1Database, DrizzleD1Database } from 'drizzle-orm/d1';
 
 export * from './schema';
 
@@ -12,7 +12,7 @@ export type Database = DrizzleD1Database<typeof schema>;
 
 const storage = new AsyncLocalStorage<Database>();
 
-export const withDatabase = <T>(database: D1Database, function_: () => T): T => {
+export const withDatabase = <T>(database: AnyD1Database, function_: () => T): T => {
   return storage.run(drizzle(database, { schema }), function_);
 };
 

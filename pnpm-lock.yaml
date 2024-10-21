@@ -51,8 +51,8 @@ importers:
         specifier: 2.2.2
         version: 2.2.2
       drizzle-orm:
-        specifier: 0.34.1
-        version: 0.34.1(@cloudflare/workers-types@4.20241018.0)(@types/react@18.3.11)(react@18.3.1)
+        specifier: 0.35.2
+        version: 0.35.2(@cloudflare/workers-types@4.20241018.0)(@types/react@18.3.11)(react@18.3.1)
       neverthrow:
         specifier: 8.0.0
         version: 8.0.0
@@ -66,6 +66,9 @@ importers:
       '@cloudflare/workers-types':
         specifier: 4.20241018.0
         version: 4.20241018.0
+      '@types/node':
+        specifier: 22.7.7
+        version: 22.7.7
       eslint:
         specifier: 8.57.1
         version: 8.57.1
@@ -191,8 +194,8 @@ importers:
         specifier: workspace:*
         version: link:../database
       drizzle-orm:
-        specifier: 0.34.1
-        version: 0.34.1(@cloudflare/workers-types@4.20241018.0)(@types/react@18.3.11)(react@18.3.1)
+        specifier: 0.35.2
+        version: 0.35.2(@cloudflare/workers-types@4.20241018.0)(@types/react@18.3.11)(react@18.3.1)
       fast-deep-equal:
         specifier: 3.1.3
         version: 3.1.3
@@ -210,9 +213,12 @@ importers:
   packages/database:
     dependencies:
       drizzle-orm:
-        specifier: 0.34.1
-        version: 0.34.1(@cloudflare/workers-types@4.20241018.0)(@types/react@18.3.11)(react@18.3.1)
+        specifier: 0.35.2
+        version: 0.35.2(@cloudflare/workers-types@4.20241018.0)(@types/react@18.3.11)(react@18.3.1)
     devDependencies:
+      '@types/node':
+        specifier: 22.7.7
+        version: 22.7.7
       drizzle-kit:
         specifier: 0.26.2
         version: 0.26.2
@@ -238,8 +244,8 @@ importers:
         specifier: workspace:*
         version: link:../neverthrow
       drizzle-orm:
-        specifier: 0.34.1
-        version: 0.34.1(@cloudflare/workers-types@4.20241018.0)(@types/react@18.3.11)(react@18.3.1)
+        specifier: 0.35.2
+        version: 0.35.2(@cloudflare/workers-types@4.20241018.0)(@types/react@18.3.11)(react@18.3.1)
       fast-deep-equal:
         specifier: 3.1.3
         version: 3.1.3
@@ -253,6 +259,9 @@ importers:
         specifier: 0.42.1
         version: 0.42.1(typescript@5.6.3)
     devDependencies:
+      '@types/node':
+        specifier: 22.7.7
+        version: 22.7.7
       eslint:
         specifier: 8.57.1
         version: 8.57.1
@@ -2061,6 +2070,9 @@ packages:
   '@types/node@20.16.13':
     resolution: {integrity: sha512-GjQ7im10B0labo8ZGXDGROUl9k0BNyDgzfGpb4g/cl+4yYDWVKcozANF4FGr4/p0O/rAkQClM6Wiwkije++1Tg==}
 
+  '@types/node@22.7.7':
+    resolution: {integrity: sha512-SRxCrrg9CL/y54aiMCG3edPKdprgMVGDXjA3gB8UmmBW5TcXzRUYAh8EWzTnSJFAd1rgImPELza+A3bJ+qxz8Q==}
+
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
 
@@ -2729,8 +2741,8 @@ packages:
     resolution: {integrity: sha512-cMq8omEKywjIy5KcqUo6LvEFxkl8/zYHsgYjFVXjmPWWtuW4blcz+YW9+oIhoaALgs2ebRjzXwsJgN9i6P49Dw==}
     hasBin: true
 
-  drizzle-orm@0.34.1:
-    resolution: {integrity: sha512-t+zCwyWWt8xTqtYV4doE/xYmT7hpv1L8pQ66zddEz+3VWyedBBtctjMAp22mAJPfyWurRQXUJ1nrTtqLq+DqNA==}
+  drizzle-orm@0.35.2:
+    resolution: {integrity: sha512-bLQtRchl8QvRo2MyG6kcZC90UDzR7Ubir4YwOHV3cZPdJbF+4jU/Yt0QOczsoXe25wLRt6CtCWLXtSDQKft3yg==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=3'
@@ -6642,9 +6654,13 @@ snapshots:
 
   '@types/node-forge@1.3.11':
     dependencies:
-      '@types/node': 20.16.13
+      '@types/node': 22.7.7
 
   '@types/node@20.16.13':
+    dependencies:
+      undici-types: 6.19.8
+
+  '@types/node@22.7.7':
     dependencies:
       undici-types: 6.19.8
 
@@ -6663,7 +6679,7 @@ snapshots:
 
   '@types/ws@8.5.12':
     dependencies:
-      '@types/node': 20.16.13
+      '@types/node': 22.7.7
 
   '@typescript-eslint/eslint-plugin@7.17.0(@typescript-eslint/parser@7.17.0(eslint@8.57.1)(typescript@5.6.3))(eslint@8.57.1)(typescript@5.6.3)':
     dependencies:
@@ -7508,7 +7524,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.34.1(@cloudflare/workers-types@4.20241018.0)(@types/react@18.3.11)(react@18.3.1):
+  drizzle-orm@0.35.2(@cloudflare/workers-types@4.20241018.0)(@types/react@18.3.11)(react@18.3.1):
     optionalDependencies:
       '@cloudflare/workers-types': 4.20241018.0
       '@types/react': 18.3.11
@@ -8132,7 +8148,7 @@ snapshots:
 
   eval@0.1.8:
     dependencies:
-      '@types/node': 20.16.13
+      '@types/node': 22.7.7
       require-like: 0.1.2
 
   events@3.3.0: {}
@@ -8647,7 +8663,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 20.16.13
+      '@types/node': 22.7.7
       merge-stream: 2.0.0
       supports-color: 8.1.1
 

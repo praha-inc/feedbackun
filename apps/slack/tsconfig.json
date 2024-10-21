@@ -5,7 +5,8 @@
   ],
   "compilerOptions": {
     "types": [
-      "@cloudflare/workers-types"
+      "@cloudflare/workers-types",
+      "@types/node"
     ]
   }
 }
