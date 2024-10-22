@@ -5,8 +5,8 @@ import { users } from './users';
 
 export const userSessionRequests = sqliteTable('user_session_requests', {
   id: text('id').primaryKey(),
-  userId: text('user_id').notNull().references(() => users.id),
-  token: text('token').notNull(),
+  userId: text('user_id').notNull().unique().references(() => users.id),
+  token: text('token').notNull().unique(),
   createdAt: integer('created_at', { mode: 'timestamp' }).notNull(),
 });
 

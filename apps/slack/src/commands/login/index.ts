@@ -1,12 +1,13 @@
 import { CustomError } from '@feedbackun/package-custom-error';
 import {
-  deleteUserSessionRequests,
-  deleteUserSessions,
+  deleteUserSessionRequest,
+  deleteUserSession,
   findSlackTeam,
   findSlackUser,
-  findUserSessionRequests,
-  findUserSessions,
-  saveUserSessionRequest, SlackChannelId,
+  findUserSessionRequest,
+  findUserSession,
+  saveUserSessionRequest,
+  SlackChannelId,
   SlackTeamId,
   SlackUserId,
   UserSessionRequest,
@@ -32,19 +33,19 @@ const constructInput = (context: SlackAppContext, payload: SlashCommand) => stru
   slackUserId: SlackUserId.create(payload.user_id),
 });
 
-const deleteUserSessionsByUserId = (userId: UserId) => doAsync
-  .andThen(() => findUserSessions({
+const deleteUserSessionByUserId = (userId: UserId) => doAsync
+  .andThen(() => findUserSession({
     type: 'user-id',
     userId,
   }))
-  .andThen((sessions) => deleteUserSessions(sessions));
+  .andThen((session) => deleteUserSession(session));
 
-const deleteUserSessionRequestsByUserId = (userId: UserId) => doAsync
-  .andThen(() => findUserSessionRequests({
+const deleteUserSessionRequestByUserId = (userId: UserId) => doAsync
+  .andThen(() => findUserSessionRequest({
     type: 'user-id',
     userId,
   }))
-  .andThen((sessions) => deleteUserSessionRequests(sessions));
+  .andThen((session) => deleteUserSessionRequest(session));
 
 const createUserSessionRequest = (userId: UserId) => saveUserSessionRequest(UserSessionRequest.new(userId));
 
@@ -68,8 +69,8 @@ export const loginCommandHandler: SlashCommandLazyHandler<Env> = async ({
       if (slackUser.userId) return ok(slackUser.userId);
       return err(new LoginCommandUserNotFoundError());
     }))
-    .andThrough(({ userId }) => deleteUserSessionsByUserId(userId))
-    .andThrough(({ userId }) => deleteUserSessionRequestsByUserId(userId))
+    .andThrough(({ userId }) => deleteUserSessionByUserId(userId))
+    .andThrough(({ userId }) => deleteUserSessionRequestByUserId(userId))
     .andThen(bindAsync('userSessionRequest', ({ userId }) => createUserSessionRequest(userId)))
     .andThrough(({ input, userSessionRequest }) => {
       const url = `${env.WEB_URL}/login/${userSessionRequest.token.value}`;
