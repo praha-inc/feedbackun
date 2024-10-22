@@ -12,7 +12,7 @@ export type SaveUserSessionRequestInput = UserSessionRequest;
 
 export class SaveUserSessionRequestUnexpectedError extends CustomError({
   name: 'SaveUserSessionRequestUnexpectedError',
-  message: 'Failed to save user session request',
+  message: 'Failed to save user session request.',
 }) {}
 
 export type SaveUserSessionRequestError = (
@@ -28,7 +28,7 @@ const insertUserSessionRequest = (userSessionRequest: UserSessionRequest) => Res
     .insert(schema.userSessionRequests)
     .values({
       id: userSessionRequest.id.value,
-      userId: userSessionRequest.userId?.value ?? null,
+      userId: userSessionRequest.userId.value,
       token: userSessionRequest.token.value,
       createdAt: userSessionRequest.createdAt,
     })

@@ -1,11 +1,21 @@
+import { UserSessionId } from './user-session-id';
+import { UserSessionToken } from './user-session-token';
 import { Entity } from '../../../core/entity';
 
-import type { UserSessionId } from './user-session-id';
 import type { UserId } from '../../users';
 
 export class UserSession extends Entity('UserSession')<{
   id: UserSessionId;
   userId: UserId;
-  token: string;
+  token: UserSessionToken;
   createdAt: Date;
-}> {}
+}> {
+  public static new(userId: UserId): UserSession {
+    return new UserSession({
+      id: UserSessionId.new(),
+      userId,
+      token: UserSessionToken.new(),
+      createdAt: new Date(),
+    });
+  }
+}

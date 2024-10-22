@@ -14,8 +14,14 @@ export type FindUserSessionRequestInputUserId = {
   userId: UserId;
 };
 
+export type FindUserSessionRequestInputToken = {
+  type: 'token';
+  token: UserSessionRequestToken;
+};
+
 export type FindUserSessionRequestInput = (
   | FindUserSessionRequestInputUserId
+  | FindUserSessionRequestInputToken
 );
 
 export class FindUserSessionRequestNotFoundError extends CustomError({
@@ -37,7 +43,7 @@ export type FindUserSessionRequest = (
   input: FindUserSessionRequestInput,
 ) => ResultAsync<UserSessionRequest, FindUserSessionRequestError>;
 
-const findByUserId = ResultAsync.fromThrowable((input: FindUserSessionRequestInput) =>
+const findByUserId = ResultAsync.fromThrowable((input: FindUserSessionRequestInputUserId) =>
   database()
     .select()
     .from(schema.userSessionRequests)
@@ -45,9 +51,18 @@ const findByUserId = ResultAsync.fromThrowable((input: FindUserSessionRequestInp
     .get(),
 );
 
+const findByToken = ResultAsync.fromThrowable((input: FindUserSessionRequestInputToken) =>
+  database()
+    .select()
+    .from(schema.userSessionRequests)
+    .where(eq(schema.userSessionRequests.token, input.token.value))
+    .get(),
+);
+
 export const findUserSessionRequest: FindUserSessionRequest = (input) => {
   return match(input)
     .with({ type: 'user-id' }, (input) => findByUserId(input))
+    .with({ type: 'token' }, (input) => findByToken(input))
     .exhaustive()
     .mapErr((error) => new FindUserSessionRequestUnexpectedError({ cause: error }))
     .andThen((row) => {

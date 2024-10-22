@@ -1,4 +1,5 @@
 import { CustomError } from '@feedbackun/package-custom-error';
+import { createId } from '@paralleldrive/cuid2';
 import { err, ok } from 'neverthrow';
 import * as v from 'valibot';
 
@@ -24,11 +25,12 @@ export class UserSessionId extends ValueObject('UserSessionId')<Properties> {
     super(properties);
   }
 
+  public static new(): UserSessionId {
+    return new UserSessionId({ value: createId() });
+  }
+
   public static create(value: string): Result<UserSessionId, UserSessionIdError> {
-    const result = v.safeParse(
-      v.pipe(v.string(), v.cuid2()),
-      value,
-    );
+    const result = v.safeParse(schema, value);
 
     if (result.success) {
       return ok(new UserSessionId({ value: result.output }));

@@ -1,3 +1,5 @@
+import { differenceInMinutes } from 'date-fns';
+
 import { UserSessionRequestId } from './user-session-request-id';
 import { UserSessionRequestToken } from './user-session-request-token';
 import { Entity } from '../../../core/entity';
@@ -17,5 +19,9 @@ export class UserSessionRequest extends Entity('UserSessionRequest')<{
       token: UserSessionRequestToken.new(),
       createdAt: new Date(),
     });
+  }
+
+  public isExpired(): boolean {
+    return 5 <= differenceInMinutes(new Date(), this.createdAt);
   }
 }

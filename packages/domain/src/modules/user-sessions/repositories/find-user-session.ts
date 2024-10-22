@@ -7,6 +7,7 @@ import { match } from 'ts-pattern';
 import { UserId } from '../../users';
 import { UserSession } from '../models/user-session';
 import { UserSessionId } from '../models/user-session-id';
+import {UserSessionToken} from "../models/user-session-token";
 
 export type FindUserSessionInputUserId = {
   type: 'user-id';
@@ -54,7 +55,7 @@ export const findUserSession: FindUserSession = (input) => {
       return ok(new UserSession({
         id: UserSessionId.reconstruct(row.id),
         userId: UserId.reconstruct(row.userId),
-        token: row.token,
+        token: UserSessionToken.reconstruct(row.token),
         createdAt: row.createdAt,
       }));
     });
