@@ -15,6 +15,7 @@
     "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts"
   },
   "dependencies": {
+    "@envelop/core": "5.0.2",
     "@feedbackun/package-database": "workspace:*",
     "@feedbackun/package-domain": "workspace:*",
     "@feedbackun/package-neverthrow": "workspace:*",

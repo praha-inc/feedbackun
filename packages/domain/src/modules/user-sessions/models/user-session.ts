@@ -1,3 +1,5 @@
+import { differenceInDays } from 'date-fns';
+
 import { UserSessionId } from './user-session-id';
 import { UserSessionToken } from './user-session-token';
 import { Entity } from '../../../core/entity';
@@ -17,5 +19,9 @@ export class UserSession extends Entity('UserSession')<{
       token: UserSessionToken.new(),
       createdAt: new Date(),
     });
+  }
+
+  public isExpired(): boolean {
+    return 7 <= differenceInDays(new Date(), this.createdAt);
   }
 }

@@ -16,6 +16,8 @@ const AuthorizedLayoutQuery = graphql(/* GraphQL */ `
   }
 `);
 
+export const dynamic = 'force-dynamic';
+
 export type AuthorizedLayoutProps = {
   children: ReactNode;
 };
