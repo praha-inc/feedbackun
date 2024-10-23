@@ -5,7 +5,7 @@ import { workSkillElements } from './work-skill-elements';
 
 export const workSkills = sqliteTable('work_skills', {
   id: text('id').primaryKey(),
-  type: text('type').notNull(),
+  type: text('type', { enum: ['engineer', 'designer'] }).notNull(),
   level: int('level').notNull(),
   name: text('name').notNull(),
 });

@@ -10,6 +10,7 @@ const AuthorizedLayoutQuery = graphql(/* GraphQL */ `
   query AuthorizedLayout {
     me {
       id
+      type
       name
       icon
     }

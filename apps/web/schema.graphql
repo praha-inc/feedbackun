@@ -13,4 +13,13 @@ type User {
 
   """ユーザー名"""
   name: String!
+
+  """ユーザー種別"""
+  type: UserType!
+}
+
+"""ユーザー種別"""
+enum UserType {
+  designer
+  engineer
 }
