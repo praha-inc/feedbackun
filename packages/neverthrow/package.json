@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@feedbackun/package-database": "workspace:*",
-    "neverthrow": "8.0.0"
+    "neverthrow": "8.1.0"
   },
   "devDependencies": {
     "eslint": "8.57.1",
