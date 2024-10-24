@@ -6,6 +6,10 @@ type Scalars = {
     Input: string;
     Output: string;
   };
+  DateTime: {
+    Input: Date;
+    Output: Date;
+  };
 };
 
 type Interfaces = {
