@@ -9,10 +9,7 @@ import type { FC, ReactNode } from 'react';
 const AuthorizedLayoutQuery = graphql(/* GraphQL */ `
   query AuthorizedLayout {
     me {
-      id
-      type
-      name
-      icon
+      ...ApplicationSidebar
     }
   }
 `);
@@ -26,15 +23,15 @@ export type AuthorizedLayoutProps = {
 const AuthorizedLayout: FC<AuthorizedLayoutProps> = async ({
   children,
 }) => {
-  const result = await graphqlExecutor({ document: AuthorizedLayoutQuery });
+  const data = await graphqlExecutor({ document: AuthorizedLayoutQuery });
 
   return (
     <div className={styles.wrapper}>
       <ApplicationHeader className={styles.header} />
-      <ApplicationSidebar className={styles.sidebar} />
+      <ApplicationSidebar className={styles.sidebar} fragment={data.me} />
       <main className={styles.main}>
         {children}
-        <pre>{JSON.stringify(result, null, 2)}</pre>
+        <pre>{JSON.stringify(data, null, 2)}</pre>
       </main>
     </div>
   );

@@ -37,7 +37,7 @@ const ButtonRender: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
     <Wrapper
       {...props}
       ref={ref}
-      className={clsx(className, styles.wrapper({ variant, borderless, size }))}
+      className={clsx(styles.wrapper({ variant, borderless, size }), className)}
     >
       {children}
     </Wrapper>
