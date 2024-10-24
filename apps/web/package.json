@@ -28,7 +28,7 @@
     "@vanilla-extract/css-utils": "0.1.4",
     "@vanilla-extract/recipes": "0.5.5",
     "clsx": "2.1.1",
-    "drizzle-orm": "0.35.2",
+    "drizzle-orm": "0.35.3",
     "graphql": "16.9.0",
     "graphql-yoga": "5.7.0",
     "lucide-react": "0.453.0",
