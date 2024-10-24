@@ -18,16 +18,6 @@ export const header = style({
   gridArea: 'header',
 });
 
-export const sidebar = style({
-  gridArea: 'aside',
-});
-
-export const nav = style({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '8px',
-});
-
 export const main = style({
   gridArea: 'main',
   backgroundColor: theme.color.token.semantic.backgroundInset,
