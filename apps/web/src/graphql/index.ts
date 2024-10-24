@@ -1,8 +1,11 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+
 import { buildHTTPExecutor } from '@graphql-tools/executor-http';
 import { createYoga } from 'graphql-yoga';
 
 import { useAuth } from './plugins/auth';
 import { useDatabase } from './plugins/database';
+import { useDataLoader } from './plugins/dataloader';
 import { createSchema } from './schema';
 
 import type { HTTPExecutorOptions } from '@graphql-tools/executor-http';
@@ -14,10 +17,9 @@ import 'server-only';
 const yoga = createYoga({
   schema: createSchema(),
   plugins: [
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     useAuth(),
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     useDatabase(),
+    useDataLoader(),
   ],
 });
 

@@ -13,6 +13,9 @@ type Feedback {
 
   """フィードバックID"""
   id: ID!
+
+  """フィードバックを受けたユーザー"""
+  recipient: User!
 }
 
 type PageInfo {
