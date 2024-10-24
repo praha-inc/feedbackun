@@ -15,9 +15,29 @@ type Feedback {
   id: ID!
 }
 
+type PageInfo {
+  endCursor: String
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+}
+
 type Query {
+  """フィードバックを取得する"""
+  feedbacks(after: String, before: String, first: Int, last: Int): QueryFeedbacksConnection!
+
   """ログインユーザーを取得する"""
   me: User!
+}
+
+type QueryFeedbacksConnection {
+  edges: [QueryFeedbacksConnectionEdge!]!
+  pageInfo: PageInfo!
+}
+
+type QueryFeedbacksConnectionEdge {
+  cursor: String!
+  node: Feedback!
 }
 
 """ユーザー"""

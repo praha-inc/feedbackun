@@ -102,6 +102,9 @@ importers:
       '@pothos/core':
         specifier: 4.3.0
         version: 4.3.0(graphql@16.9.0)
+      '@pothos/plugin-relay':
+        specifier: 4.3.0
+        version: 4.3.0(@pothos/core@4.3.0(graphql@16.9.0))(graphql@16.9.0)
       '@pothos/plugin-simple-objects':
         specifier: 4.1.0
         version: 4.1.0(@pothos/core@4.3.0(graphql@16.9.0))(graphql@16.9.0)
@@ -156,6 +159,9 @@ importers:
       server-only:
         specifier: 0.0.1
         version: 0.0.1
+      valibot:
+        specifier: 0.42.1
+        version: 0.42.1(typescript@5.6.3)
     devDependencies:
       '@agaroot/eslint-config-definer':
         specifier: 1.0.5
@@ -1922,6 +1928,12 @@ packages:
   '@pothos/core@4.3.0':
     resolution: {integrity: sha512-i4nyI8wSCjxdHUomqQ2K3FH0Glklomfv4tJNifQVU9lPtQKoKaS69VxGv+fru0HAZzb1eC1XPEPN3XPCYcvZ7Q==}
     peerDependencies:
+      graphql: '>=16.6.0'
+
+  '@pothos/plugin-relay@4.3.0':
+    resolution: {integrity: sha512-sa8PWNQJLSNf7AVY43T3rSq4EnspuAcrPWcH3mCyocaqKzCqZA8DOdJ0tTWeGCJp1lsWkKFSrdb81g9FVJGTIg==}
+    peerDependencies:
+      '@pothos/core': '*'
       graphql: '>=16.6.0'
 
   '@pothos/plugin-simple-objects@4.1.0':
@@ -6611,6 +6623,11 @@ snapshots:
 
   '@pothos/core@4.3.0(graphql@16.9.0)':
     dependencies:
+      graphql: 16.9.0
+
+  '@pothos/plugin-relay@4.3.0(@pothos/core@4.3.0(graphql@16.9.0))(graphql@16.9.0)':
+    dependencies:
+      '@pothos/core': 4.3.0(graphql@16.9.0)
       graphql: 16.9.0
 
   '@pothos/plugin-simple-objects@4.1.0(@pothos/core@4.3.0(graphql@16.9.0))(graphql@16.9.0)':
