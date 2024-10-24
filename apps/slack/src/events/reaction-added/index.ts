@@ -4,7 +4,6 @@ import {
   SlackMessage,
   SlackMessageId,
   SlackTeamId,
-  SlackUser,
   SlackUserId,
   FindSlackChannelNotFoundError,
   findSlackChannel,
@@ -14,8 +13,6 @@ import {
   FindSlackMessageNotFoundError,
   saveSlackMessage,
   findSlackUser,
-  FindSlackUserNotFoundError,
-  saveSlackUser,
   saveSlackChannel,
 } from '@feedbackun/package-domain';
 import { bindAsync, doAsync, structAsync } from '@feedbackun/package-neverthrow';
@@ -23,7 +20,6 @@ import { errAsync, ok } from 'neverthrow';
 
 import { getChannel } from './helpers/get-channel';
 import { getMessage } from './helpers/get-message';
-import { getUser } from './helpers/get-user';
 import { postQuestion } from './helpers/post-question';
 
 import type { Env } from '../../types/env';
@@ -73,8 +69,7 @@ const findOrCreateChannel = (
       });
   });
 
-const findOrCreateUser = (
-  client: SlackAPIClient,
+const findUser = (
   slackTeamId: SlackTeamId,
   slackUserId: SlackUserId,
 ) => doAsync
@@ -82,22 +77,7 @@ const findOrCreateUser = (
     type: 'slack-team-id-and-slack-user-id',
     slackTeamId,
     slackUserId,
-  }))
-  .orElse((error) => {
-    if (!(error instanceof FindSlackUserNotFoundError)) {
-      return errAsync(error);
-    }
-
-    return getUser(client, slackUserId)
-      .andThen((result) => {
-        return saveSlackUser(new SlackUser({
-          id: slackUserId,
-          userId: null,
-          slackTeamId,
-          name: result.user!.name!,
-        }));
-      });
-  });
+  }));
 
 const findOrCreateMessage = (
   client: SlackAPIClient,
@@ -136,9 +116,9 @@ export const reactionAddedHandler: EventLazyHandler<'reaction_added', Env> = asy
     .andThen(bindAsync('input', () => constructInput(context, payload)))
     .andThen(bindAsync('team', ({ input }) => findTeam(input.teamId)))
     .andThen(bindAsync('emoji', ({ input, team }) => findEmoji(team.id, input.reactionName)))
+    .andThen(bindAsync('messageUser', ({ input, team }) => findUser(team.id, input.messageUserId)))
+    .andThen(bindAsync('reactionUser', ({ input, team }) => findUser(team.id, input.reactionUserId)))
     .andThen(bindAsync('channel', ({ input, team }) => findOrCreateChannel(context.client, team.id, input.channelId)))
-    .andThen(bindAsync('messageUser', ({ input, team }) => findOrCreateUser(context.client, team.id, input.messageUserId)))
-    .andThen(bindAsync('reactionUser', ({ input, team }) => findOrCreateUser(context.client, team.id, input.reactionUserId)))
     .andThen(bindAsync('message', ({ channel, messageUser }) => findOrCreateMessage(context.client, channel.id, messageUser.id, payload.item.ts)))
     .andThen(({ channel, messageUser, reactionUser, message }) => postQuestion(context.client, channel, messageUser, reactionUser, message))
     .match(
