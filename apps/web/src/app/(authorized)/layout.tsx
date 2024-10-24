@@ -1,5 +1,5 @@
 import * as styles from './layout.css';
-import { ApplicationHeader } from '../../components/domains/application/application-header';
+import { ApplicationHeader } from '../../components/domains/applications/application-header';
 
 import type { FC, ReactNode } from 'react';
 

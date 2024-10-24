@@ -1,6 +1,6 @@
 import * as styles from './default.css';
 import { graphql } from '../../../../.graphql';
-import { ApplicationSidebar } from '../../../components/domains/application/application-sidebar';
+import { ApplicationSidebar } from '../../../components/domains/applications/application-sidebar';
 import { graphqlExecutor } from '../../../graphql';
 
 import type { FC } from 'react';

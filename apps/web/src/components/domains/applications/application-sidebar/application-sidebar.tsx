@@ -5,7 +5,7 @@ import Link from 'next/link';
 import * as styles from './application-sidebar.css';
 import { graphql, useFragment } from '../../../../../.graphql';
 import { Button, ButtonIcon } from '../../../elements/button';
-import { UserIcon } from '../../user/user-icon';
+import { UserIcon } from '../../users/user-icon';
 
 import type { FragmentType } from '../../../../../.graphql';
 import type { FC } from 'react';
