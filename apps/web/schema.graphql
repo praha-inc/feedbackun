@@ -49,6 +49,15 @@ type QueryFeedbacksConnectionEdge {
   node: Feedback!
 }
 
+"""Slackチャンネル"""
+type SlackChannel {
+  """SlackチャンネルID"""
+  id: ID!
+
+  """Slackチャンネル名"""
+  name: String!
+}
+
 """Slackメッセージ"""
 type SlackMessage {
   """Slackメッセージ内容"""
@@ -56,6 +65,9 @@ type SlackMessage {
 
   """SlackメッセージID"""
   id: ID!
+
+  """フィードバックを受けたSlackメッセージ"""
+  slackChannel: SlackChannel!
 }
 
 """ユーザー"""
