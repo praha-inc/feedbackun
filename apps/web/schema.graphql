@@ -16,6 +16,9 @@ type Feedback {
 
   """フィードバックを受けたユーザー"""
   recipient: User!
+
+  """フィードバックを送ったユーザー"""
+  sender: User!
 }
 
 type PageInfo {
