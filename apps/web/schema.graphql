@@ -19,6 +19,9 @@ type Feedback {
 
   """フィードバックを送ったユーザー"""
   sender: User!
+
+  """フィードバックを受けたSlackメッセージ"""
+  slackMessage: SlackMessage!
 }
 
 type PageInfo {
@@ -44,6 +47,15 @@ type QueryFeedbacksConnection {
 type QueryFeedbacksConnectionEdge {
   cursor: String!
   node: Feedback!
+}
+
+"""Slackメッセージ"""
+type SlackMessage {
+  """Slackメッセージ内容"""
+  content: String!
+
+  """SlackメッセージID"""
+  id: ID!
 }
 
 """ユーザー"""
