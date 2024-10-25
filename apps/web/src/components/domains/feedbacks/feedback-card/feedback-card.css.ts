@@ -14,18 +14,18 @@ export const header = style({
   gap: '16px',
 });
 
-export const user = style({
+export const recipient = style({
   display: 'flex',
   flexDirection: 'column',
   textAlign: 'left',
   justifyContent: 'space-between',
 });
 
-export const userIcon = style({
+export const recipientIcon = style({
   fontSize: '2.5rem',
 });
 
-export const userName = style({
+export const recipientName = style({
   overflow: 'hidden',
   textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',
@@ -33,7 +33,7 @@ export const userName = style({
   fontSize: theme.size.font.medium,
 });
 
-export const userType = style({
+export const recipientType = style({
   overflow: 'hidden',
   textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',
@@ -75,10 +75,21 @@ export const comment = style({
 
 export const footer = style({
   display: 'flex',
+  alignItems: 'center',
   justifyContent: 'space-between',
   marginTop: '16px',
   fontSize: theme.size.font.tiny,
   color: theme.color.token.semantic.textMuted,
+});
+
+export const sender = style({
+  display: 'flex',
+  gap: '8px',
+  alignItems: 'center',
+});
+
+export const senderIcon = style({
+  fontSize: '1.5rem',
 });
 
 export const lineClamp = style({

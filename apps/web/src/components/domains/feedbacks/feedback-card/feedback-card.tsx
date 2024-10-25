@@ -21,6 +21,7 @@ export const FeedbackCardFragment = graphql(/* GraphQL */ `
     sender {
       id
       name
+      ...UserIcon
     }
     slackMessage {
       id
@@ -50,12 +51,12 @@ export const FeedbackCard: FC<FeedbackCardProps> = ({
     <article className={styles.wrapper}>
       {/** TODO: ユーザープロフィールに遷移するようにする */}
       <header className={styles.header}>
-        <UserIcon className={styles.userIcon} fragment={data.recipient} />
-        <div className={styles.user}>
-          <span className={styles.userName}>
+        <UserIcon className={styles.recipientIcon} fragment={data.recipient} />
+        <div className={styles.recipient}>
+          <span className={styles.recipientName}>
             {data.recipient.name}
           </span>
-          <span className={styles.userType}>
+          <span className={styles.recipientType}>
             {data.recipient.type}
           </span>
         </div>
@@ -84,9 +85,12 @@ export const FeedbackCard: FC<FeedbackCardProps> = ({
         </div>
       )}
       <footer className={styles.footer}>
-        <span>
-          送信者: {data.sender.name}
-        </span>
+        <div className={styles.sender}>
+          <UserIcon className={styles.senderIcon} fragment={data.sender} />
+          <span>
+            送信者: {data.sender.name}
+          </span>
+        </div>
         <time dateTime={data.createdAt}>
           {format(data.createdAt, 'yyyy/MM/dd HH:mm')}
         </time>
