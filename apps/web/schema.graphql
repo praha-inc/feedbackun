@@ -71,6 +71,9 @@ type SlackMessage {
 
   """Slackメッセージが投稿されたSlackチャンネル"""
   slackChannel: SlackChannel!
+
+  """SlackメッセージへのURL"""
+  url: String!
 }
 
 """Slackチーム"""

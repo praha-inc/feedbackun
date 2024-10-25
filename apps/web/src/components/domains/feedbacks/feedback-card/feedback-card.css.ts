@@ -46,10 +46,10 @@ export const supplemental = style({
   alignItems: 'center',
   justifyContent: 'space-between',
   marginTop: '8px',
+  fontSize: theme.size.font.tiny,
 });
 
 export const slack = style({
-  fontSize: theme.size.font.tiny,
   color: theme.color.token.semantic.textMuted,
 });
 
@@ -59,6 +59,15 @@ export const team = style({
 
 export const channel = style({
   fontWeight: 400,
+});
+
+export const link = style({
+  'display': 'flex',
+  'alignItems': 'center',
+  'color': theme.color.token.semantic.text,
+  ':hover': {
+    textDecoration: 'underline',
+  },
 });
 
 export const message = style({
