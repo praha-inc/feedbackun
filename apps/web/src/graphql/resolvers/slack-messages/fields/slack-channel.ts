@@ -5,7 +5,7 @@ import { SlackMessage } from '../types/slack-message';
 
 builder.objectField(SlackMessage, 'slackChannel', (t) => t.field({
   type: SlackChannel,
-  description: 'フィードバックを受けたSlackメッセージ',
+  description: 'Slackメッセージが投稿されたSlackチャンネル',
   resolve: async (slackMessage) => {
     const result = await slackMessageSlackChannel({
       slackMessageId: slackMessage.id,

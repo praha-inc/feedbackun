@@ -48,9 +48,17 @@ export const supplemental = style({
   marginTop: '8px',
 });
 
-export const channel = style({
+export const slack = style({
   fontSize: theme.size.font.tiny,
   color: theme.color.token.semantic.textMuted,
+});
+
+export const team = style({
+  fontWeight: 500,
+});
+
+export const channel = style({
+  fontWeight: 400,
 });
 
 export const message = style({
