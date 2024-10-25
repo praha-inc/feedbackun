@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+
 import * as styles from './feedback-card.css';
 import { graphql, useFragment } from '../../../../../.graphql';
 import { UserIcon } from '../../users/user-icon';
@@ -86,7 +88,7 @@ export const FeedbackCard: FC<FeedbackCardProps> = ({
           送信者: {data.sender.name}
         </span>
         <time dateTime={data.createdAt}>
-          {new Date(data.createdAt).toLocaleString()}
+          {format(data.createdAt, 'yyyy/MM/dd HH:mm')}
         </time>
       </footer>
     </article>
