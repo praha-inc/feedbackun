@@ -8,7 +8,7 @@ import { users } from './users';
 
 export const slackUsers = sqliteTable('slack_users', {
   id: text('id').primaryKey(),
-  userId: text('user_id').references(() => users.id),
+  userId: text('user_id').notNull().references(() => users.id),
   slackTeamId: text('slack_team_id').notNull().references(() => slackTeams.id),
   name: text('name').notNull(),
 });

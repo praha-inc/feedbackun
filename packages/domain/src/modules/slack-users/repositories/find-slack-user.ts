@@ -60,7 +60,7 @@ export const findSlackUser: FindSlackUser = (input) => {
       if (!row) return err(new FindSlackUserNotFoundError());
       return ok(new SlackUser({
         id: SlackUserId.reconstruct(row.id),
-        userId: row.userId ? UserId.reconstruct(row.userId) : null,
+        userId: UserId.reconstruct(row.userId),
         slackTeamId: SlackTeamId.reconstruct(row.slackTeamId),
         name: row.name,
       }));

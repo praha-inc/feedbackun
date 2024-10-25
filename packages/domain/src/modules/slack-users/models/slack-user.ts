@@ -6,7 +6,7 @@ import type { UserId } from '../../users';
 
 export class SlackUser extends Entity('SlackUser')<{
   id: SlackUserId;
-  userId: UserId | null;
+  userId: UserId;
   slackTeamId: SlackTeamId;
   name: string;
 }> {}
