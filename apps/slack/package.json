@@ -16,7 +16,7 @@
     "@feedbackun/package-domain": "workspace:*",
     "@feedbackun/package-neverthrow": "workspace:*",
     "drizzle-orm": "0.35.3",
-    "neverthrow": "8.1.0",
+    "neverthrow": "8.1.1",
     "slack-edge": "1.2.1",
     "valibot": "0.42.1"
   },
