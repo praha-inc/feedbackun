@@ -23,7 +23,7 @@ export type SaveSlackMessage = (
   input: SaveSlackMessageInput,
 ) => ResultAsync<SlackMessage, SaveSlackMessageError>;
 
-const insrtSlackMessage = (slackMessage: SlackMessage) => ResultAsync.fromPromise(
+const insertSlackMessage = (slackMessage: SlackMessage) => ResultAsync.fromPromise(
   database()
     .insert(schema.slackMessages)
     .values({
@@ -32,6 +32,7 @@ const insrtSlackMessage = (slackMessage: SlackMessage) => ResultAsync.fromPromis
       slackUserId: slackMessage.slackUserId.value,
       text: slackMessage.text,
       ts: slackMessage.ts,
+      threadTs: slackMessage.threadTs,
     })
     .returning()
     .get(),
@@ -40,7 +41,7 @@ const insrtSlackMessage = (slackMessage: SlackMessage) => ResultAsync.fromPromis
 
 export const saveSlackMessage: SaveSlackMessage = (input) => {
   return doAsync
-    .andThen(() => insrtSlackMessage(input))
+    .andThen(() => insertSlackMessage(input))
     .andThen((row) => {
       return ok(new SlackMessage({
         id: SlackMessageId.reconstruct(row.id),
@@ -48,6 +49,7 @@ export const saveSlackMessage: SaveSlackMessage = (input) => {
         slackUserId: SlackUserId.reconstruct(row.slackUserId),
         text: row.text,
         ts: row.ts,
+        threadTs: row.threadTs,
       }));
     });
 };

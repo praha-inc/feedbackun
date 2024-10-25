@@ -66,6 +66,7 @@ export const findSlackMessage: FindSlackMessage = (input) => {
         slackUserId: SlackUserId.reconstruct(row.slackUserId),
         text: row.text,
         ts: row.ts,
+        threadTs: row.threadTs,
       }));
     });
 };

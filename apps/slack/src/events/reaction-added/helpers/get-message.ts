@@ -8,5 +8,9 @@ export const getMessage = ResultAsync.fromThrowable(async (
   channelId: SlackChannelId,
   ts: string,
 ) => {
-  return await client.conversations.history({ channel: channelId.value, latest: ts, inclusive: true, limit: 1 });
+  return await client.conversations.replies({
+    channel: channelId.value,
+    ts,
+    limit: 1,
+  });
 });

@@ -44,7 +44,7 @@ export const slackMessageUrl: SlackMessageUrl = (input) => {
     return slackMessageIds.map((slackMessageId) => {
       const row = rows.find((row) => row.slack_messages.id === slackMessageId);
       if (!row) throw new SlackMessageUrlNotFoundError();
-      return `https://${row.slack_teams.domain}.slack.com/archives/${row.slack_channels.id}/p${row.slack_messages.ts.replace('.', '')}`;
+      return `https://${row.slack_teams.domain}.slack.com/archives/${row.slack_channels.id}/p${row.slack_messages.ts.replace('.', '')}?thread_ts=${row.slack_messages.threadTs}`;
     });
   }));
 

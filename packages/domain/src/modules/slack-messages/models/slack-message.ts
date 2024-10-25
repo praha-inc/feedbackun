@@ -10,4 +10,5 @@ export class SlackMessage extends Entity('SlackMessage')<{
   slackUserId: SlackUserId;
   text: string;
   ts: string;
+  threadTs: string;
 }> {}

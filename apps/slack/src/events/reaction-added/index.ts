@@ -104,6 +104,7 @@ const findOrCreateMessage = (
           slackUserId,
           text: result.messages![0]!.text!,
           ts: result.messages![0]!.ts!,
+          threadTs: result.messages![0]!.thread_ts! ?? result.messages![0]!.ts!,
         }));
       });
   });
