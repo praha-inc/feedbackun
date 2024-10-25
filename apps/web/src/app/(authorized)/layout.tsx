@@ -17,7 +17,9 @@ const AuthorizedLayout: FC<AuthorizedLayoutProps> = ({
       <ApplicationHeader className={styles.header} />
       {sidebar}
       <main className={styles.main}>
-        {children}
+        <div className={styles.container}>
+          {children}
+        </div>
       </main>
     </div>
   );

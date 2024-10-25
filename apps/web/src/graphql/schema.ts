@@ -1,5 +1,6 @@
 import { builder } from './core/builder';
 
+import './core/connection';
 import './resolvers/feedbacks';
 import './resolvers/slack-channels';
 import './resolvers/slack-messages';

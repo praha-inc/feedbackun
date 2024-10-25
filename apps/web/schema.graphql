@@ -42,6 +42,7 @@ type Query {
 type QueryFeedbacksConnection {
   edges: [QueryFeedbacksConnectionEdge!]!
   pageInfo: PageInfo!
+  totalCount: Int!
 }
 
 type QueryFeedbacksConnectionEdge {

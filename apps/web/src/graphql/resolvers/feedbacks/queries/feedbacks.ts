@@ -24,7 +24,11 @@ builder.queryField('feedbacks', (t) => t.connection({
           limit: limit,
           cursor: after ? deserialize(after, v.object({
             id: v.string(),
-            createdAt: v.date(),
+            createdAt: v.pipe(
+              v.string(),
+              v.isoTimestamp(),
+              v.transform((value) => new Date(value)),
+            ),
           })) : undefined,
         });
 

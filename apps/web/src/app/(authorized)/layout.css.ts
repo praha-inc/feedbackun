@@ -22,8 +22,11 @@ export const header = style({
 export const main = style({
   gridArea: 'main',
   overflow: 'auto',
+  padding: '24px',
+});
+
+export const container = style({
   width: '100%',
   maxWidth: '1024px',
   margin: '0 auto',
-  padding: '24px',
 });

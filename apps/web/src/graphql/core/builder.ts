@@ -21,7 +21,7 @@ type Interfaces = {
 };
 
 type Connection = {
-  totalCount?: () => number | Promise<number>;
+  totalCount: () => number | Promise<number>;
 };
 
 export const builder = new SchemaBuilder<{
