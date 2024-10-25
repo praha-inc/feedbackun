@@ -86,10 +86,9 @@ export const FeedbackCard: FC<FeedbackCardProps> = ({
       )}
       <footer className={styles.footer}>
         <div className={styles.sender}>
+          <span>送信者: </span>
           <UserIcon className={styles.senderIcon} fragment={data.sender} />
-          <span>
-            送信者: {data.sender.name}
-          </span>
+          <span>{data.sender.name}</span>
         </div>
         <time dateTime={data.createdAt}>
           {format(data.createdAt, 'yyyy/MM/dd HH:mm')}

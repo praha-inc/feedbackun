@@ -84,12 +84,12 @@ export const footer = style({
 
 export const sender = style({
   display: 'flex',
-  gap: '8px',
+  gap: '4px',
   alignItems: 'center',
 });
 
 export const senderIcon = style({
-  fontSize: '1.5rem',
+  fontSize: '1rem',
 });
 
 export const lineClamp = style({
