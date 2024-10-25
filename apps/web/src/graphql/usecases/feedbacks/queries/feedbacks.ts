@@ -1,7 +1,7 @@
 import { CustomError } from '@feedbackun/package-custom-error';
 import { database, schema } from '@feedbackun/package-database';
 import { doAsync } from '@feedbackun/package-neverthrow';
-import { and, eq, lt, or } from 'drizzle-orm';
+import {and, desc, eq, lt, or} from 'drizzle-orm';
 import { ok, ResultAsync } from 'neverthrow';
 
 import type { Feedback } from '../types';
@@ -48,7 +48,8 @@ const query = ResultAsync.fromThrowable((input: FeedbacksInput) => {
   return database()
     .select()
     .from(schema.feedbacks)
-    .where(and(...filters));
+    .where(and(...filters))
+    .orderBy(desc(schema.feedbacks.createdAt));
 });
 
 export const feedbacks: Feedbacks = (input) => {
