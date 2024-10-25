@@ -2,7 +2,7 @@ import {
   Feedback,
   FeedbackId,
   SlackMessageId,
-  WorkSkillElementId,
+  SkillElementId,
   saveFeedback,
   SlackUserId,
   SlackChannelId,
@@ -62,7 +62,7 @@ export const submitFeedbackHandler: BlockActionAckHandler<'button', Env> = async
       sendSlackUserId: SlackUserId.create(sendSlackUserId),
       receiveSlackUserId: SlackUserId.create(receiveSlackUserId),
       slackMessageId: SlackMessageId.create(slackMessageId),
-      workSkillElementIds: Result.combine(values.skills.input.selected_options.map(({ value }) => WorkSkillElementId.create(value))),
+      skillElementIds: Result.combine(values.skills.input.selected_options.map(({ value }) => SkillElementId.create(value))),
       content: ok(values.content.input.value),
       createdAt: ok(new Date()),
     })))

@@ -30,11 +30,11 @@ export const postQuestion = ResultAsync.fromThrowable(async (
 
   const skills = await database()
     .select()
-    .from(schema.workSkills)
-    .innerJoin(schema.workSkillElements, eq(schema.workSkills.id, schema.workSkillElements.workSkillId))
+    .from(schema.skills)
+    .innerJoin(schema.skillElements, eq(schema.skills.id, schema.skillElements.skillId))
     .where(
       eq(
-        schema.workSkills.type,
+        schema.skills.type,
         database()
           .select({ type: schema.users.type })
           .from(schema.users)
@@ -42,26 +42,26 @@ export const postQuestion = ResultAsync.fromThrowable(async (
           .where(eq(schema.slackUsers.id, messageUser.id.value)),
       ),
     )
-    .orderBy(asc(schema.workSkills.level), asc(schema.workSkillElements.order))
+    .orderBy(asc(schema.skills.level), asc(schema.skillElements.order))
     .then((rows) => rows.reduce<Option[]>((previous, current) => {
-      const skill = previous.find((option) => option.id === current.work_skills.id);
+      const skill = previous.find((option) => option.id === current.skills.id);
       if (skill) {
         skill.elements.push({
-          id: current.work_skill_elements.id,
-          order: current.work_skill_elements.order,
-          name: current.work_skill_elements.name,
+          id: current.skill_elements.id,
+          order: current.skill_elements.order,
+          name: current.skill_elements.name,
         });
         return previous;
       }
       previous.push({
-        id: current.work_skills.id,
-        name: current.work_skills.name,
-        level: current.work_skills.level,
+        id: current.skills.id,
+        name: current.skills.name,
+        level: current.skills.level,
         elements: [
           {
-            id: current.work_skill_elements.id,
-            order: current.work_skill_elements.order,
-            name: current.work_skill_elements.name,
+            id: current.skill_elements.id,
+            order: current.skill_elements.order,
+            name: current.skill_elements.name,
           },
         ],
       });

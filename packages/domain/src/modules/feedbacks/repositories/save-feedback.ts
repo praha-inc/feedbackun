@@ -3,9 +3,9 @@ import { database, schema } from '@feedbackun/package-database';
 import { doAsync } from '@feedbackun/package-neverthrow';
 import { ok, ResultAsync } from 'neverthrow';
 
+import { SkillElementId } from '../../skill-elements';
 import { SlackMessageId } from '../../slack-messages';
 import { SlackUserId } from '../../slack-users';
-import { WorkSkillElementId } from '../../work-skill-elements';
 import { Feedback } from '../models/feedback';
 import { FeedbackId } from '../models/feedback-id';
 
@@ -38,11 +38,11 @@ const insertFeedbackWithSkills = (feedback: Feedback) => ResultAsync.fromPromise
       })
       .returning(),
     database()
-      .insert(schema.feedbackWorkSkills)
+      .insert(schema.feedbackSkills)
       .values(
-        feedback.workSkillElementIds.map((workSkillElementId) => ({
+        feedback.skillElementIds.map((skillElementId) => ({
           feedbackId: feedback.id.value,
-          workSkillElementId: workSkillElementId.value,
+          skillElementId: skillElementId.value,
         })),
       )
       .returning(),
@@ -70,19 +70,19 @@ const insertFeedbackWithoutSkills = (feedback: Feedback) => ResultAsync.fromProm
 export const saveFeedback: SaveFeedback = (input) => {
   return doAsync
     .andThen(() => {
-      if (input.workSkillElementIds.length <= 0) {
+      if (input.skillElementIds.length <= 0) {
         return insertFeedbackWithoutSkills(input);
       }
       return insertFeedbackWithSkills(input);
     })
-    .andThen(([[feedback], feedbackWorkSkills]) => {
+    .andThen(([[feedback], feedbackSkills]) => {
       return ok(new Feedback({
         id: FeedbackId.reconstruct(feedback!.id),
         sendSlackUserId: SlackUserId.reconstruct(feedback!.sendSlackUserId),
         receiveSlackUserId: SlackUserId.reconstruct(feedback!.receiveSlackUserId),
         slackMessageId: SlackMessageId.reconstruct(feedback!.slackMessageId),
-        workSkillElementIds: feedbackWorkSkills?.map((row) => {
-          return WorkSkillElementId.reconstruct(row.workSkillElementId);
+        skillElementIds: feedbackSkills?.map((row) => {
+          return SkillElementId.reconstruct(row.skillElementId);
         }) ?? [],
         content: feedback!.content,
         createdAt: feedback!.createdAt,
