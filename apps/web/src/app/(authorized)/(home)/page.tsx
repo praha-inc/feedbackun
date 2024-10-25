@@ -1,3 +1,5 @@
+import { redirect } from 'next/navigation';
+
 import type { FC } from 'react';
 
 export type HomePageProps = {
@@ -5,9 +7,7 @@ export type HomePageProps = {
 };
 
 const HomePage: FC<HomePageProps> = () => {
-  return (
-    <div />
-  );
+  redirect('feedbacks');
 };
 
 export default HomePage;

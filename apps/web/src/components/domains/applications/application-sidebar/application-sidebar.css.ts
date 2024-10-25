@@ -28,7 +28,8 @@ export const user = style({
   display: 'flex',
   flexDirection: 'column',
   textAlign: 'left',
-  lineHeight: 1.25,
+  justifyContent: 'space-between',
+  height: '100%',
 });
 
 export const userIcon = style({

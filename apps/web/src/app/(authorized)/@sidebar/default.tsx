@@ -5,7 +5,7 @@ import { graphqlExecutor } from '../../../graphql';
 
 import type { FC } from 'react';
 
-export const AuthorizedSidebarQuery = graphql(/* GraphQL */ `
+const AuthorizedSidebarQuery = graphql(/* GraphQL */ `
   query AuthorizedSidebar {
     me {
       ...ApplicationSidebar

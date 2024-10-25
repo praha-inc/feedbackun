@@ -12,6 +12,7 @@ export const wrapper = style({
   gridTemplateColumns: 'auto 1fr',
   width: '100dvw',
   height: '100dvh',
+  backgroundColor: theme.color.token.semantic.backgroundInset,
 });
 
 export const header = style({
@@ -20,5 +21,9 @@ export const header = style({
 
 export const main = style({
   gridArea: 'main',
-  backgroundColor: theme.color.token.semantic.backgroundInset,
+  overflow: 'auto',
+  width: '100%',
+  maxWidth: '1024px',
+  margin: '0 auto',
+  padding: '24px',
 });
