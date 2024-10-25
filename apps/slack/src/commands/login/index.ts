@@ -10,7 +10,7 @@ import {
   SlackChannelId,
   SlackTeamId,
   SlackUserId,
-  UserSessionRequest,
+  UserSessionRequest, FindUserSessionNotFoundError, FindUserSessionRequestNotFoundError,
 } from '@feedbackun/package-domain';
 import { bindAsync, doAsync, structAsync } from '@feedbackun/package-neverthrow';
 import { err, ok } from 'neverthrow';
@@ -38,14 +38,22 @@ const deleteUserSessionByUserId = (userId: UserId) => doAsync
     type: 'user-id',
     userId,
   }))
-  .andThen((session) => deleteUserSession(session));
+  .andThen((session) => deleteUserSession(session))
+  .orElse((error) => {
+    if (error instanceof FindUserSessionNotFoundError) return doAsync;
+    return err(error);
+  });
 
 const deleteUserSessionRequestByUserId = (userId: UserId) => doAsync
   .andThen(() => findUserSessionRequest({
     type: 'user-id',
     userId,
   }))
-  .andThen((session) => deleteUserSessionRequest(session));
+  .andThen((session) => deleteUserSessionRequest(session))
+  .orElse((error) => {
+    if (error instanceof FindUserSessionRequestNotFoundError) return doAsync;
+    return err(error);
+  });
 
 const createUserSessionRequest = (userId: UserId) => saveUserSessionRequest(UserSessionRequest.new(userId));
 
