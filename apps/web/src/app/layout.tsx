@@ -1,4 +1,5 @@
-import { Noto_Sans_JP } from 'next/font/google';
+import { clsx } from 'clsx';
+import { Noto_Sans_JP, Roboto_Flex } from 'next/font/google';
 
 import type { Metadata } from 'next';
 import type { FC, ReactNode } from 'react';
@@ -8,6 +9,12 @@ import './layout.css';
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
+  variable: '--font-noto-sans-jp',
+});
+
+const roboto = Roboto_Flex({
+  subsets: ['latin'],
+  variable: '--font-roboto',
 });
 
 export const metadata: Metadata = {
@@ -23,7 +30,7 @@ const RootLayout: FC<RootLayoutProps> = ({
 }) => {
   return (
     <html lang="ja">
-      <body className={notoSansJP.className}>
+      <body className={clsx(notoSansJP.variable, roboto.variable)}>
         {children}
       </body>
     </html>

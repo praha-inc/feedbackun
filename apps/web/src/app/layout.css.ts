@@ -8,6 +8,7 @@ globalStyle('body', {
   backgroundColor: theme.color.token.semantic.background,
   fontSize: theme.size.font.normal,
   fontWeight: 400,
+  fontFamily: 'var(--font-roboto), var(--font-noto-sans-jp)',
 });
 
 globalStyle('h1', {
