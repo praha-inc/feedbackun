@@ -1,0 +1,9 @@
+import { fallbackVar, keyframes } from '@vanilla-extract/css';
+
+import { enterOpacity } from '../vars/opacity.css';
+
+export const enter = keyframes({
+  from: {
+    opacity: fallbackVar(enterOpacity, '1'),
+  },
+});

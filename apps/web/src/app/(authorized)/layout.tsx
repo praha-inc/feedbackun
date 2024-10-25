@@ -1,5 +1,6 @@
 import * as styles from './layout.css';
 import { ApplicationHeader } from '../../components/domains/applications/application-header';
+import { ScrollArea, ScrollAreaViewport } from '../../components/elements/scroll-area';
 
 import type { FC, ReactNode } from 'react';
 
@@ -16,11 +17,15 @@ const AuthorizedLayout: FC<AuthorizedLayoutProps> = ({
     <div className={styles.wrapper}>
       <ApplicationHeader className={styles.header} />
       {sidebar}
-      <main className={styles.main}>
-        <div className={styles.container}>
-          {children}
-        </div>
-      </main>
+      <ScrollArea asChild>
+        <main className={styles.main}>
+          <ScrollAreaViewport vertical>
+            <div className={styles.container}>
+              {children}
+            </div>
+          </ScrollAreaViewport>
+        </main>
+      </ScrollArea>
     </div>
   );
 };
