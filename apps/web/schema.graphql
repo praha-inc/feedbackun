@@ -138,6 +138,9 @@ type SlackUser {
 
   """Slackユーザー名"""
   name: String!
+
+  """Slackユーザーが所属するSlackチーム"""
+  slackTeam: SlackTeam!
 }
 
 """ユーザー"""
