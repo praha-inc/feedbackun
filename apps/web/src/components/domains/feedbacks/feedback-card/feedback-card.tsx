@@ -1,8 +1,8 @@
 import { format } from 'date-fns';
-import { ExternalLink } from 'lucide-react';
 
 import * as styles from './feedback-card.css';
 import { graphql, useFragment } from '../../../../../.graphql';
+import { SlackMessageLink } from '../../slack/slack-message-link';
 import { UserIcon } from '../../users/user-icon';
 import { FeedbackSkillBadge } from '../feedback-skill-badge/feedback-skill-badge';
 
@@ -31,7 +31,7 @@ export const FeedbackCardFragment = graphql(/* GraphQL */ `
     slackMessage {
       id
       content
-      url
+      ...SlackMessageLink
       slackChannel {
         id
         name
@@ -77,15 +77,7 @@ export const FeedbackCard: FC<FeedbackCardProps> = ({
             チャンネル: #{data.slackMessage.slackChannel.name}
           </span>
         </div>
-        <a
-          className={styles.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          href={data.slackMessage.url}
-        >
-          Slackで開く
-          <ExternalLink size="1em" />
-        </a>
+        <SlackMessageLink fragment={data.slackMessage} />
       </div>
       <div className={styles.message}>
         <p className={styles.lineClamp}>

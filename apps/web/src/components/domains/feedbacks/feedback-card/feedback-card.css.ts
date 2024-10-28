@@ -61,15 +61,6 @@ export const channel = style({
   fontWeight: 400,
 });
 
-export const link = style({
-  'display': 'flex',
-  'alignItems': 'center',
-  'color': theme.color.token.semantic.text,
-  ':hover': {
-    textDecoration: 'underline',
-  },
-});
-
 export const message = style({
   padding: '12px',
   marginTop: '8px',
@@ -101,6 +92,7 @@ export const sender = style({
   display: 'flex',
   gap: '4px',
   alignItems: 'center',
+  lineHeight: 1,
 });
 
 export const senderIcon = style({
