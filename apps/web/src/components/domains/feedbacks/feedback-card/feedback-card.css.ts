@@ -77,6 +77,12 @@ export const message = style({
   backgroundColor: theme.color.token.semantic.backgroundMuted,
 });
 
+export const skills = style({
+  display: 'flex',
+  gap: '8px',
+  marginTop: '8px',
+});
+
 export const comment = style({
   marginTop: '16px',
   color: theme.color.token.semantic.textMuted,

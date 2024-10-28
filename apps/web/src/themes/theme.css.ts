@@ -68,6 +68,16 @@ export const theme = createGlobalTheme(':root', {
         overlay: '',
         shadow: '',
       },
+      badge: {
+        text: '',
+        background: '',
+        border: '',
+        hover: {
+          text: '',
+          border: '',
+          background: '',
+        },
+      },
       button: {
         normal: {
           text: '',
@@ -141,6 +151,10 @@ export const theme = createGlobalTheme(':root', {
             background: '',
           },
         },
+      },
+      tooltip: {
+        text: '',
+        background: '',
       },
     },
   },

@@ -4,6 +4,7 @@ import { ExternalLink } from 'lucide-react';
 import * as styles from './feedback-card.css';
 import { graphql, useFragment } from '../../../../../.graphql';
 import { UserIcon } from '../../users/user-icon';
+import { FeedbackSkillBadge } from '../feedback-skill-badge/feedback-skill-badge';
 
 import type { FragmentType } from '../../../../../.graphql';
 import type { FC } from 'react';
@@ -23,6 +24,9 @@ export const FeedbackCardFragment = graphql(/* GraphQL */ `
       id
       name
       ...UserIcon
+    }
+    assignedSkills {
+      ...FeedbackSkillBadge
     }
     slackMessage {
       id
@@ -88,6 +92,13 @@ export const FeedbackCard: FC<FeedbackCardProps> = ({
           {data.slackMessage.content}
         </p>
       </div>
+      {0 < data.assignedSkills.length && (
+        <div className={styles.skills}>
+          {data.assignedSkills.map((assignedSkill, index) => (
+            <FeedbackSkillBadge key={index} fragment={assignedSkill} />
+          ))}
+        </div>
+      )}
       {data.content && (
         <div className={styles.comment}>
           <p className={styles.lineClamp}>

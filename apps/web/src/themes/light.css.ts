@@ -74,6 +74,13 @@ globalStyle(':root', {
         [theme.color.token.semantic.overlay]: `color-mix(in srgb, ${theme.color.palette.gray100} 48%, transparent)`,
         [theme.color.token.semantic.shadow]: `color-mix(in srgb, ${theme.color.palette.gray700} 16%, transparent)`,
 
+        [theme.color.token.badge.text]: theme.color.palette.gray600,
+        [theme.color.token.badge.border]: theme.color.palette.gray200,
+        [theme.color.token.badge.background]: theme.color.palette.gray100,
+        [theme.color.token.badge.hover.text]: theme.color.palette.gray600,
+        [theme.color.token.badge.hover.border]: theme.color.palette.gray300,
+        [theme.color.token.badge.hover.background]: theme.color.palette.gray200,
+
         [theme.color.token.button.normal.text]: theme.color.palette.gray900,
         [theme.color.token.button.normal.icon]: theme.color.palette.gray500,
         [theme.color.token.button.normal.border]: theme.color.palette.gray200,
@@ -125,6 +132,9 @@ globalStyle(':root', {
         [theme.color.token.button.ghost.disabled.icon]: theme.color.palette.gray300,
         [theme.color.token.button.ghost.disabled.border]: theme.color.palette.gray200,
         [theme.color.token.button.ghost.disabled.background]: 'transparent',
+
+        [theme.color.token.tooltip.text]: theme.color.palette.white,
+        [theme.color.token.tooltip.background]: theme.color.palette.gray900,
       },
     },
   },

@@ -1,6 +1,8 @@
 import { clsx } from 'clsx';
 import { Noto_Sans_JP, Roboto_Flex } from 'next/font/google';
 
+import { TooltipProvider } from '../components/elements/tooltip';
+
 import type { Metadata } from 'next';
 import type { FC, ReactNode } from 'react';
 
@@ -31,7 +33,9 @@ const RootLayout: FC<RootLayoutProps> = ({
   return (
     <html lang="ja">
       <body className={clsx(notoSansJP.variable, roboto.variable)}>
-        {children}
+        <TooltipProvider>
+          {children}
+        </TooltipProvider>
       </body>
     </html>
   );
