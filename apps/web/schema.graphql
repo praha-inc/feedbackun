@@ -49,6 +49,12 @@ type Query {
 
   """ログインユーザーを取得する"""
   me: User!
+
+  """ユーザーを取得する"""
+  userById(
+    """ユーザーID"""
+    userId: ID!
+  ): User!
 }
 
 type QueryFeedbacksConnection {

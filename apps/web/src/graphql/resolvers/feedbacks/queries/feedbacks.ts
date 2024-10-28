@@ -13,10 +13,10 @@ import type { ResolveCursorConnectionArgs } from '@pothos/plugin-relay';
 builder.queryField('feedbacks', (t) => t.connection({
   type: Feedback,
   description: 'フィードバックを取得する',
-  resolve: async (_, arguments_) => {
+  resolve: async (_, args) => {
     const connection = await resolveCursorConnection(
       {
-        args: arguments_,
+        args,
         toCursor: (feedback) => serialize(feedback.cursor),
       },
       async ({ after, limit }: ResolveCursorConnectionArgs) => {
