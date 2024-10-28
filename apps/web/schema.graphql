@@ -5,6 +5,9 @@ scalar DateTime
 
 """フィードバック"""
 type Feedback {
+  """フィードバックに紐づくスキル"""
+  assignedSkills: [FeedbackAssignedSkill!]!
+
   """フィードバック内容"""
   content: String!
 
@@ -20,11 +23,17 @@ type Feedback {
   """フィードバックを送ったユーザー"""
   sender: User!
 
-  """フィードバックに紐づくスキル要素"""
-  skillElements: [SkillElement!]!
-
   """フィードバックを受けたSlackメッセージ"""
   slackMessage: SlackMessage!
+}
+
+"""フィードバックに紐づくスキル"""
+type FeedbackAssignedSkill {
+  """スキル"""
+  skill: Skill!
+
+  """スキル要素"""
+  skillElements: [SkillElement!]!
 }
 
 type PageInfo {
@@ -75,9 +84,6 @@ type SkillElement {
 
   """スキル要素番号"""
   order: Int!
-
-  """スキル要素に紐づくスキル"""
-  skill: Skill!
 }
 
 """Slackチャンネル"""
