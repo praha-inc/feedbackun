@@ -9,9 +9,11 @@ export const wrapper = style({
   backgroundColor: theme.color.token.semantic.background,
 });
 
-export const header = style({
-  display: 'flex',
-  gap: '16px',
+export const profile = style({
+  display: 'inline-flex',
+  gap: '12px',
+  margin: '-8px 0 0 -8px',
+  color: theme.color.token.semantic.text,
 });
 
 export const recipient = style({
@@ -34,9 +36,7 @@ export const recipientName = style({
 });
 
 export const recipientType = style({
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
-  whiteSpace: 'nowrap',
+  textTransform: 'capitalize',
   fontSize: theme.size.font.normal,
   color: theme.color.token.semantic.textMuted,
 });
@@ -103,7 +103,18 @@ export const sender = style({
 });
 
 export const senderIcon = style({
+  display: 'inline-flex',
   fontSize: '1rem',
+});
+
+export const senderName = style({
+  'display': 'flex',
+  'gap': '4px',
+  'alignItems': 'center',
+  'color': theme.color.token.semantic.textMuted,
+  ':hover': {
+    textDecoration: 'underline',
+  },
 });
 
 export const lineClamp = style({
