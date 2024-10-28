@@ -131,6 +131,15 @@ type SlackTeam {
   name: String!
 }
 
+"""Slackユーザー"""
+type SlackUser {
+  """SlackユーザーID"""
+  id: ID!
+
+  """Slackユーザー名"""
+  name: String!
+}
+
 """ユーザー"""
 type User {
   """ユーザーアイコン"""
@@ -141,6 +150,9 @@ type User {
 
   """ユーザー名"""
   name: String!
+
+  """ユーザーに紐づくSlackユーザー"""
+  slackUsers: [SlackUser!]!
 
   """ユーザー種別"""
   type: UserType!

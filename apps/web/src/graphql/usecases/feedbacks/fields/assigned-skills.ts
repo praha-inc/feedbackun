@@ -3,7 +3,6 @@ import { database, schema } from '@feedbackun/package-database';
 import DataLoader from 'dataloader';
 import { asc, eq, inArray } from 'drizzle-orm';
 import { ResultAsync } from 'neverthrow';
-import { match } from 'ts-pattern';
 
 import { dataLoader } from '../../../plugins/dataloader';
 
@@ -71,7 +70,6 @@ export const feedbackAssignedSkills: FeedbackAssignedSkills = (input) => {
 
   return ResultAsync.fromThrowable(
     () => loader.load(input.feedbackId),
-    (error) => match(error)
-      .otherwise(() => new FeedbackAssignedSkillsUnexpectedError({ cause: error })),
+    (error) => new FeedbackAssignedSkillsUnexpectedError({ cause: error }),
   )();
 };
