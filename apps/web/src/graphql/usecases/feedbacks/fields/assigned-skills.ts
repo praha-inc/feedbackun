@@ -1,7 +1,7 @@
 import { CustomError } from '@feedbackun/package-custom-error';
 import { database, schema } from '@feedbackun/package-database';
 import DataLoader from 'dataloader';
-import {asc, eq, inArray} from 'drizzle-orm';
+import { asc, eq, inArray } from 'drizzle-orm';
 import { ResultAsync } from 'neverthrow';
 import { match } from 'ts-pattern';
 

@@ -1,1 +1,1 @@
-export * from './user-icon';
+export * from './slack-team-icon';

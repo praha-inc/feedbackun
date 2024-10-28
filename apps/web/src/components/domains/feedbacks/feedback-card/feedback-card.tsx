@@ -3,9 +3,9 @@ import { format } from 'date-fns';
 import * as styles from './feedback-card.css';
 import { graphql, useFragment } from '../../../../../.graphql';
 import { SlackMessageLink } from '../../slack/slack-message-link';
-import { SlackTeamIcon } from '../../slack/slack-team-icon/slack-team-icon';
+import { SlackTeamIcon } from '../../slack/slack-team-icon';
 import { UserIcon } from '../../users/user-icon';
-import { FeedbackSkillBadge } from '../feedback-skill-badge/feedback-skill-badge';
+import { FeedbackSkillBadge } from '../feedback-skill-badge';
 
 import type { FragmentType } from '../../../../../.graphql';
 import type { FC } from 'react';
