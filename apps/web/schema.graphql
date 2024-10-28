@@ -20,6 +20,9 @@ type Feedback {
   """フィードバックを送ったユーザー"""
   sender: User!
 
+  """フィードバックに紐づくスキル要素"""
+  skillElements: [SkillElement!]!
+
   """フィードバックを受けたSlackメッセージ"""
   slackMessage: SlackMessage!
 }
@@ -48,6 +51,18 @@ type QueryFeedbacksConnection {
 type QueryFeedbacksConnectionEdge {
   cursor: String!
   node: Feedback!
+}
+
+"""スキル要素"""
+type SkillElement {
+  """スキル要素ID"""
+  id: ID!
+
+  """スキル要素名"""
+  name: String!
+
+  """スキル要素番号"""
+  order: Int!
 }
 
 """Slackチャンネル"""
