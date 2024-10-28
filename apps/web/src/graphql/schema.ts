@@ -2,6 +2,7 @@ import { builder } from './core/builder';
 
 import './core/connection';
 import './resolvers/feedbacks';
+import './resolvers/skill-elements';
 import './resolvers/slack-channels';
 import './resolvers/slack-messages';
 import './resolvers/users';

@@ -53,6 +53,18 @@ type QueryFeedbacksConnectionEdge {
   node: Feedback!
 }
 
+"""スキル"""
+type Skill {
+  """スキルID"""
+  id: ID!
+
+  """スキルレベル"""
+  level: Int!
+
+  """スキル名"""
+  name: String!
+}
+
 """スキル要素"""
 type SkillElement {
   """スキル要素ID"""
@@ -63,6 +75,9 @@ type SkillElement {
 
   """スキル要素番号"""
   order: Int!
+
+  """スキル要素に紐づくスキル"""
+  skill: Skill!
 }
 
 """Slackチャンネル"""
