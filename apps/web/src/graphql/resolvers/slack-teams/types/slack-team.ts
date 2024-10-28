@@ -5,5 +5,6 @@ export const SlackTeam = builder.simpleObject('SlackTeam', {
   fields: (t) => ({
     id: t.id({ description: 'SlackチームID' }),
     name: t.string({ description: 'Slackチーム名' }),
+    icon: t.string({ description: 'Slackチームアイコン' }),
   }),
 });

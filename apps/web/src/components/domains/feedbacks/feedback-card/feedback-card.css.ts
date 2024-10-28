@@ -50,7 +50,14 @@ export const supplemental = style({
 });
 
 export const slack = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '4px',
   color: theme.color.token.semantic.textMuted,
+});
+
+export const teamIcon = style({
+  fontSize: '1rem',
 });
 
 export const team = style({

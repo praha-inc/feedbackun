@@ -48,6 +48,7 @@ export const slackChannelSlackTeam: SlackChannelSlackTeam = (input) => {
       return {
         id: row.slack_teams.id,
         name: row.slack_teams.name,
+        icon: row.slack_teams.icon,
       };
     });
   }));

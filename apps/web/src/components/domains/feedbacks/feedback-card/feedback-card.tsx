@@ -3,6 +3,7 @@ import { format } from 'date-fns';
 import * as styles from './feedback-card.css';
 import { graphql, useFragment } from '../../../../../.graphql';
 import { SlackMessageLink } from '../../slack/slack-message-link';
+import { SlackTeamIcon } from '../../slack/slack-team-icon/slack-team-icon';
 import { UserIcon } from '../../users/user-icon';
 import { FeedbackSkillBadge } from '../feedback-skill-badge/feedback-skill-badge';
 
@@ -38,6 +39,7 @@ export const FeedbackCardFragment = graphql(/* GraphQL */ `
         slackTeam {
           id
           name
+          ...SlackTeamIcon
         }
       }
     }
@@ -69,6 +71,10 @@ export const FeedbackCard: FC<FeedbackCardProps> = ({
       </header>
       <div className={styles.supplemental}>
         <div className={styles.slack}>
+          <SlackTeamIcon
+            className={styles.teamIcon}
+            fragment={data.slackMessage.slackChannel.slackTeam}
+          />
           <span className={styles.team}>
             {data.slackMessage.slackChannel.slackTeam.name}
           </span>

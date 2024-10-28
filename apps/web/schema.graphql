@@ -115,6 +115,9 @@ type SlackMessage {
 
 """Slackチーム"""
 type SlackTeam {
+  """Slackチームアイコン"""
+  icon: String!
+
   """SlackチームID"""
   id: ID!
 
