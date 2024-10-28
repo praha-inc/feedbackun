@@ -77,6 +77,7 @@ export const message = style({
 
 export const skills = style({
   display: 'flex',
+  flexWrap: 'wrap',
   gap: '8px',
   marginTop: '8px',
 });

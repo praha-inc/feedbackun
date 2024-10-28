@@ -3,8 +3,6 @@ import { style } from '@vanilla-extract/css';
 import { theme } from '../../../themes';
 
 export const wrapper = style({
-  display: 'inline-flex',
-  alignItems: 'center',
   borderRadius: theme.size.radius.pill,
   color: theme.color.token.badge.text,
   backgroundColor: theme.color.token.badge.background,
