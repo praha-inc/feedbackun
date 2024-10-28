@@ -8,6 +8,7 @@ import { slackUsers } from './slack-users';
 export const slackTeams = sqliteTable('slack_teams', {
   id: text('id').primaryKey(),
   name: text('name').notNull(),
+  icon: text('icon').notNull(),
   domain: text('domain').notNull(),
 });
 
