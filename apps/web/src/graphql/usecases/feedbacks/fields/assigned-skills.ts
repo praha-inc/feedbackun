@@ -6,7 +6,7 @@ import { ResultAsync } from 'neverthrow';
 
 import { dataLoader } from '../../../plugins/dataloader';
 
-import type { FeedbackAssignedSkill } from '../types';
+import type { FeedbackAssignedSkill } from '../types/feedback-assigned-skill';
 
 const symbol = Symbol('FeedbackAssignedSkills');
 

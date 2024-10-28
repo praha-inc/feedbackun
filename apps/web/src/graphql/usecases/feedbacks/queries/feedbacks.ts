@@ -4,7 +4,7 @@ import { doAsync } from '@feedbackun/package-neverthrow';
 import { and, desc, eq, lt, or } from 'drizzle-orm';
 import { ok, ResultAsync } from 'neverthrow';
 
-import type { Feedback } from '../types';
+import type { Feedback } from '../types/feedback';
 
 export type FeedbacksCursor = {
   id: string;

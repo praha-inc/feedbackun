@@ -7,7 +7,7 @@ import { match, P } from 'ts-pattern';
 
 import { dataLoader } from '../../../plugins/dataloader';
 
-import type { SlackTeam } from '../../slack-teams/types';
+import type { SlackTeam } from '../../slack-teams/types/slack-team';
 
 const symbol = Symbol('SlackChannelSlackTeam');
 

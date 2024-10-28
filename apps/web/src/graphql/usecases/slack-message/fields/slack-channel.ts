@@ -7,7 +7,7 @@ import { match, P } from 'ts-pattern';
 
 import { dataLoader } from '../../../plugins/dataloader';
 
-import type { SlackChannel } from '../../slack-channels/types';
+import type { SlackChannel } from '../../slack-channels/types/slack-channel';
 
 const symbol = Symbol('SlackMessageSlackChannel');
 

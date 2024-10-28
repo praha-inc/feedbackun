@@ -6,7 +6,7 @@ import { ResultAsync } from 'neverthrow';
 
 import { dataLoader } from '../../../plugins/dataloader';
 
-import type { SlackUser } from '../../slack-users/types';
+import type { SlackUser } from '../../slack-users/types/slack-user';
 
 const symbol = Symbol('UserSlackUsers');
 

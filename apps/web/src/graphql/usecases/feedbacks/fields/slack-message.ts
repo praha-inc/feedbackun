@@ -7,7 +7,7 @@ import { match, P } from 'ts-pattern';
 
 import { dataLoader } from '../../../plugins/dataloader';
 
-import type { SlackMessage } from '../../slack-message/types';
+import type { SlackMessage } from '../../slack-message/types/slack-message';
 
 const symbol = Symbol('FeedbackSlackMessage');
 

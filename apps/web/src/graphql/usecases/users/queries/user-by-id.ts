@@ -4,7 +4,7 @@ import { doAsync } from '@feedbackun/package-neverthrow';
 import { eq } from 'drizzle-orm';
 import { err, ok, ResultAsync } from 'neverthrow';
 
-import type { User } from '../types';
+import type { User } from '../types/user';
 
 export type UserByIdInput = {
   userId: string;

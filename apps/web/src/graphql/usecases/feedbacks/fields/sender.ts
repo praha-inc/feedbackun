@@ -7,7 +7,7 @@ import { match, P } from 'ts-pattern';
 
 import { dataLoader } from '../../../plugins/dataloader';
 
-import type { User } from '../../users/types';
+import type { User } from '../../users/types/user';
 
 const symbol = Symbol('FeedbackSender');
 
