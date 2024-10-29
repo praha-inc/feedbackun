@@ -37,8 +37,10 @@ export const FeedbackSkillBadge: FC<FeedbackSkillBadgeProps> = ({
   return (
     <Tooltip>
       <TooltipTrigger>
-        <Badge className={clsx(styles.skill, className)}>
-          Lv.{data.skill.level} {data.skill.name}
+        <Badge className={clsx(styles.skill, className)} asChild>
+          <button>
+            Lv.{data.skill.level} {data.skill.name}
+          </button>
         </Badge>
       </TooltipTrigger>
       <TooltipContent className={styles.elements}>
