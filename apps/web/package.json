@@ -55,7 +55,7 @@
     "@agaroot/eslint-config-react": "3.0.9",
     "@cloudflare/workers-types": "4.20241022.0",
     "@graphql-codegen/cli": "5.0.3",
-    "@graphql-codegen/client-preset": "4.4.0",
+    "@graphql-codegen/client-preset": "4.5.0",
     "@graphql-tools/utils": "10.5.5",
     "@graphql-typed-document-node/core": "3.2.0",
     "@opennextjs/cloudflare": "0.2.1",
