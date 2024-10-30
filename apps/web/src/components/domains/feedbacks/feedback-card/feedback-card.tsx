@@ -1,3 +1,4 @@
+import { tz } from '@date-fns/tz';
 import { format } from 'date-fns';
 import Link from 'next/link';
 
@@ -118,7 +119,7 @@ export const FeedbackCard: FC<FeedbackCardProps> = ({
           </Link>
         </div>
         <time dateTime={data.createdAt}>
-          {format(data.createdAt, 'yyyy/MM/dd HH:mm')}
+          {format(data.createdAt, 'yyyy/MM/dd HH:mm', { in: tz('Asia/Tokyo') })}
         </time>
       </footer>
     </article>
