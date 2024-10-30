@@ -105,7 +105,8 @@ export const FeedbackCard: FC<FeedbackCardProps> = ({
       )}
       {data.content && (
         <div className={styles.comment}>
-          <p className={styles.lineClamp}>
+          {/* TODO: フィードバック詳細画面を作ったら styles.lineClamp を当てるようにする */}
+          <p style={{ whiteSpace: 'break-spaces' }}>
             {data.content}
           </p>
         </div>
