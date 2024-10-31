@@ -76,8 +76,8 @@ importers:
         specifier: 5.6.3
         version: 5.6.3
       wrangler:
-        specifier: 3.83.0
-        version: 3.83.0(@cloudflare/workers-types@4.20241022.0)
+        specifier: 3.84.0
+        version: 3.84.0(@cloudflare/workers-types@4.20241022.0)
 
   apps/web:
     dependencies:
@@ -210,7 +210,7 @@ importers:
         version: 3.2.0(graphql@16.9.0)
       '@opennextjs/cloudflare':
         specifier: 0.2.1
-        version: 0.2.1(wrangler@3.83.0(@cloudflare/workers-types@4.20241022.0))
+        version: 0.2.1(wrangler@3.84.0(@cloudflare/workers-types@4.20241022.0))
       '@tsconfig/next':
         specifier: 2.0.3
         version: 2.0.3
@@ -239,8 +239,8 @@ importers:
         specifier: 5.6.3
         version: 5.6.3
       wrangler:
-        specifier: 3.83.0
-        version: 3.83.0(@cloudflare/workers-types@4.20241022.0)
+        specifier: 3.84.0
+        version: 3.84.0(@cloudflare/workers-types@4.20241022.0)
 
   packages/custom-error:
     dependencies:
@@ -283,8 +283,8 @@ importers:
         specifier: 5.6.3
         version: 5.6.3
       wrangler:
-        specifier: 3.83.0
-        version: 3.83.0(@cloudflare/workers-types@4.20241022.0)
+        specifier: 3.84.0
+        version: 3.84.0(@cloudflare/workers-types@4.20241022.0)
 
   packages/domain:
     dependencies:
@@ -4996,8 +4996,8 @@ packages:
     resolution: {integrity: sha512-72RFADWFqKmUb2hmmvNODKL3p9hcB6Gt2DOQMis1SEBaV6a4MH8soBvzg+95CYhCKPFedut2JY9bMfrDl9D23g==}
     engines: {node: '>=14.0'}
 
-  unenv-nightly@2.0.0-20241018-011344-e666fcf:
-    resolution: {integrity: sha512-D00bYn8rzkCBOlLx+k1iHQlc69jvtJRT7Eek4yIGQ6461a2tUBjngGZdRpqsoXAJCz/qBW0NgPting7Zvg+ysg==}
+  unenv-nightly@2.0.0-20241024-111401-d4156ac:
+    resolution: {integrity: sha512-xJO1hfY+Te+/XnfCYrCbFbRcgu6XEODND1s5wnVbaBCkuQX7JXF7fHEXPrukFE2j8EOH848P8QN19VO47XN8hw==}
 
   unixify@1.0.0:
     resolution: {integrity: sha512-6bc58dPYhCMHHuwxldQxO3RRNZ4eCogZ/st++0+fcC1nr0jiGUtAdBJ2qzmLQWSxbtz42pWt4QQMiZ9HvZf5cg==}
@@ -5130,8 +5130,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@3.83.0:
-    resolution: {integrity: sha512-qDzdUuTngKqmm2OJUZm7Gk4+Hv37F2nNNAHuhIgItEIhxBdOVDsgKmvpd+f41MFxyuGg3fbGWYANHI+0V2Z5yw==}
+  wrangler@3.84.0:
+    resolution: {integrity: sha512-EA8oh7YQmZ3kD+a5MId9reHKGgXpodmsPWMLriE5gT5YmG9is66n0AA2tyLzQZKZXmgbo6JyGxvCDPcLeb/X0w==}
     engines: {node: '>=16.17.0'}
     hasBin: true
     peerDependencies:
@@ -6817,10 +6817,10 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
-  '@opennextjs/cloudflare@0.2.1(wrangler@3.83.0(@cloudflare/workers-types@4.20241022.0))':
+  '@opennextjs/cloudflare@0.2.1(wrangler@3.84.0(@cloudflare/workers-types@4.20241022.0))':
     dependencies:
       ts-morph: 23.0.0
-      wrangler: 3.83.0(@cloudflare/workers-types@4.20241022.0)
+      wrangler: 3.84.0(@cloudflare/workers-types@4.20241022.0)
 
   '@paralleldrive/cuid2@2.2.2':
     dependencies:
@@ -10311,7 +10311,7 @@ snapshots:
     dependencies:
       '@fastify/busboy': 2.1.1
 
-  unenv-nightly@2.0.0-20241018-011344-e666fcf:
+  unenv-nightly@2.0.0-20241024-111401-d4156ac:
     dependencies:
       defu: 6.1.4
       ohash: 1.1.4
@@ -10483,7 +10483,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20241022.0
       '@cloudflare/workerd-windows-64': 1.20241022.0
 
-  wrangler@3.83.0(@cloudflare/workers-types@4.20241022.0):
+  wrangler@3.84.0(@cloudflare/workers-types@4.20241022.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@cloudflare/workers-shared': 0.7.0
@@ -10501,7 +10501,7 @@ snapshots:
       resolve.exports: 2.0.2
       selfsigned: 2.4.1
       source-map: 0.6.1
-      unenv: unenv-nightly@2.0.0-20241018-011344-e666fcf
+      unenv: unenv-nightly@2.0.0-20241024-111401-d4156ac
       workerd: 1.20241022.0
       xxhash-wasm: 1.0.2
     optionalDependencies:
