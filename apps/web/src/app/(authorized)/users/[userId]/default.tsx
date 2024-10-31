@@ -1,4 +1,4 @@
-import * as styles from './page.css';
+import * as styles from './default.css';
 import { graphql } from '../../../../../.graphql';
 import { SlackTeamIcon } from '../../../../components/domains/slack/slack-team-icon';
 import { UserIcon } from '../../../../components/domains/users/user-icon';

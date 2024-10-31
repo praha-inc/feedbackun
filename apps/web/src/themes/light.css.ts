@@ -133,6 +133,11 @@ globalStyle(':root', {
         [theme.color.token.button.ghost.disabled.border]: theme.color.palette.gray200,
         [theme.color.token.button.ghost.disabled.background]: 'transparent',
 
+        [theme.color.token.tabs.text]: theme.color.palette.gray600,
+        [theme.color.token.tabs.background]: theme.color.palette.gray100,
+        [theme.color.token.tabs.active.text]: theme.color.palette.black,
+        [theme.color.token.tabs.active.background]: theme.color.palette.white,
+
         [theme.color.token.tooltip.text]: theme.color.palette.white,
         [theme.color.token.tooltip.background]: theme.color.palette.gray900,
       },

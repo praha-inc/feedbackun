@@ -27,7 +27,6 @@ export const content = style([
     fill: theme.color.token.tooltip.background,
     backgroundColor: theme.color.token.tooltip.background,
     borderRadius: theme.size.radius.medium,
-    transition: 'color .25s, background-color .25s',
     selectors: {
       '&[data-state="closed"]': deepmerge.all<StyleRule>([
         animateOut(),

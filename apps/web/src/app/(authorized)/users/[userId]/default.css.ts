@@ -5,6 +5,10 @@ import { theme } from '../../../../themes';
 export const wrapper = style({
   display: 'flex',
   gap: '16px',
+  padding: '16px',
+  border: `1px solid ${theme.color.token.semantic.border}`,
+  borderRadius: theme.size.radius.large,
+  backgroundColor: theme.color.token.semantic.background,
 });
 
 export const userIcon = style({

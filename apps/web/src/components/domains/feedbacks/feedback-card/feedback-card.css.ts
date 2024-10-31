@@ -4,7 +4,7 @@ import { theme } from '../../../../themes';
 
 export const wrapper = style({
   padding: '16px',
-  border: `1px solid ${theme.color.token.semantic.border}`,
+  border: `1px solid ${theme.color.token.semantic.borderMuted}`,
   borderRadius: theme.size.radius.large,
   backgroundColor: theme.color.token.semantic.background,
 });

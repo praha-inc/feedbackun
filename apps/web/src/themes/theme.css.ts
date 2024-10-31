@@ -152,6 +152,14 @@ export const theme = createGlobalTheme(':root', {
           },
         },
       },
+      tabs: {
+        text: '',
+        background: '',
+        active: {
+          text: '',
+          background: '',
+        },
+      },
       tooltip: {
         text: '',
         background: '',
