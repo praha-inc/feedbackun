@@ -30,6 +30,7 @@ export const userName = style({
 export const userType = style({
   color: theme.color.token.semantic.textMuted,
   textTransform: 'capitalize',
+  marginTop: '4px',
 });
 
 export const teams = style({
@@ -49,4 +50,5 @@ export const teamIcon = style({
 
 export const teamName = style({
   fontSize: theme.size.font.normal,
+  alignSelf: 'center',
 });

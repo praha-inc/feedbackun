@@ -1,7 +1,5 @@
-import * as styles from './default.css';
 import { graphql } from '../../../../../.graphql';
-import { SlackTeamIcon } from '../../../../components/domains/slack/slack-team-icon';
-import { UserIcon } from '../../../../components/domains/users/user-icon';
+import { UserProfileCard } from '../../../../components/domains/users/user-profile-card';
 import { graphqlExecutor } from '../../../../graphql';
 
 import type { FC } from 'react';
@@ -9,18 +7,7 @@ import type { FC } from 'react';
 const UserDetailsPageQuery = graphql(/* GraphQL */ `
   query UserDetailsPage($userId: ID!) {
     userById(userId: $userId) {
-      id
-      type
-      name
-      ...UserIcon
-      slackUsers {
-        id
-        slackTeam {
-          id
-          name
-          ...SlackTeamIcon
-        }
-      }
+      ...UserProfileCard
     }
   }
 `);
@@ -40,36 +27,7 @@ const UserDetailsPage: FC<UserDetailsPageProps> = async ({
   });
 
   return (
-    <section className={styles.wrapper}>
-      <UserIcon
-        className={styles.userIcon}
-        fragment={data.userById}
-      />
-      <div className={styles.profile}>
-        <div>
-          <h2 className={styles.userName}>
-            {data.userById.name}
-          </h2>
-          <span className={styles.userType}>
-            {data.userById.type}
-          </span>
-        </div>
-        <div className={styles.teams}>
-          所属チーム:
-          {data.userById.slackUsers.map((slackUser) => (
-            <div key={slackUser.slackTeam.id} className={styles.team}>
-              <SlackTeamIcon
-                className={styles.teamIcon}
-                fragment={slackUser.slackTeam}
-              />
-              <span className={styles.teamName}>
-                {slackUser.slackTeam.name}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <UserProfileCard fragment={data.userById} />
   );
 };
 

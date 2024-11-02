@@ -14,7 +14,7 @@ import type { FragmentType } from '../../../../../.graphql';
 import type { FC } from 'react';
 
 export const FeedbackCardFragment = graphql(/* GraphQL */ `
-  fragment FeedbackCard on Feedback{
+  fragment FeedbackCard on Feedback {
     id
     content
     createdAt

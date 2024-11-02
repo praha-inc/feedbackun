@@ -1,5 +1,6 @@
 import { graphql, useFragment } from '../../../../../.graphql';
 import { Avatar, AvatarFallback, AvatarImage } from '../../../elements/avatar';
+import { Skeleton } from '../../../elements/skeleton';
 
 import type { FragmentType } from '../../../../../.graphql';
 import type { FC } from 'react';
@@ -14,7 +15,7 @@ export const SlackTeamIconFragment = graphql(/* GraphQL */ `
 
 export type SlackTeamIconProps = {
   className?: string | undefined;
-  fragment: FragmentType<typeof SlackTeamIconFragment>;
+  fragment?: FragmentType<typeof SlackTeamIconFragment> | undefined;
 };
 
 export const SlackTeamIcon: FC<SlackTeamIconProps> = ({
@@ -25,13 +26,19 @@ export const SlackTeamIcon: FC<SlackTeamIconProps> = ({
 
   return (
     <Avatar className={className}>
-      <AvatarImage
-        src={data.icon}
-        alt={data.name}
-      />
-      <AvatarFallback>
-        {data.name.at(0)}
-      </AvatarFallback>
+      {data ? (
+        <>
+          <AvatarImage
+            src={data.icon}
+            alt={data.name}
+          />
+          <AvatarFallback>
+            {data.name.at(0)}
+          </AvatarFallback>
+        </>
+      ) : (
+        <Skeleton radius="medium" />
+      )}
     </Avatar>
   );
 };
