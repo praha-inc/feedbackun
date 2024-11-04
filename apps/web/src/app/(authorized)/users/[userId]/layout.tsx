@@ -3,17 +3,17 @@ import * as styles from './layout.css';
 import type { FC, ReactNode } from 'react';
 
 export type UserDetailsLayoutProps = {
-  children: ReactNode;
+  profile: ReactNode;
   feedbacks: ReactNode;
 };
 
 const UserDetailsLayout: FC<UserDetailsLayoutProps> = ({
-  children,
+  profile,
   feedbacks,
 }) => {
   return (
     <div className={styles.wrapper}>
-      {children}
+      {profile}
       {feedbacks}
     </div>
   );
