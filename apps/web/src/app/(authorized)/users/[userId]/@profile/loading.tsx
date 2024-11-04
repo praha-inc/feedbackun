@@ -6,7 +6,7 @@ export type UserDetailsProfileLoadingPageProps = {
   //
 };
 
-const UserDetailsProfileLoadingPage: FC<UserDetailsProfileLoadingPageProps> = async () => {
+const UserDetailsProfileLoadingPage: FC<UserDetailsProfileLoadingPageProps> = () => {
   return (
     <UserProfileCard fragment={undefined} />
   );
