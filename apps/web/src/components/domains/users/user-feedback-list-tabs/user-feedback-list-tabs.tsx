@@ -1,8 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { useParams, useSelectedLayoutSegment } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 
+import * as styles from './user-feedback-list-tabs.css';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../../../elements/tabs';
 
 import type { FC, ReactNode } from 'react';
@@ -16,25 +17,44 @@ export const UserFeedbackListTabs: FC<UserFeedbackListTabsProps> = ({
   className,
   children,
 }) => {
-  const parameters = useParams<{ userId: string }>();
-  const segment = useSelectedLayoutSegment();
+  const searchParameters = useSearchParams();
+  const tab = searchParameters.get('tab') ?? 'received';
 
   return (
-    <Tabs className={className} value={segment ? 'sent' : 'received'} asChild>
+    <Tabs className={className} value={tab} asChild>
       <section>
         <TabsList>
           <TabsTrigger value="received" asChild>
-            <Link href={`/users/${parameters.userId}`}>
+            <Link href={{ query: { tab: 'received' } }}>
               受信したフィードバック
             </Link>
           </TabsTrigger>
           <TabsTrigger value="sent" asChild>
-            <Link href={`/users/${parameters.userId}/sent`}>
+            <Link href={{ query: { tab: 'sent' } }}>
               送信したフィードバック
             </Link>
           </TabsTrigger>
         </TabsList>
-        <TabsContent value={segment ? 'sent' : 'received'}>
+        <TabsContent className={styles.content} value={tab}>
+          {tab === 'received' ? (
+            <div className={styles.header}>
+              <h3 className={styles.title}>
+                受信したフィードバック
+              </h3>
+              <div className={styles.description}>
+                他のユーザーからのフィードバック一覧
+              </div>
+            </div>
+          ) : (
+            <div className={styles.header}>
+              <h3 className={styles.title}>
+                送信したフィードバック
+              </h3>
+              <div className={styles.description}>
+                あなたが送信したフィードバック一覧
+              </div>
+            </div>
+          )}
           {children}
         </TabsContent>
       </section>
