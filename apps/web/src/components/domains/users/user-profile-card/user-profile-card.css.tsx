@@ -22,12 +22,14 @@ export const profile = style({
 });
 
 export const userName = style({
+  display: 'flex',
   fontWeight: 600,
   fontSize: '2rem',
   margin: 0,
 });
 
 export const userType = style({
+  display: 'flex',
   color: theme.color.token.semantic.textMuted,
   textTransform: 'capitalize',
   marginTop: '4px',
@@ -35,6 +37,7 @@ export const userType = style({
 
 export const teams = style({
   display: 'flex',
+  alignItems: 'center',
   gap: '8px',
   color: theme.color.token.semantic.textMuted,
 });
@@ -49,6 +52,7 @@ export const teamIcon = style({
 });
 
 export const teamName = style({
+  display: 'flex',
   fontSize: theme.size.font.normal,
   alignSelf: 'center',
 });
