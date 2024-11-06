@@ -29,3 +29,10 @@ runs:
     - name: Install dependencies
       shell: bash
       run: pnpm install --frozen-lockfile --prefer-offline
+
+    - name: Copy .wrangler.toml
+      shell: bash
+      run: |
+        cp ./apps/slack/wrangler.example.toml ./apps/slack/wrangler.toml
+        cp ./apps/web/wrangler.example.toml ./apps/web/wrangler.toml
+        cp ./packages/database/wrangler.example.toml ./packages/database/wrangler.toml
