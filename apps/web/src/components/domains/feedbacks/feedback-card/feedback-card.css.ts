@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+import { recipe } from '@vanilla-extract/recipes';
 
 import { theme } from '../../../../themes';
 
@@ -9,16 +10,26 @@ export const wrapper = style({
   backgroundColor: theme.color.token.semantic.background,
 });
 
-export const profile = style({
-  display: 'inline-flex',
-  gap: '12px',
-  margin: '-8px 0 0 -8px',
-  color: theme.color.token.semantic.text,
+export const profile = recipe({
+  base: {
+    display: 'inline-flex',
+    gap: '12px',
+    margin: '-8px 0 0 -8px',
+    color: theme.color.token.semantic.text,
+  },
+  variants: {
+    disabled: {
+      true: {
+        pointerEvents: 'none',
+      },
+    },
+  },
 });
 
 export const recipient = style({
   display: 'flex',
   flexDirection: 'column',
+  gap: '4px',
   textAlign: 'left',
   justifyContent: 'space-between',
 });
@@ -28,14 +39,13 @@ export const recipientIcon = style({
 });
 
 export const recipientName = style({
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
-  whiteSpace: 'nowrap',
+  display: 'flex',
   fontWeight: 700,
   fontSize: theme.size.font.medium,
 });
 
 export const recipientType = style({
+  display: 'flex',
   textTransform: 'capitalize',
   fontSize: theme.size.font.normal,
   color: theme.color.token.semantic.textMuted,
@@ -61,16 +71,23 @@ export const teamIcon = style({
 });
 
 export const team = style({
+  display: 'flex',
   fontWeight: 500,
 });
 
 export const channel = style({
+  display: 'flex',
   fontWeight: 400,
+  alignItems: 'center',
+  gap: '4px',
+});
+
+export const messageContainer = style({
+  marginTop: '8px',
 });
 
 export const message = style({
   padding: '12px',
-  marginTop: '8px',
   borderRadius: theme.size.radius.medium,
   backgroundColor: theme.color.token.semantic.backgroundMuted,
 });
@@ -108,14 +125,27 @@ export const senderIcon = style({
   fontSize: '1rem',
 });
 
-export const senderName = style({
-  'display': 'flex',
-  'gap': '4px',
-  'alignItems': 'center',
-  'color': theme.color.token.semantic.textMuted,
-  ':hover': {
-    textDecoration: 'underline',
+export const senderLink = recipe({
+  base: {
+    'display': 'flex',
+    'gap': '4px',
+    'alignItems': 'center',
+    ':hover': {
+      textDecoration: 'underline',
+    },
   },
+  variants: {
+    disabled: {
+      true: {
+        pointerEvents: 'none',
+      },
+    },
+  },
+});
+
+export const senderName = style({
+  display: 'flex',
+  color: theme.color.token.semantic.textMuted,
 });
 
 export const lineClamp = style({

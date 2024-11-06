@@ -5,6 +5,7 @@ import Link from 'next/link';
 import * as styles from './feedback-card.css';
 import { graphql, useFragment } from '../../../../../.graphql';
 import { Button } from '../../../elements/button';
+import { Skeleton } from '../../../elements/skeleton';
 import { SlackMessageLink } from '../../slack/slack-message-link';
 import { SlackTeamIcon } from '../../slack/slack-team-icon';
 import { UserIcon } from '../../users/user-icon';
@@ -50,7 +51,7 @@ export const FeedbackCardFragment = graphql(/* GraphQL */ `
 `);
 
 export type FeedbackCardProps = {
-  fragment: FragmentType<typeof FeedbackCardFragment>;
+  fragment: FragmentType<typeof FeedbackCardFragment> | undefined;
 };
 
 export const FeedbackCard: FC<FeedbackCardProps> = ({
@@ -62,14 +63,14 @@ export const FeedbackCard: FC<FeedbackCardProps> = ({
     <article className={styles.wrapper}>
       <header>
         <Button variant="ghost" size="medium" borderless asChild>
-          <Link className={styles.profile} href={`/users/${data.recipient.id}`}>
-            <UserIcon className={styles.recipientIcon} fragment={data.recipient} />
+          <Link className={styles.profile({ disabled: !data })} href={`/users/${data?.recipient.id}`}>
+            <UserIcon className={styles.recipientIcon} fragment={data?.recipient} />
             <div className={styles.recipient}>
               <span className={styles.recipientName}>
-                {data.recipient.name}
+                {data?.recipient.name ?? <Skeleton width="8em" />}
               </span>
               <span className={styles.recipientType}>
-                {data.recipient.type}
+                {data?.recipient.type ?? <Skeleton width="4em" />}
               </span>
             </div>
           </Link>
@@ -79,49 +80,59 @@ export const FeedbackCard: FC<FeedbackCardProps> = ({
         <div className={styles.slack}>
           <SlackTeamIcon
             className={styles.teamIcon}
-            fragment={data.slackMessage.slackChannel.slackTeam}
+            fragment={data?.slackMessage.slackChannel.slackTeam}
           />
           <span className={styles.team}>
-            {data.slackMessage.slackChannel.slackTeam.name}
+            {data?.slackMessage.slackChannel.slackTeam.name ?? <Skeleton width="4em" />}
           </span>
-          ・
+          {data ? '・' : <Skeleton width="1em" />}
           <span className={styles.channel}>
-            チャンネル: #{data.slackMessage.slackChannel.name}
+            {data ? `チャンネル: #${data?.slackMessage.slackChannel.name}` : <Skeleton width="8em" />}
           </span>
         </div>
-        <SlackMessageLink fragment={data.slackMessage} />
+        <SlackMessageLink fragment={data?.slackMessage} />
       </div>
-      <div className={styles.message}>
-        <p className={styles.lineClamp}>
-          {data.slackMessage.content}
-        </p>
+      <div className={styles.messageContainer}>
+        {data ? (
+          <div className={styles.message}>
+            <p className={styles.lineClamp}>
+              {data?.slackMessage.content}
+            </p>
+          </div>
+        ) : (
+          <Skeleton width="100%" height="3em" />
+        )}
       </div>
-      {0 < data.assignedSkills.length && (
+      {data && 0 < data.assignedSkills.length && (
         <div className={styles.skills}>
           {data.assignedSkills.map((assignedSkill, index) => (
             <FeedbackSkillBadge key={index} fragment={assignedSkill} />
           ))}
         </div>
       )}
-      {data.content && (
+      {data?.content && (
         <div className={styles.comment}>
           {/* TODO: フィードバック詳細画面を作ったら styles.lineClamp を当てるようにする */}
           <p style={{ whiteSpace: 'break-spaces' }}>
-            {data.content}
+            {data.content ?? <Skeleton width="100%" height="2em" />}
           </p>
         </div>
       )}
       <footer className={styles.footer}>
         <div className={styles.sender}>
-          <span>送信者: </span>
-          <Link className={styles.senderName} href={`/users/${data.sender.id}`}>
-            <UserIcon className={styles.senderIcon} fragment={data.sender} />
-            <span>{data.sender.name}</span>
+          {data ? <span>送信者: </span> : <Skeleton width="4em" />}
+          <Link className={styles.senderLink({ disabled: !data })} href={`/users/${data?.sender.id}`}>
+            <UserIcon className={styles.senderIcon} fragment={data?.sender} />
+            <span className={styles.senderName}>{data?.sender.name ?? <Skeleton width="8em" />}</span>
           </Link>
         </div>
-        <time dateTime={data.createdAt}>
-          {format(data.createdAt, 'yyyy/MM/dd HH:mm', { in: tz('Asia/Tokyo') })}
-        </time>
+        {data ? (
+          <time dateTime={data.createdAt}>
+            {format(data.createdAt, 'yyyy/MM/dd HH:mm', { in: tz('Asia/Tokyo') })}
+          </time>
+        ) : (
+          <Skeleton width="8em" />
+        )}
       </footer>
     </article>
   );
