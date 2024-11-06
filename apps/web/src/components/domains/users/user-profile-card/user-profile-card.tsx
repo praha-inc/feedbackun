@@ -54,7 +54,7 @@ export const UserProfileCard: FC<UserProfileCardProps> = ({
           </div>
         </div>
         <div className={styles.teams}>
-          所属チーム:
+          {data ? '所属チーム' : <Skeleton width="6em" />}
           {slackUsers.map((slackUser, index) => (
             <div key={slackUser?.slackTeam.id ?? index} className={styles.team}>
               <SlackTeamIcon
