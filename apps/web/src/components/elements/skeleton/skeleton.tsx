@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import * as styles from './skeleton.css';
 
 import type { RecipeVariants } from '@vanilla-extract/recipes';
-import type { ComponentPropsWithoutRef, ForwardRefRenderFunction } from 'react';
+import type { ComponentPropsWithoutRef, ForwardRefRenderFunction, ElementRef } from 'react';
 
 type SkeletonVariants = NonNullable<RecipeVariants<typeof styles.wrapper>>;
 
@@ -17,7 +17,7 @@ export type SkeletonProps = ComponentPropsWithoutRef<'div'> & {
   radius?: SkeletonRadius | undefined;
 };
 
-const SkeletonRender: ForwardRefRenderFunction<HTMLDivElement, SkeletonProps> = ({
+const SkeletonRender: ForwardRefRenderFunction<ElementRef<'div'>, SkeletonProps> = ({
   className,
   width = '1em',
   height = '1em',

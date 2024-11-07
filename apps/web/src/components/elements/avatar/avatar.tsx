@@ -4,11 +4,11 @@ import { forwardRef } from 'react';
 
 import * as styles from './avatar.css';
 
-import type { ForwardRefRenderFunction } from 'react';
+import type { ForwardRefRenderFunction, ComponentPropsWithoutRef, ElementRef } from 'react';
 
-export type AvatarProps = AvatarPrimitive.AvatarProps;
+export type AvatarProps = ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>;
 
-const AvatarRender: ForwardRefRenderFunction<HTMLDivElement, AvatarProps> = ({
+const AvatarRender: ForwardRefRenderFunction<ElementRef<typeof AvatarPrimitive.Root>, AvatarProps> = ({
   className,
   children,
   ...props

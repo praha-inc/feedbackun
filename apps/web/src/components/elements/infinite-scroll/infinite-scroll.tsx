@@ -6,7 +6,7 @@ import { forwardRef, useRef, useState } from 'react';
 import * as styles from './infinite-scroll.css';
 import { useInViewPort } from '../../../hooks/use-in-view-port';
 
-import type { ReactNode, ComponentPropsWithoutRef, ForwardRefRenderFunction } from 'react';
+import type { ReactNode, ComponentPropsWithoutRef, ForwardRefRenderFunction, ElementRef } from 'react';
 
 export type InfiniteScrollCursor = string;
 
@@ -28,7 +28,7 @@ export type InfiniteScrollProps = ComponentPropsWithoutRef<'div'> & {
   fetcher: InfiniteScrollFetcher;
 };
 
-const InfiniteScrollRender: ForwardRefRenderFunction<HTMLDivElement, InfiniteScrollProps> = ({
+const InfiniteScrollRender: ForwardRefRenderFunction<ElementRef<'div'>, InfiniteScrollProps> = ({
   asChild,
   edges,
   fetcher,

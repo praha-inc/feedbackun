@@ -4,11 +4,11 @@ import { forwardRef } from 'react';
 
 import * as styles from './scroll-area.css';
 
-import type { ForwardRefRenderFunction } from 'react';
+import type { ElementRef, ComponentPropsWithoutRef, ForwardRefRenderFunction } from 'react';
 
-export type ScrollAreaBarProps = ScrollAreaPrimitive.ScrollAreaScrollbarProps;
+export type ScrollAreaBarProps = ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>;
 
-const ScrollAreaBarRender: ForwardRefRenderFunction<HTMLDivElement, ScrollAreaBarProps> = ({
+const ScrollAreaBarRender: ForwardRefRenderFunction<ElementRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>, ScrollAreaBarProps> = ({
   className,
   ...props
 }, ref) => {

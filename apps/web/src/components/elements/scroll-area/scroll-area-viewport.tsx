@@ -5,14 +5,14 @@ import { forwardRef } from 'react';
 import { ScrollAreaBar } from './scroll-area-bar';
 import * as styles from './scroll-area.css';
 
-import type { ForwardRefRenderFunction } from 'react';
+import type { ForwardRefRenderFunction, ComponentPropsWithoutRef, ElementRef } from 'react';
 
-export type ScrollAreaViewportProps = ScrollAreaPrimitive.ScrollAreaViewportProps & {
+export type ScrollAreaViewportProps = ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Viewport> & {
   vertical?: boolean | undefined;
   horizontal?: boolean | undefined;
 };
 
-const ScrollAreaViewportRender: ForwardRefRenderFunction<HTMLDivElement, ScrollAreaViewportProps> = ({
+const ScrollAreaViewportRender: ForwardRefRenderFunction<ElementRef<typeof ScrollAreaPrimitive.Viewport>, ScrollAreaViewportProps> = ({
   className,
   children,
   vertical,

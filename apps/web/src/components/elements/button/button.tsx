@@ -5,7 +5,7 @@ import { forwardRef } from 'react';
 import * as styles from './button.css';
 
 import type { RecipeVariants } from '@vanilla-extract/recipes';
-import type { ForwardRefRenderFunction, ComponentPropsWithoutRef } from 'react';
+import type { ElementRef, ForwardRefRenderFunction, ComponentPropsWithoutRef } from 'react';
 
 type ButtonVariants = NonNullable<RecipeVariants<typeof styles.wrapper>>;
 
@@ -22,7 +22,7 @@ export type ButtonProps = ComponentPropsWithoutRef<'button'> & {
   asChild?: boolean | undefined;
 };
 
-const ButtonRender: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = ({
+const ButtonRender: ForwardRefRenderFunction<ElementRef<'button'>, ButtonProps> = ({
   className,
   children,
   variant = 'normal',
