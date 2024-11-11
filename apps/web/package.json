@@ -52,9 +52,9 @@
     "valibot": "0.42.1"
   },
   "devDependencies": {
-    "@agaroot/eslint-config-definer": "1.0.5",
-    "@agaroot/eslint-config-next": "3.0.9",
-    "@agaroot/eslint-config-react": "3.0.9",
+    "@praha/eslint-config-definer": "1.0.5",
+    "@praha/eslint-config-next": "3.0.9",
+    "@praha/eslint-config-react": "3.0.9",
     "@cloudflare/workers-types": "4.20241106.0",
     "@graphql-codegen/cli": "5.0.3",
     "@graphql-codegen/client-preset": "4.5.0",

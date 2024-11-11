@@ -9,12 +9,12 @@
     "lint:type": "turbo lint:type"
   },
   "devDependencies": {
-    "@agaroot/eslint-config-common": "3.0.6",
-    "@agaroot/eslint-config-definer": "1.0.5",
-    "@agaroot/eslint-config-javascript": "2.0.7",
-    "@agaroot/eslint-config-jest": "3.0.8",
-    "@agaroot/eslint-config-style": "2.0.9",
-    "@agaroot/eslint-config-typescript": "2.0.8",
+    "@praha/eslint-config-common": "3.0.6",
+    "@praha/eslint-config-definer": "1.0.5",
+    "@praha/eslint-config-javascript": "2.0.7",
+    "@praha/eslint-config-jest": "3.0.8",
+    "@praha/eslint-config-style": "2.0.9",
+    "@praha/eslint-config-typescript": "2.0.8",
     "@tsconfig/strictest": "2.0.5",
     "eslint": "8.57.1",
     "turbo": "2.2.3"
