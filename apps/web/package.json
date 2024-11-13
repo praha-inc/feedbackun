@@ -52,15 +52,15 @@
     "valibot": "0.42.1"
   },
   "devDependencies": {
-    "@praha/eslint-config-definer": "1.0.5",
-    "@praha/eslint-config-next": "3.0.9",
-    "@praha/eslint-config-react": "3.0.9",
     "@cloudflare/workers-types": "4.20241106.0",
     "@graphql-codegen/cli": "5.0.3",
     "@graphql-codegen/client-preset": "4.5.0",
     "@graphql-tools/utils": "10.5.5",
     "@graphql-typed-document-node/core": "3.2.0",
     "@opennextjs/cloudflare": "0.2.1",
+    "@praha/eslint-config-definer": "1.0.5",
+    "@praha/eslint-config-next": "3.0.10",
+    "@praha/eslint-config-react": "3.0.10",
     "@tsconfig/next": "2.0.3",
     "@types/node": "20.17.6",
     "@types/react": "18.3.12",
