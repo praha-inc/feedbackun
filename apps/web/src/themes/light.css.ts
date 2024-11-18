@@ -133,6 +133,15 @@ globalStyle(':root', {
         [theme.color.token.button.ghost.disabled.border]: theme.color.palette.gray200,
         [theme.color.token.button.ghost.disabled.background]: 'transparent',
 
+        [theme.color.token.sidebar.border]: theme.color.palette.gray200,
+        [theme.color.token.sidebar.background]: theme.color.palette.gray100,
+        [theme.color.token.sidebar.menuButton.text]: theme.color.palette.gray900,
+        [theme.color.token.sidebar.menuButton.icon]: theme.color.palette.gray500,
+        [theme.color.token.sidebar.menuButton.background]: 'transparent',
+        [theme.color.token.sidebar.menuButton.hover.text]: theme.color.palette.gray900,
+        [theme.color.token.sidebar.menuButton.hover.icon]: theme.color.palette.gray500,
+        [theme.color.token.sidebar.menuButton.hover.background]: `color-mix(in srgb, ${theme.color.palette.gray200} 32%, transparent)`,
+
         [theme.color.token.tabs.text]: theme.color.palette.gray600,
         [theme.color.token.tabs.background]: theme.color.palette.gray100,
         [theme.color.token.tabs.active.text]: theme.color.palette.black,

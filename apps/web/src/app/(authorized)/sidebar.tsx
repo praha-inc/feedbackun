@@ -1,7 +1,6 @@
-import * as styles from './default.css';
-import { graphql } from '../../../../.graphql';
-import { ApplicationSidebar } from '../../../components/domains/applications/application-sidebar';
-import { graphqlExecutor } from '../../../graphql';
+import { graphql } from '../../../.graphql';
+import { ApplicationSidebar } from '../../components/domains/applications/application-sidebar';
+import { graphqlExecutor } from '../../graphql';
 
 import type { FC } from 'react';
 
@@ -13,8 +12,6 @@ const AuthorizedSidebarQuery = graphql(/* GraphQL */ `
   }
 `);
 
-export const dynamic = 'force-dynamic';
-
 export type AuthorizedSidebarProps = {
   //
 };
@@ -24,7 +21,6 @@ const AuthorizedSidebar: FC<AuthorizedSidebarProps> = async () => {
 
   return (
     <ApplicationSidebar
-      className={styles.sidebar}
       fragment={data.me}
     />
   );

@@ -1,6 +1,7 @@
 import { clsx } from 'clsx';
 
 import * as styles from './application-header.css';
+import { SidebarTrigger } from '../../../elements/sidebar';
 
 import type { FC } from 'react';
 
@@ -13,7 +14,7 @@ export const ApplicationHeader: FC<ApplicationHeaderProps> = ({
 }) => {
   return (
     <header className={clsx(styles.wrapper, className)}>
-      <h1 className={styles.title}>Feedbackun</h1>
+      <SidebarTrigger />
     </header>
   );
 };

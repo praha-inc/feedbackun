@@ -9,9 +9,3 @@ export const wrapper = style({
   borderColor: theme.color.token.semantic.border,
   padding: '16px',
 });
-
-export const title = style({
-  textAlign: 'center',
-  margin: 0,
-  fontSize: '1.75rem',
-});

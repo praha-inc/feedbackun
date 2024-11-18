@@ -2,26 +2,12 @@ import { style } from '@vanilla-extract/css';
 
 import { theme } from '../../../../themes';
 
-export const wrapper = style({
+export const title = style({
   display: 'flex',
-  flexDirection: 'column',
-  padding: '16px',
-  minWidth: '16rem',
-  backgroundColor: theme.color.token.semantic.background,
-  borderRight: 'solid 1px',
-  borderColor: theme.color.token.semantic.border,
-});
-
-export const nav = style({
-  display: 'flex',
-  flexDirection: 'column',
-  flexGrow: 1,
+  alignItems: 'center',
   gap: '8px',
-});
-
-export const footer = style({
-  display: 'flex',
-  flexDirection: 'column',
+  margin: 0,
+  color: theme.color.token.semantic.text,
 });
 
 export const user = style({
@@ -29,11 +15,7 @@ export const user = style({
   flexDirection: 'column',
   textAlign: 'left',
   justifyContent: 'space-between',
-  height: '100%',
-});
-
-export const userIcon = style({
-  fontSize: '2rem',
+  overflow: 'hidden',
 });
 
 export const userName = style({

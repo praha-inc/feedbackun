@@ -152,6 +152,20 @@ export const theme = createGlobalTheme(':root', {
           },
         },
       },
+      sidebar: {
+        border: '',
+        background: '',
+        menuButton: {
+          text: '',
+          icon: '',
+          background: '',
+          hover: {
+            text: '',
+            icon: '',
+            background: '',
+          },
+        },
+      },
       tabs: {
         text: '',
         background: '',
