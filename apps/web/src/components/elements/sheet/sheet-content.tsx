@@ -1,13 +1,10 @@
 'use client';
 
-import { AccessibleIcon } from '@radix-ui/react-accessible-icon';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { clsx } from 'clsx';
-import { XIcon } from 'lucide-react';
 import { forwardRef } from 'react';
 
 import * as styles from './sheet.css';
-import { Button, ButtonIcon } from '../button';
 
 import type { RecipeVariants } from '@vanilla-extract/recipes';
 import type { ElementRef, ComponentPropsWithoutRef, ForwardRefRenderFunction } from 'react';
@@ -35,15 +32,6 @@ const SheetContentRender: ForwardRefRenderFunction<ElementRef<typeof DialogPrimi
         className={clsx(styles.content({ side }), className)}
       >
         {children}
-        <DialogPrimitive.Close asChild>
-          <Button className={styles.close} variant="ghost" size="icon" borderless>
-            <ButtonIcon>
-              <AccessibleIcon label="閉じる">
-                <XIcon />
-              </AccessibleIcon>
-            </ButtonIcon>
-          </Button>
-        </DialogPrimitive.Close>
       </DialogPrimitive.Content>
     </DialogPrimitive.Portal>
   );
