@@ -111,6 +111,9 @@ importers:
       '@pothos/plugin-simple-objects':
         specifier: 4.1.0
         version: 4.1.0(@pothos/core@4.3.0(graphql@16.9.0))(graphql@16.9.0)
+      '@radix-ui/react-accessible-icon':
+        specifier: 1.1.0
+        version: 1.1.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-avatar':
         specifier: 1.1.1
         version: 1.1.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -228,7 +231,7 @@ importers:
         version: 18.3.1
       '@vanilla-extract/next-plugin':
         specifier: 2.4.6
-        version: 2.4.6(@types/node@20.17.6)(next@14.2.17(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.34.1)(webpack@5.95.0)
+        version: 2.4.6(@types/node@20.17.6)(next@14.2.17(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.34.1)(webpack@5.95.0(esbuild@0.17.19))
       eslint:
         specifier: 8.57.1
         version: 8.57.1
@@ -1980,6 +1983,19 @@ packages:
 
   '@radix-ui/primitive@1.1.0':
     resolution: {integrity: sha512-4Z8dn6Upk0qk4P74xBhZ6Hd/w0mPEzOOLxy4xiPXOXqjF7jZS0VAKk7/x/H6FyY2zCkYJqePf1G5KmkmNJ4RBA==}
+
+  '@radix-ui/react-accessible-icon@1.1.0':
+    resolution: {integrity: sha512-i9Zg4NOSXlfUva0agzI2DjWrvFJm9uO4L6CMW7nmMa5CIOOX/Yin894W7WwjodFQWPwe5kmAJ4JF33R8slKI2g==}
+    peerDependencies:
+      '@types/react': '*'
+      '@types/react-dom': '*'
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+      react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
 
   '@radix-ui/react-arrow@1.1.0':
     resolution: {integrity: sha512-FmlW1rCg7hBpEBwFbjHwCW6AmWLQM6g/v0Sn8XbP9NvmSZ2San1FpQeyPtufzOMSIx7Y4dzjlHoifhp+7NkZhw==}
@@ -6875,6 +6891,15 @@ snapshots:
 
   '@radix-ui/primitive@1.1.0': {}
 
+  '@radix-ui/react-accessible-icon@1.1.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@radix-ui/react-visually-hidden': 1.1.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    optionalDependencies:
+      '@types/react': 18.3.12
+      '@types/react-dom': 18.3.1
+
   '@radix-ui/react-arrow@1.1.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@radix-ui/react-primitive': 2.0.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -7436,9 +7461,9 @@ snapshots:
       - supports-color
       - terser
 
-  '@vanilla-extract/next-plugin@2.4.6(@types/node@20.17.6)(next@14.2.17(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.34.1)(webpack@5.95.0)':
+  '@vanilla-extract/next-plugin@2.4.6(@types/node@20.17.6)(next@14.2.17(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.34.1)(webpack@5.95.0(esbuild@0.17.19))':
     dependencies:
-      '@vanilla-extract/webpack-plugin': 2.3.14(@types/node@20.17.6)(terser@5.34.1)(webpack@5.95.0)
+      '@vanilla-extract/webpack-plugin': 2.3.14(@types/node@20.17.6)(terser@5.34.1)(webpack@5.95.0(esbuild@0.17.19))
       next: 14.2.17(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     transitivePeerDependencies:
       - '@types/node'
@@ -7459,13 +7484,13 @@ snapshots:
     dependencies:
       '@vanilla-extract/css': 1.16.0
 
-  '@vanilla-extract/webpack-plugin@2.3.14(@types/node@20.17.6)(terser@5.34.1)(webpack@5.95.0)':
+  '@vanilla-extract/webpack-plugin@2.3.14(@types/node@20.17.6)(terser@5.34.1)(webpack@5.95.0(esbuild@0.17.19))':
     dependencies:
       '@vanilla-extract/integration': 7.1.10(@types/node@20.17.6)(terser@5.34.1)
       debug: 4.3.4
       loader-utils: 2.0.4
       picocolors: 1.1.0
-      webpack: 5.95.0
+      webpack: 5.95.0(esbuild@0.17.19)
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -10209,14 +10234,16 @@ snapshots:
 
   tapable@2.2.1: {}
 
-  terser-webpack-plugin@5.3.10(webpack@5.95.0):
+  terser-webpack-plugin@5.3.10(esbuild@0.17.19)(webpack@5.95.0(esbuild@0.17.19)):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       jest-worker: 27.5.1
       schema-utils: 3.3.0
       serialize-javascript: 6.0.2
       terser: 5.34.1
-      webpack: 5.95.0
+      webpack: 5.95.0(esbuild@0.17.19)
+    optionalDependencies:
+      esbuild: 0.17.19
 
   terser@5.34.1:
     dependencies:
@@ -10464,7 +10491,7 @@ snapshots:
 
   webpack-sources@3.2.3: {}
 
-  webpack@5.95.0:
+  webpack@5.95.0(esbuild@0.17.19):
     dependencies:
       '@types/estree': 1.0.6
       '@webassemblyjs/ast': 1.12.1
@@ -10486,7 +10513,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 3.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.10(webpack@5.95.0)
+      terser-webpack-plugin: 5.3.10(esbuild@0.17.19)(webpack@5.95.0(esbuild@0.17.19))
       watchpack: 2.4.2
       webpack-sources: 3.2.3
     transitivePeerDependencies:
