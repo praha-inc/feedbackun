@@ -16,8 +16,6 @@ import { Sheet } from '../sheet';
 
 import type { ForwardRefRenderFunction, ReactNode, ElementRef, ComponentPropsWithoutRef } from 'react';
 
-const breakpoint = '768px';
-
 export type SidebarContext = {
   open: boolean;
   expand: boolean;
@@ -49,7 +47,7 @@ const SidebarProviderRender: ForwardRefRenderFunction<ElementRef<'div'>, Sidebar
 }, ref) => {
   const [open, setOpen] = useState(false);
   const [expand, setExpand] = useState(defaultExpand);
-  const shouldUseSheet = useMediaQuery(`(width < ${breakpoint})`);
+  const shouldUseSheet = useMediaQuery(`(width < ${styles.breakpoint})`);
 
   const toggleOpen = useCallback(() => {
     setOpen((previous) => !previous);

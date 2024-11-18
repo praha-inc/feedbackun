@@ -3,6 +3,8 @@ import { recipe } from '@vanilla-extract/recipes';
 
 import { theme } from '../../../themes';
 
+export const breakpoint = '768px';
+
 export const wrapper = style({
   display: 'flex',
   width: '100%',
@@ -11,13 +13,18 @@ export const wrapper = style({
 
 export const sidebar = recipe({
   base: {
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100svh',
-    borderRight: `1px solid ${theme.color.token.sidebar.border}`,
-    backgroundColor: theme.color.token.sidebar.background,
-    transitionDuration: theme.duration.normal,
-    transitionProperty: 'width',
+    'display': 'flex',
+    'flexDirection': 'column',
+    'height': '100svh',
+    'borderRight': `1px solid ${theme.color.token.sidebar.border}`,
+    'backgroundColor': theme.color.token.sidebar.background,
+    'transitionDuration': theme.duration.normal,
+    'transitionProperty': 'width',
+    '@media': {
+      [`(width < ${breakpoint})`]: {
+        display: 'none',
+      },
+    },
   },
   variants: {
     expand: {
