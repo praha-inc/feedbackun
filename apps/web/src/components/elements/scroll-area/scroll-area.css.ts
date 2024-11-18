@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 import deepmerge from 'deepmerge';
 
@@ -59,4 +59,10 @@ export const thumb = style({
   flex: 1,
   borderRadius: theme.size.radius.pill,
   backgroundColor: theme.color.token.semantic.border,
+});
+
+// Viewportに`display: table`が指定されている影響で、`text-overflow: ellipsis`が効かないため、強制的に`display: block`を指定する
+// @see: https://github.com/radix-ui/primitives/issues/926
+globalStyle(`div[data-radix-scroll-area-viewport] > div`, {
+  display: 'block !important',
 });
