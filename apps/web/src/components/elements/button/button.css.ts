@@ -127,40 +127,40 @@ export const icon = style({
   display: 'flex',
   fontSize: theme.size.font.medium,
   selectors: {
-    [`${wrapper({ variant: 'normal' }).split(' ')[1]} &`]: {
+    [`${wrapper.classNames.variants.variant.normal} &`]: {
       color: theme.color.token.button.normal.icon,
     },
-    [`${wrapper({ variant: 'normal' }).split(' ')[1]}:hover &`]: {
+    [`${wrapper.classNames.variants.variant.normal}:hover &`]: {
       color: theme.color.token.button.normal.hover.icon,
     },
-    [`${wrapper({ variant: 'normal' }).split(' ')[1]}:disabled &`]: {
+    [`${wrapper.classNames.variants.variant.normal}:disabled &`]: {
       color: theme.color.token.button.normal.disabled.icon,
     },
-    [`${wrapper({ variant: 'primary' }).split(' ')[1]} &`]: {
+    [`${wrapper.classNames.variants.variant.primary} &`]: {
       color: theme.color.token.button.primary.icon,
     },
-    [`${wrapper({ variant: 'primary' }).split(' ')[1]}:hover &`]: {
+    [`${wrapper.classNames.variants.variant.primary}:hover &`]: {
       color: theme.color.token.button.primary.hover.icon,
     },
-    [`${wrapper({ variant: 'primary' }).split(' ')[1]}:disabled &`]: {
+    [`${wrapper.classNames.variants.variant.primary}:disabled &`]: {
       color: theme.color.token.button.primary.disabled.icon,
     },
-    [`${wrapper({ variant: 'danger' }).split(' ')[1]} &`]: {
+    [`${wrapper.classNames.variants.variant.danger} &`]: {
       color: theme.color.token.button.danger.icon,
     },
-    [`${wrapper({ variant: 'danger' }).split(' ')[1]}:hover &`]: {
+    [`${wrapper.classNames.variants.variant.danger}:hover &`]: {
       color: theme.color.token.button.danger.hover.icon,
     },
-    [`${wrapper({ variant: 'danger' }).split(' ')[1]}:disabled &`]: {
+    [`${wrapper.classNames.variants.variant.danger}:disabled &`]: {
       color: theme.color.token.button.danger.disabled.icon,
     },
-    [`${wrapper({ variant: 'ghost' }).split(' ')[1]} &`]: {
+    [`${wrapper.classNames.variants.variant.ghost} &`]: {
       color: theme.color.token.button.ghost.icon,
     },
-    [`${wrapper({ variant: 'ghost' }).split(' ')[1]}:hover &`]: {
+    [`${wrapper.classNames.variants.variant.ghost}:hover &`]: {
       color: theme.color.token.button.ghost.hover.icon,
     },
-    [`${wrapper({ variant: 'ghost' }).split(' ')[1]}:disabled &`]: {
+    [`${wrapper.classNames.variants.variant.ghost}:disabled &`]: {
       color: theme.color.token.button.ghost.disabled.icon,
     },
   },
