@@ -13,6 +13,7 @@ const storage = new AsyncLocalStorage<Map<symbol, AnyDataLoader>>();
 export const useDataLoader = (): Plugin => ({
   onExecute: ({ executeFn, setExecuteFn }) => {
     setExecuteFn(async (arguments_) => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       return storage.run(new Map(), async () => {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         return await executeFn(arguments_);

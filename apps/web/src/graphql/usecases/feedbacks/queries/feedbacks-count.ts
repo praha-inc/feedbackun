@@ -4,7 +4,7 @@ import { doAsync } from '@feedbackun/package-neverthrow';
 import { count } from 'drizzle-orm';
 import { err, ok, ResultAsync } from 'neverthrow';
 
-// eslint-disable-next-line @typescript-eslint/ban-types
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export type FeedbacksCountInput = {};
 
 export class FeedbacksCountUnexpectedError extends CustomError({

@@ -19,6 +19,7 @@ export const config = define([
     },
     {
       rules: {
+        '@typescript-eslint/only-throw-error': 'off',
         'unicorn/throw-new-error': 'off',
       },
     },

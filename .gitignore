@@ -27,3 +27,6 @@ wrangler.toml
 
 # Graphql
 .graphql
+
+# Turborepo
+.turbo

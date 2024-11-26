@@ -13,6 +13,7 @@ const config = define([
   () => [{
     ignores: [
       '.graphql',
+      '.save.next',
       '.worker-next',
     ],
   }],

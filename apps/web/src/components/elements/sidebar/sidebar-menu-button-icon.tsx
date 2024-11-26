@@ -5,7 +5,7 @@ import * as styles from './sidebar.css';
 
 import type { ComponentPropsWithoutRef, ForwardRefRenderFunction, ElementRef } from 'react';
 
-export type SidebarMenuButtonIconProps = ComponentPropsWithoutRef<'div'>
+export type SidebarMenuButtonIconProps = ComponentPropsWithoutRef<'div'>;
 
 const SidebarMenuButtonIconRender: ForwardRefRenderFunction<ElementRef<'div'>, SidebarMenuButtonIconProps> = ({
   className,
