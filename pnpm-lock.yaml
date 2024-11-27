@@ -233,8 +233,8 @@ importers:
         specifier: 18.3.1
         version: 18.3.1
       '@vanilla-extract/next-plugin':
-        specifier: 2.4.6
-        version: 2.4.6(@types/node@20.17.6)(next@14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.36.0)(webpack@5.96.1)
+        specifier: 2.4.7
+        version: 2.4.7(@types/node@20.17.6)(next@14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.36.0)(webpack@5.96.1)
       eslint:
         specifier: 9.15.0
         version: 9.15.0(jiti@2.4.0)
@@ -2487,8 +2487,8 @@ packages:
   '@vanilla-extract/integration@7.1.11':
     resolution: {integrity: sha512-IGRaLrpkjyVHTHDZQBQvFBl399yRfSMJoVI2KaocEZB33aP+H4Qup83od2hc6R5IxGWdvbiiCOJCYsnmFiy85Q==}
 
-  '@vanilla-extract/next-plugin@2.4.6':
-    resolution: {integrity: sha512-H/GELry9js+gPn+AyDnSivHWqP/mRzftoyQs406aCIdn0XINGViKLb51j9jGSxrCUcDR/mqMIREcs+rp1nQNpA==}
+  '@vanilla-extract/next-plugin@2.4.7':
+    resolution: {integrity: sha512-J8ROSZ3NmGNqxMzI+j4s6TlqUN3/eG/6ihvrjvfILAsPhpDFQ1liGka85gA1rbFcW7CKDDzysgI0tiFf0oLXzA==}
     peerDependencies:
       next: '>=12.1.7'
 
@@ -7240,7 +7240,7 @@ snapshots:
       - supports-color
       - terser
 
-  '@vanilla-extract/next-plugin@2.4.6(@types/node@20.17.6)(next@14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.36.0)(webpack@5.96.1)':
+  '@vanilla-extract/next-plugin@2.4.7(@types/node@20.17.6)(next@14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.36.0)(webpack@5.96.1)':
     dependencies:
       '@vanilla-extract/webpack-plugin': 2.3.15(@types/node@20.17.6)(terser@5.36.0)(webpack@5.96.1)
       next: 14.2.18(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
