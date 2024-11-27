@@ -39,7 +39,7 @@
     "dataloader": "2.2.2",
     "date-fns": "4.1.0",
     "deepmerge": "4.3.1",
-    "drizzle-orm": "0.36.3",
+    "drizzle-orm": "0.36.4",
     "graphql": "16.9.0",
     "graphql-scalars": "1.23.0",
     "graphql-yoga": "5.10.2",
@@ -69,7 +69,6 @@
     "@types/react-dom": "18.3.1",
     "@vanilla-extract/next-plugin": "2.4.6",
     "eslint": "9.15.0",
-    "eslint-config-next": "14.2.18",
     "tsx": "4.19.2",
     "typescript": "5.6.3",
     "wrangler": "3.87.0"
