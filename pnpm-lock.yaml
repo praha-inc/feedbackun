@@ -52,7 +52,7 @@ importers:
         version: link:../../packages/neverthrow
       drizzle-orm:
         specifier: 0.36.4
-        version: 0.36.4(@cloudflare/workers-types@4.20241112.0)(@types/react@18.3.12)(react@18.3.1)
+        version: 0.36.4(@cloudflare/workers-types@4.20241127.0)(@types/react@18.3.12)(react@18.3.1)
       neverthrow:
         specifier: 8.1.1
         version: 8.1.1
@@ -64,8 +64,8 @@ importers:
         version: 0.42.1(typescript@5.6.3)
     devDependencies:
       '@cloudflare/workers-types':
-        specifier: 4.20241112.0
-        version: 4.20241112.0
+        specifier: 4.20241127.0
+        version: 4.20241127.0
       '@types/node':
         specifier: 22.8.1
         version: 22.8.1
@@ -77,7 +77,7 @@ importers:
         version: 5.6.3
       wrangler:
         specifier: 3.87.0
-        version: 3.87.0(@cloudflare/workers-types@4.20241112.0)
+        version: 3.87.0(@cloudflare/workers-types@4.20241127.0)
 
   apps/web:
     dependencies:
@@ -155,7 +155,7 @@ importers:
         version: 4.3.1
       drizzle-orm:
         specifier: 0.36.4
-        version: 0.36.4(@cloudflare/workers-types@4.20241112.0)(@types/react@18.3.12)(react@18.3.1)
+        version: 0.36.4(@cloudflare/workers-types@4.20241127.0)(@types/react@18.3.12)(react@18.3.1)
       graphql:
         specifier: 16.9.0
         version: 16.9.0
@@ -194,8 +194,8 @@ importers:
         version: 0.42.1(typescript@5.6.3)
     devDependencies:
       '@cloudflare/workers-types':
-        specifier: 4.20241112.0
-        version: 4.20241112.0
+        specifier: 4.20241127.0
+        version: 4.20241127.0
       '@graphql-codegen/cli':
         specifier: 5.0.3
         version: 5.0.3(@types/node@20.17.8)(graphql@16.9.0)(typescript@5.6.3)
@@ -210,7 +210,7 @@ importers:
         version: 3.2.0(graphql@16.9.0)
       '@opennextjs/cloudflare':
         specifier: 0.2.1
-        version: 0.2.1(wrangler@3.87.0(@cloudflare/workers-types@4.20241112.0))
+        version: 0.2.1(wrangler@3.87.0(@cloudflare/workers-types@4.20241127.0))
       '@praha/eslint-config-definer':
         specifier: 2.0.0
         version: 2.0.0(eslint@9.15.0(jiti@2.4.0))
@@ -246,7 +246,7 @@ importers:
         version: 5.6.3
       wrangler:
         specifier: 3.87.0
-        version: 3.87.0(@cloudflare/workers-types@4.20241112.0)
+        version: 3.87.0(@cloudflare/workers-types@4.20241127.0)
 
   packages/custom-error:
     dependencies:
@@ -255,7 +255,7 @@ importers:
         version: link:../database
       drizzle-orm:
         specifier: 0.36.4
-        version: 0.36.4(@cloudflare/workers-types@4.20241112.0)(@types/react@18.3.12)(react@18.3.1)
+        version: 0.36.4(@cloudflare/workers-types@4.20241127.0)(@types/react@18.3.12)(react@18.3.1)
       fast-deep-equal:
         specifier: 3.1.3
         version: 3.1.3
@@ -274,7 +274,7 @@ importers:
     dependencies:
       drizzle-orm:
         specifier: 0.36.4
-        version: 0.36.4(@cloudflare/workers-types@4.20241112.0)(@types/react@18.3.12)(react@18.3.1)
+        version: 0.36.4(@cloudflare/workers-types@4.20241127.0)(@types/react@18.3.12)(react@18.3.1)
     devDependencies:
       '@types/node':
         specifier: 22.8.1
@@ -290,7 +290,7 @@ importers:
         version: 5.6.3
       wrangler:
         specifier: 3.87.0
-        version: 3.87.0(@cloudflare/workers-types@4.20241112.0)
+        version: 3.87.0(@cloudflare/workers-types@4.20241127.0)
 
   packages/domain:
     dependencies:
@@ -311,7 +311,7 @@ importers:
         version: 4.1.0
       drizzle-orm:
         specifier: 0.36.4
-        version: 0.36.4(@cloudflare/workers-types@4.20241112.0)(@types/react@18.3.12)(react@18.3.1)
+        version: 0.36.4(@cloudflare/workers-types@4.20241127.0)(@types/react@18.3.12)(react@18.3.1)
       fast-deep-equal:
         specifier: 3.1.3
         version: 3.1.3
@@ -676,8 +676,8 @@ packages:
     resolution: {integrity: sha512-46cP5FCrl3TrvHeoHLb5SRuiDMKH5kc9Yvo36SAfzt8dqJI/qJRoY1GP3ioHn/gP7v2QIoUOTAzIl7Ml7MnfrA==}
     engines: {node: '>=16.7.0'}
 
-  '@cloudflare/workers-types@4.20241112.0':
-    resolution: {integrity: sha512-Q4p9bAWZrX14bSCKY9to19xl0KMU7nsO5sJ2cTVspHoypsjPUMeQCsjHjmsO2C4Myo8/LPeDvmqFmkyNAPPYZw==}
+  '@cloudflare/workers-types@4.20241127.0':
+    resolution: {integrity: sha512-UqlvtqV8eI0CdPR7nxlbVlE52+lcjHvGdbYXEPwisy23+39RsFV7OOy0da0moJAhqnL2OhDmWTOaKdsVcPHiJQ==}
 
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -5552,7 +5552,7 @@ snapshots:
       mime: 3.0.0
       zod: 3.23.8
 
-  '@cloudflare/workers-types@4.20241112.0': {}
+  '@cloudflare/workers-types@4.20241127.0': {}
 
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
@@ -6532,10 +6532,10 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@opennextjs/cloudflare@0.2.1(wrangler@3.87.0(@cloudflare/workers-types@4.20241112.0))':
+  '@opennextjs/cloudflare@0.2.1(wrangler@3.87.0(@cloudflare/workers-types@4.20241127.0))':
     dependencies:
       ts-morph: 23.0.0
-      wrangler: 3.87.0(@cloudflare/workers-types@4.20241112.0)
+      wrangler: 3.87.0(@cloudflare/workers-types@4.20241127.0)
 
   '@paralleldrive/cuid2@2.2.2':
     dependencies:
@@ -7887,9 +7887,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.36.4(@cloudflare/workers-types@4.20241112.0)(@types/react@18.3.12)(react@18.3.1):
+  drizzle-orm@0.36.4(@cloudflare/workers-types@4.20241127.0)(@types/react@18.3.12)(react@18.3.1):
     optionalDependencies:
-      '@cloudflare/workers-types': 4.20241112.0
+      '@cloudflare/workers-types': 4.20241127.0
       '@types/react': 18.3.12
       react: 18.3.1
 
@@ -10209,7 +10209,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20241106.1
       '@cloudflare/workerd-windows-64': 1.20241106.1
 
-  wrangler@3.87.0(@cloudflare/workers-types@4.20241112.0):
+  wrangler@3.87.0(@cloudflare/workers-types@4.20241127.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@cloudflare/workers-shared': 0.7.1
@@ -10231,7 +10231,7 @@ snapshots:
       workerd: 1.20241106.1
       xxhash-wasm: 1.1.0
     optionalDependencies:
-      '@cloudflare/workers-types': 4.20241112.0
+      '@cloudflare/workers-types': 4.20241127.0
       fsevents: 2.3.3
     transitivePeerDependencies:
       - bufferutil
