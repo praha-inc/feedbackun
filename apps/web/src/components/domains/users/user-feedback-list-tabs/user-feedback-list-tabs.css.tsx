@@ -3,6 +3,9 @@ import { style } from '@vanilla-extract/css';
 import { theme } from '../../../../themes';
 
 export const content = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '16px',
   marginTop: '16px',
 });
 
