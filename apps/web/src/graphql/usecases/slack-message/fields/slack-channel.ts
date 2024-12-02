@@ -5,6 +5,7 @@ import { eq, inArray } from 'drizzle-orm';
 import { ResultAsync } from 'neverthrow';
 import { match, P } from 'ts-pattern';
 
+import { serialize } from '../../../helpers/serialize';
 import { dataLoader } from '../../../plugins/dataloader';
 
 import type { SlackChannel } from '../../slack-channels/types/slack-channel';
@@ -35,25 +36,27 @@ export type SlackMessageSlackChannel = (
 ) => ResultAsync<SlackChannel, SlackMessageSlackChannelError>;
 
 export const slackMessageSlackChannel: SlackMessageSlackChannel = (input) => {
-  const loader = dataLoader(symbol, () => new DataLoader<string, SlackChannel>(async (slackMessageIds) => {
+  const loader = dataLoader(symbol, () => new DataLoader<SlackMessageSlackChannelInput, SlackChannel, string>(async (inputs) => {
+    const slackMessageIds = inputs.map((input) => input.slackMessageId);
+
     const rows = await database()
       .select()
       .from(schema.slackChannels)
       .innerJoin(schema.slackMessages, eq(schema.slackMessages.slackChannelId, schema.slackChannels.id))
-      .where(inArray(schema.slackMessages.id, [...slackMessageIds]));
+      .where(inArray(schema.slackMessages.id, slackMessageIds));
 
-    return slackMessageIds.map((slackMessageId) => {
-      const row = rows.find((row) => row.slack_messages.id === slackMessageId);
+    return inputs.map((input) => {
+      const row = rows.find((row) => row.slack_messages.id === input.slackMessageId);
       if (!row) throw new SlackMessageSlackChannelNotFoundError();
       return {
         id: row.slack_channels.id,
         name: row.slack_channels.name,
       };
     });
-  }));
+  }, { cacheKeyFn: serialize }));
 
   return ResultAsync.fromThrowable(
-    () => loader.load(input.slackMessageId),
+    () => loader.load(input),
     (error) => match(error)
       .with(P.instanceOf(SlackMessageSlackChannelNotFoundError), (error) => error)
       .otherwise(() => new SlackMessageSlackChannelUnexpectedError({ cause: error })),

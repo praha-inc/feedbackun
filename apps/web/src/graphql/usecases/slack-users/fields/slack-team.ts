@@ -5,6 +5,7 @@ import { eq, inArray } from 'drizzle-orm';
 import { ResultAsync } from 'neverthrow';
 import { match, P } from 'ts-pattern';
 
+import { serialize } from '../../../helpers/serialize';
 import { dataLoader } from '../../../plugins/dataloader';
 
 import type { SlackTeam } from '../../slack-teams/types/slack-team';
@@ -35,15 +36,17 @@ export type SlackUserSlackTeam = (
 ) => ResultAsync<SlackTeam, SlackUserSlackTeamError>;
 
 export const slackUserSlackTeam: SlackUserSlackTeam = (input) => {
-  const loader = dataLoader(symbol, () => new DataLoader<string, SlackTeam>(async (slackUserIds) => {
+  const loader = dataLoader(symbol, () => new DataLoader<SlackUserSlackTeamInput, SlackTeam, string>(async (inputs) => {
+    const slackUserIds = inputs.map((input) => input.slackUserId);
+
     const rows = await database()
       .select()
       .from(schema.slackTeams)
       .innerJoin(schema.slackUsers, eq(schema.slackUsers.slackTeamId, schema.slackTeams.id))
-      .where(inArray(schema.slackUsers.id, [...slackUserIds]));
+      .where(inArray(schema.slackUsers.id, slackUserIds));
 
-    return slackUserIds.map((slackUserId) => {
-      const row = rows.find((row) => row.slack_users.id === slackUserId);
+    return inputs.map((input) => {
+      const row = rows.find((row) => row.slack_users.id === input.slackUserId);
       if (!row) throw new SlackUserSlackTeamNotFoundError();
       return {
         id: row.slack_teams.id,
@@ -51,10 +54,10 @@ export const slackUserSlackTeam: SlackUserSlackTeam = (input) => {
         icon: row.slack_teams.icon,
       };
     });
-  }));
+  }, { cacheKeyFn: serialize }));
 
   return ResultAsync.fromThrowable(
-    () => loader.load(input.slackUserId),
+    () => loader.load(input),
     (error) => match(error)
       .with(P.instanceOf(SlackUserSlackTeamNotFoundError), (error) => error)
       .otherwise(() => new SlackUserSlackTeamUnexpectedError({ cause: error })),

@@ -4,6 +4,7 @@ import DataLoader from 'dataloader';
 import { asc, eq, inArray } from 'drizzle-orm';
 import { ResultAsync } from 'neverthrow';
 
+import { serialize } from '../../../helpers/serialize';
 import { dataLoader } from '../../../plugins/dataloader';
 
 import type { FeedbackAssignedSkill } from '../types/feedback-assigned-skill';
@@ -28,7 +29,9 @@ export type FeedbackAssignedSkills = (
 ) => ResultAsync<FeedbackAssignedSkill[], FeedbackAssignedSkillsError>;
 
 export const feedbackAssignedSkills: FeedbackAssignedSkills = (input) => {
-  const loader = dataLoader(symbol, () => new DataLoader<string, FeedbackAssignedSkill[]>(async (feedbackIds) => {
+  const loader = dataLoader(symbol, () => new DataLoader<FeedbackAssignedSkillsInput, FeedbackAssignedSkill[], string>(async (inputs) => {
+    const feedbackIds = inputs.map((input) => input.feedbackId);
+
     const rows = await database()
       .select()
       .from(schema.skills)
@@ -37,9 +40,9 @@ export const feedbackAssignedSkills: FeedbackAssignedSkills = (input) => {
       .where(inArray(schema.feedbackSkills.feedbackId, [...feedbackIds]))
       .orderBy(asc(schema.skills.level), asc(schema.skillElements.order));
 
-    return feedbackIds.map((feedbackId) => {
+    return inputs.map((input) => {
       return rows
-        .filter((row) => row.feedback_skills.feedbackId === feedbackId)
+        .filter((row) => row.feedback_skills.feedbackId === input.feedbackId)
         .reduce<FeedbackAssignedSkill[]>((previous, current) => {
           const skill = previous.find((skill) => skill.skill.id === current.skills.id);
           if (!skill) {
@@ -66,10 +69,10 @@ export const feedbackAssignedSkills: FeedbackAssignedSkills = (input) => {
           return previous;
         }, []);
     });
-  }));
+  }, { cacheKeyFn: serialize }));
 
   return ResultAsync.fromThrowable(
-    () => loader.load(input.feedbackId),
+    () => loader.load(input),
     (error) => new FeedbackAssignedSkillsUnexpectedError({ cause: error }),
   )();
 };

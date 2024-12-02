@@ -5,6 +5,7 @@ import { eq, inArray } from 'drizzle-orm';
 import { ResultAsync } from 'neverthrow';
 import { match, P } from 'ts-pattern';
 
+import { serialize } from '../../../helpers/serialize';
 import { dataLoader } from '../../../plugins/dataloader';
 
 import type { User } from '../../users/types/user';
@@ -35,16 +36,18 @@ export type FeedbackRecipient = (
 ) => ResultAsync<User, FeedbackRecipientError>;
 
 export const feedbackRecipient: FeedbackRecipient = (input) => {
-  const loader = dataLoader(symbol, () => new DataLoader<string, User>(async (feedbackIds) => {
+  const loader = dataLoader(symbol, () => new DataLoader<FeedbackRecipientInput, User, string>(async (inputs) => {
+    const feedbackIds = inputs.map((input) => input.feedbackId);
+
     const rows = await database()
       .select()
       .from(schema.users)
       .innerJoin(schema.slackUsers, eq(schema.slackUsers.userId, schema.users.id))
       .innerJoin(schema.feedbacks, eq(schema.feedbacks.receiveSlackUserId, schema.slackUsers.id))
-      .where(inArray(schema.feedbacks.id, [...feedbackIds]));
+      .where(inArray(schema.feedbacks.id, feedbackIds));
 
-    return feedbackIds.map((feedbackId) => {
-      const row = rows.find((row) => row.feedbacks.id === feedbackId);
+    return inputs.map((input) => {
+      const row = rows.find((row) => row.feedbacks.id === input.feedbackId);
       if (!row) throw new FeedbackRecipientNotFoundError();
       return {
         id: row.users.id,
@@ -53,10 +56,10 @@ export const feedbackRecipient: FeedbackRecipient = (input) => {
         icon: row.users.icon,
       };
     });
-  }));
+  }, { cacheKeyFn: serialize }));
 
   return ResultAsync.fromThrowable(
-    () => loader.load(input.feedbackId),
+    () => loader.load(input),
     (error) => match(error)
       .with(P.instanceOf(FeedbackRecipientNotFoundError), (error) => error)
       .otherwise(() => new FeedbackRecipientUnexpectedError({ cause: error })),

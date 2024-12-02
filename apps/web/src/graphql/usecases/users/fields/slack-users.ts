@@ -4,6 +4,7 @@ import DataLoader from 'dataloader';
 import { inArray } from 'drizzle-orm';
 import { ResultAsync } from 'neverthrow';
 
+import { serialize } from '../../../helpers/serialize';
 import { dataLoader } from '../../../plugins/dataloader';
 
 import type { SlackUser } from '../../slack-users/types/slack-user';
@@ -28,24 +29,26 @@ export type UserSlackUsers = (
 ) => ResultAsync<SlackUser[], UserSlackUsersError>;
 
 export const userSlackUsers: UserSlackUsers = (input) => {
-  const loader = dataLoader(symbol, () => new DataLoader<string, SlackUser[]>(async (userIds) => {
+  const loader = dataLoader(symbol, () => new DataLoader<UserSlackUsersInput, SlackUser[], string>(async (inputs) => {
+    const userIds = inputs.map((input) => input.userId);
+
     const rows = await database()
       .select()
       .from(schema.slackUsers)
-      .where(inArray(schema.slackUsers.userId, [...userIds]));
+      .where(inArray(schema.slackUsers.userId, userIds));
 
-    return userIds.map((userId) => {
+    return inputs.map((input) => {
       return rows
-        .filter((row) => row.userId === userId)
+        .filter((row) => row.userId === input.userId)
         .map((row) => ({
           id: row.id,
           name: row.name,
         }));
     });
-  }));
+  }, { cacheKeyFn: serialize }));
 
   return ResultAsync.fromThrowable(
-    () => loader.load(input.userId),
+    () => loader.load(input),
     (error) => new UserSlackUsersUnexpectedError({ cause: error }),
   )();
 };
