@@ -49,7 +49,8 @@ const query = ResultAsync.fromThrowable((input: FeedbacksInput) => {
     .select()
     .from(schema.feedbacks)
     .where(and(...filters))
-    .orderBy(desc(schema.feedbacks.createdAt));
+    .orderBy(desc(schema.feedbacks.createdAt))
+    .limit(input.limit);
 });
 
 export const feedbacks: Feedbacks = (input) => {
