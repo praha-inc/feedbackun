@@ -13,7 +13,7 @@ export class SlackChannelIdInvalidFormatError extends CustomError({
 
 export type SlackChannelIdError = SlackChannelIdInvalidFormatError;
 
-const schema = v.pipe(v.string(), v.regex(/^([CD]).*$/));
+const schema = v.pipe(v.string(), v.regex(/^([CDG]).*$/));
 
 type Properties = {
   value: v.InferOutput<typeof schema>;
