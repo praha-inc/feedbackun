@@ -100,8 +100,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/neverthrow
       '@graphql-tools/executor-http':
-        specifier: 1.1.10
-        version: 1.1.10(@types/node@20.17.9)(graphql@16.9.0)
+        specifier: 1.1.11
+        version: 1.1.11(@types/node@20.17.9)(graphql@16.9.0)
       '@pothos/core':
         specifier: 4.3.0
         version: 4.3.0(graphql@16.9.0)
@@ -1568,8 +1568,8 @@ packages:
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@graphql-tools/executor-http@1.1.10':
-    resolution: {integrity: sha512-+NEiiYhS91mtQ8XYgcj9D9MOhtSHKwSj3gJIMNToe9LMdlntFjr+/8SKclrmIBizxFVOFc446rPh+nB5aNSNxw==}
+  '@graphql-tools/executor-http@1.1.11':
+    resolution: {integrity: sha512-6A0jy1JxBAGlnzydEZ523bNQddUP/TjpyM/Ql9/eTP2Lu3V0xoLBW1QlhxwALIRp+/PolRYF2VbhWy1cJoruBA==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
@@ -6221,7 +6221,7 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  '@graphql-tools/executor-http@1.1.10(@types/node@20.17.9)(graphql@16.9.0)':
+  '@graphql-tools/executor-http@1.1.11(@types/node@20.17.9)(graphql@16.9.0)':
     dependencies:
       '@graphql-tools/utils': 10.6.1(graphql@16.9.0)
       '@repeaterjs/repeater': 3.0.6
@@ -6271,7 +6271,7 @@ snapshots:
   '@graphql-tools/github-loader@8.0.5(@types/node@20.17.9)(graphql@16.9.0)':
     dependencies:
       '@ardatan/sync-fetch': 0.0.1
-      '@graphql-tools/executor-http': 1.1.10(@types/node@20.17.9)(graphql@16.9.0)
+      '@graphql-tools/executor-http': 1.1.11(@types/node@20.17.9)(graphql@16.9.0)
       '@graphql-tools/graphql-tag-pluck': 8.3.5(graphql@16.9.0)
       '@graphql-tools/utils': 10.6.1(graphql@16.9.0)
       '@whatwg-node/fetch': 0.10.1
@@ -6387,7 +6387,7 @@ snapshots:
     dependencies:
       '@ardatan/sync-fetch': 0.0.1
       '@graphql-tools/executor-graphql-ws': 1.3.2(graphql@16.9.0)
-      '@graphql-tools/executor-http': 1.1.10(@types/node@20.17.9)(graphql@16.9.0)
+      '@graphql-tools/executor-http': 1.1.11(@types/node@20.17.9)(graphql@16.9.0)
       '@graphql-tools/executor-legacy-ws': 1.1.3(graphql@16.9.0)
       '@graphql-tools/utils': 10.6.1(graphql@16.9.0)
       '@graphql-tools/wrap': 10.0.18(graphql@16.9.0)
