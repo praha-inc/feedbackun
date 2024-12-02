@@ -21,7 +21,7 @@
     "@feedbackun/package-database": "workspace:*",
     "@feedbackun/package-domain": "workspace:*",
     "@feedbackun/package-neverthrow": "workspace:*",
-    "@graphql-tools/executor-http": "1.1.10",
+    "@graphql-tools/executor-http": "1.1.11",
     "@pothos/core": "4.3.0",
     "@pothos/plugin-relay": "4.3.0",
     "@pothos/plugin-simple-objects": "4.1.0",
