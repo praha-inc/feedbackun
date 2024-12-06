@@ -36,7 +36,7 @@
     "@vanilla-extract/css-utils": "0.1.4",
     "@vanilla-extract/recipes": "0.5.5",
     "clsx": "2.1.1",
-    "dataloader": "2.2.2",
+    "dataloader": "2.2.3",
     "date-fns": "4.1.0",
     "deepmerge": "4.3.1",
     "drizzle-orm": "0.36.4",
