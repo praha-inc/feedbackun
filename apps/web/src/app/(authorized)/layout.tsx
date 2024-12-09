@@ -1,9 +1,6 @@
-import { Suspense } from 'react';
-
+import { AuthorizedSidebar } from './_components/sidebar';
 import * as styles from './layout.css';
-import AuthorizedSidebar from './sidebar';
 import { ApplicationHeader } from '../../components/domains/applications/application-header';
-import { ApplicationSidebar } from '../../components/domains/applications/application-sidebar';
 import { ScrollArea, ScrollAreaViewport } from '../../components/elements/scroll-area';
 import { SidebarInset, SidebarProvider } from '../../components/elements/sidebar';
 
@@ -20,9 +17,7 @@ const AuthorizedLayout: FC<AuthorizedLayoutProps> = ({
 }) => {
   return (
     <SidebarProvider>
-      <Suspense fallback={<ApplicationSidebar fragment={undefined} />}>
-        <AuthorizedSidebar />
-      </Suspense>
+      <AuthorizedSidebar />
       <SidebarInset asChild>
         <ScrollArea className={styles.wrapper}>
           <ScrollAreaViewport vertical>

@@ -1,22 +1,28 @@
+import { UserDetailsProfile } from './_components/profile';
 import * as styles from './layout.css';
+import { UserFeedbackListTabs } from '../../../../components/domains/users/user-feedback-list-tabs';
 
 import type { FC, ReactNode } from 'react';
 
-export type UserDetailsLayoutProps = {
-  profile: ReactNode;
-  feedbacks: ReactNode;
+export type UserDetailsPageProps = {
+  params: {
+    userId: string;
+  };
+  children: ReactNode;
 };
 
-const UserDetailsLayout: FC<UserDetailsLayoutProps> = ({
-  profile,
-  feedbacks,
+const UserDetailsPage: FC<UserDetailsPageProps> = ({
+  params,
+  children,
 }) => {
   return (
     <div className={styles.wrapper}>
-      {profile}
-      {feedbacks}
+      <UserDetailsProfile userId={params.userId} />
+      <UserFeedbackListTabs>
+        {children}
+      </UserFeedbackListTabs>
     </div>
   );
 };
 
-export default UserDetailsLayout;
+export default UserDetailsPage;

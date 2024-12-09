@@ -1,16 +1,18 @@
-import * as styles from './page.css';
-import { graphql } from '../../../../../../.graphql';
-import { FeedbackCard } from '../../../../../components/domains/feedbacks/feedback-card';
-import { InfiniteScroll } from '../../../../../components/elements/infinite-scroll';
-import { graphqlExecutor } from '../../../../../graphql';
+import { Suspense } from 'react';
 
-import type { InfiniteScrollFetcher } from '../../../../../components/elements/infinite-scroll';
+import * as styles from './feedbacks.css';
+import { graphql } from '../../../../../../../.graphql';
+import { FeedbackCard } from '../../../../../../components/domains/feedbacks/feedback-card';
+import { InfiniteScroll } from '../../../../../../components/elements/infinite-scroll';
+import { graphqlExecutor } from '../../../../../../graphql';
+
+import type { InfiniteScrollFetcher } from '../../../../../../components/elements/infinite-scroll';
 import type { FC } from 'react';
 
 const limit = 10;
 
-const UserDetailsFeedbacksPageQuery = graphql(/* GraphQL */ `
-  query UserDetailsFeedbacksPage(
+const UserDetailsFeedbacksQuery = graphql(/* GraphQL */ `
+  query UserDetailsFeedbacks(
     $userId: ID!
     $limit: Int!
     $sent: Boolean!
@@ -39,32 +41,28 @@ const UserDetailsFeedbacksPageQuery = graphql(/* GraphQL */ `
   }
 `);
 
-export type UserDetailsFeedbacksPageProps = {
-  params: {
-    userId: string;
-  };
-  searchParams: {
-    tab: string | undefined;
-  };
+export type UserDetailsFeedbacksProps = {
+  userId: string;
+  tab: string;
 };
 
-const UserDetailsFeedbacksPage: FC<UserDetailsFeedbacksPageProps> = async ({
-  params,
-  searchParams,
+const UserDetailsFeedbacksInner: FC<UserDetailsFeedbacksProps> = async ({
+  userId,
+  tab,
 }) => {
-  const sent = searchParams.tab === 'sent';
+  const sent = tab === 'sent';
 
   const data = await graphqlExecutor({
-    document: UserDetailsFeedbacksPageQuery,
-    variables: { userId: params.userId, limit, sent },
+    document: UserDetailsFeedbacksQuery,
+    variables: { userId, limit, sent },
   });
   const edges = sent ? data.userById.sentFeedbacks!.edges : data.userById.receivedFeedbacks!.edges;
 
   const fetcher: InfiniteScrollFetcher = async ({ cursor }) => {
     'use server';
     const data = await graphqlExecutor({
-      document: UserDetailsFeedbacksPageQuery,
-      variables: { userId: params.userId, limit, sent, cursor },
+      document: UserDetailsFeedbacksQuery,
+      variables: { userId, limit, sent, cursor },
     });
 
     const edges = sent ? data.userById.sentFeedbacks!.edges : data.userById.receivedFeedbacks!.edges;
@@ -76,7 +74,6 @@ const UserDetailsFeedbacksPage: FC<UserDetailsFeedbacksPageProps> = async ({
 
   return (
     <InfiniteScroll
-      key={searchParams.tab}
       className={styles.wrapper}
       edges={edges.map((edge) => ({
         cursor: edge.cursor,
@@ -87,4 +84,19 @@ const UserDetailsFeedbacksPage: FC<UserDetailsFeedbacksPageProps> = async ({
   );
 };
 
-export default UserDetailsFeedbacksPage;
+export const UserDetailsFeedbacks: FC<UserDetailsFeedbacksProps> = (props) => {
+  return (
+    <Suspense
+      key={props.tab}
+      fallback={(
+        <div className={styles.wrapper}>
+          {Array.from({ length: 5 }).map((_, index) => (
+            <FeedbackCard key={index} fragment={undefined} />
+          ))}
+        </div>
+      )}
+    >
+      <UserDetailsFeedbacksInner {...props} />
+    </Suspense>
+  );
+};
