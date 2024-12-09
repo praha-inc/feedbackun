@@ -13,7 +13,7 @@ export const wrapper = recipe({
   base: {
     display: 'inline-flex',
     animation: `${pulse} 2s cubic-bezier(0.4, 0, 0.6, 1) infinite`,
-    backgroundColor: theme.color.token.semantic.backgroundMuted,
+    backgroundColor: theme.color.token.semantic.overlay,
   },
   variants: {
     radius: {
