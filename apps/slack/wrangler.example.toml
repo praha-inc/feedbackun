@@ -3,6 +3,9 @@ main = "src/index.ts"
 compatibility_date = "2024-04-25"
 compatibility_flags = ["nodejs_compat"]
 
+[placement]
+mode = "smart"
+
 [[d1_databases]]
 binding = "DB"
 database_id = "<id-for-your-database>"

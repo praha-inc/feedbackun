@@ -5,6 +5,9 @@ compatibility_flags = ["nodejs_compat"]
 assets = { binding = "ASSETS", directory = ".worker-next/assets" }
 minify = true
 
+[placement]
+mode = "smart"
+
 [[d1_databases]]
 binding = "DB"
 database_id = "<id-for-your-database>"
