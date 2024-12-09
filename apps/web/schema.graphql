@@ -157,6 +157,9 @@ type User {
   """ユーザーが受信したフィードバック"""
   receivedFeedbacks(after: String, before: String, first: Int, last: Int): UserReceivedFeedbacksConnection!
 
+  """ユーザーが送信したフィードバック"""
+  sentFeedbacks(after: String, before: String, first: Int, last: Int): UserSentFeedbacksConnection!
+
   """ユーザーに紐づくSlackユーザー"""
   slackUsers: [SlackUser!]!
 
@@ -171,6 +174,17 @@ type UserReceivedFeedbacksConnection {
 }
 
 type UserReceivedFeedbacksConnectionEdge {
+  cursor: String!
+  node: Feedback!
+}
+
+type UserSentFeedbacksConnection {
+  edges: [UserSentFeedbacksConnectionEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type UserSentFeedbacksConnectionEdge {
   cursor: String!
   node: Feedback!
 }

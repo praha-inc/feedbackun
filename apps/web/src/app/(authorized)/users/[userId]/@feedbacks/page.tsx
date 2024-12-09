@@ -9,10 +9,24 @@ import type { FC } from 'react';
 
 const limit = 10;
 
-const UserDetailsFeedbacksPageReceivedQuery = graphql(/* GraphQL */ `
-  query UserDetailsFeedbacksPageReceived($userId: ID!, $limit: Int!, $cursor: String) {
+const UserDetailsFeedbacksPageQuery = graphql(/* GraphQL */ `
+  query UserDetailsFeedbacksPage(
+    $userId: ID!
+    $limit: Int!
+    $sent: Boolean!
+    $cursor: String
+  ) {
     userById(userId: $userId) {
-      receivedFeedbacks(first: $limit, after: $cursor) {
+      receivedFeedbacks(first: $limit, after: $cursor) @skip(if: $sent) {
+        edges {
+          cursor
+          node {
+            id
+            ...FeedbackCard
+          }
+        }
+      }
+      sentFeedbacks(first: $limit, after: $cursor) @include(if: $sent) {
         edges {
           cursor
           node {
@@ -38,23 +52,23 @@ const UserDetailsFeedbacksPage: FC<UserDetailsFeedbacksPageProps> = async ({
   params,
   searchParams,
 }) => {
-  if (searchParams.tab === 'sent') {
-    return null;
-  }
+  const sent = searchParams.tab === 'sent';
 
   const data = await graphqlExecutor({
-    document: UserDetailsFeedbacksPageReceivedQuery,
-    variables: { userId: params.userId, limit },
+    document: UserDetailsFeedbacksPageQuery,
+    variables: { userId: params.userId, limit, sent },
   });
+  const edges = sent ? data.userById.sentFeedbacks!.edges : data.userById.receivedFeedbacks!.edges;
 
   const fetcher: InfiniteScrollFetcher = async ({ cursor }) => {
     'use server';
     const data = await graphqlExecutor({
-      document: UserDetailsFeedbacksPageReceivedQuery,
-      variables: { userId: params.userId, limit, cursor },
+      document: UserDetailsFeedbacksPageQuery,
+      variables: { userId: params.userId, limit, sent, cursor },
     });
 
-    return data.userById.receivedFeedbacks.edges.map((edge) => ({
+    const edges = sent ? data.userById.sentFeedbacks!.edges : data.userById.receivedFeedbacks!.edges;
+    return edges.map((edge) => ({
       cursor: edge.cursor,
       node: <FeedbackCard key={edge.node.id} fragment={edge.node} />,
     }));
@@ -62,8 +76,9 @@ const UserDetailsFeedbacksPage: FC<UserDetailsFeedbacksPageProps> = async ({
 
   return (
     <InfiniteScroll
+      key={searchParams.tab}
       className={styles.wrapper}
-      edges={data.userById.receivedFeedbacks.edges.map((edge) => ({
+      edges={edges.map((edge) => ({
         cursor: edge.cursor,
         node: <FeedbackCard key={edge.node.id} fragment={edge.node} />,
       }))}

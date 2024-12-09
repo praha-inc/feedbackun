@@ -9,37 +9,37 @@ import { dataLoader } from '../../../plugins/dataloader';
 
 import type { Feedback } from '../../feedbacks/types/feedback';
 
-const symbol = Symbol('UserReceivedFeedbacks');
+const symbol = Symbol('UserSentFeedbacks');
 
-export type UserReceivedFeedbacksCursor = {
+export type UserSentFeedbacksCursor = {
   id: string;
   createdAt: Date;
 };
 
-export type UserReceivedFeedbacksInput = {
+export type UserSentFeedbacksInput = {
   userId: string;
   limit: number;
-  cursor: UserReceivedFeedbacksCursor | undefined;
+  cursor: UserSentFeedbacksCursor | undefined;
 };
 
-export class UserReceivedFeedbacksUnexpectedError extends CustomError({
-  name: 'UserReceivedFeedbacksUnexpectedError',
-  message: 'Failed to find received feedbacks for user.',
+export class UserSentFeedbacksUnexpectedError extends CustomError({
+  name: 'UserSentFeedbacksUnexpectedError',
+  message: 'Failed to find sent feedbacks for user.',
 }) {}
 
-export type UserReceivedFeedbacksError = (
-  | UserReceivedFeedbacksUnexpectedError
+export type UserSentFeedbacksError = (
+  | UserSentFeedbacksUnexpectedError
 );
 
-export type UserReceivedFeedbacksNode = Feedback & { cursor: UserReceivedFeedbacksCursor };
+export type UserSentFeedbacksNode = Feedback & { cursor: UserSentFeedbacksCursor };
 
-export type UserReceivedFeedbacks = (
-  input: UserReceivedFeedbacksInput,
-) => ResultAsync<UserReceivedFeedbacksNode[], UserReceivedFeedbacksError>;
+export type UserSentFeedbacks = (
+  input: UserSentFeedbacksInput,
+) => ResultAsync<UserSentFeedbacksNode[], UserSentFeedbacksError>;
 
-export const userReceivedFeedbacks: UserReceivedFeedbacks = (input) => {
-  const loader = dataLoader(symbol, () => new DataLoader<UserReceivedFeedbacksInput, UserReceivedFeedbacksNode[], string>(async (inputs) => {
-    const execute = async (input: UserReceivedFeedbacksInput): Promise<UserReceivedFeedbacksNode[]> => {
+export const userSentFeedbacks: UserSentFeedbacks = (input) => {
+  const loader = dataLoader(symbol, () => new DataLoader<UserSentFeedbacksInput, UserSentFeedbacksNode[], string>(async (inputs) => {
+    const execute = async (input: UserSentFeedbacksInput): Promise<UserSentFeedbacksNode[]> => {
       const filters: Parameters<typeof and> = [
         eq(schema.users.id, input.userId),
       ];
@@ -59,7 +59,7 @@ export const userReceivedFeedbacks: UserReceivedFeedbacks = (input) => {
       const rows = await database()
         .select()
         .from(schema.feedbacks)
-        .innerJoin(schema.slackUsers, eq(schema.slackUsers.id, schema.feedbacks.receiveSlackUserId))
+        .innerJoin(schema.slackUsers, eq(schema.slackUsers.id, schema.feedbacks.sendSlackUserId))
         .innerJoin(schema.users, eq(schema.users.id, schema.slackUsers.userId))
         .where(and(...filters))
         .orderBy(desc(schema.feedbacks.createdAt))
@@ -81,6 +81,6 @@ export const userReceivedFeedbacks: UserReceivedFeedbacks = (input) => {
 
   return ResultAsync.fromThrowable(
     () => loader.load(input),
-    (error) => new UserReceivedFeedbacksUnexpectedError({ cause: error }),
+    (error) => new UserSentFeedbacksUnexpectedError({ cause: error }),
   )();
 };
