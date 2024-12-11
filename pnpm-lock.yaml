@@ -76,8 +76,8 @@ importers:
         specifier: 5.7.2
         version: 5.7.2
       wrangler:
-        specifier: 3.94.0
-        version: 3.94.0(@cloudflare/workers-types@4.20241205.0)
+        specifier: 3.95.0
+        version: 3.95.0(@cloudflare/workers-types@4.20241205.0)
 
   apps/web:
     dependencies:
@@ -210,7 +210,7 @@ importers:
         version: 3.2.0(graphql@16.9.0)
       '@opennextjs/cloudflare':
         specifier: 0.2.1
-        version: 0.2.1(wrangler@3.94.0(@cloudflare/workers-types@4.20241205.0))
+        version: 0.2.1(wrangler@3.95.0(@cloudflare/workers-types@4.20241205.0))
       '@praha/eslint-config-definer':
         specifier: 2.0.0
         version: 2.0.0(eslint@9.16.0(jiti@2.4.0))
@@ -245,8 +245,8 @@ importers:
         specifier: 5.7.2
         version: 5.7.2
       wrangler:
-        specifier: 3.94.0
-        version: 3.94.0(@cloudflare/workers-types@4.20241205.0)
+        specifier: 3.95.0
+        version: 3.95.0(@cloudflare/workers-types@4.20241205.0)
 
   packages/custom-error:
     dependencies:
@@ -289,8 +289,8 @@ importers:
         specifier: 5.7.2
         version: 5.7.2
       wrangler:
-        specifier: 3.94.0
-        version: 3.94.0(@cloudflare/workers-types@4.20241205.0)
+        specifier: 3.95.0
+        version: 3.95.0(@cloudflare/workers-types@4.20241205.0)
 
   packages/domain:
     dependencies:
@@ -5097,8 +5097,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@3.94.0:
-    resolution: {integrity: sha512-4yw8FKp6SI6WQkALnRlWYjehmgliaaMroLLnymWS9qHndjqrZIPZ16trrhl1HvAEDov/rIg0jZ4nxo5n6K0a/Q==}
+  wrangler@3.95.0:
+    resolution: {integrity: sha512-3w5852i3FNyDz421K2Qk4v5L8jjwegO5O8E1+VAQmjnm82HFNxpIRUBq0bmM7CTLvOPI/Jjcmj/eAWjQBL7QYg==}
     engines: {node: '>=16.17.0'}
     hasBin: true
     peerDependencies:
@@ -6576,10 +6576,10 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@opennextjs/cloudflare@0.2.1(wrangler@3.94.0(@cloudflare/workers-types@4.20241205.0))':
+  '@opennextjs/cloudflare@0.2.1(wrangler@3.95.0(@cloudflare/workers-types@4.20241205.0))':
     dependencies:
       ts-morph: 23.0.0
-      wrangler: 3.94.0(@cloudflare/workers-types@4.20241205.0)
+      wrangler: 3.95.0(@cloudflare/workers-types@4.20241205.0)
 
   '@paralleldrive/cuid2@2.2.2':
     dependencies:
@@ -10251,7 +10251,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20241205.0
       '@cloudflare/workerd-windows-64': 1.20241205.0
 
-  wrangler@3.94.0(@cloudflare/workers-types@4.20241205.0):
+  wrangler@3.95.0(@cloudflare/workers-types@4.20241205.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@cloudflare/workers-shared': 0.11.0
