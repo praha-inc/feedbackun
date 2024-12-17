@@ -65,7 +65,7 @@
     "@praha/eslint-config-react": "4.0.1",
     "@tsconfig/next": "2.0.3",
     "@types/node": "20.17.10",
-    "@types/react": "18.3.16",
+    "@types/react": "18.3.17",
     "@types/react-dom": "18.3.5",
     "@vanilla-extract/next-plugin": "2.4.7",
     "eslint": "9.16.0",
