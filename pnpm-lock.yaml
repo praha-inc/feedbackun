@@ -51,8 +51,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/neverthrow
       drizzle-orm:
-        specifier: 0.38.2
-        version: 0.38.2(@cloudflare/workers-types@4.20241224.0)(@types/react@18.3.18)(react@18.3.1)
+        specifier: 0.38.3
+        version: 0.38.3(@cloudflare/workers-types@4.20241224.0)(@types/react@18.3.18)(react@18.3.1)
       neverthrow:
         specifier: 8.1.1
         version: 8.1.1
@@ -154,8 +154,8 @@ importers:
         specifier: 4.3.1
         version: 4.3.1
       drizzle-orm:
-        specifier: 0.38.2
-        version: 0.38.2(@cloudflare/workers-types@4.20241224.0)(@types/react@18.3.18)(react@18.3.1)
+        specifier: 0.38.3
+        version: 0.38.3(@cloudflare/workers-types@4.20241224.0)(@types/react@18.3.18)(react@18.3.1)
       graphql:
         specifier: 16.10.0
         version: 16.10.0
@@ -254,8 +254,8 @@ importers:
         specifier: workspace:*
         version: link:../database
       drizzle-orm:
-        specifier: 0.38.2
-        version: 0.38.2(@cloudflare/workers-types@4.20241224.0)(@types/react@18.3.18)(react@18.3.1)
+        specifier: 0.38.3
+        version: 0.38.3(@cloudflare/workers-types@4.20241224.0)(@types/react@18.3.18)(react@18.3.1)
       fast-deep-equal:
         specifier: 3.1.3
         version: 3.1.3
@@ -273,8 +273,8 @@ importers:
   packages/database:
     dependencies:
       drizzle-orm:
-        specifier: 0.38.2
-        version: 0.38.2(@cloudflare/workers-types@4.20241224.0)(@types/react@18.3.18)(react@18.3.1)
+        specifier: 0.38.3
+        version: 0.38.3(@cloudflare/workers-types@4.20241224.0)(@types/react@18.3.18)(react@18.3.1)
     devDependencies:
       '@types/node':
         specifier: 22.8.1
@@ -310,8 +310,8 @@ importers:
         specifier: 4.1.0
         version: 4.1.0
       drizzle-orm:
-        specifier: 0.38.2
-        version: 0.38.2(@cloudflare/workers-types@4.20241224.0)(@types/react@18.3.18)(react@18.3.1)
+        specifier: 0.38.3
+        version: 0.38.3(@cloudflare/workers-types@4.20241224.0)(@types/react@18.3.18)(react@18.3.1)
       fast-deep-equal:
         specifier: 3.1.3
         version: 3.1.3
@@ -3635,8 +3635,8 @@ packages:
     resolution: {integrity: sha512-HmA/NeewvHywhJ2ENXD3KvOuM/+K2dGLJfxVfIHsGwaqKICJnS+Ke2L6UcSrSrtMJLJaT0Im1Qv4TFXfaZShyw==}
     hasBin: true
 
-  drizzle-orm@0.38.2:
-    resolution: {integrity: sha512-eCE3yPRAskLo1WpM9OHpFaM70tBEDsWhwR/0M3CKyztAXKR9Qs3asZlcJOEliIcUSg8GuwrlY0dmYDgmm6y5GQ==}
+  drizzle-orm@0.38.3:
+    resolution: {integrity: sha512-w41Y+PquMpSff/QDRGdItG0/aWca+/J3Sda9PPGkTxBtjWQvgU1jxlFBXdjog5tYvTu58uvi3PwR1NuCx0KeZg==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=4'
@@ -9844,7 +9844,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.38.2(@cloudflare/workers-types@4.20241224.0)(@types/react@18.3.18)(react@18.3.1):
+  drizzle-orm@0.38.3(@cloudflare/workers-types@4.20241224.0)(@types/react@18.3.18)(react@18.3.1):
     optionalDependencies:
       '@cloudflare/workers-types': 4.20241224.0
       '@types/react': 18.3.18
