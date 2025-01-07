@@ -209,8 +209,8 @@ importers:
         specifier: 3.2.0
         version: 3.2.0(graphql@16.10.0)
       '@opennextjs/cloudflare':
-        specifier: 0.3.3
-        version: 0.3.3(wrangler@3.99.0(@cloudflare/workers-types@4.20241230.0))
+        specifier: 0.3.4
+        version: 0.3.4(wrangler@3.99.0(@cloudflare/workers-types@4.20241230.0))
       '@praha/eslint-config-definer':
         specifier: 2.0.1
         version: 2.0.1(eslint@9.17.0(jiti@2.4.0))
@@ -2188,13 +2188,13 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
-  '@opennextjs/aws@https://pkg.pr.new/@opennextjs/aws@684':
-    resolution: {tarball: https://pkg.pr.new/@opennextjs/aws@684}
-    version: 3.3.0
+  '@opennextjs/aws@https://pkg.pr.new/@opennextjs/aws@688':
+    resolution: {tarball: https://pkg.pr.new/@opennextjs/aws@688}
+    version: 3.3.1
     hasBin: true
 
-  '@opennextjs/cloudflare@0.3.3':
-    resolution: {integrity: sha512-2JOMEOS8U7sC5qgasPVUONTUeNnidV4Yq/rqcPajKVLa+fd4US9Q24K5W/zC2xkWiDvwtL9oq58IrtJeJInNwA==}
+  '@opennextjs/cloudflare@0.3.4':
+    resolution: {integrity: sha512-CW2caZAC4uq6VLbdHLQ9kY2WoR9twrJX5LNOJdbV9gpqOYPbjB6Bc+L7RwZQ61ls87BdRZcTR19caVtxaqj7Gg==}
     hasBin: true
     peerDependencies:
       wrangler: ^3.99.0
@@ -8116,7 +8116,7 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@opennextjs/aws@https://pkg.pr.new/@opennextjs/aws@684':
+  '@opennextjs/aws@https://pkg.pr.new/@opennextjs/aws@688':
     dependencies:
       '@aws-sdk/client-dynamodb': 3.716.0
       '@aws-sdk/client-lambda': 3.716.0
@@ -8136,10 +8136,10 @@ snapshots:
       - aws-crt
       - supports-color
 
-  '@opennextjs/cloudflare@0.3.3(wrangler@3.99.0(@cloudflare/workers-types@4.20241230.0))':
+  '@opennextjs/cloudflare@0.3.4(wrangler@3.99.0(@cloudflare/workers-types@4.20241230.0))':
     dependencies:
       '@dotenvx/dotenvx': 1.31.0
-      '@opennextjs/aws': https://pkg.pr.new/@opennextjs/aws@684
+      '@opennextjs/aws': https://pkg.pr.new/@opennextjs/aws@688
       enquirer: 2.4.1
       glob: 11.0.0
       rimraf: 6.0.1
