@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@date-fns/tz": "1.2.0",
-    "@envelop/core": "5.0.2",
+    "@envelop/core": "5.0.3",
     "@feedbackun/package-custom-error": "workspace:*",
     "@feedbackun/package-database": "workspace:*",
     "@feedbackun/package-domain": "workspace:*",
