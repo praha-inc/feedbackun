@@ -76,8 +76,8 @@ importers:
         specifier: 5.7.3
         version: 5.7.3
       wrangler:
-        specifier: 3.102.0
-        version: 3.102.0(@cloudflare/workers-types@4.20250109.0)
+        specifier: 3.103.2
+        version: 3.103.2(@cloudflare/workers-types@4.20250109.0)
 
   apps/web:
     dependencies:
@@ -210,7 +210,7 @@ importers:
         version: 3.2.0(graphql@16.10.0)
       '@opennextjs/cloudflare':
         specifier: 0.3.8
-        version: 0.3.8(wrangler@3.102.0(@cloudflare/workers-types@4.20250109.0))
+        version: 0.3.8(wrangler@3.103.2(@cloudflare/workers-types@4.20250109.0))
       '@praha/eslint-config-definer':
         specifier: 2.0.1
         version: 2.0.1(eslint@9.18.0(jiti@2.4.0))
@@ -245,8 +245,8 @@ importers:
         specifier: 5.7.3
         version: 5.7.3
       wrangler:
-        specifier: 3.102.0
-        version: 3.102.0(@cloudflare/workers-types@4.20250109.0)
+        specifier: 3.103.2
+        version: 3.103.2(@cloudflare/workers-types@4.20250109.0)
 
   packages/custom-error:
     dependencies:
@@ -289,8 +289,8 @@ importers:
         specifier: 5.7.3
         version: 5.7.3
       wrangler:
-        specifier: 3.102.0
-        version: 3.102.0(@cloudflare/workers-types@4.20250109.0)
+        specifier: 3.103.2
+        version: 3.103.2(@cloudflare/workers-types@4.20250109.0)
 
   packages/domain:
     dependencies:
@@ -6154,8 +6154,8 @@ packages:
     resolution: {integrity: sha512-72RFADWFqKmUb2hmmvNODKL3p9hcB6Gt2DOQMis1SEBaV6a4MH8soBvzg+95CYhCKPFedut2JY9bMfrDl9D23g==}
     engines: {node: '>=14.0'}
 
-  unenv-nightly@2.0.0-20241218-183400-5d6aec3:
-    resolution: {integrity: sha512-7Xpi29CJRbOV1/IrC03DawMJ0hloklDLq/cigSe+J2jkcC+iDres2Cy0r4ltj5f0x7DqsaGaB4/dLuCPPFZnZA==}
+  unenv-nightly@2.0.0-20250109-100802-88ad671:
+    resolution: {integrity: sha512-Uij6gODNNNNsNBoDlnaMvZI99I6YlVJLRfYH8AOLMlbFrW7k2w872v9VLuIdch2vF8QBeSC4EftIh5sG4ibzdA==}
 
   unixify@1.0.0:
     resolution: {integrity: sha512-6bc58dPYhCMHHuwxldQxO3RRNZ4eCogZ/st++0+fcC1nr0jiGUtAdBJ2qzmLQWSxbtz42pWt4QQMiZ9HvZf5cg==}
@@ -6333,10 +6333,9 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@3.102.0:
-    resolution: {integrity: sha512-Za4DstbS3+/hu+///K/4dFFeV6XbPBAGp7NCnVajchxRTwEPTdbO5eezH0HLJPMHK6G/0yIzyhlEMnyg4YzHAA==}
+  wrangler@3.103.2:
+    resolution: {integrity: sha512-eYcnubPhPBU1QMZYTam+vfCLpaQx+x1EWA6nFbLhid1eqNDAk1dNwNlbo+ZryrOHDEX3XlOxn2Z3Fx8vVv3hKw==}
     engines: {node: '>=16.17.0'}
-    deprecated: Downgrade to 3.99.0
     hasBin: true
     peerDependencies:
       '@cloudflare/workers-types': ^4.20241230.0
@@ -8933,14 +8932,14 @@ snapshots:
       - aws-crt
       - supports-color
 
-  '@opennextjs/cloudflare@0.3.8(wrangler@3.102.0(@cloudflare/workers-types@4.20250109.0))':
+  '@opennextjs/cloudflare@0.3.8(wrangler@3.103.2(@cloudflare/workers-types@4.20250109.0))':
     dependencies:
       '@dotenvx/dotenvx': 1.31.0
       '@opennextjs/aws': https://pkg.pr.new/@opennextjs/aws@695
       enquirer: 2.4.1
       glob: 11.0.0
       ts-morph: 23.0.0
-      wrangler: 3.102.0(@cloudflare/workers-types@4.20250109.0)
+      wrangler: 3.103.2(@cloudflare/workers-types@4.20250109.0)
     transitivePeerDependencies:
       - aws-crt
       - supports-color
@@ -13455,7 +13454,7 @@ snapshots:
     dependencies:
       '@fastify/busboy': 2.1.1
 
-  unenv-nightly@2.0.0-20241218-183400-5d6aec3:
+  unenv-nightly@2.0.0-20250109-100802-88ad671:
     dependencies:
       defu: 6.1.4
       mlly: 1.7.3
@@ -13658,7 +13657,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20241230.0
       '@cloudflare/workerd-windows-64': 1.20241230.0
 
-  wrangler@3.102.0(@cloudflare/workers-types@4.20250109.0):
+  wrangler@3.103.2(@cloudflare/workers-types@4.20250109.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@esbuild-plugins/node-globals-polyfill': 0.2.3(esbuild@0.17.19)
@@ -13667,7 +13666,7 @@ snapshots:
       esbuild: 0.17.19
       miniflare: 3.20241230.2
       path-to-regexp: 6.3.0
-      unenv: unenv-nightly@2.0.0-20241218-183400-5d6aec3
+      unenv: unenv-nightly@2.0.0-20250109-100802-88ad671
       workerd: 1.20241230.0
     optionalDependencies:
       '@cloudflare/workers-types': 4.20250109.0
