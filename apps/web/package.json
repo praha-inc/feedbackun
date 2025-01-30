@@ -67,7 +67,7 @@
     "@types/node": "20.17.16",
     "@types/react": "18.3.18",
     "@types/react-dom": "18.3.5",
-    "@vanilla-extract/next-plugin": "2.4.8",
+    "@vanilla-extract/next-plugin": "2.4.9",
     "eslint": "9.18.0",
     "tsx": "4.19.2",
     "typescript": "5.7.3",
