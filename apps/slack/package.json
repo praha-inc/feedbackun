@@ -17,7 +17,7 @@
     "@feedbackun/package-neverthrow": "workspace:*",
     "drizzle-orm": "0.39.2",
     "neverthrow": "8.1.1",
-    "slack-edge": "1.3.6",
+    "slack-edge": "1.3.7",
     "valibot": "0.42.1"
   },
   "devDependencies": {
