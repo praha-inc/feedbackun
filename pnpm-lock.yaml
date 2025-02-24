@@ -54,8 +54,8 @@ importers:
         specifier: 0.39.3
         version: 0.39.3(@cloudflare/workers-types@4.20250214.0)
       neverthrow:
-        specifier: 8.1.1
-        version: 8.1.1
+        specifier: 8.2.0
+        version: 8.2.0
       slack-edge:
         specifier: 1.3.7
         version: 1.3.7
@@ -172,8 +172,8 @@ importers:
         specifier: 3.0.1
         version: 3.0.1
       neverthrow:
-        specifier: 8.1.1
-        version: 8.1.1
+        specifier: 8.2.0
+        version: 8.2.0
       next:
         specifier: 14.2.24
         version: 14.2.24(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -260,8 +260,8 @@ importers:
         specifier: 3.1.3
         version: 3.1.3
       neverthrow:
-        specifier: 8.1.1
-        version: 8.1.1
+        specifier: 8.2.0
+        version: 8.2.0
     devDependencies:
       eslint:
         specifier: 9.21.0
@@ -316,8 +316,8 @@ importers:
         specifier: 3.1.3
         version: 3.1.3
       neverthrow:
-        specifier: 8.1.1
-        version: 8.1.1
+        specifier: 8.2.0
+        version: 8.2.0
       ts-pattern:
         specifier: 5.6.2
         version: 5.6.2
@@ -341,8 +341,8 @@ importers:
         specifier: workspace:*
         version: link:../database
       neverthrow:
-        specifier: 8.1.1
-        version: 8.1.1
+        specifier: 8.2.0
+        version: 8.2.0
     devDependencies:
       eslint:
         specifier: 9.21.0
@@ -5435,8 +5435,8 @@ packages:
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  neverthrow@8.1.1:
-    resolution: {integrity: sha512-DpbZ/UDI0B+TxJB1JysXSfi1++3YK2xLBqQLTlRN0b4zxlZ2MoiB+dKKV8dMRzt1fAFjRKDknXOVJgpl+a4Amw==}
+  neverthrow@8.2.0:
+    resolution: {integrity: sha512-kOCT/1MCPAxY5iUV3wytNFUMUolzuwd/VF/1KCx7kf6CutrOsTie+84zTGTpgQycjvfLdBBdvBvFLqFD2c0wkQ==}
     engines: {node: '>=18'}
 
   next@14.2.24:
@@ -13140,7 +13140,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  neverthrow@8.1.1:
+  neverthrow@8.2.0:
     optionalDependencies:
       '@rollup/rollup-linux-x64-gnu': 4.27.4
 
