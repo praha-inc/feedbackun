@@ -42,7 +42,7 @@
     "drizzle-orm": "0.39.3",
     "graphql": "16.10.0",
     "graphql-scalars": "1.24.1",
-    "graphql-yoga": "5.12.1",
+    "graphql-yoga": "5.12.2",
     "lucide-react": "0.475.0",
     "modern-normalize": "3.0.1",
     "neverthrow": "8.2.0",
