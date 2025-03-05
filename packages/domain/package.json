@@ -22,7 +22,7 @@
     "valibot": "0.42.1"
   },
   "devDependencies": {
-    "@types/node": "22.8.1",
+    "@types/node": "22.13.9",
     "eslint": "9.21.0",
     "typescript": "5.7.3"
   }
