@@ -68,7 +68,7 @@
     "@types/react": "18.3.18",
     "@types/react-dom": "18.3.5",
     "@vanilla-extract/next-plugin": "2.4.10",
-    "eslint": "9.21.0",
+    "eslint": "9.22.0",
     "tsx": "4.19.3",
     "typescript": "5.8.2",
     "wrangler": "3.114.0"
