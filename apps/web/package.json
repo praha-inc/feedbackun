@@ -39,7 +39,7 @@
     "dataloader": "2.2.3",
     "date-fns": "4.1.0",
     "deepmerge": "4.3.1",
-    "drizzle-orm": "0.40.0",
+    "drizzle-orm": "0.40.1",
     "graphql": "16.10.0",
     "graphql-scalars": "1.24.1",
     "graphql-yoga": "5.13.1",
