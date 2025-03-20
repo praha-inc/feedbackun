@@ -21,7 +21,7 @@
     "valibot": "0.42.1"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "4.20250317.0",
+    "@cloudflare/workers-types": "4.20250319.0",
     "@types/node": "22.8.1",
     "eslint": "9.22.0",
     "typescript": "5.8.2",
