@@ -43,7 +43,7 @@
     "graphql": "16.10.0",
     "graphql-scalars": "1.24.2",
     "graphql-yoga": "5.13.2",
-    "lucide-react": "0.484.0",
+    "lucide-react": "0.485.0",
     "modern-normalize": "3.0.1",
     "neverthrow": "8.2.0",
     "next": "14.2.26",
