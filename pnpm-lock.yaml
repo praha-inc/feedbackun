@@ -76,8 +76,8 @@ importers:
         specifier: 5.8.2
         version: 5.8.2
       wrangler:
-        specifier: 3.114.3
-        version: 3.114.3(@cloudflare/workers-types@4.20250403.0)
+        specifier: 3.114.4
+        version: 3.114.4(@cloudflare/workers-types@4.20250403.0)
 
   apps/web:
     dependencies:
@@ -210,7 +210,7 @@ importers:
         version: 3.2.0(graphql@16.10.0)
       '@opennextjs/cloudflare':
         specifier: 0.3.10
-        version: 0.3.10(wrangler@3.114.3(@cloudflare/workers-types@4.20250403.0))
+        version: 0.3.10(wrangler@3.114.4(@cloudflare/workers-types@4.20250403.0))
       '@praha/eslint-config-definer':
         specifier: 2.0.1
         version: 2.0.1(eslint@9.23.0(jiti@2.4.0))
@@ -245,8 +245,8 @@ importers:
         specifier: 5.8.2
         version: 5.8.2
       wrangler:
-        specifier: 3.114.3
-        version: 3.114.3(@cloudflare/workers-types@4.20250403.0)
+        specifier: 3.114.4
+        version: 3.114.4(@cloudflare/workers-types@4.20250403.0)
 
   packages/custom-error:
     dependencies:
@@ -289,8 +289,8 @@ importers:
         specifier: 5.8.2
         version: 5.8.2
       wrangler:
-        specifier: 3.114.3
-        version: 3.114.3(@cloudflare/workers-types@4.20250403.0)
+        specifier: 3.114.4
+        version: 3.114.4(@cloudflare/workers-types@4.20250403.0)
 
   packages/domain:
     dependencies:
@@ -5454,8 +5454,8 @@ packages:
     resolution: {integrity: sha512-I9jwMn07Sy/IwOj3zVkVik2JTvgpaykDZEigL6Rx6N9LbMywwUSMtxET+7lVoDLLd3O3IXwJwvuuns8UB/HeAg==}
     engines: {node: '>=4'}
 
-  miniflare@3.20250310.1:
-    resolution: {integrity: sha512-c9QPrgBUFzjL4pYvW6GIUw+NqeYlZGVHASKJqjIXB1WVsl14nYfpfHphYK8tluKaBqwA9NFyO5dC2zatJkC/mA==}
+  miniflare@3.20250310.2:
+    resolution: {integrity: sha512-Kjtr5XMvQyRQZFsqAHcgFaKccTDMlslUOugAEWhQUkEfozS/e5GAiXE9lftNW6xTWZ3DTigt+FkShBI106MHKQ==}
     engines: {node: '>=16.13'}
     hasBin: true
 
@@ -6594,8 +6594,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@3.114.3:
-    resolution: {integrity: sha512-H87s4USPQhRQmN8V4Q2Fh+0ZGiuWVrVwVKoxjdgEtpR88gVQEN5Ua9C3TQDaXCppsdAFl/J4lxLoxfJaW2XFdQ==}
+  wrangler@3.114.4:
+    resolution: {integrity: sha512-7F8zF3CZmzOQLwpKOiwzu24d2c98ch4AP+Uz4L3uTXe8Bjq6g5rPjKwovg2whXJGc64X2DjTZJOAFN3KlWmscA==}
     engines: {node: '>=16.17.0'}
     hasBin: true
     peerDependencies:
@@ -9599,7 +9599,7 @@ snapshots:
       - aws-crt
       - supports-color
 
-  '@opennextjs/cloudflare@0.3.10(wrangler@3.114.3(@cloudflare/workers-types@4.20250403.0))':
+  '@opennextjs/cloudflare@0.3.10(wrangler@3.114.4(@cloudflare/workers-types@4.20250403.0))':
     dependencies:
       '@ast-grep/napi': 0.33.1
       '@dotenvx/dotenvx': 1.31.0
@@ -9607,7 +9607,7 @@ snapshots:
       enquirer: 2.4.1
       glob: 11.0.0
       ts-morph: 23.0.0
-      wrangler: 3.114.3(@cloudflare/workers-types@4.20250403.0)
+      wrangler: 3.114.4(@cloudflare/workers-types@4.20250403.0)
       yaml: 2.7.0
     transitivePeerDependencies:
       - aws-crt
@@ -13293,7 +13293,7 @@ snapshots:
 
   min-indent@1.0.1: {}
 
-  miniflare@3.20250310.1:
+  miniflare@3.20250310.2:
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       acorn: 8.14.0
@@ -14538,7 +14538,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20250310.0
       '@cloudflare/workerd-windows-64': 1.20250310.0
 
-  wrangler@3.114.3(@cloudflare/workers-types@4.20250403.0):
+  wrangler@3.114.4(@cloudflare/workers-types@4.20250403.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@cloudflare/unenv-preset': 2.0.2(unenv@2.0.0-rc.14)(workerd@1.20250310.0)
@@ -14546,7 +14546,7 @@ snapshots:
       '@esbuild-plugins/node-modules-polyfill': 0.2.2(esbuild@0.17.19)
       blake3-wasm: 2.1.5
       esbuild: 0.17.19
-      miniflare: 3.20250310.1
+      miniflare: 3.20250310.2
       path-to-regexp: 6.3.0
       unenv: 2.0.0-rc.14
       workerd: 1.20250310.0
