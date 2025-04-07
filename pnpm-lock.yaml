@@ -10,28 +10,28 @@ importers:
     devDependencies:
       '@praha/eslint-config-common':
         specifier: 4.0.1
-        version: 4.0.1(eslint@9.23.0(jiti@2.4.0))
+        version: 4.0.1(eslint@9.24.0(jiti@2.4.0))
       '@praha/eslint-config-definer':
         specifier: 2.0.1
-        version: 2.0.1(eslint@9.23.0(jiti@2.4.0))
+        version: 2.0.1(eslint@9.24.0(jiti@2.4.0))
       '@praha/eslint-config-javascript':
         specifier: 3.0.2
-        version: 3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
+        version: 3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
       '@praha/eslint-config-jest':
         specifier: 4.0.3
-        version: 4.0.3(vt5fiqfnigowwrtwi3cfbllg6y)
+        version: 4.0.3(x4lr6pia5fgciggmtzh5mkg7da)
       '@praha/eslint-config-style':
         specifier: 3.0.3
-        version: 3.0.3(g5sokxxmtdw4i4mdxissodvrau)
+        version: 3.0.3(oy62xrfdnrue5igupyypnkkur4)
       '@praha/eslint-config-typescript':
         specifier: 3.0.3
-        version: 3.0.3(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0)))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
+        version: 3.0.3(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0)))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
       '@tsconfig/strictest':
         specifier: 2.0.5
         version: 2.0.5
       eslint:
-        specifier: 9.23.0
-        version: 9.23.0(jiti@2.4.0)
+        specifier: 9.24.0
+        version: 9.24.0(jiti@2.4.0)
       turbo:
         specifier: 2.5.0
         version: 2.5.0
@@ -70,8 +70,8 @@ importers:
         specifier: 22.8.1
         version: 22.8.1
       eslint:
-        specifier: 9.23.0
-        version: 9.23.0(jiti@2.4.0)
+        specifier: 9.24.0
+        version: 9.24.0(jiti@2.4.0)
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -213,13 +213,13 @@ importers:
         version: 0.3.10(wrangler@3.114.4(@cloudflare/workers-types@4.20250407.0))
       '@praha/eslint-config-definer':
         specifier: 2.0.1
-        version: 2.0.1(eslint@9.23.0(jiti@2.4.0))
+        version: 2.0.1(eslint@9.24.0(jiti@2.4.0))
       '@praha/eslint-config-next':
         specifier: 4.0.3
-        version: 4.0.3(5n2ey5wnzswq4xjkf6tbdfae7a)
+        version: 4.0.3(pu36cr66bp4ihdx6we5jydvrzy)
       '@praha/eslint-config-react':
         specifier: 4.0.3
-        version: 4.0.3(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(@praha/eslint-config-typescript@3.0.3(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0)))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))
+        version: 4.0.3(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(@praha/eslint-config-typescript@3.0.3(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0)))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))
       '@tsconfig/next':
         specifier: 2.0.3
         version: 2.0.3
@@ -236,8 +236,8 @@ importers:
         specifier: 2.4.10
         version: 2.4.10(next@14.2.26(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(webpack@5.96.1(esbuild@0.19.2))
       eslint:
-        specifier: 9.23.0
-        version: 9.23.0(jiti@2.4.0)
+        specifier: 9.24.0
+        version: 9.24.0(jiti@2.4.0)
       tsx:
         specifier: 4.19.3
         version: 4.19.3
@@ -264,8 +264,8 @@ importers:
         version: 8.2.0
     devDependencies:
       eslint:
-        specifier: 9.23.0
-        version: 9.23.0(jiti@2.4.0)
+        specifier: 9.24.0
+        version: 9.24.0(jiti@2.4.0)
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -283,8 +283,8 @@ importers:
         specifier: 0.30.6
         version: 0.30.6
       eslint:
-        specifier: 9.23.0
-        version: 9.23.0(jiti@2.4.0)
+        specifier: 9.24.0
+        version: 9.24.0(jiti@2.4.0)
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -329,8 +329,8 @@ importers:
         specifier: 22.8.1
         version: 22.8.1
       eslint:
-        specifier: 9.23.0
-        version: 9.23.0(jiti@2.4.0)
+        specifier: 9.24.0
+        version: 9.24.0(jiti@2.4.0)
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -345,8 +345,8 @@ importers:
         version: 8.2.0
     devDependencies:
       eslint:
-        specifier: 9.23.0
-        version: 9.23.0(jiti@2.4.0)
+        specifier: 9.24.0
+        version: 9.24.0(jiti@2.4.0)
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -1895,8 +1895,8 @@ packages:
       eslint:
         optional: true
 
-  '@eslint/config-array@0.19.2':
-    resolution: {integrity: sha512-GNKqxfHG2ySmJOBSHg7LxeUx4xpuCoFjacmlCoYWEbaPXLwvfIjixRI12xCQZeULksQb23uiA8F40w5TojpV7w==}
+  '@eslint/config-array@0.20.0':
+    resolution: {integrity: sha512-fxlS1kkIjx8+vy2SjuCB94q3htSNrufYTXubwiBFeaQHbH6Ipi43gFJq2zCMt6PHhImH3Xmr0NksKDvchWlpQQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/config-helpers@0.2.0':
@@ -1915,8 +1915,8 @@ packages:
     resolution: {integrity: sha512-BqStZ3HX8Yz6LvsF5ByXYrtigrV5AXADWLAGc7PH/1SxOb7/FIYYMszZZWiUou/GB9P2lXWk2SV4d+Z8h0nknw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@eslint/js@9.23.0':
-    resolution: {integrity: sha512-35MJ8vCPU0ZMxo7zfev2pypqTwWTofFZO6m4KAtdoFhRpLJUpHTZZ+KB3C7Hb1d7bULYwO4lJXGCi5Se+8OMbw==}
+  '@eslint/js@9.24.0':
+    resolution: {integrity: sha512-uIY/y3z0uvOGX8cp1C2fiC4+ZmBhp6yZWkojtHL1YEMnRt1Y63HB9TM17proGEmeG7HeUY+UP36F0aknKYTpYA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/object-schema@2.1.6':
@@ -4590,8 +4590,8 @@ packages:
     resolution: {integrity: sha512-UyLnSehNt62FFhSwjZlHmeokpRK59rcz29j+F1/aDgbkbRTk7wIc9XzdoasMUbRNKDM0qQt/+BJ4BrpFeABemw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  eslint@9.23.0:
-    resolution: {integrity: sha512-jV7AbNoFPAY1EkFYpLq5bslU9NLNO8xnEeQXwErNibVryjk67wHVmddTBilc5srIttJDBrB0eMHKZBFbSIABCw==}
+  eslint@9.24.0:
+    resolution: {integrity: sha512-eh/jxIEJyZrvbWRe4XuVclLPDYSYYYgLy5zXGGxD6j8zjSAxFEzI2fL/8xNq6O2yKqVt+eF2YhV+hxjV6UKXwQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     hasBin: true
     peerDependencies:
@@ -8862,18 +8862,18 @@ snapshots:
   '@esbuild/win32-x64@0.25.0':
     optional: true
 
-  '@eslint-community/eslint-utils@4.4.1(eslint@9.23.0(jiti@2.4.0))':
+  '@eslint-community/eslint-utils@4.4.1(eslint@9.24.0(jiti@2.4.0))':
     dependencies:
-      eslint: 9.23.0(jiti@2.4.0)
+      eslint: 9.24.0(jiti@2.4.0)
       eslint-visitor-keys: 3.4.3
 
   '@eslint-community/regexpp@4.12.1': {}
 
-  '@eslint/compat@1.2.7(eslint@9.23.0(jiti@2.4.0))':
+  '@eslint/compat@1.2.7(eslint@9.24.0(jiti@2.4.0))':
     optionalDependencies:
-      eslint: 9.23.0(jiti@2.4.0)
+      eslint: 9.24.0(jiti@2.4.0)
 
-  '@eslint/config-array@0.19.2':
+  '@eslint/config-array@0.20.0':
     dependencies:
       '@eslint/object-schema': 2.1.6
       debug: 4.3.7
@@ -8903,7 +8903,7 @@ snapshots:
 
   '@eslint/js@9.21.0': {}
 
-  '@eslint/js@9.23.0': {}
+  '@eslint/js@9.24.0': {}
 
   '@eslint/object-schema@2.1.6': {}
 
@@ -9633,97 +9633,97 @@ snapshots:
       '@pothos/core': 4.5.1(graphql@16.10.0)
       graphql: 16.10.0
 
-  '@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0))':
+  '@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0))':
     dependencies:
-      '@praha/eslint-config-definer': 2.0.1(eslint@9.23.0(jiti@2.4.0))
-      eslint: 9.23.0(jiti@2.4.0)
-      eslint-plugin-jsonc: 2.18.2(eslint@9.23.0(jiti@2.4.0))
+      '@praha/eslint-config-definer': 2.0.1(eslint@9.24.0(jiti@2.4.0))
+      eslint: 9.24.0(jiti@2.4.0)
+      eslint-plugin-jsonc: 2.18.2(eslint@9.24.0(jiti@2.4.0))
     transitivePeerDependencies:
       - '@eslint/json'
 
-  '@praha/eslint-config-definer@2.0.1(eslint@9.23.0(jiti@2.4.0))':
+  '@praha/eslint-config-definer@2.0.1(eslint@9.24.0(jiti@2.4.0))':
     dependencies:
-      eslint: 9.23.0(jiti@2.4.0)
+      eslint: 9.24.0(jiti@2.4.0)
 
-  '@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)':
+  '@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)':
     dependencies:
       '@eslint/js': 9.21.0
-      '@praha/eslint-config-common': 4.0.1(eslint@9.23.0(jiti@2.4.0))
-      '@praha/eslint-config-definer': 2.0.1(eslint@9.23.0(jiti@2.4.0))
-      eslint: 9.23.0(jiti@2.4.0)
-      eslint-plugin-import-x: 4.4.3(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
-      eslint-plugin-unicorn: 57.0.0(eslint@9.23.0(jiti@2.4.0))
-      eslint-plugin-unused-imports: 4.1.4(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))
+      '@praha/eslint-config-common': 4.0.1(eslint@9.24.0(jiti@2.4.0))
+      '@praha/eslint-config-definer': 2.0.1(eslint@9.24.0(jiti@2.4.0))
+      eslint: 9.24.0(jiti@2.4.0)
+      eslint-plugin-import-x: 4.4.3(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
+      eslint-plugin-unicorn: 57.0.0(eslint@9.24.0(jiti@2.4.0))
+      eslint-plugin-unused-imports: 4.1.4(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))
       globals: 16.0.0
     transitivePeerDependencies:
       - '@typescript-eslint/eslint-plugin'
       - supports-color
       - typescript
 
-  '@praha/eslint-config-jest@4.0.3(vt5fiqfnigowwrtwi3cfbllg6y)':
+  '@praha/eslint-config-jest@4.0.3(x4lr6pia5fgciggmtzh5mkg7da)':
     dependencies:
-      '@praha/eslint-config-common': 4.0.1(eslint@9.23.0(jiti@2.4.0))
-      '@praha/eslint-config-definer': 2.0.1(eslint@9.23.0(jiti@2.4.0))
-      '@praha/eslint-config-javascript': 3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
-      '@typescript-eslint/eslint-plugin': 8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
-      eslint: 9.23.0(jiti@2.4.0)
-      eslint-plugin-jest: 28.9.0(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
+      '@praha/eslint-config-common': 4.0.1(eslint@9.24.0(jiti@2.4.0))
+      '@praha/eslint-config-definer': 2.0.1(eslint@9.24.0(jiti@2.4.0))
+      '@praha/eslint-config-javascript': 3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
+      '@typescript-eslint/eslint-plugin': 8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
+      eslint: 9.24.0(jiti@2.4.0)
+      eslint-plugin-jest: 28.9.0(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
       globals: 16.0.0
     optionalDependencies:
-      '@praha/eslint-config-typescript': 3.0.3(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0)))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
+      '@praha/eslint-config-typescript': 3.0.3(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0)))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
     transitivePeerDependencies:
       - '@typescript-eslint/parser'
       - jest
       - supports-color
       - typescript
 
-  '@praha/eslint-config-next@4.0.3(5n2ey5wnzswq4xjkf6tbdfae7a)':
+  '@praha/eslint-config-next@4.0.3(pu36cr66bp4ihdx6we5jydvrzy)':
     dependencies:
-      '@eslint/compat': 1.2.7(eslint@9.23.0(jiti@2.4.0))
+      '@eslint/compat': 1.2.7(eslint@9.24.0(jiti@2.4.0))
       '@next/eslint-plugin-next': 15.0.3
-      '@praha/eslint-config-common': 4.0.1(eslint@9.23.0(jiti@2.4.0))
-      '@praha/eslint-config-definer': 2.0.1(eslint@9.23.0(jiti@2.4.0))
-      '@praha/eslint-config-javascript': 3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
-      '@praha/eslint-config-react': 4.0.3(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(@praha/eslint-config-typescript@3.0.3(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0)))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))
-      eslint: 9.23.0(jiti@2.4.0)
+      '@praha/eslint-config-common': 4.0.1(eslint@9.24.0(jiti@2.4.0))
+      '@praha/eslint-config-definer': 2.0.1(eslint@9.24.0(jiti@2.4.0))
+      '@praha/eslint-config-javascript': 3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
+      '@praha/eslint-config-react': 4.0.3(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(@praha/eslint-config-typescript@3.0.3(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0)))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))
+      eslint: 9.24.0(jiti@2.4.0)
     optionalDependencies:
-      '@praha/eslint-config-typescript': 3.0.3(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0)))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
+      '@praha/eslint-config-typescript': 3.0.3(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0)))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
 
-  ? '@praha/eslint-config-react@4.0.3(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(@praha/eslint-config-typescript@3.0.3(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0)))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))'
+  ? '@praha/eslint-config-react@4.0.3(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(@praha/eslint-config-typescript@3.0.3(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0)))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))'
   : dependencies:
-      '@praha/eslint-config-common': 4.0.1(eslint@9.23.0(jiti@2.4.0))
-      '@praha/eslint-config-definer': 2.0.1(eslint@9.23.0(jiti@2.4.0))
-      '@praha/eslint-config-javascript': 3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
-      eslint: 9.23.0(jiti@2.4.0)
-      eslint-plugin-jsx-a11y: 6.10.2(eslint@9.23.0(jiti@2.4.0))
-      eslint-plugin-react: 7.37.2(eslint@9.23.0(jiti@2.4.0))
-      eslint-plugin-react-hooks: 5.0.0(eslint@9.23.0(jiti@2.4.0))
+      '@praha/eslint-config-common': 4.0.1(eslint@9.24.0(jiti@2.4.0))
+      '@praha/eslint-config-definer': 2.0.1(eslint@9.24.0(jiti@2.4.0))
+      '@praha/eslint-config-javascript': 3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
+      eslint: 9.24.0(jiti@2.4.0)
+      eslint-plugin-jsx-a11y: 6.10.2(eslint@9.24.0(jiti@2.4.0))
+      eslint-plugin-react: 7.37.2(eslint@9.24.0(jiti@2.4.0))
+      eslint-plugin-react-hooks: 5.0.0(eslint@9.24.0(jiti@2.4.0))
     optionalDependencies:
-      '@praha/eslint-config-typescript': 3.0.3(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0)))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
+      '@praha/eslint-config-typescript': 3.0.3(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0)))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
 
-  '@praha/eslint-config-style@3.0.3(g5sokxxmtdw4i4mdxissodvrau)':
+  '@praha/eslint-config-style@3.0.3(oy62xrfdnrue5igupyypnkkur4)':
     dependencies:
-      '@praha/eslint-config-common': 4.0.1(eslint@9.23.0(jiti@2.4.0))
-      '@praha/eslint-config-definer': 2.0.1(eslint@9.23.0(jiti@2.4.0))
-      '@praha/eslint-config-javascript': 3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
-      '@stylistic/eslint-plugin': 4.2.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
-      eslint: 9.23.0(jiti@2.4.0)
+      '@praha/eslint-config-common': 4.0.1(eslint@9.24.0(jiti@2.4.0))
+      '@praha/eslint-config-definer': 2.0.1(eslint@9.24.0(jiti@2.4.0))
+      '@praha/eslint-config-javascript': 3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
+      '@stylistic/eslint-plugin': 4.2.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
+      eslint: 9.24.0(jiti@2.4.0)
     optionalDependencies:
-      '@praha/eslint-config-typescript': 3.0.3(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0)))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
+      '@praha/eslint-config-typescript': 3.0.3(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0)))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  '@praha/eslint-config-typescript@3.0.3(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0)))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)':
+  '@praha/eslint-config-typescript@3.0.3(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@praha/eslint-config-javascript@3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0)))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)':
     dependencies:
-      '@praha/eslint-config-common': 4.0.1(eslint@9.23.0(jiti@2.4.0))
-      '@praha/eslint-config-definer': 2.0.1(eslint@9.23.0(jiti@2.4.0))
-      '@praha/eslint-config-javascript': 3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.23.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
-      '@typescript-eslint/parser': 8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
-      eslint: 9.23.0(jiti@2.4.0)
-      eslint-import-resolver-typescript: 3.6.3(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import-x@4.4.3(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0)))(eslint@9.23.0(jiti@2.4.0))
-      eslint-plugin-import-x: 4.4.3(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
-      typescript-eslint: 8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
+      '@praha/eslint-config-common': 4.0.1(eslint@9.24.0(jiti@2.4.0))
+      '@praha/eslint-config-definer': 2.0.1(eslint@9.24.0(jiti@2.4.0))
+      '@praha/eslint-config-javascript': 3.0.2(@praha/eslint-config-common@4.0.1(eslint@9.24.0(jiti@2.4.0)))(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
+      '@typescript-eslint/parser': 8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
+      eslint: 9.24.0(jiti@2.4.0)
+      eslint-import-resolver-typescript: 3.6.3(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import-x@4.4.3(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0)))(eslint@9.24.0(jiti@2.4.0))
+      eslint-plugin-import-x: 4.4.3(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
+      typescript-eslint: 8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
     transitivePeerDependencies:
       - eslint-import-resolver-node
       - eslint-import-resolver-webpack
@@ -10893,10 +10893,10 @@ snapshots:
       '@smithy/types': 4.1.0
       tslib: 2.8.1
 
-  '@stylistic/eslint-plugin@4.2.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)':
+  '@stylistic/eslint-plugin@4.2.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)':
     dependencies:
-      '@typescript-eslint/utils': 8.26.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
-      eslint: 9.23.0(jiti@2.4.0)
+      '@typescript-eslint/utils': 8.26.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
+      eslint: 9.24.0(jiti@2.4.0)
       eslint-visitor-keys: 4.2.0
       espree: 10.3.0
       estraverse: 5.3.0
@@ -10973,15 +10973,15 @@ snapshots:
     dependencies:
       '@types/node': 22.8.1
 
-  '@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)':
+  '@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)':
     dependencies:
       '@eslint-community/regexpp': 4.12.1
-      '@typescript-eslint/parser': 8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
+      '@typescript-eslint/parser': 8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
       '@typescript-eslint/scope-manager': 8.16.0
-      '@typescript-eslint/type-utils': 8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
-      '@typescript-eslint/utils': 8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
+      '@typescript-eslint/type-utils': 8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
+      '@typescript-eslint/utils': 8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
       '@typescript-eslint/visitor-keys': 8.16.0
-      eslint: 9.23.0(jiti@2.4.0)
+      eslint: 9.24.0(jiti@2.4.0)
       graphemer: 1.4.0
       ignore: 5.3.2
       natural-compare: 1.4.0
@@ -10991,14 +10991,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)':
+  '@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)':
     dependencies:
       '@typescript-eslint/scope-manager': 8.16.0
       '@typescript-eslint/types': 8.16.0
       '@typescript-eslint/typescript-estree': 8.16.0(typescript@5.8.3)
       '@typescript-eslint/visitor-keys': 8.16.0
       debug: 4.3.7
-      eslint: 9.23.0(jiti@2.4.0)
+      eslint: 9.24.0(jiti@2.4.0)
     optionalDependencies:
       typescript: 5.8.3
     transitivePeerDependencies:
@@ -11014,12 +11014,12 @@ snapshots:
       '@typescript-eslint/types': 8.26.0
       '@typescript-eslint/visitor-keys': 8.26.0
 
-  '@typescript-eslint/type-utils@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)':
+  '@typescript-eslint/type-utils@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)':
     dependencies:
       '@typescript-eslint/typescript-estree': 8.16.0(typescript@5.8.3)
-      '@typescript-eslint/utils': 8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
+      '@typescript-eslint/utils': 8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
       debug: 4.3.7
-      eslint: 9.23.0(jiti@2.4.0)
+      eslint: 9.24.0(jiti@2.4.0)
       ts-api-utils: 1.4.2(typescript@5.8.3)
     optionalDependencies:
       typescript: 5.8.3
@@ -11059,25 +11059,25 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/utils@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)':
+  '@typescript-eslint/utils@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)':
     dependencies:
-      '@eslint-community/eslint-utils': 4.4.1(eslint@9.23.0(jiti@2.4.0))
+      '@eslint-community/eslint-utils': 4.4.1(eslint@9.24.0(jiti@2.4.0))
       '@typescript-eslint/scope-manager': 8.16.0
       '@typescript-eslint/types': 8.16.0
       '@typescript-eslint/typescript-estree': 8.16.0(typescript@5.8.3)
-      eslint: 9.23.0(jiti@2.4.0)
+      eslint: 9.24.0(jiti@2.4.0)
     optionalDependencies:
       typescript: 5.8.3
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/utils@8.26.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)':
+  '@typescript-eslint/utils@8.26.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)':
     dependencies:
-      '@eslint-community/eslint-utils': 4.4.1(eslint@9.23.0(jiti@2.4.0))
+      '@eslint-community/eslint-utils': 4.4.1(eslint@9.24.0(jiti@2.4.0))
       '@typescript-eslint/scope-manager': 8.26.0
       '@typescript-eslint/types': 8.26.0
       '@typescript-eslint/typescript-estree': 8.26.0(typescript@5.8.3)
-      eslint: 9.23.0(jiti@2.4.0)
+      eslint: 9.24.0(jiti@2.4.0)
       typescript: 5.8.3
     transitivePeerDependencies:
       - supports-color
@@ -12148,9 +12148,9 @@ snapshots:
 
   escape-string-regexp@4.0.0: {}
 
-  eslint-compat-utils@0.6.3(eslint@9.23.0(jiti@2.4.0)):
+  eslint-compat-utils@0.6.3(eslint@9.24.0(jiti@2.4.0)):
     dependencies:
-      eslint: 9.23.0(jiti@2.4.0)
+      eslint: 9.24.0(jiti@2.4.0)
       semver: 7.7.1
 
   eslint-import-resolver-node@0.3.9:
@@ -12161,59 +12161,59 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import-x@4.4.3(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0)))(eslint@9.23.0(jiti@2.4.0)):
+  eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import-x@4.4.3(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0)))(eslint@9.24.0(jiti@2.4.0)):
     dependencies:
       '@nolyfill/is-core-module': 1.0.39
       debug: 4.3.7
       enhanced-resolve: 5.17.1
-      eslint: 9.23.0(jiti@2.4.0)
-      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import-x@4.4.3(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0)))(eslint@9.23.0(jiti@2.4.0)))(eslint@9.23.0(jiti@2.4.0))
+      eslint: 9.24.0(jiti@2.4.0)
+      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import-x@4.4.3(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0)))(eslint@9.24.0(jiti@2.4.0)))(eslint@9.24.0(jiti@2.4.0))
       fast-glob: 3.3.2
       get-tsconfig: 4.8.1
       is-bun-module: 1.3.0
       is-glob: 4.0.3
     optionalDependencies:
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))
-      eslint-plugin-import-x: 4.4.3(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))
+      eslint-plugin-import-x: 4.4.3(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
     transitivePeerDependencies:
       - '@typescript-eslint/parser'
       - eslint-import-resolver-node
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-json-compat-utils@0.2.1(eslint@9.23.0(jiti@2.4.0))(jsonc-eslint-parser@2.4.0):
+  eslint-json-compat-utils@0.2.1(eslint@9.24.0(jiti@2.4.0))(jsonc-eslint-parser@2.4.0):
     dependencies:
-      eslint: 9.23.0(jiti@2.4.0)
+      eslint: 9.24.0(jiti@2.4.0)
       esquery: 1.6.0
       jsonc-eslint-parser: 2.4.0
 
-  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint@9.23.0(jiti@2.4.0)):
+  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint@9.24.0(jiti@2.4.0)):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
-      '@typescript-eslint/parser': 8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
-      eslint: 9.23.0(jiti@2.4.0)
+      '@typescript-eslint/parser': 8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
+      eslint: 9.24.0(jiti@2.4.0)
       eslint-import-resolver-node: 0.3.9
     transitivePeerDependencies:
       - supports-color
     optional: true
 
-  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import-x@4.4.3(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0)))(eslint@9.23.0(jiti@2.4.0)))(eslint@9.23.0(jiti@2.4.0)):
+  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import-x@4.4.3(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0)))(eslint@9.24.0(jiti@2.4.0)))(eslint@9.24.0(jiti@2.4.0)):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
-      '@typescript-eslint/parser': 8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
-      eslint: 9.23.0(jiti@2.4.0)
-      eslint-import-resolver-typescript: 3.6.3(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import-x@4.4.3(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0)))(eslint@9.23.0(jiti@2.4.0))
+      '@typescript-eslint/parser': 8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
+      eslint: 9.24.0(jiti@2.4.0)
+      eslint-import-resolver-typescript: 3.6.3(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import-x@4.4.3(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0)))(eslint@9.24.0(jiti@2.4.0))
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import-x@4.4.3(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3):
+  eslint-plugin-import-x@4.4.3(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3):
     dependencies:
-      '@typescript-eslint/utils': 8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
+      '@typescript-eslint/utils': 8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
       debug: 4.3.7
       doctrine: 3.0.0
-      eslint: 9.23.0(jiti@2.4.0)
+      eslint: 9.24.0(jiti@2.4.0)
       eslint-import-resolver-node: 0.3.9
       get-tsconfig: 4.8.1
       is-glob: 4.0.3
@@ -12225,7 +12225,7 @@ snapshots:
       - supports-color
       - typescript
 
-  eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0)):
+  eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0)):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.8
@@ -12234,9 +12234,9 @@ snapshots:
       array.prototype.flatmap: 1.3.2
       debug: 3.2.7
       doctrine: 2.1.0
-      eslint: 9.23.0(jiti@2.4.0)
+      eslint: 9.24.0(jiti@2.4.0)
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint@9.23.0(jiti@2.4.0))
+      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint@9.24.0(jiti@2.4.0))
       hasown: 2.0.2
       is-core-module: 2.15.1
       is-glob: 4.0.3
@@ -12248,29 +12248,29 @@ snapshots:
       string.prototype.trimend: 1.0.8
       tsconfig-paths: 3.15.0
     optionalDependencies:
-      '@typescript-eslint/parser': 8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
+      '@typescript-eslint/parser': 8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
     transitivePeerDependencies:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - supports-color
     optional: true
 
-  eslint-plugin-jest@28.9.0(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3):
+  eslint-plugin-jest@28.9.0(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3):
     dependencies:
-      '@typescript-eslint/utils': 8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
-      eslint: 9.23.0(jiti@2.4.0)
+      '@typescript-eslint/utils': 8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
+      eslint: 9.24.0(jiti@2.4.0)
     optionalDependencies:
-      '@typescript-eslint/eslint-plugin': 8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
+      '@typescript-eslint/eslint-plugin': 8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  eslint-plugin-jsonc@2.18.2(eslint@9.23.0(jiti@2.4.0)):
+  eslint-plugin-jsonc@2.18.2(eslint@9.24.0(jiti@2.4.0)):
     dependencies:
-      '@eslint-community/eslint-utils': 4.4.1(eslint@9.23.0(jiti@2.4.0))
-      eslint: 9.23.0(jiti@2.4.0)
-      eslint-compat-utils: 0.6.3(eslint@9.23.0(jiti@2.4.0))
-      eslint-json-compat-utils: 0.2.1(eslint@9.23.0(jiti@2.4.0))(jsonc-eslint-parser@2.4.0)
+      '@eslint-community/eslint-utils': 4.4.1(eslint@9.24.0(jiti@2.4.0))
+      eslint: 9.24.0(jiti@2.4.0)
+      eslint-compat-utils: 0.6.3(eslint@9.24.0(jiti@2.4.0))
+      eslint-json-compat-utils: 0.2.1(eslint@9.24.0(jiti@2.4.0))(jsonc-eslint-parser@2.4.0)
       espree: 9.6.1
       graphemer: 1.4.0
       jsonc-eslint-parser: 2.4.0
@@ -12279,7 +12279,7 @@ snapshots:
     transitivePeerDependencies:
       - '@eslint/json'
 
-  eslint-plugin-jsx-a11y@6.10.2(eslint@9.23.0(jiti@2.4.0)):
+  eslint-plugin-jsx-a11y@6.10.2(eslint@9.24.0(jiti@2.4.0)):
     dependencies:
       aria-query: 5.3.2
       array-includes: 3.1.8
@@ -12289,7 +12289,7 @@ snapshots:
       axobject-query: 4.1.0
       damerau-levenshtein: 1.0.8
       emoji-regex: 9.2.2
-      eslint: 9.23.0(jiti@2.4.0)
+      eslint: 9.24.0(jiti@2.4.0)
       hasown: 2.0.2
       jsx-ast-utils: 3.3.5
       language-tags: 1.0.9
@@ -12298,11 +12298,11 @@ snapshots:
       safe-regex-test: 1.0.3
       string.prototype.includes: 2.0.1
 
-  eslint-plugin-react-hooks@5.0.0(eslint@9.23.0(jiti@2.4.0)):
+  eslint-plugin-react-hooks@5.0.0(eslint@9.24.0(jiti@2.4.0)):
     dependencies:
-      eslint: 9.23.0(jiti@2.4.0)
+      eslint: 9.24.0(jiti@2.4.0)
 
-  eslint-plugin-react@7.37.2(eslint@9.23.0(jiti@2.4.0)):
+  eslint-plugin-react@7.37.2(eslint@9.24.0(jiti@2.4.0)):
     dependencies:
       array-includes: 3.1.8
       array.prototype.findlast: 1.2.5
@@ -12310,7 +12310,7 @@ snapshots:
       array.prototype.tosorted: 1.1.4
       doctrine: 2.1.0
       es-iterator-helpers: 1.2.0
-      eslint: 9.23.0(jiti@2.4.0)
+      eslint: 9.24.0(jiti@2.4.0)
       estraverse: 5.3.0
       hasown: 2.0.2
       jsx-ast-utils: 3.3.5
@@ -12324,14 +12324,14 @@ snapshots:
       string.prototype.matchall: 4.0.11
       string.prototype.repeat: 1.0.0
 
-  eslint-plugin-unicorn@57.0.0(eslint@9.23.0(jiti@2.4.0)):
+  eslint-plugin-unicorn@57.0.0(eslint@9.24.0(jiti@2.4.0)):
     dependencies:
       '@babel/helper-validator-identifier': 7.25.9
-      '@eslint-community/eslint-utils': 4.4.1(eslint@9.23.0(jiti@2.4.0))
+      '@eslint-community/eslint-utils': 4.4.1(eslint@9.24.0(jiti@2.4.0))
       ci-info: 4.1.0
       clean-regexp: 1.0.0
       core-js-compat: 3.41.0
-      eslint: 9.23.0(jiti@2.4.0)
+      eslint: 9.24.0(jiti@2.4.0)
       esquery: 1.6.0
       globals: 15.15.0
       indent-string: 5.0.0
@@ -12344,11 +12344,11 @@ snapshots:
       semver: 7.7.1
       strip-indent: 4.0.0
 
-  eslint-plugin-unused-imports@4.1.4(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0)):
+  eslint-plugin-unused-imports@4.1.4(@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0)):
     dependencies:
-      eslint: 9.23.0(jiti@2.4.0)
+      eslint: 9.24.0(jiti@2.4.0)
     optionalDependencies:
-      '@typescript-eslint/eslint-plugin': 8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
+      '@typescript-eslint/eslint-plugin': 8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
 
   eslint-scope@5.1.1:
     dependencies:
@@ -12364,15 +12364,15 @@ snapshots:
 
   eslint-visitor-keys@4.2.0: {}
 
-  eslint@9.23.0(jiti@2.4.0):
+  eslint@9.24.0(jiti@2.4.0):
     dependencies:
-      '@eslint-community/eslint-utils': 4.4.1(eslint@9.23.0(jiti@2.4.0))
+      '@eslint-community/eslint-utils': 4.4.1(eslint@9.24.0(jiti@2.4.0))
       '@eslint-community/regexpp': 4.12.1
-      '@eslint/config-array': 0.19.2
+      '@eslint/config-array': 0.20.0
       '@eslint/config-helpers': 0.2.0
       '@eslint/core': 0.12.0
       '@eslint/eslintrc': 3.3.1
-      '@eslint/js': 9.23.0
+      '@eslint/js': 9.24.0
       '@eslint/plugin-kit': 0.2.7
       '@humanfs/node': 0.16.6
       '@humanwhocodes/module-importer': 1.0.1
@@ -14323,12 +14323,12 @@ snapshots:
       possible-typed-array-names: 1.0.0
       reflect.getprototypeof: 1.0.7
 
-  typescript-eslint@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3):
+  typescript-eslint@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3):
     dependencies:
-      '@typescript-eslint/eslint-plugin': 8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
-      '@typescript-eslint/parser': 8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
-      '@typescript-eslint/utils': 8.16.0(eslint@9.23.0(jiti@2.4.0))(typescript@5.8.3)
-      eslint: 9.23.0(jiti@2.4.0)
+      '@typescript-eslint/eslint-plugin': 8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
+      '@typescript-eslint/parser': 8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
+      '@typescript-eslint/utils': 8.16.0(eslint@9.24.0(jiti@2.4.0))(typescript@5.8.3)
+      eslint: 9.24.0(jiti@2.4.0)
     optionalDependencies:
       typescript: 5.8.3
     transitivePeerDependencies:
