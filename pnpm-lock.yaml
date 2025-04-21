@@ -163,8 +163,8 @@ importers:
         specifier: 1.24.2
         version: 1.24.2(graphql@16.10.0)
       graphql-yoga:
-        specifier: 5.13.3
-        version: 5.13.3(graphql@16.10.0)
+        specifier: 5.13.4
+        version: 5.13.4(graphql@16.10.0)
       lucide-react:
         specifier: 0.487.0
         version: 0.487.0(react@18.3.1)
@@ -1931,6 +1931,9 @@ packages:
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
 
+  '@fastify/busboy@3.1.1':
+    resolution: {integrity: sha512-5DGmA8FTdB2XbDeEwc/5ZXBl6UbBAyBOOLlPuBnZ/N1SwdH9Ii+cOX3tBROlDgcTXxjOYnLMVoKk9+FXAw0CJw==}
+
   '@floating-ui/core@1.6.8':
     resolution: {integrity: sha512-7XJ9cPU+yI2QeLS+FCSlqNFZJq8arvswefkZrYI1yQBbftw6FyrZOxYSh+9S7z7TpeWlRt9zJ5IhM1WIL334jA==}
 
@@ -2169,8 +2172,8 @@ packages:
     resolution: {integrity: sha512-Nv0BoDGLMg9QBKy9cIswQ3/6aKaKjlTh87x3GiBg2Z4RrjyrM48DvOOK0pJh1C1At+b0mUIM67cwZcFTDLN4sA==}
     engines: {node: '>=18.0.0'}
 
-  '@graphql-yoga/subscription@5.0.4':
-    resolution: {integrity: sha512-Bcj1LYVQyQmFN/vsl73TRSNistd8lBJJcPxqFVCT8diUuH/gTv2be2OYZsirpeO0l5tFjJWJv9RPgIlCYv3Khw==}
+  '@graphql-yoga/subscription@5.0.5':
+    resolution: {integrity: sha512-oCMWOqFs6QV96/NZRt/ZhTQvzjkGB4YohBOpKM4jH/lDT4qb7Lex/aGCxpi/JD9njw3zBBtMqxbaC22+tFHVvw==}
     engines: {node: '>=18.0.0'}
 
   '@graphql-yoga/typed-event-target@3.0.2':
@@ -3658,8 +3661,16 @@ packages:
     resolution: {integrity: sha512-+yFJU3hmXPAHJULwx0VzCIsvr/H0lvbPvbOH3areOH3NAuCxCwaJsQ8w6/MwwMcvEWIynSsmAxoyaH04KeosPg==}
     engines: {node: '>=18.0.0'}
 
+  '@whatwg-node/fetch@0.10.6':
+    resolution: {integrity: sha512-6uzhO2aQ757p3bSHcemA8C4pqEXuyBqyGAM7cYpO0c6/igRMV9As9XL0W12h5EPYMclgr7FgjmbVQBoWEdJ/yA==}
+    engines: {node: '>=18.0.0'}
+
   '@whatwg-node/node-fetch@0.7.11':
     resolution: {integrity: sha512-UQXJyaFxThqE/br5aiey+pJgRSq+YHH01cHs7rCJ7HQcuuCMpMhrLmCvT1sTJeDQmMljQGESs1P6vmEEptPR5w==}
+    engines: {node: '>=18.0.0'}
+
+  '@whatwg-node/node-fetch@0.7.18':
+    resolution: {integrity: sha512-IxKdVWfZYasGiyxBcsROxq6FmDQu3MNNiOYJ/yqLKhe+Qq27IIWsK7ItbjS2M9L5aM5JxjWkIS7JDh7wnsn+CQ==}
     engines: {node: '>=18.0.0'}
 
   '@whatwg-node/node-fetch@0.7.4':
@@ -3670,8 +3681,12 @@ packages:
     resolution: {integrity: sha512-daEUfaHbaMuAcor+FPAVK+pOCSzsAYhK6LN1y81EcakdqQEPQvjm74PTmfwfv8POg8pw4RyCv9LXB1e+mQDwqg==}
     engines: {node: '>=16.0.0'}
 
-  '@whatwg-node/server@0.10.3':
-    resolution: {integrity: sha512-2Dnfey57vWR+hDUMjPhNzJQc9z116BBzSQwR9eD0vhnzYmN2rJXuY0QuMaHDCCqEZRmFHg2bo8iJ+/1uHOlxpg==}
+  '@whatwg-node/promise-helpers@1.3.1':
+    resolution: {integrity: sha512-D+OwTEunoQhVHVToD80dPhfz9xgPLqJyEA3F5jCRM14A2u8tBBQVdZekqfqx6ZAfZ+POT4Hb0dn601UKMsvADw==}
+    engines: {node: '>=16.0.0'}
+
+  '@whatwg-node/server@0.10.5':
+    resolution: {integrity: sha512-ydxzH1iox9AzLe+uaX9jjyVFkQO+h15j+JClropw0P4Vz+ES4+xTZVu5leUsWW8AYTVZBFkiC0iHl/PwFZ+Q1Q==}
     engines: {node: '>=18.0.0'}
 
   '@xtuc/ieee754@1.2.0':
@@ -4916,8 +4931,8 @@ packages:
     peerDependencies:
       graphql: '>=0.11 <=16'
 
-  graphql-yoga@5.13.3:
-    resolution: {integrity: sha512-W8efVmPhKOreIJgiYbC2CCn60ORr7kj+5dRg7EoBg6+rbMdL4EqlXp1hYdrmbB5GGgS2g3ivyHutXKUK0S0UZw==}
+  graphql-yoga@5.13.4:
+    resolution: {integrity: sha512-q5l3HEvgXnZCKG6K38fz3XNBX41GkHkIYspJbdVl9QVsm5Ah0EFUkY303tEOx8IucyB0h2hb8OfbYXEcoNCLMw==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       graphql: ^15.2.0 || ^16.0.0
@@ -8910,6 +8925,8 @@ snapshots:
 
   '@fastify/busboy@2.1.1': {}
 
+  '@fastify/busboy@3.1.1': {}
+
   '@floating-ui/core@1.6.8':
     dependencies:
       '@floating-ui/utils': 0.2.8
@@ -9363,7 +9380,7 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@graphql-yoga/subscription@5.0.4':
+  '@graphql-yoga/subscription@5.0.5':
     dependencies:
       '@graphql-yoga/typed-event-target': 3.0.2
       '@repeaterjs/repeater': 3.0.6
@@ -11237,7 +11254,7 @@ snapshots:
 
   '@whatwg-node/disposablestack@0.0.6':
     dependencies:
-      '@whatwg-node/promise-helpers': 1.2.4
+      '@whatwg-node/promise-helpers': 1.3.1
       tslib: 2.8.1
 
   '@whatwg-node/events@0.1.2':
@@ -11254,10 +11271,22 @@ snapshots:
       '@whatwg-node/node-fetch': 0.7.11
       urlpattern-polyfill: 10.0.0
 
+  '@whatwg-node/fetch@0.10.6':
+    dependencies:
+      '@whatwg-node/node-fetch': 0.7.18
+      urlpattern-polyfill: 10.0.0
+
   '@whatwg-node/node-fetch@0.7.11':
     dependencies:
       '@whatwg-node/disposablestack': 0.0.5
       busboy: 1.6.0
+      tslib: 2.8.1
+
+  '@whatwg-node/node-fetch@0.7.18':
+    dependencies:
+      '@fastify/busboy': 3.1.1
+      '@whatwg-node/disposablestack': 0.0.6
+      '@whatwg-node/promise-helpers': 1.3.1
       tslib: 2.8.1
 
   '@whatwg-node/node-fetch@0.7.4':
@@ -11272,12 +11301,16 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@whatwg-node/server@0.10.3':
+  '@whatwg-node/promise-helpers@1.3.1':
+    dependencies:
+      tslib: 2.8.1
+
+  '@whatwg-node/server@0.10.5':
     dependencies:
       '@envelop/instrumentation': 1.0.0
       '@whatwg-node/disposablestack': 0.0.6
-      '@whatwg-node/fetch': 0.10.5
-      '@whatwg-node/promise-helpers': 1.2.4
+      '@whatwg-node/fetch': 0.10.6
+      '@whatwg-node/promise-helpers': 1.3.1
       tslib: 2.8.1
 
   '@xtuc/ieee754@1.2.0': {}
@@ -12788,7 +12821,7 @@ snapshots:
     dependencies:
       graphql: 16.10.0
 
-  graphql-yoga@5.13.3(graphql@16.10.0):
+  graphql-yoga@5.13.4(graphql@16.10.0):
     dependencies:
       '@envelop/core': 5.2.3
       '@envelop/instrumentation': 1.0.0
@@ -12796,10 +12829,10 @@ snapshots:
       '@graphql-tools/schema': 10.0.13(graphql@16.10.0)
       '@graphql-tools/utils': 10.8.6(graphql@16.10.0)
       '@graphql-yoga/logger': 2.0.1
-      '@graphql-yoga/subscription': 5.0.4
-      '@whatwg-node/fetch': 0.10.5
+      '@graphql-yoga/subscription': 5.0.5
+      '@whatwg-node/fetch': 0.10.6
       '@whatwg-node/promise-helpers': 1.2.4
-      '@whatwg-node/server': 0.10.3
+      '@whatwg-node/server': 0.10.5
       dset: 3.1.4
       graphql: 16.10.0
       lru-cache: 10.4.3
