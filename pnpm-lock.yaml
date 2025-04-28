@@ -76,8 +76,8 @@ importers:
         specifier: 5.8.3
         version: 5.8.3
       wrangler:
-        specifier: 3.114.6
-        version: 3.114.6(@cloudflare/workers-types@4.20250421.0)
+        specifier: 3.114.7
+        version: 3.114.7(@cloudflare/workers-types@4.20250421.0)
 
   apps/web:
     dependencies:
@@ -210,7 +210,7 @@ importers:
         version: 3.2.0(graphql@16.10.0)
       '@opennextjs/cloudflare':
         specifier: 0.3.10
-        version: 0.3.10(wrangler@3.114.6(@cloudflare/workers-types@4.20250421.0))
+        version: 0.3.10(wrangler@3.114.7(@cloudflare/workers-types@4.20250421.0))
       '@praha/eslint-config-definer':
         specifier: 2.0.1
         version: 2.0.1(eslint@9.24.0(jiti@2.4.0))
@@ -245,8 +245,8 @@ importers:
         specifier: 5.8.3
         version: 5.8.3
       wrangler:
-        specifier: 3.114.6
-        version: 3.114.6(@cloudflare/workers-types@4.20250421.0)
+        specifier: 3.114.7
+        version: 3.114.7(@cloudflare/workers-types@4.20250421.0)
 
   packages/custom-error:
     dependencies:
@@ -289,8 +289,8 @@ importers:
         specifier: 5.8.3
         version: 5.8.3
       wrangler:
-        specifier: 3.114.6
-        version: 3.114.6(@cloudflare/workers-types@4.20250421.0)
+        specifier: 3.114.7
+        version: 3.114.7(@cloudflare/workers-types@4.20250421.0)
 
   packages/domain:
     dependencies:
@@ -1153,9 +1153,6 @@ packages:
 
   '@emnapi/core@1.4.3':
     resolution: {integrity: sha512-4m62DuCE07lw01soJwPiBGC0nAww0Q+RY70VZ+n49yDIO13yyinhbWCeNnaob0lakDtWQzSdtNWzJeOJt2ma+g==}
-
-  '@emnapi/runtime@1.3.1':
-    resolution: {integrity: sha512-kEBmG8KyqtxJZv+ygbEim+KCGtIq1fC22Ms3S4ziXmYKm8uyoLX0MHONVKwp+9opg390VaKRNt4a7A9NwmpNhw==}
 
   '@emnapi/runtime@1.4.3':
     resolution: {integrity: sha512-pBPWdu6MLKROBX05wSNKcNb++m5Er+KQ9QkB+WVM+pW2Kx9hoSrVTnu3BdkI5eBLZoKu/J6mW/B6i6bJB2ytXQ==}
@@ -6765,8 +6762,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@3.114.6:
-    resolution: {integrity: sha512-05Ov/Bg8BQEy+/x/aRTeEUiXYspCiE0wmdgg4TIQwYLeEZaoBLE6KhqxEiLd8WNea0IRpzpBQOtAZ64Tjl0znQ==}
+  wrangler@3.114.7:
+    resolution: {integrity: sha512-awyHVA9JwcEpyysh7Kn69NoIe2SwXYt8pOjNX3p/4RsOa68qtct+QbhUCwPFPyDDH9lg1VgvTjCFfFbXBLMk6w==}
     engines: {node: '>=16.17.0'}
     hasBin: true
     peerDependencies:
@@ -8643,11 +8640,6 @@ snapshots:
       tslib: 2.8.1
     optional: true
 
-  '@emnapi/runtime@1.3.1':
-    dependencies:
-      tslib: 2.8.1
-    optional: true
-
   '@emnapi/runtime@1.4.3':
     dependencies:
       tslib: 2.8.1
@@ -9650,7 +9642,7 @@ snapshots:
 
   '@img/sharp-wasm32@0.33.5':
     dependencies:
-      '@emnapi/runtime': 1.3.1
+      '@emnapi/runtime': 1.4.3
     optional: true
 
   '@img/sharp-win32-ia32@0.33.5':
@@ -9796,7 +9788,7 @@ snapshots:
       - aws-crt
       - supports-color
 
-  '@opennextjs/cloudflare@0.3.10(wrangler@3.114.6(@cloudflare/workers-types@4.20250421.0))':
+  '@opennextjs/cloudflare@0.3.10(wrangler@3.114.7(@cloudflare/workers-types@4.20250421.0))':
     dependencies:
       '@ast-grep/napi': 0.33.1
       '@dotenvx/dotenvx': 1.31.0
@@ -9804,7 +9796,7 @@ snapshots:
       enquirer: 2.4.1
       glob: 11.0.0
       ts-morph: 23.0.0
-      wrangler: 3.114.6(@cloudflare/workers-types@4.20250421.0)
+      wrangler: 3.114.7(@cloudflare/workers-types@4.20250421.0)
       yaml: 2.7.0
     transitivePeerDependencies:
       - aws-crt
@@ -14871,7 +14863,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20250408.0
       '@cloudflare/workerd-windows-64': 1.20250408.0
 
-  wrangler@3.114.6(@cloudflare/workers-types@4.20250421.0):
+  wrangler@3.114.7(@cloudflare/workers-types@4.20250421.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@cloudflare/unenv-preset': 2.0.2(unenv@2.0.0-rc.14)(workerd@1.20250408.0)
