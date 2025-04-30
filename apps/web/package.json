@@ -22,7 +22,7 @@
     "@feedbackun/package-domain": "workspace:*",
     "@feedbackun/package-neverthrow": "workspace:*",
     "@graphql-tools/executor-http": "1.1.9",
-    "@pothos/core": "4.6.0",
+    "@pothos/core": "4.6.1",
     "@pothos/plugin-relay": "4.4.1",
     "@pothos/plugin-simple-objects": "4.1.1",
     "@radix-ui/react-accessible-icon": "1.1.4",
