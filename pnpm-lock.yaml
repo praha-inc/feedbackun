@@ -76,8 +76,8 @@ importers:
         specifier: 5.8.3
         version: 5.8.3
       wrangler:
-        specifier: 3.114.7
-        version: 3.114.7(@cloudflare/workers-types@4.20250430.0)
+        specifier: 3.114.8
+        version: 3.114.8(@cloudflare/workers-types@4.20250430.0)
 
   apps/web:
     dependencies:
@@ -210,7 +210,7 @@ importers:
         version: 3.2.0(graphql@16.11.0)
       '@opennextjs/cloudflare':
         specifier: 0.3.10
-        version: 0.3.10(wrangler@3.114.7(@cloudflare/workers-types@4.20250430.0))
+        version: 0.3.10(wrangler@3.114.8(@cloudflare/workers-types@4.20250430.0))
       '@praha/eslint-config-definer':
         specifier: 2.0.1
         version: 2.0.1(eslint@9.25.1(jiti@2.4.0))
@@ -245,8 +245,8 @@ importers:
         specifier: 5.8.3
         version: 5.8.3
       wrangler:
-        specifier: 3.114.7
-        version: 3.114.7(@cloudflare/workers-types@4.20250430.0)
+        specifier: 3.114.8
+        version: 3.114.8(@cloudflare/workers-types@4.20250430.0)
 
   packages/custom-error:
     dependencies:
@@ -289,8 +289,8 @@ importers:
         specifier: 5.8.3
         version: 5.8.3
       wrangler:
-        specifier: 3.114.7
-        version: 3.114.7(@cloudflare/workers-types@4.20250430.0)
+        specifier: 3.114.8
+        version: 3.114.8(@cloudflare/workers-types@4.20250430.0)
 
   packages/domain:
     dependencies:
@@ -5628,8 +5628,8 @@ packages:
     resolution: {integrity: sha512-I9jwMn07Sy/IwOj3zVkVik2JTvgpaykDZEigL6Rx6N9LbMywwUSMtxET+7lVoDLLd3O3IXwJwvuuns8UB/HeAg==}
     engines: {node: '>=4'}
 
-  miniflare@3.20250408.0:
-    resolution: {integrity: sha512-URXD7+b0tLbBtchPM/MfWYujymHUrmPtd3EDQbe51qrPPF1zQCdSeNbA4f/GRQMoQIEE6EIhvEYjVjL+hiN+Og==}
+  miniflare@3.20250408.1:
+    resolution: {integrity: sha512-0EHBNcd1yZSdTC/7GSe/kI1ge4+YuO/6QbEXDLtnVgUExKiMS5brfWsza1+Ps0/WCywKkER08lJwu6tFh7kF7g==}
     engines: {node: '>=16.13'}
     hasBin: true
 
@@ -6777,8 +6777,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@3.114.7:
-    resolution: {integrity: sha512-awyHVA9JwcEpyysh7Kn69NoIe2SwXYt8pOjNX3p/4RsOa68qtct+QbhUCwPFPyDDH9lg1VgvTjCFfFbXBLMk6w==}
+  wrangler@3.114.8:
+    resolution: {integrity: sha512-4qLxkXnviQDhFiQe2xIgZGEaDkNHdVKyX7dsQ70PO3blXxYwQof34yRH9oZOyT8c8g/BeIM+f9a6qmegeJX5ZA==}
     engines: {node: '>=16.17.0'}
     hasBin: true
     peerDependencies:
@@ -9815,7 +9815,7 @@ snapshots:
       - aws-crt
       - supports-color
 
-  '@opennextjs/cloudflare@0.3.10(wrangler@3.114.7(@cloudflare/workers-types@4.20250430.0))':
+  '@opennextjs/cloudflare@0.3.10(wrangler@3.114.8(@cloudflare/workers-types@4.20250430.0))':
     dependencies:
       '@ast-grep/napi': 0.33.1
       '@dotenvx/dotenvx': 1.31.0
@@ -9823,7 +9823,7 @@ snapshots:
       enquirer: 2.4.1
       glob: 11.0.0
       ts-morph: 23.0.0
-      wrangler: 3.114.7(@cloudflare/workers-types@4.20250430.0)
+      wrangler: 3.114.8(@cloudflare/workers-types@4.20250430.0)
       yaml: 2.7.0
     transitivePeerDependencies:
       - aws-crt
@@ -11451,7 +11451,7 @@ snapshots:
       '@vanilla-extract/babel-plugin-debug-ids': 1.2.0
       '@vanilla-extract/css': 1.17.1
       dedent: 1.5.3
-      esbuild: 0.25.0
+      esbuild: 0.25.3
       eval: 0.1.8
       find-up: 5.0.0
       javascript-stringify: 2.1.0
@@ -13623,7 +13623,7 @@ snapshots:
 
   min-indent@1.0.1: {}
 
-  miniflare@3.20250408.0:
+  miniflare@3.20250408.1:
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       acorn: 8.14.0
@@ -14890,7 +14890,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20250408.0
       '@cloudflare/workerd-windows-64': 1.20250408.0
 
-  wrangler@3.114.7(@cloudflare/workers-types@4.20250430.0):
+  wrangler@3.114.8(@cloudflare/workers-types@4.20250430.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@cloudflare/unenv-preset': 2.0.2(unenv@2.0.0-rc.14)(workerd@1.20250408.0)
@@ -14898,7 +14898,7 @@ snapshots:
       '@esbuild-plugins/node-modules-polyfill': 0.2.2(esbuild@0.17.19)
       blake3-wasm: 2.1.5
       esbuild: 0.17.19
-      miniflare: 3.20250408.0
+      miniflare: 3.20250408.1
       path-to-regexp: 6.3.0
       unenv: 2.0.0-rc.14
       workerd: 1.20250408.0
