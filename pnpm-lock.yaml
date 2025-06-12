@@ -233,8 +233,8 @@ importers:
         specifier: 18.3.7
         version: 18.3.7(@types/react@18.3.23)
       '@vanilla-extract/next-plugin':
-        specifier: 2.4.11
-        version: 2.4.11(next@14.2.29(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(webpack@5.96.1(esbuild@0.19.2))
+        specifier: 2.4.14
+        version: 2.4.14(next@14.2.29(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(webpack@5.96.1(esbuild@0.19.2))
       eslint:
         specifier: 9.27.0
         version: 9.27.0(jiti@2.4.0)
@@ -3736,8 +3736,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@vanilla-extract/babel-plugin-debug-ids@1.2.0':
-    resolution: {integrity: sha512-z5nx2QBnOhvmlmBKeRX5sPVLz437wV30u+GJL+Hzj1rGiJYVNvgIIlzUpRNjVQ0MgAgiQIqIUbqPnmMc6HmDlQ==}
+  '@vanilla-extract/babel-plugin-debug-ids@1.2.2':
+    resolution: {integrity: sha512-MeDWGICAF9zA/OZLOKwhoRlsUW+fiMwnfuOAqFVohL31Agj7Q/RBWAYweqjHLgFBCsdnr6XIfwjJnmb2znEWxw==}
 
   '@vanilla-extract/css-utils@0.1.6':
     resolution: {integrity: sha512-iICpaHma0s2EEnQDw/JRqudQJwYw1JERyWfIllNQplps226KVphjGb3jyGMiBK5Waw69RD3q4gulgRVQAQmKmA==}
@@ -3745,11 +3745,11 @@ packages:
   '@vanilla-extract/css@1.17.4':
     resolution: {integrity: sha512-m3g9nQDWPtL+sTFdtCGRMI1Vrp86Ay4PBYq1Bo7Bnchj5ElNtAJpOqD+zg+apthVA4fB7oVpMWNjwpa6ElDWFQ==}
 
-  '@vanilla-extract/integration@8.0.2':
-    resolution: {integrity: sha512-w9OvWwsYkqyuyHf9NLnOJ8ap0FGTy2pAeWftgxAEkKE3tF1aYeyEtYRHKxfVH6JRgi8JIeQqELHGMSwz+BxwiA==}
+  '@vanilla-extract/integration@8.0.4':
+    resolution: {integrity: sha512-cmOb7tR+g3ulKvFtSbmdw3YUyIS1d7MQqN+FcbwNhdieyno5xzUyfDCMjeWJhmCSMvZ6WlinkrOkgs6SHB+FRg==}
 
-  '@vanilla-extract/next-plugin@2.4.11':
-    resolution: {integrity: sha512-xfrwHTZKujMPGvo8SK8jKdQCkZtGo05mLhVnY4nPy0BnSiBnY0FoCQ4gSwvgukN7FUqtLlNd4A3lzWEitZIOtw==}
+  '@vanilla-extract/next-plugin@2.4.14':
+    resolution: {integrity: sha512-5GRgVZayLNvXJVHwVWNZp7rDAgXmF5DAyVtp9O5ZxPoOuokLWwTaIw1bYALXs/uCaeAUwilK5p14peagzFbe2w==}
     peerDependencies:
       next: '>=12.1.7'
 
@@ -3761,8 +3761,8 @@ packages:
     peerDependencies:
       '@vanilla-extract/css': ^1.0.0
 
-  '@vanilla-extract/webpack-plugin@2.3.19':
-    resolution: {integrity: sha512-GDphiVib3EMeNkMNyzc7zOs35lBs1GzlALi93dawl/V4e6CsCsGKBNrPzGpDSFvzf4Vq51MNuUkyzwAdfbayPQ==}
+  '@vanilla-extract/webpack-plugin@2.3.22':
+    resolution: {integrity: sha512-3Cx8DkbX3EeLHGbD049jjj6/bWB0VK4YFfWWsf8VXBI8dgf5SvEef1VfET22IOcT9GzLl8MqfsLr/XSo9iv67Q==}
     peerDependencies:
       webpack: ^4.30.0 || ^5.20.2
 
@@ -11424,7 +11424,7 @@ snapshots:
   '@unrs/resolver-binding-win32-x64-msvc@1.6.2':
     optional: true
 
-  '@vanilla-extract/babel-plugin-debug-ids@1.2.0':
+  '@vanilla-extract/babel-plugin-debug-ids@1.2.2':
     dependencies:
       '@babel/core': 7.26.0
     transitivePeerDependencies:
@@ -11449,11 +11449,11 @@ snapshots:
     transitivePeerDependencies:
       - babel-plugin-macros
 
-  '@vanilla-extract/integration@8.0.2':
+  '@vanilla-extract/integration@8.0.4':
     dependencies:
       '@babel/core': 7.26.0
       '@babel/plugin-syntax-typescript': 7.25.9(@babel/core@7.26.0)
-      '@vanilla-extract/babel-plugin-debug-ids': 1.2.0
+      '@vanilla-extract/babel-plugin-debug-ids': 1.2.2
       '@vanilla-extract/css': 1.17.4
       dedent: 1.5.3
       esbuild: 0.25.3
@@ -11465,9 +11465,9 @@ snapshots:
       - babel-plugin-macros
       - supports-color
 
-  '@vanilla-extract/next-plugin@2.4.11(next@14.2.29(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(webpack@5.96.1(esbuild@0.19.2))':
+  '@vanilla-extract/next-plugin@2.4.14(next@14.2.29(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(webpack@5.96.1(esbuild@0.19.2))':
     dependencies:
-      '@vanilla-extract/webpack-plugin': 2.3.19(webpack@5.96.1(esbuild@0.19.2))
+      '@vanilla-extract/webpack-plugin': 2.3.22(webpack@5.96.1(esbuild@0.19.2))
       next: 14.2.29(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     transitivePeerDependencies:
       - babel-plugin-macros
@@ -11480,9 +11480,9 @@ snapshots:
     dependencies:
       '@vanilla-extract/css': 1.17.4
 
-  '@vanilla-extract/webpack-plugin@2.3.19(webpack@5.96.1(esbuild@0.19.2))':
+  '@vanilla-extract/webpack-plugin@2.3.22(webpack@5.96.1(esbuild@0.19.2))':
     dependencies:
-      '@vanilla-extract/integration': 8.0.2
+      '@vanilla-extract/integration': 8.0.4
       debug: 4.4.0
       loader-utils: 2.0.4
       picocolors: 1.1.1
