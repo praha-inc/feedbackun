@@ -23,7 +23,7 @@
     "@feedbackun/package-neverthrow": "workspace:*",
     "@graphql-tools/executor-http": "1.1.9",
     "@pothos/core": "4.7.0",
-    "@pothos/plugin-relay": "4.4.3",
+    "@pothos/plugin-relay": "4.5.0",
     "@pothos/plugin-simple-objects": "4.1.3",
     "@radix-ui/react-accessible-icon": "1.1.7",
     "@radix-ui/react-avatar": "1.1.10",
