@@ -76,8 +76,8 @@ importers:
         specifier: 5.8.3
         version: 5.8.3
       wrangler:
-        specifier: 3.114.9
-        version: 3.114.9(@cloudflare/workers-types@4.20250620.0)
+        specifier: 3.114.10
+        version: 3.114.10(@cloudflare/workers-types@4.20250620.0)
 
   apps/web:
     dependencies:
@@ -210,7 +210,7 @@ importers:
         version: 3.2.0(graphql@16.11.0)
       '@opennextjs/cloudflare':
         specifier: 0.3.10
-        version: 0.3.10(wrangler@3.114.9(@cloudflare/workers-types@4.20250620.0))
+        version: 0.3.10(wrangler@3.114.10(@cloudflare/workers-types@4.20250620.0))
       '@praha/eslint-config-definer':
         specifier: 2.0.1
         version: 2.0.1(eslint@9.29.0(jiti@2.4.0))
@@ -245,8 +245,8 @@ importers:
         specifier: 5.8.3
         version: 5.8.3
       wrangler:
-        specifier: 3.114.9
-        version: 3.114.9(@cloudflare/workers-types@4.20250620.0)
+        specifier: 3.114.10
+        version: 3.114.10(@cloudflare/workers-types@4.20250620.0)
 
   packages/custom-error:
     dependencies:
@@ -289,8 +289,8 @@ importers:
         specifier: 5.8.3
         version: 5.8.3
       wrangler:
-        specifier: 3.114.9
-        version: 3.114.9(@cloudflare/workers-types@4.20250620.0)
+        specifier: 3.114.10
+        version: 3.114.10(@cloudflare/workers-types@4.20250620.0)
 
   packages/domain:
     dependencies:
@@ -6710,8 +6710,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@3.114.9:
-    resolution: {integrity: sha512-1e0gL+rxLF04kM9bW4sxoDGLXpJ1x53Rx1t18JuUm6F67qadKKPISyUAXuBeIQudWrCWEBXaTVnSdLHz0yBXbA==}
+  wrangler@3.114.10:
+    resolution: {integrity: sha512-UMs4bSH+P47oXvXqgziRqD8UOT8KBF6D/4O0bB9Kyh9QrT1FGpG2p4rV4FtbKFOchDrXQozbthScND+vLc8gqw==}
     engines: {node: '>=16.17.0'}
     hasBin: true
     peerDependencies:
@@ -9749,7 +9749,7 @@ snapshots:
       - aws-crt
       - supports-color
 
-  '@opennextjs/cloudflare@0.3.10(wrangler@3.114.9(@cloudflare/workers-types@4.20250620.0))':
+  '@opennextjs/cloudflare@0.3.10(wrangler@3.114.10(@cloudflare/workers-types@4.20250620.0))':
     dependencies:
       '@ast-grep/napi': 0.33.1
       '@dotenvx/dotenvx': 1.31.0
@@ -9757,7 +9757,7 @@ snapshots:
       enquirer: 2.4.1
       glob: 11.0.0
       ts-morph: 23.0.0
-      wrangler: 3.114.9(@cloudflare/workers-types@4.20250620.0)
+      wrangler: 3.114.10(@cloudflare/workers-types@4.20250620.0)
       yaml: 2.7.0
     transitivePeerDependencies:
       - aws-crt
@@ -11346,7 +11346,7 @@ snapshots:
       '@vanilla-extract/babel-plugin-debug-ids': 1.2.2
       '@vanilla-extract/css': 1.17.4
       dedent: 1.5.3
-      esbuild: 0.25.3
+      esbuild: 0.25.5
       eval: 0.1.8
       find-up: 5.0.0
       javascript-stringify: 2.1.0
@@ -12623,8 +12623,8 @@ snapshots:
 
   espree@10.3.0:
     dependencies:
-      acorn: 8.14.0
-      acorn-jsx: 5.3.2(acorn@8.14.0)
+      acorn: 8.15.0
+      acorn-jsx: 5.3.2(acorn@8.15.0)
       eslint-visitor-keys: 4.2.0
 
   espree@10.4.0:
@@ -13558,7 +13558,7 @@ snapshots:
 
   mlly@1.7.4:
     dependencies:
-      acorn: 8.14.0
+      acorn: 8.15.0
       pathe: 2.0.3
       pkg-types: 1.3.1
       ufo: 1.5.4
@@ -14732,7 +14732,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20250408.0
       '@cloudflare/workerd-windows-64': 1.20250408.0
 
-  wrangler@3.114.9(@cloudflare/workers-types@4.20250620.0):
+  wrangler@3.114.10(@cloudflare/workers-types@4.20250620.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@cloudflare/unenv-preset': 2.0.2(unenv@2.0.0-rc.14)(workerd@1.20250408.0)
