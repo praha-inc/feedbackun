@@ -16,7 +16,7 @@
     "drizzle-orm": "0.44.2"
   },
   "devDependencies": {
-    "@types/node": "22.8.1",
+    "@types/node": "22.15.34",
     "drizzle-kit": "0.31.3",
     "eslint": "9.29.0",
     "typescript": "5.8.3",
