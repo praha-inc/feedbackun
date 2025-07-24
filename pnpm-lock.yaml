@@ -103,14 +103,14 @@ importers:
         specifier: 1.1.9
         version: 1.1.9(@types/node@20.19.9)(graphql@16.11.0)
       '@pothos/core':
-        specifier: 4.7.0
-        version: 4.7.0(graphql@16.11.0)
+        specifier: 4.8.0
+        version: 4.8.0(graphql@16.11.0)
       '@pothos/plugin-relay':
-        specifier: 4.5.0
-        version: 4.5.0(@pothos/core@4.7.0(graphql@16.11.0))(graphql@16.11.0)
+        specifier: 4.6.2
+        version: 4.6.2(@pothos/core@4.8.0(graphql@16.11.0))(graphql@16.11.0)
       '@pothos/plugin-simple-objects':
         specifier: 4.1.3
-        version: 4.1.3(@pothos/core@4.7.0(graphql@16.11.0))(graphql@16.11.0)
+        version: 4.1.3(@pothos/core@4.8.0(graphql@16.11.0))(graphql@16.11.0)
       '@radix-ui/react-accessible-icon':
         specifier: 1.1.7
         version: 1.1.7(@types/react-dom@18.3.7(@types/react@18.3.23))(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2497,13 +2497,13 @@ packages:
     resolution: {integrity: sha512-ROFF39F6ZrnzSUEmQQZUar0Jt4xVoP9WnDRdWwF4NNcXs3xBTLgBUDoOwW141y1jP+S8nahIbdxbFC7IShw9Iw==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@pothos/core@4.7.0':
-    resolution: {integrity: sha512-UaUhg8gzV5qv8SyQbD2sha9/jBEFU0keVyWSQWFpe9O2NTKER+f5dySDlVpfhdDtFeASjHOZwkfxbY+LC7ZfhA==}
+  '@pothos/core@4.8.0':
+    resolution: {integrity: sha512-2AUfsit2nbK31u7IDThvFR3cTiXESLMvOov6RP8jN8XUyirH4HeCg2e/6wiVHCpTeJo1K0CHWkf+szUovKo+Lg==}
     peerDependencies:
       graphql: ^16.10.0
 
-  '@pothos/plugin-relay@4.5.0':
-    resolution: {integrity: sha512-S9PoOkyJI7VCXigJgGGbcT/GTB7+i90ITPRYPcrdeZy7reMW2Tz1POtJ741gkty4RqtZoXTADxE9eMQ8q4HNVA==}
+  '@pothos/plugin-relay@4.6.2':
+    resolution: {integrity: sha512-9aweCv9T53z4+CmE+JF8QoXeAEd+wT/rZflZNzrvH6ln2Lj6qy/EVEcL5BMr6en3/IYHH+ROyHAAsy12t4uIUQ==}
     peerDependencies:
       '@pothos/core': '*'
       graphql: ^16.10.0
@@ -9769,18 +9769,18 @@ snapshots:
 
   '@pkgr/core@0.2.4': {}
 
-  '@pothos/core@4.7.0(graphql@16.11.0)':
+  '@pothos/core@4.8.0(graphql@16.11.0)':
     dependencies:
       graphql: 16.11.0
 
-  '@pothos/plugin-relay@4.5.0(@pothos/core@4.7.0(graphql@16.11.0))(graphql@16.11.0)':
+  '@pothos/plugin-relay@4.6.2(@pothos/core@4.8.0(graphql@16.11.0))(graphql@16.11.0)':
     dependencies:
-      '@pothos/core': 4.7.0(graphql@16.11.0)
+      '@pothos/core': 4.8.0(graphql@16.11.0)
       graphql: 16.11.0
 
-  '@pothos/plugin-simple-objects@4.1.3(@pothos/core@4.7.0(graphql@16.11.0))(graphql@16.11.0)':
+  '@pothos/plugin-simple-objects@4.1.3(@pothos/core@4.8.0(graphql@16.11.0))(graphql@16.11.0)':
     dependencies:
-      '@pothos/core': 4.7.0(graphql@16.11.0)
+      '@pothos/core': 4.8.0(graphql@16.11.0)
       graphql: 16.11.0
 
   '@praha/eslint-config-common@4.0.1(eslint@9.31.0(jiti@2.4.0))':
