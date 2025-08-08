@@ -25,6 +25,6 @@
     "@types/node": "22.8.1",
     "eslint": "9.32.0",
     "typescript": "5.8.3",
-    "wrangler": "3.114.11"
+    "wrangler": "3.114.13"
   }
 }
