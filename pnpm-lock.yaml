@@ -166,8 +166,8 @@ importers:
         specifier: 5.15.1
         version: 5.15.1(graphql@16.11.0)
       lucide-react:
-        specifier: 0.528.0
-        version: 0.528.0(react@18.3.1)
+        specifier: 0.541.0
+        version: 0.541.0(react@18.3.1)
       modern-normalize:
         specifier: 3.0.1
         version: 3.0.1
@@ -5351,8 +5351,8 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucide-react@0.528.0:
-    resolution: {integrity: sha512-Qeapzej+iIKQwOevWKtsSHJKkZh16ohe0Lm5bwdsmlMC7M3T9vIP+2jLiYjcvBl8Lekcc1BTtR4eUATqs3aAjw==}
+  lucide-react@0.541.0:
+    resolution: {integrity: sha512-s0Vircsu5WaGv2KoJZ5+SoxiAJ3UXV5KqEM3eIFDHaHkcLIFdIWgXtZ412+Gh02UsdS7Was+jvEpBvPCWQISlg==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -13174,7 +13174,7 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  lucide-react@0.528.0(react@18.3.1):
+  lucide-react@0.541.0(react@18.3.1):
     dependencies:
       react: 18.3.1
 
