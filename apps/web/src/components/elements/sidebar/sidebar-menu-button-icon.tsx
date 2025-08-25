@@ -1,26 +1,22 @@
 import { clsx } from 'clsx';
-import { forwardRef } from 'react';
 
 import * as styles from './sidebar.css';
 
-import type { ComponentPropsWithoutRef, ForwardRefRenderFunction, ElementRef } from 'react';
+import type { FC, ComponentProps } from 'react';
 
-export type SidebarMenuButtonIconProps = ComponentPropsWithoutRef<'div'>;
+export type SidebarMenuButtonIconProps = ComponentProps<'div'>;
 
-const SidebarMenuButtonIconRender: ForwardRefRenderFunction<ElementRef<'div'>, SidebarMenuButtonIconProps> = ({
+export const SidebarMenuButtonIcon: FC<SidebarMenuButtonIconProps> = ({
   className,
   children,
   ...props
-}, ref) => {
+}) => {
   return (
     <div
       {...props}
-      ref={ref}
       className={clsx(styles.menuButtonIcon, className)}
     >
       {children}
     </div>
   );
 };
-
-export const SidebarMenuButtonIcon = forwardRef(SidebarMenuButtonIconRender);

@@ -1,12 +1,12 @@
 'use client';
 
 import { Slot } from '@radix-ui/react-slot';
-import { forwardRef, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import * as styles from './infinite-scroll.css';
 import { useInViewPort } from '../../../hooks/use-in-view-port';
 
-import type { ReactNode, ComponentPropsWithoutRef, ForwardRefRenderFunction, ElementRef } from 'react';
+import type { ReactNode, ComponentProps, FC } from 'react';
 
 export type InfiniteScrollCursor = string;
 
@@ -22,18 +22,18 @@ export type InfiniteScrollFetcherArguments = {
 
 export type InfiniteScrollFetcher = (arguments_: InfiniteScrollFetcherArguments) => Promise<InfiniteScrollEdge[]>;
 
-export type InfiniteScrollProps = ComponentPropsWithoutRef<'div'> & {
+export type InfiniteScrollProps = ComponentProps<'div'> & {
   asChild?: boolean | undefined;
   edges: InfiniteScrollEdge[];
   fetcher: InfiniteScrollFetcher;
 };
 
-const InfiniteScrollRender: ForwardRefRenderFunction<ElementRef<'div'>, InfiniteScrollProps> = ({
+export const InfiniteScroll: FC<InfiniteScrollProps> = ({
   asChild,
   edges,
   fetcher,
   ...props
-}, ref): ReactNode => {
+}): ReactNode => {
   const Wrapper = asChild ? Slot : 'div';
 
   const [displayEdges, setDisplayEdges] = useState(edges);
@@ -51,11 +51,9 @@ const InfiniteScrollRender: ForwardRefRenderFunction<ElementRef<'div'>, Infinite
   });
 
   return (
-    <Wrapper {...props} ref={ref}>
+    <Wrapper {...props}>
       {displayEdges.map((edge) => edge.node)}
       <div ref={anchorRef} className={styles.anchor} />
     </Wrapper>
   );
 };
-
-export const InfiniteScroll = forwardRef(InfiniteScrollRender);

@@ -3,9 +3,7 @@ import { FeedbackCard } from '../../../components/domains/feedbacks/feedback-car
 
 import type { FC } from 'react';
 
-export type FeedbacksLoadingPageProps = {
-  //
-};
+export type FeedbacksLoadingPageProps = PageProps<'/feedbacks'>;
 
 const FeedbacksLoadingPage: FC<FeedbacksLoadingPageProps> = () => {
   return (

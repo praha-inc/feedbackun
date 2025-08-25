@@ -3,7 +3,6 @@
 import { clsx } from 'clsx';
 import {
   createContext,
-  forwardRef,
   useCallback,
   useContext,
   useMemo,
@@ -14,7 +13,7 @@ import * as styles from './sidebar.css';
 import { useMediaQuery } from '../../../hooks/use-media-query';
 import { Sheet } from '../sheet';
 
-import type { ForwardRefRenderFunction, ReactNode, ElementRef, ComponentPropsWithoutRef } from 'react';
+import type { ReactNode, ComponentProps, FC } from 'react';
 
 export type SidebarContext = {
   open: boolean;
@@ -34,17 +33,17 @@ export const useSidebar = (): SidebarContext => {
   return context;
 };
 
-export type SidebarProviderProps = ComponentPropsWithoutRef<'div'> & {
+export type SidebarProviderProps = ComponentProps<'div'> & {
   children: ReactNode;
   defaultExpand?: boolean;
 };
 
-const SidebarProviderRender: ForwardRefRenderFunction<ElementRef<'div'>, SidebarProviderProps> = ({
+export const SidebarProvider: FC<SidebarProviderProps> = ({
   className,
   children,
   defaultExpand = true,
   ...props
-}, ref) => {
+}) => {
   const [open, setOpen] = useState(false);
   const [expand, setExpand] = useState(defaultExpand);
   const shouldUseSheet = useMediaQuery(`(width < ${styles.breakpoint})`);
@@ -71,12 +70,10 @@ const SidebarProviderRender: ForwardRefRenderFunction<ElementRef<'div'>, Sidebar
   return (
     <SidebarContext.Provider value={contextValue}>
       <Sheet open={open} onOpenChange={setOpen}>
-        <div {...props} ref={ref} className={clsx(styles.wrapper, className)}>
+        <div {...props} className={clsx(styles.wrapper, className)}>
           {children}
         </div>
       </Sheet>
     </SidebarContext.Provider>
   );
 };
-
-export const SidebarProvider = forwardRef(SidebarProviderRender);

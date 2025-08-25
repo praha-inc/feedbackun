@@ -2,22 +2,19 @@ import { UserDetailsProfile } from './_components/profile';
 import * as styles from './layout.css';
 import { UserFeedbackListTabs } from '../../../../components/domains/users/user-feedback-list-tabs';
 
-import type { FC, ReactNode } from 'react';
+import type { FC } from 'react';
 
-export type UserDetailsPageProps = {
-  params: {
-    userId: string;
-  };
-  children: ReactNode;
-};
+export type UserDetailsPageProps = LayoutProps<'/users/[userId]'>;
 
-const UserDetailsPage: FC<UserDetailsPageProps> = ({
+const UserDetailsPage: FC<UserDetailsPageProps> = async ({
   params,
   children,
 }) => {
+  const { userId } = await params;
+
   return (
     <div className={styles.wrapper}>
-      <UserDetailsProfile userId={params.userId} />
+      <UserDetailsProfile userId={userId} />
       <UserFeedbackListTabs>
         {children}
       </UserFeedbackListTabs>

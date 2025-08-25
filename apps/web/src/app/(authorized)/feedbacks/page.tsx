@@ -24,9 +24,7 @@ const FeedbacksPageQuery = graphql(/* GraphQL */ `
   }
 `);
 
-export type FeedbacksPageProps = {
-  //
-};
+export type FeedbacksPageProps = PageProps<'/feedbacks'>;
 
 const FeedbacksPage: FC<FeedbacksPageProps> = async () => {
   const data = await graphqlExecutor({

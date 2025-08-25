@@ -1,28 +1,26 @@
 import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
 import { clsx } from 'clsx';
-import { forwardRef } from 'react';
 
 import { ScrollAreaBar } from './scroll-area-bar';
 import * as styles from './scroll-area.css';
 
-import type { ForwardRefRenderFunction, ComponentPropsWithoutRef, ElementRef } from 'react';
+import type { FC, ComponentProps } from 'react';
 
-export type ScrollAreaViewportProps = ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Viewport> & {
+export type ScrollAreaViewportProps = ComponentProps<typeof ScrollAreaPrimitive.Viewport> & {
   vertical?: boolean | undefined;
   horizontal?: boolean | undefined;
 };
 
-const ScrollAreaViewportRender: ForwardRefRenderFunction<ElementRef<typeof ScrollAreaPrimitive.Viewport>, ScrollAreaViewportProps> = ({
+export const ScrollAreaViewport: FC<ScrollAreaViewportProps> = ({
   className,
   children,
   vertical,
   horizontal,
   ...props
-}, ref) => {
+}) => {
   return (
     <ScrollAreaPrimitive.Viewport
       {...props}
-      ref={ref}
       className={clsx(styles.container, className)}
     >
       {children}
@@ -32,5 +30,3 @@ const ScrollAreaViewportRender: ForwardRefRenderFunction<ElementRef<typeof Scrol
     </ScrollAreaPrimitive.Viewport>
   );
 };
-
-export const ScrollAreaViewport = forwardRef(ScrollAreaViewportRender);

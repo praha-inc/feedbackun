@@ -12,17 +12,16 @@ import { err, ok } from 'neverthrow';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 
-type Context = {
-  params: {
-    token: string;
-  };
-};
+type LoginTokenContext = RouteContext<'/login/[token]'>;
 
-export const GET = async (_request: Request, { params }: Context) => {
-  const { env } = await getCloudflareContext();
+export const GET = async (_request: Request, { params }: LoginTokenContext) => {
+  const { env } = getCloudflareContext();
+  const { token } = await params;
+  const cookieStore = await cookies();
+
   return withDatabase(env.DB, async () => {
     return await doAsync
-      .andThen(() => UserSessionRequestToken.create(params.token))
+      .andThen(() => UserSessionRequestToken.create(token))
       .andThen((token) => findUserSessionRequest({ type: 'token', token }))
       .andThrough((userSessionRequest) => deleteUserSessionRequest(userSessionRequest))
       .andThen((userSessionRequest) => {
@@ -35,7 +34,7 @@ export const GET = async (_request: Request, { params }: Context) => {
       .andThen((userSession) => saveUserSession(userSession))
       .match(
         (userSession) => {
-          cookies().set('session_token', userSession.token.value, {
+          cookieStore.set('session_token', userSession.token.value, {
             httpOnly: true,
             secure: true,
             sameSite: 'strict',

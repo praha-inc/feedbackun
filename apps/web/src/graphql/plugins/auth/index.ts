@@ -15,7 +15,8 @@ const storage = new AsyncLocalStorage<Auth>();
 export const useAuth = (): Plugin => ({
   onExecute: ({ executeFn, setExecuteFn }) => {
     setExecuteFn(async (arguments_) => {
-      const token = cookies().get('session_token');
+      const cookieStore = await cookies();
+      const token = cookieStore.get('session_token');
       if (!token) {
         throw new Error('Unauthorized');
       }

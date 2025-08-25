@@ -15,6 +15,7 @@ const config = define([
       '.graphql',
       '.save.next',
       '.worker-next',
+      'next-env.d.ts',
     ],
   }],
 ]);

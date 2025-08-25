@@ -1,21 +1,20 @@
 'use client';
 
 import { clsx } from 'clsx';
-import { forwardRef } from 'react';
 
 import { useSidebar } from './sidebar-provider';
 import * as styles from './sidebar.css';
 import { SheetContent } from '../sheet';
 
-import type { ComponentPropsWithoutRef, ForwardRefRenderFunction, ElementRef } from 'react';
+import type { FC, ComponentProps } from 'react';
 
-export type SidebarProps = ComponentPropsWithoutRef<'div'>;
+export type SidebarProps = ComponentProps<'div'>;
 
-const SidebarRender: ForwardRefRenderFunction<ElementRef<'div'>, SidebarProps> = ({
+export const Sidebar: FC<SidebarProps> = ({
   className,
   children,
   ...props
-}, ref) => {
+}) => {
   const { expand, shouldUseSheet } = useSidebar();
 
   if (shouldUseSheet) {
@@ -29,12 +28,9 @@ const SidebarRender: ForwardRefRenderFunction<ElementRef<'div'>, SidebarProps> =
   return (
     <div
       {...props}
-      ref={ref}
       className={clsx(styles.sidebar({ expand }), className)}
     >
       {children}
     </div>
   );
 };
-
-export const Sidebar = forwardRef(SidebarRender);

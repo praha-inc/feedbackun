@@ -4,13 +4,11 @@ import { ApplicationHeader } from '../../components/domains/applications/applica
 import { ScrollArea, ScrollAreaViewport } from '../../components/elements/scroll-area';
 import { SidebarInset, SidebarProvider } from '../../components/elements/sidebar';
 
-import type { FC, ReactNode } from 'react';
+import type { FC } from 'react';
 
 export const dynamic = 'force-dynamic';
 
-export type AuthorizedLayoutProps = {
-  children: ReactNode;
-};
+export type AuthorizedLayoutProps = LayoutProps<'/'>;
 
 const AuthorizedLayout: FC<AuthorizedLayoutProps> = ({
   children,
