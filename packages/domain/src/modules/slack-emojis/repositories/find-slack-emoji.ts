@@ -1,5 +1,5 @@
-import { CustomError } from '@feedbackun/package-custom-error';
 import { database, schema } from '@feedbackun/package-database';
+import { ErrorFactory } from '@praha/error-factory';
 import { and, eq } from 'drizzle-orm';
 import { err, ok, ResultAsync } from 'neverthrow';
 import { match } from 'ts-pattern';
@@ -19,12 +19,12 @@ export type FindSlackEmojiInput = (
   | FindSlackEmojiInputSlackTeamIdAndSlackEmojiName
 );
 
-export class FindSlackEmojiNotFoundError extends CustomError({
+export class FindSlackEmojiNotFoundError extends ErrorFactory({
   name: 'FindSlackEmojiNotFoundError',
   message: 'Does not exist slack emoji.',
 }) {}
 
-export class FindSlackEmojiUnexpectedError extends CustomError({
+export class FindSlackEmojiUnexpectedError extends ErrorFactory({
   name: 'FindSlackEmojiUnexpectedError',
   message: 'Failed to find slack emoji.',
 }) {}

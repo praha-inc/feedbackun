@@ -1,6 +1,6 @@
-import { CustomError } from '@feedbackun/package-custom-error';
 import { database, schema } from '@feedbackun/package-database';
 import { doAsync } from '@feedbackun/package-neverthrow';
+import { ErrorFactory } from '@praha/error-factory';
 import { ok, ResultAsync } from 'neverthrow';
 
 import { SkillElementId } from '../../skill-elements';
@@ -11,7 +11,7 @@ import { FeedbackId } from '../models/feedback-id';
 
 export type SaveFeedbackInput = Feedback;
 
-export class SaveFeedbackUnexpectedError extends CustomError({
+export class SaveFeedbackUnexpectedError extends ErrorFactory({
   name: 'SaveFeedbackUnexpectedError',
   message: 'Failed to save feedback.',
 }) {}

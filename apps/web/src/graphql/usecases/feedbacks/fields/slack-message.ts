@@ -1,5 +1,5 @@
-import { CustomError } from '@feedbackun/package-custom-error';
 import { database, schema } from '@feedbackun/package-database';
+import { ErrorFactory } from '@praha/error-factory';
 import DataLoader from 'dataloader';
 import { eq, inArray } from 'drizzle-orm';
 import { ResultAsync } from 'neverthrow';
@@ -16,12 +16,12 @@ export type FeedbackSlackMessageInput = {
   feedbackId: string;
 };
 
-export class FeedbackSlackMessageNotFoundError extends CustomError({
+export class FeedbackSlackMessageNotFoundError extends ErrorFactory({
   name: 'FeedbackSlackMessageNotFoundError',
   message: 'Does not exist feedback slack message.',
 }) {}
 
-export class FeedbackSlackMessageUnexpectedError extends CustomError({
+export class FeedbackSlackMessageUnexpectedError extends ErrorFactory({
   name: 'FeedbackSlackMessageUnexpectedError',
   message: 'Failed to find feedback slack message.',
 }) {}

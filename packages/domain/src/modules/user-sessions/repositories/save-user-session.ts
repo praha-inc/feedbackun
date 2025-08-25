@@ -1,6 +1,6 @@
-import { CustomError } from '@feedbackun/package-custom-error';
 import { database, schema } from '@feedbackun/package-database';
 import { doAsync } from '@feedbackun/package-neverthrow';
+import { ErrorFactory } from '@praha/error-factory';
 import { ok, ResultAsync } from 'neverthrow';
 
 import { UserId } from '../../users';
@@ -10,7 +10,7 @@ import { UserSessionToken } from '../models/user-session-token';
 
 export type SaveUserSessionInput = UserSession;
 
-export class SaveUserSessionUnexpectedError extends CustomError({
+export class SaveUserSessionUnexpectedError extends ErrorFactory({
   name: 'SaveUserSessionUnexpectedError',
   message: 'Failed to save user session.',
 }) {}

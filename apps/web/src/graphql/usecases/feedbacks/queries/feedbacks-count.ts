@@ -1,12 +1,12 @@
-import { CustomError } from '@feedbackun/package-custom-error';
 import { database, schema } from '@feedbackun/package-database';
 import { doAsync } from '@feedbackun/package-neverthrow';
+import { ErrorFactory } from '@praha/error-factory';
 import { count } from 'drizzle-orm';
 import { err, ok, ResultAsync } from 'neverthrow';
 
 export type FeedbacksCountInput = {};
 
-export class FeedbacksCountUnexpectedError extends CustomError({
+export class FeedbacksCountUnexpectedError extends ErrorFactory({
   name: 'FeedbacksCountUnexpectedError',
   message: 'Failed to count feedbacks.',
 }) {}

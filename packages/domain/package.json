@@ -10,10 +10,10 @@
     "lint:type": "tsc --pretty --noEmit"
   },
   "dependencies": {
-    "@feedbackun/package-custom-error": "workspace:*",
     "@feedbackun/package-database": "workspace:*",
     "@feedbackun/package-neverthrow": "workspace:*",
     "@paralleldrive/cuid2": "2.2.2",
+    "@praha/error-factory": "1.0.2",
     "date-fns": "4.1.0",
     "drizzle-orm": "0.44.4",
     "fast-deep-equal": "3.1.3",

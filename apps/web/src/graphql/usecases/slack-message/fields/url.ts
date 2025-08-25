@@ -1,5 +1,5 @@
-import { CustomError } from '@feedbackun/package-custom-error';
 import { database, schema } from '@feedbackun/package-database';
+import { ErrorFactory } from '@praha/error-factory';
 import DataLoader from 'dataloader';
 import { eq, inArray } from 'drizzle-orm';
 import { ResultAsync } from 'neverthrow';
@@ -13,12 +13,12 @@ export type SlackMessageUrlInput = {
   slackMessageId: string;
 };
 
-export class SlackMessageUrlNotFoundError extends CustomError({
+export class SlackMessageUrlNotFoundError extends ErrorFactory({
   name: 'SlackMessageUrlNotFoundError',
   message: 'Does not exist url for slack message.',
 }) {}
 
-export class SlackMessageUrlUnexpectedError extends CustomError({
+export class SlackMessageUrlUnexpectedError extends ErrorFactory({
   name: 'SlackMessageUrlUnexpectedError',
   message: 'Failed to find url for slack message.',
 }) {}

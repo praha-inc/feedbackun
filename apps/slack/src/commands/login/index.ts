@@ -1,4 +1,3 @@
-import { CustomError } from '@feedbackun/package-custom-error';
 import {
   deleteUserSessionRequest,
   deleteUserSession,
@@ -13,6 +12,7 @@ import {
   UserSessionRequest, FindUserSessionNotFoundError, FindUserSessionRequestNotFoundError,
 } from '@feedbackun/package-domain';
 import { bindAsync, doAsync, structAsync } from '@feedbackun/package-neverthrow';
+import { ErrorFactory } from '@praha/error-factory';
 import { err, ok } from 'neverthrow';
 
 import { postLoginUrl } from './helpers/post-login-url';
@@ -22,7 +22,7 @@ import type { UserId } from '@feedbackun/package-domain';
 import type { SlackAppContext, SlashCommandLazyHandler } from 'slack-edge';
 import type { SlashCommand } from 'slack-edge/dist/request/payload/slash-command';
 
-class LoginCommandUserNotFoundError extends CustomError({
+class LoginCommandUserNotFoundError extends ErrorFactory({
   name: 'LoginCommandUserNotFoundError',
   message: 'Failed to find user.',
 }) {}

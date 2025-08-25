@@ -1,5 +1,5 @@
-import { CustomError } from '@feedbackun/package-custom-error';
 import { database, schema } from '@feedbackun/package-database';
+import { ErrorFactory } from '@praha/error-factory';
 import DataLoader from 'dataloader';
 import { eq, inArray } from 'drizzle-orm';
 import { ResultAsync } from 'neverthrow';
@@ -16,12 +16,12 @@ export type FeedbackSenderInput = {
   feedbackId: string;
 };
 
-export class FeedbackSenderNotFoundError extends CustomError({
+export class FeedbackSenderNotFoundError extends ErrorFactory({
   name: 'FeedbackSenderNotFoundError',
   message: 'Does not exist feedback sender.',
 }) {}
 
-export class FeedbackSenderUnexpectedError extends CustomError({
+export class FeedbackSenderUnexpectedError extends ErrorFactory({
   name: 'FeedbackSenderUnexpectedError',
   message: 'Failed to find feedback sender.',
 }) {}

@@ -1,5 +1,5 @@
-import { CustomError } from '@feedbackun/package-custom-error';
 import { database, schema } from '@feedbackun/package-database';
+import { ErrorFactory } from '@praha/error-factory';
 import { eq } from 'drizzle-orm';
 import { err, ok, ResultAsync } from 'neverthrow';
 import { match } from 'ts-pattern';
@@ -24,12 +24,12 @@ export type FindUserSessionInput = (
   | FindUserSessionInputToken
 );
 
-export class FindUserSessionNotFoundError extends CustomError({
+export class FindUserSessionNotFoundError extends ErrorFactory({
   name: 'FindUserSessionNotFoundError',
   message: 'Does not exist user session.',
 }) {}
 
-export class FindUserSessionUnexpectedError extends CustomError({
+export class FindUserSessionUnexpectedError extends ErrorFactory({
   name: 'FindUserSessionUnexpectedError',
   message: 'Failed to find user Session.',
 }) {}

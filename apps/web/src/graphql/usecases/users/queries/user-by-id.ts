@@ -1,6 +1,6 @@
-import { CustomError } from '@feedbackun/package-custom-error';
 import { database, schema } from '@feedbackun/package-database';
 import { doAsync } from '@feedbackun/package-neverthrow';
+import { ErrorFactory } from '@praha/error-factory';
 import { eq } from 'drizzle-orm';
 import { err, ok, ResultAsync } from 'neverthrow';
 
@@ -10,12 +10,12 @@ export type UserByIdInput = {
   userId: string;
 };
 
-export class UserByIdNotFoundError extends CustomError({
+export class UserByIdNotFoundError extends ErrorFactory({
   name: 'UserByIdNotFoundError',
   message: 'Does not exist user.',
 }) {}
 
-export class UserByIdUnexpectedError extends CustomError({
+export class UserByIdUnexpectedError extends ErrorFactory({
   name: 'UserByIdUnexpectedError',
   message: 'Failed to find user.',
 }) {}

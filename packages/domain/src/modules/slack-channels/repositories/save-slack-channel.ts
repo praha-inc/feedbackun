@@ -1,6 +1,6 @@
-import { CustomError } from '@feedbackun/package-custom-error';
 import { database, schema } from '@feedbackun/package-database';
 import { doAsync } from '@feedbackun/package-neverthrow';
+import { ErrorFactory } from '@praha/error-factory';
 import { ok, ResultAsync } from 'neverthrow';
 
 import { SlackTeamId } from '../../slack-teams';
@@ -9,7 +9,7 @@ import { SlackChannelId } from '../models/slack-channel-id';
 
 export type SaveSlackChannelInput = SlackChannel;
 
-export class SaveSlackChannelUnexpectedError extends CustomError({
+export class SaveSlackChannelUnexpectedError extends ErrorFactory({
   name: 'SaveSlackChannelUnexpectedError',
   message: 'Failed to save slack channel.',
 }) {}
