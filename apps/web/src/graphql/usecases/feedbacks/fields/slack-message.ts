@@ -29,7 +29,7 @@ export class FeedbackSlackMessageUnexpectedError extends CustomError({
 export type FeedbackSlackMessageError = (
   | FeedbackSlackMessageNotFoundError
   | FeedbackSlackMessageUnexpectedError
-  );
+);
 
 export type FeedbackSlackMessage = (
   input: FeedbackSlackMessageInput,
