@@ -1,6 +1,6 @@
-import { CustomError } from '@feedbackun/package-custom-error';
 import { database, schema } from '@feedbackun/package-database';
 import { doAsync } from '@feedbackun/package-neverthrow';
+import { ErrorFactory } from '@praha/error-factory';
 import { eq } from 'drizzle-orm';
 import { ResultAsync } from 'neverthrow';
 
@@ -8,7 +8,7 @@ import type { UserSessionRequest } from '../models/user-session-request';
 
 export type DeleteUserSessionRequestInput = UserSessionRequest;
 
-export class DeleteUserSessionRequestUnexpectedError extends CustomError({
+export class DeleteUserSessionRequestUnexpectedError extends ErrorFactory({
   name: 'DeleteUserSessionRequestUnexpectedError',
   message: 'Failed to delete user session request.',
 }) {}

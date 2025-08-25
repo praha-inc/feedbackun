@@ -1,6 +1,6 @@
-import { CustomError } from '@feedbackun/package-custom-error';
 import { database, schema } from '@feedbackun/package-database';
 import { doAsync } from '@feedbackun/package-neverthrow';
+import { ErrorFactory } from '@praha/error-factory';
 import { and, desc, eq, lt, or } from 'drizzle-orm';
 import { ok, ResultAsync } from 'neverthrow';
 
@@ -16,7 +16,7 @@ export type FeedbacksInput = {
   cursor: FeedbacksCursor | undefined;
 };
 
-export class FeedbacksUnexpectedError extends CustomError({
+export class FeedbacksUnexpectedError extends ErrorFactory({
   name: 'FeedbacksUnexpectedError',
   message: 'Failed to find feedbacks.',
 }) {}

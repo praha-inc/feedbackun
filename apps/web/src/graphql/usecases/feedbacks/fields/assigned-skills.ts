@@ -1,5 +1,5 @@
-import { CustomError } from '@feedbackun/package-custom-error';
 import { database, schema } from '@feedbackun/package-database';
+import { ErrorFactory } from '@praha/error-factory';
 import DataLoader from 'dataloader';
 import { asc, eq, inArray } from 'drizzle-orm';
 import { ResultAsync } from 'neverthrow';
@@ -15,7 +15,7 @@ export type FeedbackAssignedSkillsInput = {
   feedbackId: string;
 };
 
-export class FeedbackAssignedSkillsUnexpectedError extends CustomError({
+export class FeedbackAssignedSkillsUnexpectedError extends ErrorFactory({
   name: 'FeedbackAssignedSkillsUnexpectedError',
   message: 'Failed to find assigned feedback skills.',
 }) {}

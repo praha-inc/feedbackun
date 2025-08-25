@@ -1,5 +1,5 @@
-import { CustomError } from '@feedbackun/package-custom-error';
 import { database, schema } from '@feedbackun/package-database';
+import { ErrorFactory } from '@praha/error-factory';
 import DataLoader from 'dataloader';
 import { and, desc, eq, lt, or } from 'drizzle-orm';
 import { ResultAsync } from 'neverthrow';
@@ -22,7 +22,7 @@ export type UserReceivedFeedbacksInput = {
   cursor: UserReceivedFeedbacksCursor | undefined;
 };
 
-export class UserReceivedFeedbacksUnexpectedError extends CustomError({
+export class UserReceivedFeedbacksUnexpectedError extends ErrorFactory({
   name: 'UserReceivedFeedbacksUnexpectedError',
   message: 'Failed to find received feedbacks for user.',
 }) {}

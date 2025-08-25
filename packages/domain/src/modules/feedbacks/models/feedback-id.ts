@@ -1,5 +1,5 @@
-import { CustomError } from '@feedbackun/package-custom-error';
 import { createId } from '@paralleldrive/cuid2';
+import { ErrorFactory } from '@praha/error-factory';
 import { err, ok } from 'neverthrow';
 import * as v from 'valibot';
 
@@ -7,7 +7,7 @@ import { ValueObject } from '../../../core/value-object';
 
 import type { Result } from 'neverthrow';
 
-export class FeedbackIdInvalidFormatError extends CustomError({
+export class FeedbackIdInvalidFormatError extends ErrorFactory({
   name: 'FeedbackIdIncorrectFormatError',
   message: 'Invalid format for FeedbackId',
 }) {}

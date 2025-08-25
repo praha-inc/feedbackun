@@ -1,5 +1,5 @@
-import { CustomError } from '@feedbackun/package-custom-error';
 import { database, schema } from '@feedbackun/package-database';
+import { ErrorFactory } from '@praha/error-factory';
 import { and, eq } from 'drizzle-orm';
 import { err, ok, ResultAsync } from 'neverthrow';
 import { match } from 'ts-pattern';
@@ -19,12 +19,12 @@ export type FindSlackUserInput = (
   | FindSlackUserInputSlackTeamIdAndSlackUserId
 );
 
-export class FindSlackUserNotFoundError extends CustomError({
+export class FindSlackUserNotFoundError extends ErrorFactory({
   name: 'FindSlackUserNotFoundError',
   message: 'Does not exist slack user.',
 }) {}
 
-export class FindSlackUserUnexpectedError extends CustomError({
+export class FindSlackUserUnexpectedError extends ErrorFactory({
   name: 'FindSlackUserUnexpectedError',
   message: 'Failed to find slack user.',
 }) {}

@@ -1,5 +1,5 @@
-import { CustomError } from '@feedbackun/package-custom-error';
 import { database, schema } from '@feedbackun/package-database';
+import { ErrorFactory } from '@praha/error-factory';
 import DataLoader from 'dataloader';
 import { count, eq } from 'drizzle-orm';
 import { ResultAsync } from 'neverthrow';
@@ -13,7 +13,7 @@ export type UserSentFeedbacksCountInput = {
   userId: string;
 };
 
-export class UserSentFeedbacksCountUnexpectedError extends CustomError({
+export class UserSentFeedbacksCountUnexpectedError extends ErrorFactory({
   name: 'UserSentFeedbacksCountUnexpectedError',
   message: 'Failed to count sent feedbacks for user.',
 }) {}

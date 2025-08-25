@@ -1,4 +1,4 @@
-import { CustomError } from '@feedbackun/package-custom-error';
+import { ErrorFactory } from '@praha/error-factory';
 import { err, ok } from 'neverthrow';
 import * as v from 'valibot';
 
@@ -6,7 +6,7 @@ import { ValueObject } from '../../../core/value-object';
 
 import type { Result } from 'neverthrow';
 
-export class SlackTeamIdInvalidFormatError extends CustomError({
+export class SlackTeamIdInvalidFormatError extends ErrorFactory({
   name: 'SlackTeamIdIncorrectFormatError',
   message: 'Invalid format for SlackTeamId',
 }) {}

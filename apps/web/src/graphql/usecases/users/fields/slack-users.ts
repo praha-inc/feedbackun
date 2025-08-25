@@ -1,5 +1,5 @@
-import { CustomError } from '@feedbackun/package-custom-error';
 import { database, schema } from '@feedbackun/package-database';
+import { ErrorFactory } from '@praha/error-factory';
 import DataLoader from 'dataloader';
 import { inArray } from 'drizzle-orm';
 import { ResultAsync } from 'neverthrow';
@@ -15,7 +15,7 @@ export type UserSlackUsersInput = {
   userId: string;
 };
 
-export class UserSlackUsersUnexpectedError extends CustomError({
+export class UserSlackUsersUnexpectedError extends ErrorFactory({
   name: 'UserSlackUsersUnexpectedError',
   message: 'Failed to find slack users for user.',
 }) {}

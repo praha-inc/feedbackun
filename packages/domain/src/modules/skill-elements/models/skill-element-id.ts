@@ -1,4 +1,4 @@
-import { CustomError } from '@feedbackun/package-custom-error';
+import { ErrorFactory } from '@praha/error-factory';
 import { err, ok } from 'neverthrow';
 import * as v from 'valibot';
 
@@ -6,7 +6,7 @@ import { ValueObject } from '../../../core/value-object';
 
 import type { Result } from 'neverthrow';
 
-export class SkillElementIdInvalidFormatError extends CustomError({
+export class SkillElementIdInvalidFormatError extends ErrorFactory({
   name: 'SkillElementIdIncorrectFormatError',
   message: 'Invalid format for SkillElementId',
 }) {}
