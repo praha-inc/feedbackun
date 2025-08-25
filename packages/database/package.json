@@ -19,7 +19,7 @@
     "@types/node": "22.17.2",
     "drizzle-kit": "0.31.4",
     "eslint": "9.34.0",
-    "typescript": "5.8.3",
+    "typescript": "5.9.2",
     "wrangler": "3.114.14"
   }
 }
