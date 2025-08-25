@@ -1,21 +1,21 @@
 'use client';
 
 import { PanelLeft } from 'lucide-react';
-import { forwardRef, useCallback, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 
 import { useSidebar } from './sidebar-provider';
 import { AccessibleIcon } from '../accessible-icon';
 import { Button, ButtonIcon } from '../button';
 
-import type { ComponentPropsWithoutRef, ForwardRefRenderFunction, ElementRef, MouseEventHandler } from 'react';
+import type { ComponentProps, ComponentRef, MouseEventHandler, FC } from 'react';
 
-export type SidebarTriggerProps = ComponentPropsWithoutRef<typeof Button>;
+export type SidebarTriggerProps = ComponentProps<typeof Button>;
 
-const SidebarTriggerRender: ForwardRefRenderFunction<ElementRef<typeof Button>, SidebarTriggerProps> = ({
+export const SidebarTrigger: FC<SidebarTriggerProps> = ({
   className,
   onClick,
   ...props
-}, ref) => {
+}) => {
   const { open, expand, shouldUseSheet, toggleOpen, toggleExpand } = useSidebar();
 
   const label = useMemo(() => {
@@ -24,7 +24,7 @@ const SidebarTriggerRender: ForwardRefRenderFunction<ElementRef<typeof Button>, 
       : (expand ? 'サイドバーを閉じる' : 'サイドバーを開く');
   }, [expand, open, shouldUseSheet]);
 
-  const handleClick = useCallback<MouseEventHandler<ElementRef<typeof Button>>>((event) => {
+  const handleClick = useCallback<MouseEventHandler<ComponentRef<typeof Button>>>((event) => {
     if (shouldUseSheet) {
       toggleOpen();
     } else {
@@ -37,7 +37,6 @@ const SidebarTriggerRender: ForwardRefRenderFunction<ElementRef<typeof Button>, 
   return (
     <Button
       {...props}
-      ref={ref}
       className={className}
       variant="ghost"
       size="icon"
@@ -51,5 +50,3 @@ const SidebarTriggerRender: ForwardRefRenderFunction<ElementRef<typeof Button>, 
     </Button>
   );
 };
-
-export const SidebarTrigger = forwardRef(SidebarTriggerRender);

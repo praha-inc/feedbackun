@@ -7,11 +7,12 @@
     "generate": "tsx scripts/write-schema.ts && graphql-code-generator --config codegen.ts",
     "dev": "next dev",
     "build": "next build",
+    "build:worker": "opennextjs-cloudflare build",
     "start": "next start",
     "lint:code": "eslint .",
     "lint:type": "tsc --pretty --noEmit",
-    "deploy": "cloudflare && wrangler deploy",
-    "preview": "cloudflare && wrangler dev",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts"
   },
   "dependencies": {
@@ -46,9 +47,9 @@
     "lucide-react": "0.541.0",
     "modern-normalize": "3.0.1",
     "neverthrow": "8.2.0",
-    "next": "14.2.29",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
+    "next": "15.5.0",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
     "server-only": "0.0.1",
     "ts-pattern": "5.8.0",
     "valibot": "1.1.0"
@@ -59,18 +60,18 @@
     "@graphql-codegen/client-preset": "4.8.3",
     "@graphql-tools/utils": "10.9.1",
     "@graphql-typed-document-node/core": "3.2.0",
-    "@opennextjs/cloudflare": "0.3.10",
+    "@opennextjs/cloudflare": "1.6.5",
     "@praha/eslint-config-definer": "2.0.1",
     "@praha/eslint-config-next": "4.0.8",
     "@praha/eslint-config-react": "4.0.7",
     "@tsconfig/next": "2.0.3",
     "@types/node": "22.17.2",
-    "@types/react": "18.3.24",
-    "@types/react-dom": "18.3.7",
+    "@types/react": "19.1.11",
+    "@types/react-dom": "19.1.7",
     "@vanilla-extract/next-plugin": "2.4.14",
     "eslint": "9.34.0",
     "tsx": "4.20.5",
     "typescript": "5.9.2",
-    "wrangler": "3.114.14"
+    "wrangler": "4.32.0"
   }
 }

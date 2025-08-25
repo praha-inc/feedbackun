@@ -18,11 +18,12 @@ dist
 
 # Wrangler
 .wrangler
-.worker-next
-wrangler.toml
+.open-next
+wrangler.json
 
 # Next.js
 .next
+!.next/types/routes.d.ts
 .save.next
 
 # Graphql

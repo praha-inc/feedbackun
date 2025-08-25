@@ -4,7 +4,7 @@ import { Noto_Sans_JP, Roboto_Flex } from 'next/font/google';
 import { TooltipProvider } from '../components/elements/tooltip';
 
 import type { Metadata } from 'next';
-import type { FC, ReactNode } from 'react';
+import type { FC } from 'react';
 
 import 'modern-normalize';
 import './layout.css';
@@ -23,9 +23,7 @@ export const metadata: Metadata = {
   title: 'Feedbackun',
 };
 
-export type RootLayoutProps = {
-  children: ReactNode;
-};
+export type RootLayoutProps = LayoutProps<'/'>;
 
 const RootLayout: FC<RootLayoutProps> = ({
   children,

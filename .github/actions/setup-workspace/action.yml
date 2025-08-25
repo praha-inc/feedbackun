@@ -33,6 +33,6 @@ runs:
     - name: Copy .wrangler.toml
       shell: bash
       run: |
-        cp ./apps/slack/wrangler.example.toml ./apps/slack/wrangler.toml
-        cp ./apps/web/wrangler.example.toml ./apps/web/wrangler.toml
-        cp ./packages/database/wrangler.example.toml ./packages/database/wrangler.toml
+        cp ./apps/slack/wrangler.example.json ./apps/slack/wrangler.json
+        cp ./apps/web/wrangler.example.json ./apps/web/wrangler.json
+        cp ./packages/database/wrangler.example.json ./packages/database/wrangler.json

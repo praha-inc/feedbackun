@@ -2,23 +2,19 @@ import { UserDetailsFeedbacks } from './_components/feedbacks';
 
 import type { FC } from 'react';
 
-export type UserDetailsPageProps = {
-  params: {
-    userId: string;
-  };
-  searchParams: {
-    tab: string | undefined;
-  };
-};
+export type UserDetailsPageProps = PageProps<'/users/[userId]'>;
 
-const UserDetailsPage: FC<UserDetailsPageProps> = ({
+const UserDetailsPage: FC<UserDetailsPageProps> = async ({
   params,
   searchParams,
 }) => {
+  const { userId } = await params;
+  const { tab } = await searchParams;
+
   return (
     <UserDetailsFeedbacks
-      userId={params.userId}
-      tab={searchParams.tab || 'received'}
+      userId={userId}
+      tab={tab?.toString() || 'received'}
     />
   );
 };
