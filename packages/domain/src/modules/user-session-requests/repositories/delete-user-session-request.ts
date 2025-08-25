@@ -15,7 +15,7 @@ export class DeleteUserSessionRequestUnexpectedError extends CustomError({
 
 export type DeleteUserSessionRequestError = (
   | DeleteUserSessionRequestUnexpectedError
-  );
+);
 
 export type DeleteUserSessionRequest = (
   input: DeleteUserSessionRequestInput,

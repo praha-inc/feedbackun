@@ -29,7 +29,7 @@ export class SlackMessageSlackChannelUnexpectedError extends CustomError({
 export type SlackMessageSlackChannelError = (
   | SlackMessageSlackChannelNotFoundError
   | SlackMessageSlackChannelUnexpectedError
-  );
+);
 
 export type SlackMessageSlackChannel = (
   input: SlackMessageSlackChannelInput,
