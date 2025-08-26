@@ -15,7 +15,7 @@
     "@feedbackun/package-domain": "workspace:*",
     "@feedbackun/package-neverthrow": "workspace:*",
     "@praha/error-factory": "1.0.2",
-    "drizzle-orm": "0.44.4",
+    "drizzle-orm": "0.44.5",
     "neverthrow": "8.2.0",
     "slack-edge": "1.3.12",
     "valibot": "1.1.0"
