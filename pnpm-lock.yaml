@@ -85,8 +85,8 @@ importers:
         specifier: 1.4.1
         version: 1.4.1
       '@envelop/core':
-        specifier: 5.3.0
-        version: 5.3.0
+        specifier: 5.3.1
+        version: 5.3.1
       '@feedbackun/package-database':
         specifier: workspace:*
         version: link:../../packages/database
@@ -845,8 +845,8 @@ packages:
   '@emotion/hash@0.9.2':
     resolution: {integrity: sha512-MyqliTZGuOm3+5ZRSaaBGP3USLw6+EGykkwZns2EPC5g8jJ4z9OrdZY9apkl3+UP9+sdz76YYkwCKP5gh8iY3g==}
 
-  '@envelop/core@5.3.0':
-    resolution: {integrity: sha512-xvUkOWXI8JsG2OOnqiI2tOkEc52wbmIqWORr7yGc8B8E53Oh1MMGGGck4mbR80s25LnHVzfNIiIlNkuDgZRuuA==}
+  '@envelop/core@5.3.1':
+    resolution: {integrity: sha512-n29V3vRqXvPcG76C8zE482LQykk0P66zv1mjpk7aHeGe9qnh8AzB/RvoX5SVFwApJQPp0ixob8NoYXg4FHKMGA==}
     engines: {node: '>=18.0.0'}
 
   '@envelop/instrumentation@1.0.0':
@@ -7275,7 +7275,7 @@ snapshots:
 
   '@emotion/hash@0.9.2': {}
 
-  '@envelop/core@5.3.0':
+  '@envelop/core@5.3.1':
     dependencies:
       '@envelop/instrumentation': 1.0.0
       '@envelop/types': 5.2.1
@@ -7794,11 +7794,11 @@ snapshots:
     dependencies:
       graphql: 16.11.0
       lodash.sortby: 4.7.0
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   '@graphql-tools/executor-common@0.0.6(graphql@16.11.0)':
     dependencies:
-      '@envelop/core': 5.3.0
+      '@envelop/core': 5.3.1
       '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
       graphql: 16.11.0
 
@@ -11180,7 +11180,7 @@ snapshots:
 
   graphql-yoga@5.15.1(graphql@16.11.0):
     dependencies:
-      '@envelop/core': 5.3.0
+      '@envelop/core': 5.3.1
       '@envelop/instrumentation': 1.0.0
       '@graphql-tools/executor': 1.4.9(graphql@16.11.0)
       '@graphql-tools/schema': 10.0.25(graphql@16.11.0)
