@@ -209,8 +209,8 @@ importers:
         specifier: 3.2.0
         version: 3.2.0(graphql@16.11.0)
       '@opennextjs/cloudflare':
-        specifier: 1.8.0
-        version: 1.8.0(wrangler@4.34.0(@cloudflare/workers-types@4.20250909.0))
+        specifier: 1.8.2
+        version: 1.8.2(wrangler@4.34.0(@cloudflare/workers-types@4.20250909.0))
       '@praha/eslint-config-definer':
         specifier: 2.0.1
         version: 2.0.1(eslint@9.35.0(jiti@2.5.1))
@@ -2005,8 +2005,8 @@ packages:
     resolution: {integrity: sha512-l4UGkmaZaAjWER+PuZ/zNziMnrbf6oA9B1RUDKcyKsX+hEES1b7h6kLgpo4a4maf01M+k0yJUZQyF4sf+vI+Iw==}
     hasBin: true
 
-  '@opennextjs/cloudflare@1.8.0':
-    resolution: {integrity: sha512-1hcX7wHPNsF6jsMetANIECFnZ7lxsYdOzQAuR7S+2pi7QjLS487fQZ/WZ1pxoDYx4vpziw6yTFnaR+FyIqdsMg==}
+  '@opennextjs/cloudflare@1.8.2':
+    resolution: {integrity: sha512-Og2UvU1EEkQuxK7b+FlJU0zoJKQTIAw85bHo/JGEkXK0hA4MABkb/deuido785yXd91JQU7ayGB3Ql9Cs6jwSQ==}
     hasBin: true
     peerDependencies:
       wrangler: ^4.24.4
@@ -8379,7 +8379,7 @@ snapshots:
       - aws-crt
       - supports-color
 
-  '@opennextjs/cloudflare@1.8.0(wrangler@4.34.0(@cloudflare/workers-types@4.20250909.0))':
+  '@opennextjs/cloudflare@1.8.2(wrangler@4.34.0(@cloudflare/workers-types@4.20250909.0))':
     dependencies:
       '@dotenvx/dotenvx': 1.31.0
       '@opennextjs/aws': 3.7.6
