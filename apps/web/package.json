@@ -71,7 +71,7 @@
     "@vanilla-extract/next-plugin": "2.4.14",
     "eslint": "9.36.0",
     "tsx": "4.20.6",
-    "typescript": "5.9.2",
+    "typescript": "5.9.3",
     "wrangler": "4.40.2"
   }
 }
