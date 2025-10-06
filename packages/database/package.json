@@ -18,7 +18,7 @@
   "devDependencies": {
     "@types/node": "22.18.8",
     "drizzle-kit": "0.31.5",
-    "eslint": "9.36.0",
+    "eslint": "9.37.0",
     "typescript": "5.9.3",
     "wrangler": "4.41.0"
   }
