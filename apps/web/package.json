@@ -42,7 +42,7 @@
     "deepmerge": "4.3.1",
     "drizzle-orm": "0.44.6",
     "graphql": "16.11.0",
-    "graphql-scalars": "1.24.2",
+    "graphql-scalars": "1.25.0",
     "graphql-yoga": "5.16.0",
     "lucide-react": "0.545.0",
     "modern-normalize": "3.0.1",
