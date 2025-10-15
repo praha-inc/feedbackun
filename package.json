@@ -19,5 +19,5 @@
     "eslint": "9.37.0",
     "turbo": "2.5.8"
   },
-  "packageManager": "pnpm@10.18.2"
+  "packageManager": "pnpm@10.18.3"
 }
