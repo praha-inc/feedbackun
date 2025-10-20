@@ -14,7 +14,7 @@
     "neverthrow": "8.2.0"
   },
   "devDependencies": {
-    "eslint": "9.37.0",
+    "eslint": "9.38.0",
     "typescript": "5.9.3"
   }
 }
