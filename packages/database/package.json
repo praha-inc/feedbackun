@@ -13,7 +13,7 @@
     "lint:type": "tsc --pretty --noEmit"
   },
   "dependencies": {
-    "drizzle-orm": "0.44.6"
+    "drizzle-orm": "0.44.7"
   },
   "devDependencies": {
     "@types/node": "22.18.12",
