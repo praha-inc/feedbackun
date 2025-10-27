@@ -187,8 +187,8 @@ importers:
         specifier: 0.0.1
         version: 0.0.1
       ts-pattern:
-        specifier: 5.8.0
-        version: 5.8.0
+        specifier: 5.9.0
+        version: 5.9.0
       valibot:
         specifier: 1.1.0
         version: 1.1.0(typescript@5.9.3)
@@ -297,8 +297,8 @@ importers:
         specifier: 8.2.0
         version: 8.2.0
       ts-pattern:
-        specifier: 5.8.0
-        version: 5.8.0
+        specifier: 5.9.0
+        version: 5.9.0
       valibot:
         specifier: 1.1.0
         version: 1.1.0(typescript@5.9.3)
@@ -5717,8 +5717,8 @@ packages:
   ts-log@2.2.7:
     resolution: {integrity: sha512-320x5Ggei84AxzlXp91QkIGSw5wgaLT6GeAH0KsqDmRZdVWW2OiSeVvElVoatk3f7nicwXlElXsoFkARiGE2yg==}
 
-  ts-pattern@5.8.0:
-    resolution: {integrity: sha512-kIjN2qmWiHnhgr5DAkAafF9fwb0T5OhMVSWrm8XEdTFnX6+wfXwYOFjeF86UZ54vduqiR7BfqScFmXSzSaH8oA==}
+  ts-pattern@5.9.0:
+    resolution: {integrity: sha512-6s5V71mX8qBUmlgbrfL33xDUwO0fq48rxAu2LBE11WBeGdpCPOsXksQbZJHvHwhrd3QjUusd3mAOM5Gg0mFBLg==}
 
   ts-tqdm@0.8.6:
     resolution: {integrity: sha512-3X3M1PZcHtgQbnwizL+xU8CAgbYbeLHrrDwL9xxcZZrV5J+e7loJm1XrXozHjSkl44J0Zg0SgA8rXbh83kCkcQ==}
@@ -12646,7 +12646,7 @@ snapshots:
 
   ts-log@2.2.7: {}
 
-  ts-pattern@5.8.0: {}
+  ts-pattern@5.9.0: {}
 
   ts-tqdm@0.8.6: {}
 

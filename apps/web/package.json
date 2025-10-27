@@ -51,7 +51,7 @@
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "server-only": "0.0.1",
-    "ts-pattern": "5.8.0",
+    "ts-pattern": "5.9.0",
     "valibot": "1.1.0"
   },
   "devDependencies": {
