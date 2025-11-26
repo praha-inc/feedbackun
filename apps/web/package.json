@@ -52,7 +52,7 @@
     "react-dom": "19.2.0",
     "server-only": "0.0.1",
     "ts-pattern": "5.9.0",
-    "valibot": "1.1.0"
+    "valibot": "1.2.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20251014.0",
