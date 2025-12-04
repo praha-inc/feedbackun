@@ -70,7 +70,7 @@
     "@types/react-dom": "19.2.3",
     "@vanilla-extract/next-plugin": "2.4.16",
     "eslint": "9.39.1",
-    "tsx": "4.20.6",
+    "tsx": "4.21.0",
     "typescript": "5.9.3",
     "wrangler": "4.45.1"
   }
