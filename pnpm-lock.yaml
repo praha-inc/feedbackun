@@ -133,14 +133,14 @@ importers:
         specifier: 1.2.8
         version: 1.2.8(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@vanilla-extract/css':
-        specifier: 1.17.5
-        version: 1.17.5
+        specifier: 1.18.0
+        version: 1.18.0
       '@vanilla-extract/css-utils':
         specifier: 0.1.6
         version: 0.1.6
       '@vanilla-extract/recipes':
         specifier: 0.5.7
-        version: 0.5.7(@vanilla-extract/css@1.17.5)
+        version: 0.5.7(@vanilla-extract/css@1.18.0)
       clsx:
         specifier: 2.1.1
         version: 2.1.1
@@ -233,8 +233,8 @@ importers:
         specifier: 19.2.3
         version: 19.2.3(@types/react@19.2.7)
       '@vanilla-extract/next-plugin':
-        specifier: 2.4.16
-        version: 2.4.16(next@15.5.9(@babel/core@7.28.3)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(webpack@5.101.3)
+        specifier: 2.4.17
+        version: 2.4.17(next@15.5.9(@babel/core@7.28.3)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(webpack@5.101.3)
       eslint:
         specifier: 9.39.2
         version: 9.39.2(jiti@2.5.1)
@@ -3412,14 +3412,14 @@ packages:
   '@vanilla-extract/css-utils@0.1.6':
     resolution: {integrity: sha512-iICpaHma0s2EEnQDw/JRqudQJwYw1JERyWfIllNQplps226KVphjGb3jyGMiBK5Waw69RD3q4gulgRVQAQmKmA==}
 
-  '@vanilla-extract/css@1.17.5':
-    resolution: {integrity: sha512-u29cUVL5Z2qjJ2Eh8pusT1ToGtTeA4eb/y0ygaw2vWv9XFQSixtkBYEsVkrJExSI/0+SR1g8n5NYas4KlWOdfA==}
+  '@vanilla-extract/css@1.18.0':
+    resolution: {integrity: sha512-/p0dwOjr0o8gE5BRQ5O9P0u/2DjUd6Zfga2JGmE4KaY7ZITWMszTzk4x4CPlM5cKkRr2ZGzbE6XkuPNfp9shSQ==}
 
-  '@vanilla-extract/integration@8.0.6':
-    resolution: {integrity: sha512-BlDtXtb6Fin8XEGwf4BhsJkKQh0rhj/YiN6ylNNOqXtRU0+DQmzE5WGE056ScKg3p5e0IFaeH7PPxuWJca9aXw==}
+  '@vanilla-extract/integration@8.0.7':
+    resolution: {integrity: sha512-ILob4F9cEHXpbWAVt3Y2iaQJpqYq/c/5TJC8Fz58C2XmX3QW2Y589krvViiyJhQfydCGK3EbwPQhVFjQaBeKfg==}
 
-  '@vanilla-extract/next-plugin@2.4.16':
-    resolution: {integrity: sha512-U86WDqafVoihGw11yAdz7jMNLQNU2fnpRU0cz+OmdW+ZTEr5PGKAIN7QeJMN1j95ZvI4EQUZfZZasnjDgTMRNQ==}
+  '@vanilla-extract/next-plugin@2.4.17':
+    resolution: {integrity: sha512-zdADYJtkF28PQp8bRg95tH7ICyiPlbe7IOeG2kRoN0CBnNQC5FEqubVqWSP+eaMjgbWbkhPC7Ie/zYKvWKKsaQ==}
     peerDependencies:
       next: '>=12.1.7'
 
@@ -3431,8 +3431,8 @@ packages:
     peerDependencies:
       '@vanilla-extract/css': ^1.0.0
 
-  '@vanilla-extract/webpack-plugin@2.3.24':
-    resolution: {integrity: sha512-8NcZaDn4HuV/P882uCZLjabnXX9TQbm70I9kLcqkCFRVE3EzX0EdSrx9YQzr7Hg5wFZpN5oedjK+3AumhSSL3A==}
+  '@vanilla-extract/webpack-plugin@2.3.25':
+    resolution: {integrity: sha512-tnaYN3KGF8V9JZ5FuQY9T9/KmLTfiPxGCw+hhIBD7lgn8AKpg53fm+4lJDDSudTFFN3YNiO2WDjHH62IuoyLIQ==}
     peerDependencies:
       webpack: ^4.30.0 || ^5.20.2
 
@@ -6336,6 +6336,7 @@ packages:
   wrangler@4.56.0:
     resolution: {integrity: sha512-Nqi8duQeRbA+31QrD6QlWHW3IZVnuuRxMy7DEg46deUzywivmaRV/euBN5KKXDPtA24VyhYsK7I0tkb7P5DM2w==}
     engines: {node: '>=20.0.0'}
+    deprecated: Version 4.55.0 and 4.56.0 can incorrectly automatically delegate 'wrangler deploy' to 'opennextjs-cloudflare'. Use an older or newer version.
     hasBin: true
     peerDependencies:
       '@cloudflare/workers-types': ^4.20251217.0
@@ -10206,7 +10207,7 @@ snapshots:
 
   '@vanilla-extract/css-utils@0.1.6': {}
 
-  '@vanilla-extract/css@1.17.5':
+  '@vanilla-extract/css@1.18.0':
     dependencies:
       '@emotion/hash': 0.9.2
       '@vanilla-extract/private': 1.0.9
@@ -10223,12 +10224,12 @@ snapshots:
     transitivePeerDependencies:
       - babel-plugin-macros
 
-  '@vanilla-extract/integration@8.0.6':
+  '@vanilla-extract/integration@8.0.7':
     dependencies:
       '@babel/core': 7.28.3
       '@babel/plugin-syntax-typescript': 7.27.1(@babel/core@7.28.3)
       '@vanilla-extract/babel-plugin-debug-ids': 1.2.2
-      '@vanilla-extract/css': 1.17.5
+      '@vanilla-extract/css': 1.18.0
       dedent: 1.6.0
       esbuild: 0.27.1
       eval: 0.1.8
@@ -10239,9 +10240,9 @@ snapshots:
       - babel-plugin-macros
       - supports-color
 
-  '@vanilla-extract/next-plugin@2.4.16(next@15.5.9(@babel/core@7.28.3)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(webpack@5.101.3)':
+  '@vanilla-extract/next-plugin@2.4.17(next@15.5.9(@babel/core@7.28.3)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(webpack@5.101.3)':
     dependencies:
-      '@vanilla-extract/webpack-plugin': 2.3.24(webpack@5.101.3)
+      '@vanilla-extract/webpack-plugin': 2.3.25(webpack@5.101.3)
       next: 15.5.9(@babel/core@7.28.3)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
     transitivePeerDependencies:
       - babel-plugin-macros
@@ -10250,13 +10251,13 @@ snapshots:
 
   '@vanilla-extract/private@1.0.9': {}
 
-  '@vanilla-extract/recipes@0.5.7(@vanilla-extract/css@1.17.5)':
+  '@vanilla-extract/recipes@0.5.7(@vanilla-extract/css@1.18.0)':
     dependencies:
-      '@vanilla-extract/css': 1.17.5
+      '@vanilla-extract/css': 1.18.0
 
-  '@vanilla-extract/webpack-plugin@2.3.24(webpack@5.101.3)':
+  '@vanilla-extract/webpack-plugin@2.3.25(webpack@5.101.3)':
     dependencies:
-      '@vanilla-extract/integration': 8.0.6
+      '@vanilla-extract/integration': 8.0.7
       debug: 4.4.3
       loader-utils: 2.0.4
       picocolors: 1.1.1
