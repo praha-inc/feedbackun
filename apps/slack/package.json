@@ -17,7 +17,7 @@
     "@praha/error-factory": "1.2.1",
     "drizzle-orm": "0.45.1",
     "neverthrow": "8.2.0",
-    "slack-edge": "1.3.12",
+    "slack-edge": "1.3.13",
     "valibot": "1.2.0"
   },
   "devDependencies": {
