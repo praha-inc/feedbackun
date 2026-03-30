@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@types/node": "22.19.10",
-    "eslint": "9.39.2",
+    "eslint": "9.39.4",
     "typescript": "5.9.3"
   }
 }
