@@ -69,7 +69,7 @@
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@vanilla-extract/next-plugin": "2.4.17",
-    "eslint": "9.39.2",
+    "eslint": "9.39.4",
     "tsx": "4.21.0",
     "typescript": "5.9.3",
     "wrangler": "4.59.1"
