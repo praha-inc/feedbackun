@@ -15,3 +15,8 @@ export const elements = style({
   gap: '8px',
   fontSize: theme.size.font.tiny,
 });
+
+export const deprecated = style({
+  color: theme.color.token.semantic.textMuted,
+  textDecoration: 'line-through',
+});

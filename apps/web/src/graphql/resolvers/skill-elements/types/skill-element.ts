@@ -6,5 +6,6 @@ export const SkillElement = builder.simpleObject('SkillElement', {
     id: t.id({ description: 'スキル要素ID' }),
     order: t.int({ description: 'スキル要素番号' }),
     name: t.string({ description: 'スキル要素名' }),
+    deprecated: t.boolean({ description: '廃止済みかどうか' }),
   }),
 });

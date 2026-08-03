@@ -46,11 +46,13 @@ export const feedbackAssignedSkills: FeedbackAssignedSkills = (input) => {
                 id: current.skills.id,
                 level: current.skills.level,
                 name: current.skills.name,
+                deprecated: current.skills.deprecatedAt !== null,
               },
               skillElements: [{
                 id: current.skill_elements.id,
                 order: current.skill_elements.order,
                 name: current.skill_elements.name,
+                deprecated: current.skill_elements.deprecatedAt !== null,
               }],
             });
             return previous;
@@ -60,6 +62,7 @@ export const feedbackAssignedSkills: FeedbackAssignedSkills = (input) => {
             id: current.skill_elements.id,
             order: current.skill_elements.order,
             name: current.skill_elements.name,
+            deprecated: current.skill_elements.deprecatedAt !== null,
           });
           return previous;
         }, []);

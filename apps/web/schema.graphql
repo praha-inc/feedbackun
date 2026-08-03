@@ -70,6 +70,9 @@ type QueryFeedbacksConnectionEdge {
 
 """スキル"""
 type Skill {
+  """廃止済みかどうか"""
+  deprecated: Boolean!
+
   """スキルID"""
   id: ID!
 
@@ -82,6 +85,9 @@ type Skill {
 
 """スキル要素"""
 type SkillElement {
+  """廃止済みかどうか"""
+  deprecated: Boolean!
+
   """スキル要素ID"""
   id: ID!
 

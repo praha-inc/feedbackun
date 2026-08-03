@@ -14,11 +14,13 @@ export const FeedbackSkillBadgeFragment = graphql(/* GraphQL */ `
       id
       level
       name
+      deprecated
     }
     skillElements {
       id
       order
       name
+      deprecated
     }
   }
 `);
@@ -37,16 +39,19 @@ export const FeedbackSkillBadge: FC<FeedbackSkillBadgeProps> = ({
   return (
     <Tooltip>
       <TooltipTrigger>
-        <Badge className={clsx(styles.skill, className)} asChild>
+        <Badge className={clsx(styles.skill, data.skill.deprecated && styles.deprecated, className)} asChild>
           <button>
-            Lv.{data.skill.level} {data.skill.name}
+            Lv.{data.skill.level} {data.skill.name}{data.skill.deprecated && ' (廃止)'}
           </button>
         </Badge>
       </TooltipTrigger>
       <TooltipContent className={styles.elements}>
         {data.skillElements.map((skillElement) => (
-          <div key={skillElement.id}>
-            {skillElement.order}. {skillElement.name}
+          <div
+            key={skillElement.id}
+            className={clsx(skillElement.deprecated && styles.deprecated)}
+          >
+            {skillElement.order}. {skillElement.name}{skillElement.deprecated && ' (廃止)'}
           </div>
         ))}
       </TooltipContent>

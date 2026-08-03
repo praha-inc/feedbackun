@@ -6,5 +6,6 @@ export const Skill = builder.simpleObject('Skill', {
     id: t.id({ description: 'スキルID' }),
     level: t.int({ description: 'スキルレベル' }),
     name: t.string({ description: 'スキル名' }),
+    deprecated: t.boolean({ description: '廃止済みかどうか' }),
   }),
 });
