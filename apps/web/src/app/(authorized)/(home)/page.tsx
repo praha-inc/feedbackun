@@ -5,7 +5,7 @@ import type { FC } from 'react';
 export type HomePageProps = PageProps<'/'>;
 
 const HomePage: FC<HomePageProps> = () => {
-  redirect('feedbacks');
+  redirect('/feedbacks');
 };
 
 export default HomePage;

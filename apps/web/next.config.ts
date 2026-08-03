@@ -6,9 +6,6 @@ import type { NextConfig } from 'next';
 void initOpenNextCloudflareForDev();
 
 const nextConfig: NextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   typescript: {
     ignoreBuildErrors: true,
   },

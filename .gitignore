@@ -25,6 +25,7 @@ wrangler.json
 .next
 !.next/types/routes.d.ts
 .save.next
+next-env.d.ts
 
 # Graphql
 .graphql
