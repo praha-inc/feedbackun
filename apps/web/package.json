@@ -25,7 +25,7 @@
     "@pothos/core": "4.13.1",
     "@pothos/plugin-relay": "4.7.1",
     "@pothos/plugin-simple-objects": "4.1.4",
-    "@praha/error-factory": "1.2.1",
+    "@praha/error-factory": "1.4.1",
     "@radix-ui/react-accessible-icon": "1.1.15",
     "@radix-ui/react-avatar": "1.2.6",
     "@radix-ui/react-dialog": "1.1.23",

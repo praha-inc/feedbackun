@@ -36,8 +36,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/neverthrow
       '@praha/error-factory':
-        specifier: 1.2.1
-        version: 1.2.1
+        specifier: 1.4.1
+        version: 1.4.1
       drizzle-orm:
         specifier: 0.45.2
         version: 0.45.2(@cloudflare/workers-types@4.20260702.1)
@@ -100,8 +100,8 @@ importers:
         specifier: 4.1.4
         version: 4.1.4(@pothos/core@4.13.1(graphql@16.12.0))(graphql@16.12.0)
       '@praha/error-factory':
-        specifier: 1.2.1
-        version: 1.2.1
+        specifier: 1.4.1
+        version: 1.4.1
       '@radix-ui/react-accessible-icon':
         specifier: 1.1.15
         version: 1.1.15(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -273,8 +273,8 @@ importers:
         specifier: 3.3.0
         version: 3.3.0
       '@praha/error-factory':
-        specifier: 1.2.1
-        version: 1.2.1
+        specifier: 1.4.1
+        version: 1.4.1
       date-fns:
         specifier: 4.4.0
         version: 4.4.0
@@ -2727,8 +2727,8 @@ packages:
     peerDependencies:
       typescript: '>=5.0.0'
 
-  '@praha/error-factory@1.2.1':
-    resolution: {integrity: sha512-F4KIuX48NLPlW/y95QrtJp2zUhAFkmHcOfXOyBWsGjFD82DUI+7aTYlFQ44Oci0rtCMSRAFHlgHlxcs1V9n9fg==}
+  '@praha/error-factory@1.4.1':
+    resolution: {integrity: sha512-HA+y+xwmQIl9EPvZonRk1/hsSAvAlpDjlpruyW8kTAQ++Oq5Fi7hFV0Y84TLHXJ6SciYHlKGqrekrS5wzkD5+Q==}
 
   '@praha/oxlint-config-internal@1.0.0-beta.7':
     resolution: {integrity: sha512-qjjAldizWDSRcxdawA9zlpQpOXBraJK65HDtdpBdowgppRE9wgxQoOGYWFX46HKI4hyglf2RqMioP8GeRf6+Vw==}
@@ -8607,7 +8607,7 @@ snapshots:
       '@standard-schema/spec': 1.1.0
       typescript: 5.9.3
 
-  '@praha/error-factory@1.2.1': {}
+  '@praha/error-factory@1.4.1': {}
 
   '@praha/oxlint-config-internal@1.0.0-beta.7(oxlint-tsgolint@7.0.2001)(oxlint@1.76.0(oxlint-tsgolint@7.0.2001))':
     dependencies:
