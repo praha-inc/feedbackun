@@ -6,7 +6,7 @@ import { TooltipProvider } from '../components/elements/tooltip';
 import type { Metadata } from 'next';
 import type { FC } from 'react';
 
-import 'modern-normalize';
+import 'modern-normalize/modern-normalize.css';
 import './layout.css';
 
 const notoSansJP = Noto_Sans_JP({
