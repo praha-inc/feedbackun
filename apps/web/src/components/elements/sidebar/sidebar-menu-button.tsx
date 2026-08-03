@@ -1,7 +1,7 @@
 'use client';
 
-import { Slot } from '@radix-ui/react-slot';
 import { clsx } from 'clsx';
+import { Slot as SlotPrimitive } from 'radix-ui';
 
 import { useSidebar } from './sidebar-provider';
 import * as styles from './sidebar.css';
@@ -29,7 +29,7 @@ export const SidebarMenuButton: FC<SidebarMenuButtonProps> = ({
   ...props
 }) => {
   const { expand, shouldUseSheet } = useSidebar();
-  const Wrapper = asChild ? Slot : 'button';
+  const Wrapper = asChild ? SlotPrimitive.Slot : 'button';
 
   const child = (
     <Wrapper

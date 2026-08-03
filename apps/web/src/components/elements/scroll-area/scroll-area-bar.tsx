@@ -1,5 +1,5 @@
-import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
 import { clsx } from 'clsx';
+import { ScrollArea as ScrollAreaPrimitive } from 'radix-ui';
 
 import * as styles from './scroll-area.css';
 

@@ -1,5 +1,5 @@
-import { Slot } from '@radix-ui/react-slot';
 import { clsx } from 'clsx';
+import { Slot as SlotPrimitive } from 'radix-ui';
 
 import * as styles from './badge.css';
 
@@ -15,7 +15,7 @@ export const Badge: FC<BadgeProps> = ({
   asChild,
   ...props
 }) => {
-  const Wrapper = asChild ? Slot : 'div';
+  const Wrapper = asChild ? SlotPrimitive.Slot : 'div';
 
   return (
     <Wrapper

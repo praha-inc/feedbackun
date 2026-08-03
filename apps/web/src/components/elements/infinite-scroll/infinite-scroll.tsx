@@ -1,6 +1,6 @@
 'use client';
 
-import { Slot } from '@radix-ui/react-slot';
+import { Slot as SlotPrimitive } from 'radix-ui';
 import { useRef, useState } from 'react';
 
 import * as styles from './infinite-scroll.css';
@@ -34,7 +34,7 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = ({
   fetcher,
   ...props
 }): ReactNode => {
-  const Wrapper = asChild ? Slot : 'div';
+  const Wrapper = asChild ? SlotPrimitive.Slot : 'div';
 
   const [displayEdges, setDisplayEdges] = useState(edges);
   const [hasMore, setHasMore] = useState(0 < edges.length);

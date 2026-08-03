@@ -1,5 +1,5 @@
-import { Slot } from '@radix-ui/react-slot';
 import { clsx } from 'clsx';
+import { Slot as SlotPrimitive } from 'radix-ui';
 
 import * as styles from './button.css';
 
@@ -30,7 +30,7 @@ export const Button: FC<ButtonProps> = ({
   asChild,
   ...props
 }) => {
-  const Wrapper = asChild ? Slot : 'button';
+  const Wrapper = asChild ? SlotPrimitive.Slot : 'button';
 
   return (
     <Wrapper

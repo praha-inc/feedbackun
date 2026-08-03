@@ -1,7 +1,7 @@
 'use client';
 
-import * as TabsPrimitive from '@radix-ui/react-tabs';
 import { clsx } from 'clsx';
+import { Tabs as TabsPrimitive } from 'radix-ui';
 
 import * as styles from './tabs.css';
 

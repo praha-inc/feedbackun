@@ -1,5 +1,5 @@
-import { Slot } from '@radix-ui/react-slot';
 import { clsx } from 'clsx';
+import { Slot as SlotPrimitive } from 'radix-ui';
 
 import * as styles from './sidebar.css';
 
@@ -15,7 +15,7 @@ export const SidebarMenu: FC<SidebarMenuProps> = ({
   asChild,
   ...props
 }) => {
-  const Wrapper = asChild ? Slot : 'ul';
+  const Wrapper = asChild ? SlotPrimitive.Slot : 'ul';
 
   return (
     <Wrapper
