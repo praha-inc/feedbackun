@@ -91,14 +91,14 @@ importers:
         specifier: 1.1.9
         version: 1.1.9(@types/node@22.19.10)(graphql@16.12.0)
       '@pothos/core':
-        specifier: 4.12.0
-        version: 4.12.0(graphql@16.12.0)
+        specifier: 4.13.1
+        version: 4.13.1(graphql@16.12.0)
       '@pothos/plugin-relay':
-        specifier: 4.6.2
-        version: 4.6.2(@pothos/core@4.12.0(graphql@16.12.0))(graphql@16.12.0)
+        specifier: 4.7.1
+        version: 4.7.1(@pothos/core@4.13.1(graphql@16.12.0))(graphql@16.12.0)
       '@pothos/plugin-simple-objects':
-        specifier: 4.1.3
-        version: 4.1.3(@pothos/core@4.12.0(graphql@16.12.0))(graphql@16.12.0)
+        specifier: 4.1.4
+        version: 4.1.4(@pothos/core@4.13.1(graphql@16.12.0))(graphql@16.12.0)
       '@praha/error-factory':
         specifier: 1.2.1
         version: 1.2.1
@@ -2682,22 +2682,22 @@ packages:
   '@poppinss/exception@1.2.3':
     resolution: {integrity: sha512-dCED+QRChTVatE9ibtoaxc+WkdzOSjYTKi/+uacHWIsfodVfpsueo3+DKpgU5Px8qXjgmXkSvhXvSCz3fnP9lw==}
 
-  '@pothos/core@4.12.0':
-    resolution: {integrity: sha512-PeiODrj3GjQ7Nbs/5p65DEyBWZTSGGjgGO/BgaMEqS1jBNX/2zJTEQJA9zM5uPmCHUCDjE7Qn2U7lOi0ALp/8A==}
+  '@pothos/core@4.13.1':
+    resolution: {integrity: sha512-2hkLxmvrT7VnbiWAfYhfF09PjaHeflZ5HrBHYzU6Tn/P9tDviuZS7IS5xO4k/KnK5GkRo3YxDzXyn+HnkEkVNw==}
     peerDependencies:
-      graphql: ^16.10.0
+      graphql: ^16.10.0 || ^17.0.0
 
-  '@pothos/plugin-relay@4.6.2':
-    resolution: {integrity: sha512-9aweCv9T53z4+CmE+JF8QoXeAEd+wT/rZflZNzrvH6ln2Lj6qy/EVEcL5BMr6en3/IYHH+ROyHAAsy12t4uIUQ==}
+  '@pothos/plugin-relay@4.7.1':
+    resolution: {integrity: sha512-aj0xgdcvktx0k6iOvtkfJvb6FYdoWnlQkDMumr1WQm7uTXsJOASYQndytfnS0/0wsctCF/UTTK6Y53+F0UIeMw==}
     peerDependencies:
       '@pothos/core': '*'
-      graphql: ^16.10.0
+      graphql: ^16.10.0 || ^17.0.0
 
-  '@pothos/plugin-simple-objects@4.1.3':
-    resolution: {integrity: sha512-D2JFecUY9a8VwplsNidEYlws2nYGjABIk8WNykHYuBoTPK6mngQfgY5Og8VL+a3sU/Z3pof5qz+Eg+6GJ4j7lw==}
+  '@pothos/plugin-simple-objects@4.1.4':
+    resolution: {integrity: sha512-mkDn640l/y1u3wg7LRNr/HaCpQypGJwjokeoJeHLHNvxsIQ+vLOjpNgwoAb+DhUusa75xWjVnMsbGsIGEr3Z3w==}
     peerDependencies:
       '@pothos/core': '*'
-      graphql: ^16.10.0
+      graphql: ^16.10.0 || ^17.0.0
 
   '@praha/byethrow-oxlint@0.12.0':
     resolution: {integrity: sha512-zdg/oa50/N+a62FsCVHz/J+9RnuaIWZVzwo9frIXZdyPuNNHRYBCee9AwCnfYinOQ6dLOzFmOS9lATnw/MDGdQ==}
@@ -8609,18 +8609,18 @@ snapshots:
 
   '@poppinss/exception@1.2.3': {}
 
-  '@pothos/core@4.12.0(graphql@16.12.0)':
+  '@pothos/core@4.13.1(graphql@16.12.0)':
     dependencies:
       graphql: 16.12.0
 
-  '@pothos/plugin-relay@4.6.2(@pothos/core@4.12.0(graphql@16.12.0))(graphql@16.12.0)':
+  '@pothos/plugin-relay@4.7.1(@pothos/core@4.13.1(graphql@16.12.0))(graphql@16.12.0)':
     dependencies:
-      '@pothos/core': 4.12.0(graphql@16.12.0)
+      '@pothos/core': 4.13.1(graphql@16.12.0)
       graphql: 16.12.0
 
-  '@pothos/plugin-simple-objects@4.1.3(@pothos/core@4.12.0(graphql@16.12.0))(graphql@16.12.0)':
+  '@pothos/plugin-simple-objects@4.1.4(@pothos/core@4.13.1(graphql@16.12.0))(graphql@16.12.0)':
     dependencies:
-      '@pothos/core': 4.12.0(graphql@16.12.0)
+      '@pothos/core': 4.13.1(graphql@16.12.0)
       graphql: 16.12.0
 
   '@praha/byethrow-oxlint@0.12.0(@praha/byethrow@0.12.0(typescript@5.9.3))(oxlint@1.76.0(oxlint-tsgolint@7.0.2001))':
