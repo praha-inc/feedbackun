@@ -9,7 +9,7 @@
     "migrate:create": "drizzle-kit generate",
     "migrate:apply": "wrangler d1 migrations apply feedbackun --local --persist-to ../../apps/web/.wrangler/state",
     "migrate:apply:remote": "wrangler d1 migrations apply feedbackun --remote",
-    "lint:code": "eslint .",
+    "lint:code": "oxlint",
     "lint:type": "tsc --pretty --noEmit"
   },
   "dependencies": {
@@ -18,7 +18,8 @@
   "devDependencies": {
     "@types/node": "22.19.10",
     "drizzle-kit": "0.31.10",
-    "eslint": "9.39.4",
+    "oxlint": "1.76.0",
+    "oxlint-tsgolint": "7.0.2001",
     "typescript": "5.9.3",
     "wrangler": "4.59.1"
   }

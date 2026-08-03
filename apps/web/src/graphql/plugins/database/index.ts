@@ -8,9 +8,9 @@ export const useDatabase = (): Plugin => ({
     setExecuteFn(async (arguments_) => {
       const { env } = getCloudflareContext();
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+      // oxlint-disable-next-line @typescript-eslint/no-unsafe-return
       return withDatabase(env.DB, async () => {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+        // oxlint-disable-next-line @typescript-eslint/no-unsafe-return
         return await executeFn(arguments_);
       });
     });

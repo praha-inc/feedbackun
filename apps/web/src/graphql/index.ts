@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks/rules-of-hooks */
+/* oxlint-disable react-hooks/rules-of-hooks */
 
 import { buildHTTPExecutor } from '@graphql-tools/executor-http';
 import { createYoga } from 'graphql-yoga';
@@ -25,7 +25,7 @@ const yoga = createYoga({
 
 const executor = buildHTTPExecutor(yoga);
 
-// eslint-disable-next-line func-style
+// oxlint-disable-next-line func-style
 function assertSingleValue<TValue extends object>(
   value: TValue | AsyncIterable<TValue>,
 ): asserts value is TValue {

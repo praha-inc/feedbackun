@@ -6,7 +6,7 @@
   "main": "src/index.ts",
   "types": "src/index.ts",
   "scripts": {
-    "lint:code": "eslint .",
+    "lint:code": "oxlint",
     "lint:type": "tsc --pretty --noEmit"
   },
   "dependencies": {
@@ -23,7 +23,8 @@
   },
   "devDependencies": {
     "@types/node": "22.19.10",
-    "eslint": "9.39.4",
+    "oxlint": "1.76.0",
+    "oxlint-tsgolint": "7.0.2001",
     "typescript": "5.9.3"
   }
 }

@@ -21,6 +21,6 @@ export const Entity = <Tag extends string>(
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any,@typescript-eslint/no-unsafe-return
+  // oxlint-disable-next-line @typescript-eslint/no-explicit-any,@typescript-eslint/no-unsafe-return
   return Class as any;
 };

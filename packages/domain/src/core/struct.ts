@@ -7,6 +7,6 @@ export const Struct = <Properties extends Record<string, unknown>>(): new(
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any,@typescript-eslint/no-unsafe-return
+  // oxlint-disable-next-line @typescript-eslint/no-explicit-any,@typescript-eslint/no-unsafe-return
   return Class as any;
 };

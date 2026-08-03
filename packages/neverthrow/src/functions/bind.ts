@@ -10,7 +10,7 @@ export const bindSync = <
   callback: (record: R) => V,
 ) => {
   return (record: R): Result<(R extends undefined ? NonNullable<unknown> : Exclude<R, undefined>) & { [Key in K]: InferOkTypes<V> }, InferErrorTypes<V>> => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // oxlint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     return callback(record).map((value) => ({
       ...record,
@@ -28,7 +28,7 @@ export const bindAsync = <
   callback: (record: R) => V,
 ) => {
   return (record: R): ResultAsync<(R extends undefined ? NonNullable<unknown> : Exclude<R, undefined>) & { [Key in K]: InferOkTypes<V> }, InferErrorTypes<V>> => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // oxlint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     return callback(record).map((value) => ({
       ...record,

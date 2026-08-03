@@ -40,7 +40,6 @@ builder.queryField('feedbacks', (t) => t.connection({
       },
     );
 
-    // eslint-disable-next-line unicorn/consistent-function-scoping
     const totalCount = async () => {
       const result = await feedbacksCount({});
 

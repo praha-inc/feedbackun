@@ -30,9 +30,9 @@ export const useAuth = (): Plugin => ({
         throw new Error('Unauthorized');
       }
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+      // oxlint-disable-next-line @typescript-eslint/no-unsafe-return
       return storage.run({ id: session.userId }, async () => {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+        // oxlint-disable-next-line @typescript-eslint/no-unsafe-return
         return await executeFn(arguments_);
       });
     });

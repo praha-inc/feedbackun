@@ -4,7 +4,9 @@
     "@tsconfig/strictest/tsconfig.json"
   ],
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     "moduleResolution": "Bundler",
-    "target": "ESNext"
+    "target": "ESNext",
+    "noEmit": true
   }
 }

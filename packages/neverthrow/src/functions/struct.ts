@@ -34,6 +34,7 @@ export const structAsync = <
     return previous;
   }, []);
 
+  // oxlint-disable-next-line typescript/await-thenable
   return ResultAsync.fromSafePromise(Promise.all(results))
     .andThen((results) => {
       const errors = results.filter((result) => result.isErr());

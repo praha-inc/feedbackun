@@ -10,6 +10,7 @@ import type { Env } from './types/env';
 
 const ackHandler = async () => {};
 
+// oxlint-disable-next-line import/no-anonymous-default-export
 export default {
   async fetch(
     request: Request,
