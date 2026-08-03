@@ -1,19 +1,14 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
-import { ErrorFactory } from '@praha/error-factory';
+import { UnexpectedError } from '@praha/error-factory/presets';
 import { eq } from 'drizzle-orm';
 
 import type { UserSession } from '../models/user-session';
 
 export type DeleteUserSessionInput = UserSession;
 
-export class DeleteUserSessionUnexpectedError extends ErrorFactory({
-  name: 'DeleteUserSessionUnexpectedError',
-  message: 'Failed to delete user session.',
-}) {}
-
 export type DeleteUserSessionError = (
-  | DeleteUserSessionUnexpectedError
+  | UnexpectedError
 );
 
 export type DeleteUserSession = (
@@ -26,7 +21,7 @@ export const deleteUserSession: DeleteUserSession = (input) => {
       try: () => database()
         .delete(schema.userSessions)
         .where(eq(schema.userSessions.id, input.id.value)),
-      catch: (error) => new DeleteUserSessionUnexpectedError({ cause: error }),
+      catch: (error) => new UnexpectedError({ cause: error }),
     }),
     R.map(() => undefined),
   );

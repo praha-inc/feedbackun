@@ -1,6 +1,7 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
+import { UnexpectedError } from '@praha/error-factory/presets';
 import { and, eq } from 'drizzle-orm';
 import { match } from 'ts-pattern';
 
@@ -29,7 +30,7 @@ const findBySlackChannelIdAndSlackUserIdAndSlackMessageTs = R.fn({
         ),
       )
       .get(),
-  catch: (error) => new FindSlackMessageUnexpectedError({ cause: error }),
+  catch: (error) => new UnexpectedError({ cause: error }),
 });
 
 export type FindSlackMessageInput = (
@@ -41,14 +42,9 @@ export class FindSlackMessageNotFoundError extends ErrorFactory({
   message: 'Does not exist slack message.',
 }) {}
 
-export class FindSlackMessageUnexpectedError extends ErrorFactory({
-  name: 'FindSlackMessageUnexpectedError',
-  message: 'Failed to find slack message.',
-}) {}
-
 export type FindSlackMessageError = (
   | FindSlackMessageNotFoundError
-  | FindSlackMessageUnexpectedError
+  | UnexpectedError
 );
 
 export type FindSlackMessage = (

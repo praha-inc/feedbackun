@@ -1,6 +1,7 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
+import { UnexpectedError } from '@praha/error-factory/presets';
 import DataLoader from 'dataloader';
 import { eq, inArray } from 'drizzle-orm';
 import { match, P } from 'ts-pattern';
@@ -21,14 +22,9 @@ export class FeedbackSlackMessageNotFoundError extends ErrorFactory({
   message: 'Does not exist feedback slack message.',
 }) {}
 
-export class FeedbackSlackMessageUnexpectedError extends ErrorFactory({
-  name: 'FeedbackSlackMessageUnexpectedError',
-  message: 'Failed to find feedback slack message.',
-}) {}
-
 export type FeedbackSlackMessageError = (
   | FeedbackSlackMessageNotFoundError
-  | FeedbackSlackMessageUnexpectedError
+  | UnexpectedError
 );
 
 export type FeedbackSlackMessage = (
@@ -59,6 +55,6 @@ export const feedbackSlackMessage: FeedbackSlackMessage = (input) => {
     try: () => loader.load(input),
     catch: (error) => match(error)
       .with(P.instanceOf(FeedbackSlackMessageNotFoundError), (error) => error)
-      .otherwise(() => new FeedbackSlackMessageUnexpectedError({ cause: error })),
+      .otherwise(() => new UnexpectedError({ cause: error })),
   });
 };

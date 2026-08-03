@@ -1,6 +1,6 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
-import { ErrorFactory } from '@praha/error-factory';
+import { UnexpectedError } from '@praha/error-factory/presets';
 import { and, desc, eq, lt, or } from 'drizzle-orm';
 
 import type { Feedback } from '../types/feedback';
@@ -27,7 +27,7 @@ const query = R.fn({
       .orderBy(desc(schema.feedbacks.createdAt))
       .limit(input.limit);
   },
-  catch: (error) => new FeedbacksUnexpectedError({ cause: error }),
+  catch: (error) => new UnexpectedError({ cause: error }),
 });
 
 export type FeedbacksCursor = {
@@ -40,13 +40,8 @@ export type FeedbacksInput = {
   cursor: FeedbacksCursor | undefined;
 };
 
-export class FeedbacksUnexpectedError extends ErrorFactory({
-  name: 'FeedbacksUnexpectedError',
-  message: 'Failed to find feedbacks.',
-}) {}
-
 export type FeedbacksError = (
-  | FeedbacksUnexpectedError
+  | UnexpectedError
 );
 
 export type FeedbacksNode = Feedback & { cursor: FeedbacksCursor };

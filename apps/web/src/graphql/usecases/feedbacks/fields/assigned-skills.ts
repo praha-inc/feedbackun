@@ -1,6 +1,6 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
-import { ErrorFactory } from '@praha/error-factory';
+import { UnexpectedError } from '@praha/error-factory/presets';
 import DataLoader from 'dataloader';
 import { asc, eq, inArray } from 'drizzle-orm';
 
@@ -15,13 +15,8 @@ export type FeedbackAssignedSkillsInput = {
   feedbackId: string;
 };
 
-export class FeedbackAssignedSkillsUnexpectedError extends ErrorFactory({
-  name: 'FeedbackAssignedSkillsUnexpectedError',
-  message: 'Failed to find assigned feedback skills.',
-}) {}
-
 export type FeedbackAssignedSkillsError = (
-  | FeedbackAssignedSkillsUnexpectedError
+  | UnexpectedError
 );
 
 export type FeedbackAssignedSkills = (
@@ -73,6 +68,6 @@ export const feedbackAssignedSkills: FeedbackAssignedSkills = (input) => {
 
   return R.try({
     try: () => loader.load(input),
-    catch: (error) => new FeedbackAssignedSkillsUnexpectedError({ cause: error }),
+    catch: (error) => new UnexpectedError({ cause: error }),
   });
 };

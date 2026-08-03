@@ -1,6 +1,7 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
+import { UnexpectedError } from '@praha/error-factory/presets';
 import { eq } from 'drizzle-orm';
 import { match } from 'ts-pattern';
 
@@ -21,7 +22,7 @@ const findByUserId = R.fn({
       .from(schema.userSessionRequests)
       .where(eq(schema.userSessionRequests.userId, input.userId.value))
       .get(),
-  catch: (error) => new FindUserSessionRequestUnexpectedError({ cause: error }),
+  catch: (error) => new UnexpectedError({ cause: error }),
 });
 
 export type FindUserSessionRequestInputToken = {
@@ -36,7 +37,7 @@ const findByToken = R.fn({
       .from(schema.userSessionRequests)
       .where(eq(schema.userSessionRequests.token, input.token.value))
       .get(),
-  catch: (error) => new FindUserSessionRequestUnexpectedError({ cause: error }),
+  catch: (error) => new UnexpectedError({ cause: error }),
 });
 
 export type FindUserSessionRequestInput = (
@@ -49,14 +50,9 @@ export class FindUserSessionRequestNotFoundError extends ErrorFactory({
   message: 'Does not exist user session request.',
 }) {}
 
-export class FindUserSessionRequestUnexpectedError extends ErrorFactory({
-  name: 'FindUserSessionRequestUnexpectedError',
-  message: 'Failed to find user session request.',
-}) {}
-
 export type FindUserSessionRequestError = (
   | FindUserSessionRequestNotFoundError
-  | FindUserSessionRequestUnexpectedError
+  | UnexpectedError
 );
 
 export type FindUserSessionRequest = (

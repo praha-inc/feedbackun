@@ -1,6 +1,7 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
+import { UnexpectedError } from '@praha/error-factory/presets';
 import DataLoader from 'dataloader';
 import { eq, inArray } from 'drizzle-orm';
 import { match, P } from 'ts-pattern';
@@ -21,14 +22,9 @@ export class SlackChannelSlackTeamNotFoundError extends ErrorFactory({
   message: 'Does not exist slack team for slack channel.',
 }) {}
 
-export class SlackChannelSlackTeamUnexpectedError extends ErrorFactory({
-  name: 'SlackChannelSlackTeamUnexpectedError',
-  message: 'Failed to find slack team for slack channel.',
-}) {}
-
 export type SlackChannelSlackTeamError = (
   | SlackChannelSlackTeamNotFoundError
-  | SlackChannelSlackTeamUnexpectedError
+  | UnexpectedError
 );
 
 export type SlackChannelSlackTeam = (
@@ -60,6 +56,6 @@ export const slackChannelSlackTeam: SlackChannelSlackTeam = (input) => {
     try: () => loader.load(input),
     catch: (error) => match(error)
       .with(P.instanceOf(SlackChannelSlackTeamNotFoundError), (error) => error)
-      .otherwise(() => new SlackChannelSlackTeamUnexpectedError({ cause: error })),
+      .otherwise(() => new UnexpectedError({ cause: error })),
   });
 };

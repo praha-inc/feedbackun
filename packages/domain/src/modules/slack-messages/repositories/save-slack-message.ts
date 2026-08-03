@@ -1,6 +1,6 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
-import { ErrorFactory } from '@praha/error-factory';
+import { UnexpectedError } from '@praha/error-factory/presets';
 
 import { SlackChannelId } from '../../slack-channels';
 import { SlackUserId } from '../../slack-users';
@@ -20,18 +20,13 @@ const insertSlackMessage = R.fn({
     })
     .returning()
     .get(),
-  catch: (error) => new SaveSlackMessageUnexpectedError({ cause: error }),
+  catch: (error) => new UnexpectedError({ cause: error }),
 });
 
 export type SaveSlackMessageInput = SlackMessage;
 
-export class SaveSlackMessageUnexpectedError extends ErrorFactory({
-  name: 'SaveSlackMessageUnexpectedError',
-  message: 'Failed to save slack message.',
-}) {}
-
 export type SaveSlackMessageError = (
-  | SaveSlackMessageUnexpectedError
+  | UnexpectedError
 );
 
 export type SaveSlackMessage = (

@@ -1,6 +1,6 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
-import { ErrorFactory } from '@praha/error-factory';
+import { UnexpectedError } from '@praha/error-factory/presets';
 import DataLoader from 'dataloader';
 import { and, desc, eq, lt, or } from 'drizzle-orm';
 
@@ -22,13 +22,8 @@ export type UserReceivedFeedbacksInput = {
   cursor: UserReceivedFeedbacksCursor | undefined;
 };
 
-export class UserReceivedFeedbacksUnexpectedError extends ErrorFactory({
-  name: 'UserReceivedFeedbacksUnexpectedError',
-  message: 'Failed to find received feedbacks for user.',
-}) {}
-
 export type UserReceivedFeedbacksError = (
-  | UserReceivedFeedbacksUnexpectedError
+  | UnexpectedError
 );
 
 export type UserReceivedFeedbacksNode = Feedback & { cursor: UserReceivedFeedbacksCursor };
@@ -81,6 +76,6 @@ export const userReceivedFeedbacks: UserReceivedFeedbacks = (input) => {
 
   return R.try({
     try: () => loader.load(input),
-    catch: (error) => new UserReceivedFeedbacksUnexpectedError({ cause: error }),
+    catch: (error) => new UnexpectedError({ cause: error }),
   });
 };

@@ -1,6 +1,7 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
+import { UnexpectedError } from '@praha/error-factory/presets';
 import { eq } from 'drizzle-orm';
 import { match } from 'ts-pattern';
 
@@ -21,7 +22,7 @@ const findBySlackTeamId = R.fn({
         eq(schema.slackTeams.id, input.slackTeamId.value),
       )
       .get(),
-  catch: (error) => new FindSlackTeamUnexpectedError({ cause: error }),
+  catch: (error) => new UnexpectedError({ cause: error }),
 });
 
 export type FindSlackTeamInput = (
@@ -33,14 +34,9 @@ export class FindSlackTeamNotFoundError extends ErrorFactory({
   message: 'Does not exist slack team.',
 }) {}
 
-export class FindSlackTeamUnexpectedError extends ErrorFactory({
-  name: 'FindSlackTeamUnexpectedError',
-  message: 'Failed to find slack team.',
-}) {}
-
 export type FindSlackTeamError = (
   | FindSlackTeamNotFoundError
-  | FindSlackTeamUnexpectedError
+  | UnexpectedError
 );
 
 export type FindSlackTeam = (

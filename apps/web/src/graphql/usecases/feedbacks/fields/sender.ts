@@ -1,6 +1,7 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
+import { UnexpectedError } from '@praha/error-factory/presets';
 import DataLoader from 'dataloader';
 import { eq, inArray } from 'drizzle-orm';
 import { match, P } from 'ts-pattern';
@@ -21,14 +22,9 @@ export class FeedbackSenderNotFoundError extends ErrorFactory({
   message: 'Does not exist feedback sender.',
 }) {}
 
-export class FeedbackSenderUnexpectedError extends ErrorFactory({
-  name: 'FeedbackSenderUnexpectedError',
-  message: 'Failed to find feedback sender.',
-}) {}
-
 export type FeedbackSenderError = (
   | FeedbackSenderNotFoundError
-  | FeedbackSenderUnexpectedError
+  | UnexpectedError
 );
 
 export type FeedbackSender = (
@@ -62,6 +58,6 @@ export const feedbackSender: FeedbackSender = (input) => {
     try: () => loader.load(input),
     catch: (error) => match(error)
       .with(P.instanceOf(FeedbackSenderNotFoundError), (error) => error)
-      .otherwise(() => new FeedbackSenderUnexpectedError({ cause: error })),
+      .otherwise(() => new UnexpectedError({ cause: error })),
   });
 };

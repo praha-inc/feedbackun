@@ -1,6 +1,6 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
-import { ErrorFactory } from '@praha/error-factory';
+import { UnexpectedError } from '@praha/error-factory/presets';
 import DataLoader from 'dataloader';
 import { inArray } from 'drizzle-orm';
 
@@ -15,13 +15,8 @@ export type UserSlackUsersInput = {
   userId: string;
 };
 
-export class UserSlackUsersUnexpectedError extends ErrorFactory({
-  name: 'UserSlackUsersUnexpectedError',
-  message: 'Failed to find slack users for user.',
-}) {}
-
 export type UserSlackUsersError = (
-  | UserSlackUsersUnexpectedError
+  | UnexpectedError
 );
 
 export type UserSlackUsers = (
@@ -49,6 +44,6 @@ export const userSlackUsers: UserSlackUsers = (input) => {
 
   return R.try({
     try: () => loader.load(input),
-    catch: (error) => new UserSlackUsersUnexpectedError({ cause: error }),
+    catch: (error) => new UnexpectedError({ cause: error }),
   });
 };

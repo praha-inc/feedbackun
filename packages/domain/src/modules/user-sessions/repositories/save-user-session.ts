@@ -1,6 +1,6 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
-import { ErrorFactory } from '@praha/error-factory';
+import { UnexpectedError } from '@praha/error-factory/presets';
 
 import { UserId } from '../../users';
 import { UserSession } from '../models/user-session';
@@ -18,18 +18,13 @@ const insertUserSession = R.fn({
     })
     .returning()
     .get(),
-  catch: (error) => new SaveUserSessionUnexpectedError({ cause: error }),
+  catch: (error) => new UnexpectedError({ cause: error }),
 });
 
 export type SaveUserSessionInput = UserSession;
 
-export class SaveUserSessionUnexpectedError extends ErrorFactory({
-  name: 'SaveUserSessionUnexpectedError',
-  message: 'Failed to save user session.',
-}) {}
-
 export type SaveUserSessionError = (
-  | SaveUserSessionUnexpectedError
+  | UnexpectedError
 );
 
 export type SaveUserSession = (

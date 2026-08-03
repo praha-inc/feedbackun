@@ -1,6 +1,7 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
+import { UnexpectedError } from '@praha/error-factory/presets';
 import { and, eq } from 'drizzle-orm';
 import { match } from 'ts-pattern';
 
@@ -27,7 +28,7 @@ const findBySlackTeamIdAndSlackEmojiName = R.fn({
         ),
       )
       .get(),
-  catch: (error) => new FindSlackEmojiUnexpectedError({ cause: error }),
+  catch: (error) => new UnexpectedError({ cause: error }),
 });
 
 export type FindSlackEmojiInput = (
@@ -39,14 +40,9 @@ export class FindSlackEmojiNotFoundError extends ErrorFactory({
   message: 'Does not exist slack emoji.',
 }) {}
 
-export class FindSlackEmojiUnexpectedError extends ErrorFactory({
-  name: 'FindSlackEmojiUnexpectedError',
-  message: 'Failed to find slack emoji.',
-}) {}
-
 export type FindSlackEmojiError = (
   | FindSlackEmojiNotFoundError
-  | FindSlackEmojiUnexpectedError
+  | UnexpectedError
 );
 
 export type FindSlackEmoji = (

@@ -1,6 +1,6 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
-import { ErrorFactory } from '@praha/error-factory';
+import { UnexpectedError } from '@praha/error-factory/presets';
 import DataLoader from 'dataloader';
 import { count, eq } from 'drizzle-orm';
 
@@ -13,13 +13,8 @@ export type UserSentFeedbacksCountInput = {
   userId: string;
 };
 
-export class UserSentFeedbacksCountUnexpectedError extends ErrorFactory({
-  name: 'UserSentFeedbacksCountUnexpectedError',
-  message: 'Failed to count sent feedbacks for user.',
-}) {}
-
 export type UserSentFeedbacksCountError = (
-  | UserSentFeedbacksCountUnexpectedError
+  | UnexpectedError
 );
 
 export type UserSentFeedbacksCount = (
@@ -44,6 +39,6 @@ export const userSentFeedbacksCount: UserSentFeedbacksCount = (input) => {
 
   return R.try({
     try: () => loader.load(input),
-    catch: (error) => new UserSentFeedbacksCountUnexpectedError({ cause: error }),
+    catch: (error) => new UnexpectedError({ cause: error }),
   });
 };

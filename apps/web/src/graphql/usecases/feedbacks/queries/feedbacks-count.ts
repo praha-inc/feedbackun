@@ -1,6 +1,6 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
-import { ErrorFactory } from '@praha/error-factory';
+import { UnexpectedError } from '@praha/error-factory/presets';
 import { count } from 'drizzle-orm';
 
 const query = R.fn({
@@ -10,18 +10,13 @@ const query = R.fn({
       .from(schema.feedbacks)
       .get();
   },
-  catch: (error) => new FeedbacksCountUnexpectedError({ cause: error }),
+  catch: (error) => new UnexpectedError({ cause: error }),
 });
 
 export type FeedbacksCountInput = {};
 
-export class FeedbacksCountUnexpectedError extends ErrorFactory({
-  name: 'FeedbacksCountUnexpectedError',
-  message: 'Failed to count feedbacks.',
-}) {}
-
 export type FeedbacksCountError = (
-  | FeedbacksCountUnexpectedError
+  | UnexpectedError
 );
 
 export type FeedbacksCount = (
@@ -32,7 +27,7 @@ export const feedbacksCount: FeedbacksCount = (input) => {
   return R.pipe(
     query(input),
     R.andThen((row) => {
-      if (!row) return R.fail(new FeedbacksCountUnexpectedError());
+      if (!row) return R.fail(new UnexpectedError());
       return R.succeed(row.count);
     }),
   );

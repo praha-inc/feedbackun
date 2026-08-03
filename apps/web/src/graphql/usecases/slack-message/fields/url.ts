@@ -1,6 +1,7 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
+import { UnexpectedError } from '@praha/error-factory/presets';
 import DataLoader from 'dataloader';
 import { eq, inArray } from 'drizzle-orm';
 import { match, P } from 'ts-pattern';
@@ -18,14 +19,9 @@ export class SlackMessageUrlNotFoundError extends ErrorFactory({
   message: 'Does not exist url for slack message.',
 }) {}
 
-export class SlackMessageUrlUnexpectedError extends ErrorFactory({
-  name: 'SlackMessageUrlUnexpectedError',
-  message: 'Failed to find url for slack message.',
-}) {}
-
 export type SlackMessageUrlError = (
   | SlackMessageUrlNotFoundError
-  | SlackMessageUrlUnexpectedError
+  | UnexpectedError
 );
 
 export type SlackMessageUrl = (
@@ -52,6 +48,6 @@ export const slackMessageUrl: SlackMessageUrl = (input) => {
     try: () => loader.load(input.slackMessageId),
     catch: (error) => match(error)
       .with(P.instanceOf(SlackMessageUrlNotFoundError), (error) => error)
-      .otherwise(() => new SlackMessageUrlUnexpectedError({ cause: error })),
+      .otherwise(() => new UnexpectedError({ cause: error })),
   });
 };

@@ -1,6 +1,6 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
-import { ErrorFactory } from '@praha/error-factory';
+import { UnexpectedError } from '@praha/error-factory/presets';
 
 import { SlackTeamId } from '../../slack-teams';
 import { SlackChannel } from '../models/slack-channel';
@@ -16,18 +16,13 @@ const insertSlackChannel = R.fn({
     })
     .returning()
     .get(),
-  catch: (error) => new SaveSlackChannelUnexpectedError({ cause: error }),
+  catch: (error) => new UnexpectedError({ cause: error }),
 });
 
 export type SaveSlackChannelInput = SlackChannel;
 
-export class SaveSlackChannelUnexpectedError extends ErrorFactory({
-  name: 'SaveSlackChannelUnexpectedError',
-  message: 'Failed to save slack channel.',
-}) {}
-
 export type SaveSlackChannelError = (
-  | SaveSlackChannelUnexpectedError
+  | UnexpectedError
 );
 
 export type SaveSlackChannel = (

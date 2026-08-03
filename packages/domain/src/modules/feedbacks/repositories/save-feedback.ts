@@ -1,6 +1,6 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
-import { ErrorFactory } from '@praha/error-factory';
+import { UnexpectedError } from '@praha/error-factory/presets';
 
 import { SkillElementId } from '../../skill-elements';
 import { SlackMessageId } from '../../slack-messages';
@@ -31,7 +31,7 @@ const insertFeedbackWithSkills = R.fn({
       )
       .returning(),
   ]),
-  catch: (error) => new SaveFeedbackUnexpectedError({ cause: error }),
+  catch: (error) => new UnexpectedError({ cause: error }),
 });
 
 const insertFeedbackWithoutSkills = R.fn({
@@ -48,18 +48,13 @@ const insertFeedbackWithoutSkills = R.fn({
       })
       .returning(),
   ]),
-  catch: (error) => new SaveFeedbackUnexpectedError({ cause: error }),
+  catch: (error) => new UnexpectedError({ cause: error }),
 });
 
 export type SaveFeedbackInput = Feedback;
 
-export class SaveFeedbackUnexpectedError extends ErrorFactory({
-  name: 'SaveFeedbackUnexpectedError',
-  message: 'Failed to save feedback.',
-}) {}
-
 export type SaveFeedbackError = (
-  | SaveFeedbackUnexpectedError
+  | UnexpectedError
 );
 
 export type SaveFeedback = (

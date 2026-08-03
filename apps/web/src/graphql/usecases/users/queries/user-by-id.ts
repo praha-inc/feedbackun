@@ -1,6 +1,7 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
+import { UnexpectedError } from '@praha/error-factory/presets';
 import { eq } from 'drizzle-orm';
 
 import type { User } from '../types/user';
@@ -13,7 +14,7 @@ const query = R.fn({
       .where(eq(schema.users.id, input.userId))
       .get();
   },
-  catch: (error) => new UserByIdUnexpectedError({ cause: error }),
+  catch: (error) => new UnexpectedError({ cause: error }),
 });
 
 export type UserByIdInput = {
@@ -25,14 +26,9 @@ export class UserByIdNotFoundError extends ErrorFactory({
   message: 'Does not exist user.',
 }) {}
 
-export class UserByIdUnexpectedError extends ErrorFactory({
-  name: 'UserByIdUnexpectedError',
-  message: 'Failed to find user.',
-}) {}
-
 export type UserByIdError = (
   | UserByIdNotFoundError
-  | UserByIdUnexpectedError
+  | UnexpectedError
 );
 
 export type UserById = (

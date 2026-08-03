@@ -1,6 +1,7 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
+import { UnexpectedError } from '@praha/error-factory/presets';
 import DataLoader from 'dataloader';
 import { eq, inArray } from 'drizzle-orm';
 import { match, P } from 'ts-pattern';
@@ -21,14 +22,9 @@ export class SlackMessageSlackChannelNotFoundError extends ErrorFactory({
   message: 'Does not exist slack channel for slack message.',
 }) {}
 
-export class SlackMessageSlackChannelUnexpectedError extends ErrorFactory({
-  name: 'SlackMessageSlackChannelUnexpectedError',
-  message: 'Failed to find slack channel for slack message.',
-}) {}
-
 export type SlackMessageSlackChannelError = (
   | SlackMessageSlackChannelNotFoundError
-  | SlackMessageSlackChannelUnexpectedError
+  | UnexpectedError
 );
 
 export type SlackMessageSlackChannel = (
@@ -59,6 +55,6 @@ export const slackMessageSlackChannel: SlackMessageSlackChannel = (input) => {
     try: () => loader.load(input),
     catch: (error) => match(error)
       .with(P.instanceOf(SlackMessageSlackChannelNotFoundError), (error) => error)
-      .otherwise(() => new SlackMessageSlackChannelUnexpectedError({ cause: error })),
+      .otherwise(() => new UnexpectedError({ cause: error })),
   });
 };
