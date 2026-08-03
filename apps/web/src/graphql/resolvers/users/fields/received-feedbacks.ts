@@ -1,4 +1,5 @@
 import { resolveCursorConnection } from '@pothos/plugin-relay';
+import { R } from '@praha/byethrow';
 import * as v from 'valibot';
 
 import { builder } from '../../../core/builder';
@@ -21,37 +22,31 @@ builder.objectField(User, 'receivedFeedbacks', (t) => t.connection({
         toCursor: (feedback) => serialize(feedback.cursor),
       },
       async ({ after, limit }: ResolveCursorConnectionArgs) => {
-        const result = await userReceivedFeedbacks({
-          userId: user.id,
-          limit: limit,
-          cursor: after ? deserialize(after, v.object({
-            id: v.string(),
-            createdAt: v.pipe(
-              v.string(),
-              v.isoTimestamp(),
-              v.transform((value) => new Date(value)),
-            ),
-          })) : undefined,
-        });
-
-        if (result.isOk()) {
-          return result.value;
-        }
-
-        throw result.error;
+        return R.pipe(
+          userReceivedFeedbacks({
+            userId: user.id,
+            limit: limit,
+            cursor: after ? deserialize(after, v.object({
+              id: v.string(),
+              createdAt: v.pipe(
+                v.string(),
+                v.isoTimestamp(),
+                v.transform((value) => new Date(value)),
+              ),
+            })) : undefined,
+          }),
+          R.unwrap(),
+        );
       },
     );
 
     const totalCount = async () => {
-      const result = await userReceivedFeedbacksCount({
-        userId: user.id,
-      });
-
-      if (result.isOk()) {
-        return result.value;
-      }
-
-      throw result.error;
+      return await R.pipe(
+        userReceivedFeedbacksCount({
+          userId: user.id,
+        }),
+        R.unwrap(),
+      );
     };
 
     return {

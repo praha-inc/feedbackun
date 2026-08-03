@@ -1,7 +1,6 @@
 import { database, schema } from '@feedbackun/package-database';
-import { doAsync } from '@feedbackun/package-neverthrow';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
-import { ok, ResultAsync } from 'neverthrow';
 
 import { SkillElementId } from '../../skill-elements';
 import { SlackMessageId } from '../../slack-messages';
@@ -9,23 +8,8 @@ import { SlackUserId } from '../../slack-users';
 import { Feedback } from '../models/feedback';
 import { FeedbackId } from '../models/feedback-id';
 
-export type SaveFeedbackInput = Feedback;
-
-export class SaveFeedbackUnexpectedError extends ErrorFactory({
-  name: 'SaveFeedbackUnexpectedError',
-  message: 'Failed to save feedback.',
-}) {}
-
-export type SaveFeedbackError = (
-  | SaveFeedbackUnexpectedError
-);
-
-export type SaveFeedback = (
-  input: SaveFeedbackInput,
-) => ResultAsync<Feedback, SaveFeedbackError>;
-
-const insertFeedbackWithSkills = (feedback: Feedback) => ResultAsync.fromPromise(
-  database().batch([
+const insertFeedbackWithSkills = R.fn({
+  try: (feedback: Feedback) => database().batch([
     database()
       .insert(schema.feedbacks)
       .values({
@@ -47,11 +31,11 @@ const insertFeedbackWithSkills = (feedback: Feedback) => ResultAsync.fromPromise
       )
       .returning(),
   ]),
-  (error) => new SaveFeedbackUnexpectedError({ cause: error }),
-);
+  catch: (error) => new SaveFeedbackUnexpectedError({ cause: error }),
+});
 
-const insertFeedbackWithoutSkills = (feedback: Feedback) => ResultAsync.fromPromise(
-  database().batch([
+const insertFeedbackWithoutSkills = R.fn({
+  try: (feedback: Feedback) => database().batch([
     database()
       .insert(schema.feedbacks)
       .values({
@@ -64,19 +48,31 @@ const insertFeedbackWithoutSkills = (feedback: Feedback) => ResultAsync.fromProm
       })
       .returning(),
   ]),
-  (error) => new SaveFeedbackUnexpectedError({ cause: error }),
+  catch: (error) => new SaveFeedbackUnexpectedError({ cause: error }),
+});
+
+export type SaveFeedbackInput = Feedback;
+
+export class SaveFeedbackUnexpectedError extends ErrorFactory({
+  name: 'SaveFeedbackUnexpectedError',
+  message: 'Failed to save feedback.',
+}) {}
+
+export type SaveFeedbackError = (
+  | SaveFeedbackUnexpectedError
 );
 
+export type SaveFeedback = (
+  input: SaveFeedbackInput,
+) => R.ResultAsync<Feedback, SaveFeedbackError>;
+
 export const saveFeedback: SaveFeedback = (input) => {
-  return doAsync
-    .andThen(() => {
-      if (input.skillElementIds.length <= 0) {
-        return insertFeedbackWithoutSkills(input);
-      }
-      return insertFeedbackWithSkills(input);
-    })
-    .andThen(([[feedback], feedbackSkills]) => {
-      return ok(new Feedback({
+  return R.pipe(
+    input.skillElementIds.length <= 0
+      ? insertFeedbackWithoutSkills(input)
+      : insertFeedbackWithSkills(input),
+    R.andThen(([[feedback], feedbackSkills]) => {
+      return R.succeed(new Feedback({
         id: FeedbackId.reconstruct(feedback!.id),
         sendSlackUserId: SlackUserId.reconstruct(feedback!.sendSlackUserId),
         receiveSlackUserId: SlackUserId.reconstruct(feedback!.receiveSlackUserId),
@@ -87,5 +83,6 @@ export const saveFeedback: SaveFeedback = (input) => {
         content: feedback!.content,
         createdAt: feedback!.createdAt,
       }));
-    });
+    }),
+  );
 };

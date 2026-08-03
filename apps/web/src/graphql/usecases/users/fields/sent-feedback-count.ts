@@ -1,8 +1,8 @@
 import { database, schema } from '@feedbackun/package-database';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
 import DataLoader from 'dataloader';
 import { count, eq } from 'drizzle-orm';
-import { ResultAsync } from 'neverthrow';
 
 import { serialize } from '../../../helpers/serialize';
 import { dataLoader } from '../../../plugins/dataloader';
@@ -24,7 +24,7 @@ export type UserSentFeedbacksCountError = (
 
 export type UserSentFeedbacksCount = (
   input: UserSentFeedbacksCountInput,
-) => ResultAsync<number, UserSentFeedbacksCountError>;
+) => R.ResultAsync<number, UserSentFeedbacksCountError>;
 
 export const userSentFeedbacksCount: UserSentFeedbacksCount = (input) => {
   const loader = dataLoader(symbol, () => new DataLoader<UserSentFeedbacksCountInput, number, string>(async (inputs) => {
@@ -42,8 +42,8 @@ export const userSentFeedbacksCount: UserSentFeedbacksCount = (input) => {
     return await Promise.all(inputs.map((input) => execute(input)));
   }, { cacheKeyFn: serialize }));
 
-  return ResultAsync.fromThrowable(
-    () => loader.load(input),
-    (error) => new UserSentFeedbacksCountUnexpectedError({ cause: error }),
-  )();
+  return R.try({
+    try: () => loader.load(input),
+    catch: (error) => new UserSentFeedbacksCountUnexpectedError({ cause: error }),
+  });
 };

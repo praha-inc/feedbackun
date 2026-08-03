@@ -1,3 +1,5 @@
+import { R } from '@praha/byethrow';
+
 import { builder } from '../../../core/builder';
 import { userById } from '../../../usecases/users/queries/user-by-id';
 import { User } from '../types/user';
@@ -9,14 +11,11 @@ builder.queryField('userById', (t) => t.field({
     userId: t.arg.id({ description: 'ユーザーID' }),
   },
   resolve: async (_, args) => {
-    const result = await userById({
-      userId: args.userId,
-    });
-
-    if (result.isOk()) {
-      return result.value;
-    }
-
-    throw result.error;
+    return R.pipe(
+      userById({
+        userId: args.userId,
+      }),
+      R.unwrap(),
+    );
   },
 }));

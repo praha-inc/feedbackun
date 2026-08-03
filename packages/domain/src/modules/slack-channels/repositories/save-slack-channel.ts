@@ -1,11 +1,23 @@
 import { database, schema } from '@feedbackun/package-database';
-import { doAsync } from '@feedbackun/package-neverthrow';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
-import { ok, ResultAsync } from 'neverthrow';
 
 import { SlackTeamId } from '../../slack-teams';
 import { SlackChannel } from '../models/slack-channel';
 import { SlackChannelId } from '../models/slack-channel-id';
+
+const insertSlackChannel = R.fn({
+  try: (slackChannel: SlackChannel) => database()
+    .insert(schema.slackChannels)
+    .values({
+      id: slackChannel.id.value,
+      slackTeamId: slackChannel.slackTeamId.value,
+      name: slackChannel.name,
+    })
+    .returning()
+    .get(),
+  catch: (error) => new SaveSlackChannelUnexpectedError({ cause: error }),
+});
 
 export type SaveSlackChannelInput = SlackChannel;
 
@@ -20,29 +32,17 @@ export type SaveSlackChannelError = (
 
 export type SaveSlackChannel = (
   input: SaveSlackChannelInput,
-) => ResultAsync<SlackChannel, SaveSlackChannelError>;
-
-const insertSlackChannel = (slackChannel: SlackChannel) => ResultAsync.fromPromise(
-  database()
-    .insert(schema.slackChannels)
-    .values({
-      id: slackChannel.id.value,
-      slackTeamId: slackChannel.slackTeamId.value,
-      name: slackChannel.name,
-    })
-    .returning()
-    .get(),
-  (error) => new SaveSlackChannelUnexpectedError({ cause: error }),
-);
+) => R.ResultAsync<SlackChannel, SaveSlackChannelError>;
 
 export const saveSlackChannel: SaveSlackChannel = (input) => {
-  return doAsync
-    .andThen(() => insertSlackChannel(input))
-    .andThen((row) => {
-      return ok(new SlackChannel({
+  return R.pipe(
+    insertSlackChannel(input),
+    R.andThen((row) => {
+      return R.succeed(new SlackChannel({
         id: SlackChannelId.reconstruct(row.id),
         slackTeamId: SlackTeamId.reconstruct(row.slackTeamId),
         name: row.name,
       }));
-    });
+    }),
+  );
 };

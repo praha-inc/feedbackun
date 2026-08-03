@@ -1,10 +1,8 @@
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
-import { err, ok } from 'neverthrow';
 import * as v from 'valibot';
 
 import { ValueObject } from '../../../core/value-object';
-
-import type { Result } from 'neverthrow';
 
 export class SlackChannelIdInvalidFormatError extends ErrorFactory({
   name: 'SlackChannelIdIncorrectFormatError',
@@ -24,14 +22,12 @@ export class SlackChannelId extends ValueObject('SlackChannelId')<Properties> {
     super(properties);
   }
 
-  public static create(value: string): Result<SlackChannelId, SlackChannelIdError> {
-    const result = v.safeParse(schema, value);
-
-    if (result.success) {
-      return ok(new SlackChannelId({ value: result.output }));
-    }
-
-    return err(new SlackChannelIdInvalidFormatError());
+  public static create(value: string): R.Result<SlackChannelId, SlackChannelIdError> {
+    return R.pipe(
+      R.parse(schema, value),
+      R.map((value) => new SlackChannelId({ value })),
+      R.mapError((error) => new SlackChannelIdInvalidFormatError({ cause: error })),
+    );
   }
 
   public static reconstruct(value: string): SlackChannelId {

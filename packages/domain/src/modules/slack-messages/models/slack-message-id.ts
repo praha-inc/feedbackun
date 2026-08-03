@@ -1,11 +1,9 @@
 import { createId } from '@paralleldrive/cuid2';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
-import { err, ok } from 'neverthrow';
 import * as v from 'valibot';
 
 import { ValueObject } from '../../../core/value-object';
-
-import type { Result } from 'neverthrow';
 
 export class SlackMessageIdInvalidFormatError extends ErrorFactory({
   name: 'SlackMessageIdIncorrectFormatError',
@@ -29,14 +27,12 @@ export class SlackMessageId extends ValueObject('SlackMessageId')<Properties> {
     return new SlackMessageId({ value: createId() });
   }
 
-  public static create(value: string): Result<SlackMessageId, SlackMessageIdError> {
-    const result = v.safeParse(schema, value);
-
-    if (result.success) {
-      return ok(new SlackMessageId({ value: result.output }));
-    }
-
-    return err(new SlackMessageIdInvalidFormatError());
+  public static create(value: string): R.Result<SlackMessageId, SlackMessageIdError> {
+    return R.pipe(
+      R.parse(schema, value),
+      R.map((value) => new SlackMessageId({ value })),
+      R.mapError((error) => new SlackMessageIdInvalidFormatError({ cause: error })),
+    );
   }
 
   public static reconstruct(value: string): SlackMessageId {

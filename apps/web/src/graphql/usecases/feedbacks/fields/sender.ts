@@ -1,8 +1,8 @@
 import { database, schema } from '@feedbackun/package-database';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
 import DataLoader from 'dataloader';
 import { eq, inArray } from 'drizzle-orm';
-import { ResultAsync } from 'neverthrow';
 import { match, P } from 'ts-pattern';
 
 import { serialize } from '../../../helpers/serialize';
@@ -33,7 +33,7 @@ export type FeedbackSenderError = (
 
 export type FeedbackSender = (
   input: FeedbackSenderInput,
-) => ResultAsync<User, FeedbackSenderError>;
+) => R.ResultAsync<User, FeedbackSenderError>;
 
 export const feedbackSender: FeedbackSender = (input) => {
   const loader = dataLoader(symbol, () => new DataLoader<FeedbackSenderInput, User, string>(async (inputs) => {
@@ -58,10 +58,10 @@ export const feedbackSender: FeedbackSender = (input) => {
     });
   }, { cacheKeyFn: serialize }));
 
-  return ResultAsync.fromThrowable(
-    () => loader.load(input),
-    (error) => match(error)
+  return R.try({
+    try: () => loader.load(input),
+    catch: (error) => match(error)
       .with(P.instanceOf(FeedbackSenderNotFoundError), (error) => error)
       .otherwise(() => new FeedbackSenderUnexpectedError({ cause: error })),
-  )();
+  });
 };

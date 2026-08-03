@@ -1,10 +1,20 @@
 import { database, schema } from '@feedbackun/package-database';
-import { doAsync } from '@feedbackun/package-neverthrow';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
 import { eq } from 'drizzle-orm';
-import { err, ok, ResultAsync } from 'neverthrow';
 
 import type { User } from '../types/user';
+
+const query = R.fn({
+  try: (input: UserByIdInput) => {
+    return database()
+      .select()
+      .from(schema.users)
+      .where(eq(schema.users.id, input.userId))
+      .get();
+  },
+  catch: (error) => new UserByIdUnexpectedError({ cause: error }),
+});
 
 export type UserByIdInput = {
   userId: string;
@@ -27,27 +37,19 @@ export type UserByIdError = (
 
 export type UserById = (
   input: UserByIdInput,
-) => ResultAsync<User, UserByIdError>;
-
-const query = ResultAsync.fromThrowable((input: UserByIdInput) => {
-  return database()
-    .select()
-    .from(schema.users)
-    .where(eq(schema.users.id, input.userId))
-    .get();
-});
+) => R.ResultAsync<User, UserByIdError>;
 
 export const userById: UserById = (input) => {
-  return doAsync
-    .andThen(() => query(input))
-    .mapErr((error) => new UserByIdUnexpectedError({ cause: error }))
-    .andThen((row) => {
-      if (!row) return err(new UserByIdNotFoundError());
-      return ok({
+  return R.pipe(
+    query(input),
+    R.andThen((row) => {
+      if (!row) return R.fail(new UserByIdNotFoundError());
+      return R.succeed({
         id: row.id,
         type: row.type,
         name: row.name,
         icon: row.icon,
       });
-    });
+    }),
+  );
 };

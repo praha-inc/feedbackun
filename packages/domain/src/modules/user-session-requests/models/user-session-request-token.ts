@@ -1,11 +1,9 @@
 import { createId } from '@paralleldrive/cuid2';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
-import { err, ok } from 'neverthrow';
 import * as v from 'valibot';
 
 import { ValueObject } from '../../../core/value-object';
-
-import type { Result } from 'neverthrow';
 
 export class UserSessionRequestTokenInvalidFormatError extends ErrorFactory({
   name: 'UserSessionRequestTokenIncorrectFormatError',
@@ -29,14 +27,12 @@ export class UserSessionRequestToken extends ValueObject('UserSessionRequestToke
     return new UserSessionRequestToken({ value: createId() });
   }
 
-  public static create(value: string): Result<UserSessionRequestToken, UserSessionRequestTokenError> {
-    const result = v.safeParse(schema, value);
-
-    if (result.success) {
-      return ok(new UserSessionRequestToken({ value: result.output }));
-    }
-
-    return err(new UserSessionRequestTokenInvalidFormatError());
+  public static create(value: string): R.Result<UserSessionRequestToken, UserSessionRequestTokenError> {
+    return R.pipe(
+      R.parse(schema, value),
+      R.map((value) => new UserSessionRequestToken({ value })),
+      R.mapError((error) => new UserSessionRequestTokenInvalidFormatError({ cause: error })),
+    );
   }
 
   public static reconstruct(value: string): UserSessionRequestToken {

@@ -1,3 +1,5 @@
+import { R } from '@praha/byethrow';
+
 import { builder } from '../../../core/builder';
 import { feedbackAssignedSkills } from '../../../usecases/feedbacks/fields/assigned-skills';
 import { Feedback } from '../types/feedback';
@@ -7,14 +9,11 @@ builder.objectField(Feedback, 'assignedSkills', (t) => t.field({
   type: [FeedbackAssignedSkill],
   description: 'フィードバックに紐づくスキル',
   resolve: async (feedback) => {
-    const result = await feedbackAssignedSkills({
-      feedbackId: feedback.id,
-    });
-
-    if (result.isOk()) {
-      return result.value;
-    }
-
-    throw result.error;
+    return await R.pipe(
+      feedbackAssignedSkills({
+        feedbackId: feedback.id,
+      }),
+      R.unwrap(),
+    );
   },
 }));

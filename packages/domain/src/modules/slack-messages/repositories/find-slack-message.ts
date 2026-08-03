@@ -1,7 +1,7 @@
 import { database, schema } from '@feedbackun/package-database';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
 import { and, eq } from 'drizzle-orm';
-import { err, ok, ResultAsync } from 'neverthrow';
 import { match } from 'ts-pattern';
 
 import { SlackChannelId } from '../../slack-channels';
@@ -15,6 +15,22 @@ export type FindSlackMessageInputSlackChannelIdAndSlackUserIdAndSlackMessageTs =
   slackUserId: SlackUserId;
   slackMessageTs: string;
 };
+
+const findBySlackChannelIdAndSlackUserIdAndSlackMessageTs = R.fn({
+  try: (input: FindSlackMessageInputSlackChannelIdAndSlackUserIdAndSlackMessageTs) =>
+    database()
+      .select()
+      .from(schema.slackMessages)
+      .where(
+        and(
+          eq(schema.slackMessages.slackChannelId, input.slackChannelId.value),
+          eq(schema.slackMessages.slackUserId, input.slackUserId.value),
+          eq(schema.slackMessages.ts, input.slackMessageTs),
+        ),
+      )
+      .get(),
+  catch: (error) => new FindSlackMessageUnexpectedError({ cause: error }),
+});
 
 export type FindSlackMessageInput = (
   | FindSlackMessageInputSlackChannelIdAndSlackUserIdAndSlackMessageTs
@@ -37,30 +53,16 @@ export type FindSlackMessageError = (
 
 export type FindSlackMessage = (
   input: FindSlackMessageInput,
-) => ResultAsync<SlackMessage, FindSlackMessageError>;
-
-const findBySlackChannelIdAndSlackUserIdAndSlackMessageTs = ResultAsync.fromThrowable((input: FindSlackMessageInputSlackChannelIdAndSlackUserIdAndSlackMessageTs) =>
-  database()
-    .select()
-    .from(schema.slackMessages)
-    .where(
-      and(
-        eq(schema.slackMessages.slackChannelId, input.slackChannelId.value),
-        eq(schema.slackMessages.slackUserId, input.slackUserId.value),
-        eq(schema.slackMessages.ts, input.slackMessageTs),
-      ),
-    )
-    .get(),
-);
+) => R.ResultAsync<SlackMessage, FindSlackMessageError>;
 
 export const findSlackMessage: FindSlackMessage = (input) => {
-  return match(input)
-    .with({ type: 'slack-channel-id-and-slack-user-id-and-slack-message-ts' }, (input) => findBySlackChannelIdAndSlackUserIdAndSlackMessageTs(input))
-    .exhaustive()
-    .mapErr((error) => new FindSlackMessageUnexpectedError({ cause: error }))
-    .andThen((row) => {
-      if (!row) return err(new FindSlackMessageNotFoundError());
-      return ok(new SlackMessage({
+  return R.pipe(
+    match(input)
+      .with({ type: 'slack-channel-id-and-slack-user-id-and-slack-message-ts' }, findBySlackChannelIdAndSlackUserIdAndSlackMessageTs)
+      .exhaustive(),
+    R.andThen((row) => {
+      if (!row) return R.fail(new FindSlackMessageNotFoundError());
+      return R.succeed(new SlackMessage({
         id: SlackMessageId.reconstruct(row.id),
         slackChannelId: SlackChannelId.reconstruct(row.slackChannelId),
         slackUserId: SlackUserId.reconstruct(row.slackUserId),
@@ -68,5 +70,6 @@ export const findSlackMessage: FindSlackMessage = (input) => {
         ts: row.ts,
         threadTs: row.threadTs,
       }));
-    });
+    }),
+  );
 };

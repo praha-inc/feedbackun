@@ -1,7 +1,7 @@
 import { database, schema } from '@feedbackun/package-database';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
 import { and, eq } from 'drizzle-orm';
-import { err, ok, ResultAsync } from 'neverthrow';
 import { match } from 'ts-pattern';
 
 import { SlackTeamId } from '../../slack-teams';
@@ -13,6 +13,21 @@ export type FindSlackChannelInputSlackTeamIdAndSlackChannelId = {
   slackTeamId: SlackTeamId;
   slackChannelId: SlackChannelId;
 };
+
+const findBySlackTeamIdAndSlackChannelId = R.fn({
+  try: (input: FindSlackChannelInputSlackTeamIdAndSlackChannelId) =>
+    database()
+      .select()
+      .from(schema.slackChannels)
+      .where(
+        and(
+          eq(schema.slackChannels.slackTeamId, input.slackTeamId.value),
+          eq(schema.slackChannels.id, input.slackChannelId.value),
+        ),
+      )
+      .get(),
+  catch: (error) => new FindSlackChannelUnexpectedError({ cause: error }),
+});
 
 export type FindSlackChannelInput = (
   | FindSlackChannelInputSlackTeamIdAndSlackChannelId
@@ -35,32 +50,20 @@ export type FindSlackChannelError = (
 
 export type FindSlackChannel = (
   input: FindSlackChannelInput,
-) => ResultAsync<SlackChannel, FindSlackChannelError>;
-
-const findBySlackTeamIdAndSlackChannelId = ResultAsync.fromThrowable((input: FindSlackChannelInputSlackTeamIdAndSlackChannelId) =>
-  database()
-    .select()
-    .from(schema.slackChannels)
-    .where(
-      and(
-        eq(schema.slackChannels.slackTeamId, input.slackTeamId.value),
-        eq(schema.slackChannels.id, input.slackChannelId.value),
-      ),
-    )
-    .get(),
-);
+) => R.ResultAsync<SlackChannel, FindSlackChannelError>;
 
 export const findSlackChannel: FindSlackChannel = (input) => {
-  return match(input)
-    .with({ type: 'slack-team-id-and-slack-channel-id' }, (input) => findBySlackTeamIdAndSlackChannelId(input))
-    .exhaustive()
-    .mapErr((error) => new FindSlackChannelUnexpectedError({ cause: error }))
-    .andThen((row) => {
-      if (!row) return err(new FindSlackChannelNotFoundError());
-      return ok(new SlackChannel({
+  return R.pipe(
+    match(input)
+      .with({ type: 'slack-team-id-and-slack-channel-id' }, findBySlackTeamIdAndSlackChannelId)
+      .exhaustive(),
+    R.andThen((row) => {
+      if (!row) return R.fail(new FindSlackChannelNotFoundError());
+      return R.succeed(new SlackChannel({
         id: SlackChannelId.reconstruct(row.id),
         slackTeamId: SlackTeamId.reconstruct(row.slackTeamId),
         name: row.name,
       }));
-    });
+    }),
+  );
 };

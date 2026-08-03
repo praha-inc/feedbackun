@@ -1,8 +1,8 @@
 import { database, schema } from '@feedbackun/package-database';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
 import DataLoader from 'dataloader';
 import { asc, eq, inArray } from 'drizzle-orm';
-import { ResultAsync } from 'neverthrow';
 
 import { serialize } from '../../../helpers/serialize';
 import { dataLoader } from '../../../plugins/dataloader';
@@ -26,7 +26,7 @@ export type FeedbackAssignedSkillsError = (
 
 export type FeedbackAssignedSkills = (
   input: FeedbackAssignedSkillsInput,
-) => ResultAsync<FeedbackAssignedSkill[], FeedbackAssignedSkillsError>;
+) => R.ResultAsync<FeedbackAssignedSkill[], FeedbackAssignedSkillsError>;
 
 export const feedbackAssignedSkills: FeedbackAssignedSkills = (input) => {
   const loader = dataLoader(symbol, () => new DataLoader<FeedbackAssignedSkillsInput, FeedbackAssignedSkill[], string>(async (inputs) => {
@@ -71,8 +71,8 @@ export const feedbackAssignedSkills: FeedbackAssignedSkills = (input) => {
     });
   }, { cacheKeyFn: serialize }));
 
-  return ResultAsync.fromThrowable(
-    () => loader.load(input),
-    (error) => new FeedbackAssignedSkillsUnexpectedError({ cause: error }),
-  )();
+  return R.try({
+    try: () => loader.load(input),
+    catch: (error) => new FeedbackAssignedSkillsUnexpectedError({ cause: error }),
+  });
 };

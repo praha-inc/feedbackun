@@ -1,7 +1,7 @@
 import { database, schema } from '@feedbackun/package-database';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
 import { eq } from 'drizzle-orm';
-import { err, ok, ResultAsync } from 'neverthrow';
 import { match } from 'ts-pattern';
 
 import { UserId } from '../../users';
@@ -14,10 +14,30 @@ export type FindUserSessionRequestInputUserId = {
   userId: UserId;
 };
 
+const findByUserId = R.fn({
+  try: (input: FindUserSessionRequestInputUserId) =>
+    database()
+      .select()
+      .from(schema.userSessionRequests)
+      .where(eq(schema.userSessionRequests.userId, input.userId.value))
+      .get(),
+  catch: (error) => new FindUserSessionRequestUnexpectedError({ cause: error }),
+});
+
 export type FindUserSessionRequestInputToken = {
   type: 'token';
   token: UserSessionRequestToken;
 };
+
+const findByToken = R.fn({
+  try: (input: FindUserSessionRequestInputToken) =>
+    database()
+      .select()
+      .from(schema.userSessionRequests)
+      .where(eq(schema.userSessionRequests.token, input.token.value))
+      .get(),
+  catch: (error) => new FindUserSessionRequestUnexpectedError({ cause: error }),
+});
 
 export type FindUserSessionRequestInput = (
   | FindUserSessionRequestInputUserId
@@ -41,37 +61,22 @@ export type FindUserSessionRequestError = (
 
 export type FindUserSessionRequest = (
   input: FindUserSessionRequestInput,
-) => ResultAsync<UserSessionRequest, FindUserSessionRequestError>;
-
-const findByUserId = ResultAsync.fromThrowable((input: FindUserSessionRequestInputUserId) =>
-  database()
-    .select()
-    .from(schema.userSessionRequests)
-    .where(eq(schema.userSessionRequests.userId, input.userId.value))
-    .get(),
-);
-
-const findByToken = ResultAsync.fromThrowable((input: FindUserSessionRequestInputToken) =>
-  database()
-    .select()
-    .from(schema.userSessionRequests)
-    .where(eq(schema.userSessionRequests.token, input.token.value))
-    .get(),
-);
+) => R.ResultAsync<UserSessionRequest, FindUserSessionRequestError>;
 
 export const findUserSessionRequest: FindUserSessionRequest = (input) => {
-  return match(input)
-    .with({ type: 'user-id' }, (input) => findByUserId(input))
-    .with({ type: 'token' }, (input) => findByToken(input))
-    .exhaustive()
-    .mapErr((error) => new FindUserSessionRequestUnexpectedError({ cause: error }))
-    .andThen((row) => {
-      if (!row) return err(new FindUserSessionRequestNotFoundError());
-      return ok(new UserSessionRequest({
+  return R.pipe(
+    match(input)
+      .with({ type: 'user-id' }, findByUserId)
+      .with({ type: 'token' }, findByToken)
+      .exhaustive(),
+    R.andThen((row) => {
+      if (!row) return R.fail(new FindUserSessionRequestNotFoundError());
+      return R.succeed(new UserSessionRequest({
         id: UserSessionRequestId.reconstruct(row.id),
         userId: UserId.reconstruct(row.userId),
         token: UserSessionRequestToken.reconstruct(row.token),
         createdAt: row.createdAt,
       }));
-    });
+    }),
+  );
 };

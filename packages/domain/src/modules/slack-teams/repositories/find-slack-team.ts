@@ -1,7 +1,7 @@
 import { database, schema } from '@feedbackun/package-database';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
 import { eq } from 'drizzle-orm';
-import { err, ok, ResultAsync } from 'neverthrow';
 import { match } from 'ts-pattern';
 
 import { SlackTeam } from '../models/slack-team';
@@ -11,6 +11,18 @@ export type FindSlackTeamInputSlackTeamId = {
   type: 'slack-team-id';
   slackTeamId: SlackTeamId;
 };
+
+const findBySlackTeamId = R.fn({
+  try: (input: FindSlackTeamInputSlackTeamId) =>
+    database()
+      .select()
+      .from(schema.slackTeams)
+      .where(
+        eq(schema.slackTeams.id, input.slackTeamId.value),
+      )
+      .get(),
+  catch: (error) => new FindSlackTeamUnexpectedError({ cause: error }),
+});
 
 export type FindSlackTeamInput = (
   | FindSlackTeamInputSlackTeamId
@@ -33,29 +45,20 @@ export type FindSlackTeamError = (
 
 export type FindSlackTeam = (
   input: FindSlackTeamInput,
-) => ResultAsync<SlackTeam, FindSlackTeamError>;
-
-const findBySlackTeamId = ResultAsync.fromThrowable((input: FindSlackTeamInputSlackTeamId) =>
-  database()
-    .select()
-    .from(schema.slackTeams)
-    .where(
-      eq(schema.slackTeams.id, input.slackTeamId.value),
-    )
-    .get(),
-);
+) => R.ResultAsync<SlackTeam, FindSlackTeamError>;
 
 export const findSlackTeam: FindSlackTeam = (input) => {
-  return match(input)
-    .with({ type: 'slack-team-id' }, (input) => findBySlackTeamId(input))
-    .exhaustive()
-    .mapErr((error) => new FindSlackTeamUnexpectedError({ cause: error }))
-    .andThen((row) => {
-      if (!row) return err(new FindSlackTeamNotFoundError());
-      return ok(new SlackTeam({
+  return R.pipe(
+    match(input)
+      .with({ type: 'slack-team-id' }, findBySlackTeamId)
+      .exhaustive(),
+    R.andThen((row) => {
+      if (!row) return R.fail(new FindSlackTeamNotFoundError());
+      return R.succeed(new SlackTeam({
         id: SlackTeamId.reconstruct(row.id),
         name: row.name,
         domain: row.domain,
       }));
-    });
+    }),
+  );
 };

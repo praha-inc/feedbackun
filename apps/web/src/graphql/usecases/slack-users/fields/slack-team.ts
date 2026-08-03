@@ -1,8 +1,8 @@
 import { database, schema } from '@feedbackun/package-database';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
 import DataLoader from 'dataloader';
 import { eq, inArray } from 'drizzle-orm';
-import { ResultAsync } from 'neverthrow';
 import { match, P } from 'ts-pattern';
 
 import { serialize } from '../../../helpers/serialize';
@@ -33,7 +33,7 @@ export type SlackUserSlackTeamError = (
 
 export type SlackUserSlackTeam = (
   input: SlackUserSlackTeamInput,
-) => ResultAsync<SlackTeam, SlackUserSlackTeamError>;
+) => R.ResultAsync<SlackTeam, SlackUserSlackTeamError>;
 
 export const slackUserSlackTeam: SlackUserSlackTeam = (input) => {
   const loader = dataLoader(symbol, () => new DataLoader<SlackUserSlackTeamInput, SlackTeam, string>(async (inputs) => {
@@ -56,10 +56,10 @@ export const slackUserSlackTeam: SlackUserSlackTeam = (input) => {
     });
   }, { cacheKeyFn: serialize }));
 
-  return ResultAsync.fromThrowable(
-    () => loader.load(input),
-    (error) => match(error)
+  return R.try({
+    try: () => loader.load(input),
+    catch: (error) => match(error)
       .with(P.instanceOf(SlackUserSlackTeamNotFoundError), (error) => error)
       .otherwise(() => new SlackUserSlackTeamUnexpectedError({ cause: error })),
-  )();
+  });
 };

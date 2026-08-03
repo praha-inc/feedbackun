@@ -9,11 +9,12 @@ import {
   SlackChannelId,
   SlackTeamId,
   SlackUserId,
-  UserSessionRequest, FindUserSessionNotFoundError, FindUserSessionRequestNotFoundError,
+  UserSessionRequest,
+  FindUserSessionNotFoundError,
+  FindUserSessionRequestNotFoundError,
 } from '@feedbackun/package-domain';
-import { bindAsync, doAsync, structAsync } from '@feedbackun/package-neverthrow';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
-import { err, ok } from 'neverthrow';
 
 import { postLoginUrl } from './helpers/post-login-url';
 
@@ -27,33 +28,35 @@ class LoginCommandUserNotFoundError extends ErrorFactory({
   message: 'Failed to find user.',
 }) {}
 
-const constructInput = (context: SlackAppContext, payload: SlashCommand) => structAsync({
+const constructInput = (context: SlackAppContext, payload: SlashCommand) => R.collect({
   teamId: SlackTeamId.create(context.teamId ?? ''),
   slackChannelId: SlackChannelId.create(payload.channel_id),
   slackUserId: SlackUserId.create(payload.user_id),
 });
 
-const deleteUserSessionByUserId = (userId: UserId) => doAsync
-  .andThen(() => findUserSession({
+const deleteUserSessionByUserId = (userId: UserId) => R.pipe(
+  findUserSession({
     type: 'user-id',
     userId,
-  }))
-  .andThen((session) => deleteUserSession(session))
-  .orElse((error) => {
-    if (error instanceof FindUserSessionNotFoundError) return doAsync;
-    return err(error);
-  });
+  }),
+  R.andThen((session) => deleteUserSession(session)),
+  R.orElse((error) => {
+    if (error instanceof FindUserSessionNotFoundError) return R.succeed(undefined);
+    return R.fail(error);
+  }),
+);
 
-const deleteUserSessionRequestByUserId = (userId: UserId) => doAsync
-  .andThen(() => findUserSessionRequest({
+const deleteUserSessionRequestByUserId = (userId: UserId) => R.pipe(
+  findUserSessionRequest({
     type: 'user-id',
     userId,
-  }))
-  .andThen((session) => deleteUserSessionRequest(session))
-  .orElse((error) => {
-    if (error instanceof FindUserSessionRequestNotFoundError) return doAsync;
-    return err(error);
-  });
+  }),
+  R.andThen((session) => deleteUserSessionRequest(session)),
+  R.orElse((error) => {
+    if (error instanceof FindUserSessionRequestNotFoundError) return R.succeed(undefined);
+    return R.fail(error);
+  }),
+);
 
 const createUserSessionRequest = (userId: UserId) => saveUserSessionRequest(UserSessionRequest.new(userId));
 
@@ -62,30 +65,32 @@ export const loginCommandHandler: SlashCommandLazyHandler<Env> = async ({
   context,
   payload,
 }) => {
-  await doAsync
-    .andThen(bindAsync('input', () => constructInput(context, payload)))
-    .andThen(bindAsync('team', ({ input }) => findSlackTeam({
+  const result = await R.pipe(
+    R.do(),
+    R.bind('input', () => constructInput(context, payload)),
+    R.bind('team', ({ input }) => findSlackTeam({
       type: 'slack-team-id',
       slackTeamId: input.teamId,
-    })))
-    .andThen(bindAsync('slackUser', ({ input, team }) => findSlackUser({
+    })),
+    R.bind('slackUser', ({ input, team }) => findSlackUser({
       type: 'slack-team-id-and-slack-user-id',
       slackTeamId: team.id,
       slackUserId: input.slackUserId,
-    })))
-    .andThen(bindAsync('userId', ({ slackUser }) => {
-      if (slackUser.userId) return ok(slackUser.userId);
-      return err(new LoginCommandUserNotFoundError());
-    }))
-    .andThrough(({ userId }) => deleteUserSessionByUserId(userId))
-    .andThrough(({ userId }) => deleteUserSessionRequestByUserId(userId))
-    .andThen(bindAsync('userSessionRequest', ({ userId }) => createUserSessionRequest(userId)))
-    .andThrough(({ input, userSessionRequest }) => {
+    })),
+    R.bind('userId', ({ slackUser }) => {
+      if (slackUser.userId) return R.succeed(slackUser.userId);
+      return R.fail(new LoginCommandUserNotFoundError());
+    }),
+    R.andThrough(({ userId }) => deleteUserSessionByUserId(userId)),
+    R.andThrough(({ userId }) => deleteUserSessionRequestByUserId(userId)),
+    R.bind('userSessionRequest', ({ userId }) => createUserSessionRequest(userId)),
+    R.andThrough(({ input, userSessionRequest }) => {
       const url = `${env.WEB_URL}/login/${userSessionRequest.token.value}`;
       return postLoginUrl(context.client, input.slackChannelId, input.slackUserId, url);
-    })
-    .match(
-      () => {},
-      (error) => console.error(error),
-    );
+    }),
+  );
+
+  if (R.isFailure(result)) {
+    console.error(result.error);
+  }
 };

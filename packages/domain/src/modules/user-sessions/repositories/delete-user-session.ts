@@ -1,8 +1,7 @@
 import { database, schema } from '@feedbackun/package-database';
-import { doAsync } from '@feedbackun/package-neverthrow';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
 import { eq } from 'drizzle-orm';
-import { ResultAsync } from 'neverthrow';
 
 import type { UserSession } from '../models/user-session';
 
@@ -19,14 +18,16 @@ export type DeleteUserSessionError = (
 
 export type DeleteUserSession = (
   input: DeleteUserSessionInput,
-) => ResultAsync<void, DeleteUserSessionError>;
+) => R.ResultAsync<void, DeleteUserSessionError>;
 
 export const deleteUserSession: DeleteUserSession = (input) => {
-  return doAsync
-    .andThrough(() => ResultAsync.fromPromise(
-      database()
+  return R.pipe(
+    R.try({
+      try: () => database()
         .delete(schema.userSessions)
         .where(eq(schema.userSessions.id, input.id.value)),
-      (error) => new DeleteUserSessionUnexpectedError({ cause: error }),
-    ));
+      catch: (error) => new DeleteUserSessionUnexpectedError({ cause: error }),
+    }),
+    R.map(() => undefined),
+  );
 };

@@ -1,11 +1,9 @@
 import { createId } from '@paralleldrive/cuid2';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
-import { err, ok } from 'neverthrow';
 import * as v from 'valibot';
 
 import { ValueObject } from '../../../core/value-object';
-
-import type { Result } from 'neverthrow';
 
 export class UserSessionRequestIdInvalidFormatError extends ErrorFactory({
   name: 'UserSessionRequestIdIncorrectFormatError',
@@ -29,14 +27,12 @@ export class UserSessionRequestId extends ValueObject('UserSessionRequestId')<Pr
     return new UserSessionRequestId({ value: createId() });
   }
 
-  public static create(value: string): Result<UserSessionRequestId, UserSessionRequestIdError> {
-    const result = v.safeParse(schema, value);
-
-    if (result.success) {
-      return ok(new UserSessionRequestId({ value: result.output }));
-    }
-
-    return err(new UserSessionRequestIdInvalidFormatError());
+  public static create(value: string): R.Result<UserSessionRequestId, UserSessionRequestIdError> {
+    return R.pipe(
+      R.parse(schema, value),
+      R.map((value) => new UserSessionRequestId({ value })),
+      R.mapError((error) => new UserSessionRequestIdInvalidFormatError({ cause: error })),
+    );
   }
 
   public static reconstruct(value: string): UserSessionRequestId {

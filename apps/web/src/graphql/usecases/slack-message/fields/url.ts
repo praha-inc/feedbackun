@@ -1,8 +1,8 @@
 import { database, schema } from '@feedbackun/package-database';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
 import DataLoader from 'dataloader';
 import { eq, inArray } from 'drizzle-orm';
-import { ResultAsync } from 'neverthrow';
 import { match, P } from 'ts-pattern';
 
 import { dataLoader } from '../../../plugins/dataloader';
@@ -30,7 +30,7 @@ export type SlackMessageUrlError = (
 
 export type SlackMessageUrl = (
   input: SlackMessageUrlInput,
-) => ResultAsync<string, SlackMessageUrlError>;
+) => R.ResultAsync<string, SlackMessageUrlError>;
 
 export const slackMessageUrl: SlackMessageUrl = (input) => {
   const loader = dataLoader(symbol, () => new DataLoader<string, string>(async (slackMessageIds) => {
@@ -48,10 +48,10 @@ export const slackMessageUrl: SlackMessageUrl = (input) => {
     });
   }));
 
-  return ResultAsync.fromThrowable(
-    () => loader.load(input.slackMessageId),
-    (error) => match(error)
+  return R.try({
+    try: () => loader.load(input.slackMessageId),
+    catch: (error) => match(error)
       .with(P.instanceOf(SlackMessageUrlNotFoundError), (error) => error)
       .otherwise(() => new SlackMessageUrlUnexpectedError({ cause: error })),
-  )();
+  });
 };

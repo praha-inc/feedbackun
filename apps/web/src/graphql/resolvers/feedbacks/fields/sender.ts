@@ -1,3 +1,5 @@
+import { R } from '@praha/byethrow';
+
 import { builder } from '../../../core/builder';
 import { feedbackSender } from '../../../usecases/feedbacks/fields/sender';
 import { User } from '../../users/types/user';
@@ -7,14 +9,11 @@ builder.objectField(Feedback, 'sender', (t) => t.field({
   type: User,
   description: 'フィードバックを送ったユーザー',
   resolve: async (feedback) => {
-    const result = await feedbackSender({
-      feedbackId: feedback.id,
-    });
-
-    if (result.isOk()) {
-      return result.value;
-    }
-
-    throw result.error;
+    return await R.pipe(
+      feedbackSender({
+        feedbackId: feedback.id,
+      }),
+      R.unwrap(),
+    );
   },
 }));

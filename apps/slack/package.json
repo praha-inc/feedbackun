@@ -13,10 +13,9 @@
   "dependencies": {
     "@feedbackun/package-database": "workspace:*",
     "@feedbackun/package-domain": "workspace:*",
-    "@feedbackun/package-neverthrow": "workspace:*",
+    "@praha/byethrow": "0.12.0",
     "@praha/error-factory": "1.4.1",
     "drizzle-orm": "0.45.2",
-    "neverthrow": "8.2.0",
     "slack-edge": "1.3.17",
     "valibot": "1.4.2"
   },

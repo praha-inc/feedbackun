@@ -1,12 +1,25 @@
 import { database, schema } from '@feedbackun/package-database';
-import { doAsync } from '@feedbackun/package-neverthrow';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
-import { ok, ResultAsync } from 'neverthrow';
 
 import { UserId } from '../../users';
 import { UserSession } from '../models/user-session';
 import { UserSessionId } from '../models/user-session-id';
 import { UserSessionToken } from '../models/user-session-token';
+
+const insertUserSession = R.fn({
+  try: (userSession: UserSession) => database()
+    .insert(schema.userSessions)
+    .values({
+      id: userSession.id.value,
+      userId: userSession.userId.value,
+      token: userSession.token.value,
+      createdAt: userSession.createdAt,
+    })
+    .returning()
+    .get(),
+  catch: (error) => new SaveUserSessionUnexpectedError({ cause: error }),
+});
 
 export type SaveUserSessionInput = UserSession;
 
@@ -21,31 +34,18 @@ export type SaveUserSessionError = (
 
 export type SaveUserSession = (
   input: SaveUserSessionInput,
-) => ResultAsync<UserSession, SaveUserSessionError>;
-
-const insertUserSession = (userSession: UserSession) => ResultAsync.fromPromise(
-  database()
-    .insert(schema.userSessions)
-    .values({
-      id: userSession.id.value,
-      userId: userSession.userId.value,
-      token: userSession.token.value,
-      createdAt: userSession.createdAt,
-    })
-    .returning()
-    .get(),
-  (error) => new SaveUserSessionUnexpectedError({ cause: error }),
-);
+) => R.ResultAsync<UserSession, SaveUserSessionError>;
 
 export const saveUserSession: SaveUserSession = (input) => {
-  return doAsync
-    .andThen(() => insertUserSession(input))
-    .andThen((row) => {
-      return ok(new UserSession({
+  return R.pipe(
+    insertUserSession(input),
+    R.andThen((row) => {
+      return R.succeed(new UserSession({
         id: UserSessionId.reconstruct(row.id),
         userId: UserId.reconstruct(row.userId),
         token: UserSessionToken.reconstruct(row.token),
         createdAt: row.createdAt,
       }));
-    });
+    }),
+  );
 };

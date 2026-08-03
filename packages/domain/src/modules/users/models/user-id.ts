@@ -1,10 +1,8 @@
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
-import { err, ok } from 'neverthrow';
 import * as v from 'valibot';
 
 import { ValueObject } from '../../../core/value-object';
-
-import type { Result } from 'neverthrow';
 
 export class UserIdInvalidFormatError extends ErrorFactory({
   name: 'UserIdIncorrectFormatError',
@@ -24,14 +22,12 @@ export class UserId extends ValueObject('UserId')<Properties> {
     super(properties);
   }
 
-  public static create(value: string): Result<UserId, UserIdError> {
-    const result = v.safeParse(schema, value);
-
-    if (result.success) {
-      return ok(new UserId({ value: result.output }));
-    }
-
-    return err(new UserIdInvalidFormatError());
+  public static create(value: string): R.Result<UserId, UserIdError> {
+    return R.pipe(
+      R.parse(schema, value),
+      R.map((value) => new UserId({ value })),
+      R.mapError((error) => new UserIdInvalidFormatError({ cause: error })),
+    );
   }
 
   public static reconstruct(value: string): UserId {

@@ -7,13 +7,7 @@ import {
   SlackUserId,
   SlackChannelId,
 } from '@feedbackun/package-domain';
-import {
-  bindSync,
-  doAsync,
-  doSync,
-  structSync,
-} from '@feedbackun/package-neverthrow';
-import { ok, Result } from 'neverthrow';
+import { R } from '@praha/byethrow';
 import * as v from 'valibot';
 
 import { completeQuestion } from './helpers/complete-question';
@@ -52,34 +46,33 @@ export const submitFeedbackHandler: BlockActionAckHandler<'button', Env> = async
     }),
   }), payload.state?.values);
 
-  await doSync
-    .andThen(bindSync('container', () => structSync({
+  const result = await R.pipe(
+    R.do(),
+    R.bind('container', () => R.collect({
       channelId: SlackChannelId.create('channel_id' in payload.container ? payload.container.channel_id : ''),
-      messageTs: ok('message_ts' in payload.container ? payload.container.message_ts : ''),
-    })))
-    .andThen(bindSync('values', () => structSync({
-      id: ok(FeedbackId.new()),
+      messageTs: R.succeed('message_ts' in payload.container ? payload.container.message_ts : ''),
+    })),
+    R.bind('values', () => R.collect({
+      id: R.succeed(FeedbackId.new()),
       sendSlackUserId: SlackUserId.create(sendSlackUserId),
       receiveSlackUserId: SlackUserId.create(receiveSlackUserId),
       slackMessageId: SlackMessageId.create(slackMessageId),
-      skillElementIds: Result.combine(values.skills.input.selected_options.map(({ value }) => SkillElementId.create(value))),
-      content: ok(values.content.input.value),
-      createdAt: ok(new Date()),
-    })))
-    .asyncAndThen(({ container, values }) => {
-      return doAsync
-        .andThrough(() => completeQuestion(context.client, container.channelId, container.messageTs))
-        .andThrough(() => {
-          return ok(new Feedback(values)).asyncAndThen((feedback) => saveFeedback(feedback));
-        })
-        .andThrough(() => postSuccessMessage(context.client, container.channelId, container.messageTs))
-        .orElse((error) => {
-          console.error(error);
-          return postFailureMessage(context.client, container.channelId, container.messageTs);
-        });
-    })
-    .match(
-      () => {},
-      (error) => console.error(error),
-    );
+      skillElementIds: R.sequence(values.skills.input.selected_options.map(({ value }) => SkillElementId.create(value))),
+      content: R.succeed(values.content.input.value),
+      createdAt: R.succeed(new Date()),
+    })),
+    R.andThen(({ container, values }) => R.pipe(
+      completeQuestion(context.client, container.channelId, container.messageTs),
+      R.andThen(() => saveFeedback(new Feedback(values))),
+      R.andThen(() => postSuccessMessage(context.client, container.channelId, container.messageTs)),
+      R.orElse((error) => {
+        console.error(error);
+        return postFailureMessage(context.client, container.channelId, container.messageTs);
+      }),
+    )),
+  );
+
+  if (R.isFailure(result)) {
+    console.error(result.error);
+  }
 };

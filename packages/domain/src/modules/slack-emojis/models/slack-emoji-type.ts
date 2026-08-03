@@ -1,10 +1,8 @@
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
-import { err, ok } from 'neverthrow';
 import * as v from 'valibot';
 
 import { ValueObject } from '../../../core/value-object';
-
-import type { Result } from 'neverthrow';
 
 export class SlackEmojiTypeInvaltypeFormatError extends ErrorFactory({
   name: 'SlackEmojiTypeIncorrectFormatError',
@@ -24,14 +22,12 @@ export class SlackEmojiType extends ValueObject('SlackEmojiType')<Properties> {
     super(properties);
   }
 
-  public static create(value: string): Result<SlackEmojiType, SlackEmojiTypeError> {
-    const result = v.safeParse(schema, value);
-
-    if (result.success) {
-      return ok(new SlackEmojiType({ value: result.output }));
-    }
-
-    return err(new SlackEmojiTypeInvaltypeFormatError());
+  public static create(value: string): R.Result<SlackEmojiType, SlackEmojiTypeError> {
+    return R.pipe(
+      R.parse(schema, value),
+      R.map((value) => new SlackEmojiType({ value })),
+      R.mapError((error) => new SlackEmojiTypeInvaltypeFormatError({ cause: error })),
+    );
   }
 
   public static reconstruct(value: string): SlackEmojiType {

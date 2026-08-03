@@ -1,6 +1,6 @@
 import { SlackChannelId } from '@feedbackun/package-domain';
-import { bindSync, doSync, structSync } from '@feedbackun/package-neverthrow';
-import { ok, ResultAsync } from 'neverthrow';
+import { R } from '@praha/byethrow';
+import { UnexpectedError } from '@praha/error-factory/presets';
 
 import type { Env } from '../../types/env';
 import type { BlockActionAckHandler } from 'slack-edge';
@@ -9,15 +9,22 @@ export const discardFeedbackHandler: BlockActionAckHandler<'button', Env> = asyn
   payload,
   context,
 }) => {
-  await doSync
-    .andThen(bindSync('container', () => structSync({
+  await R.pipe(
+    R.do(),
+    R.bind('container', () => R.collect({
       channelId: SlackChannelId.create('channel_id' in payload.container ? payload.container.channel_id : ''),
-      messageTs: ok('message_ts' in payload.container ? payload.container.message_ts : ''),
-    })))
-    .asyncAndThen(ResultAsync.fromThrowable(async ({ container }) => {
-      return context.client.chat.delete({
-        channel: container.channelId.value,
-        ts: container.messageTs,
+      messageTs: R.succeed('message_ts' in payload.container ? payload.container.message_ts : ''),
+    })),
+    R.andThen(({ container }) => {
+      return R.try({
+        try: async () => {
+          return context.client.chat.delete({
+            channel: container.channelId.value,
+            ts: container.messageTs,
+          });
+        },
+        catch: (error) => new UnexpectedError({ cause: error }),
       });
-    }));
+    }),
+  );
 };

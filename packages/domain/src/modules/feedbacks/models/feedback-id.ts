@@ -1,11 +1,9 @@
 import { createId } from '@paralleldrive/cuid2';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
-import { err, ok } from 'neverthrow';
 import * as v from 'valibot';
 
 import { ValueObject } from '../../../core/value-object';
-
-import type { Result } from 'neverthrow';
 
 export class FeedbackIdInvalidFormatError extends ErrorFactory({
   name: 'FeedbackIdIncorrectFormatError',
@@ -29,14 +27,12 @@ export class FeedbackId extends ValueObject('FeedbackId')<Properties> {
     return new FeedbackId({ value: createId() });
   }
 
-  public static create(value: string): Result<FeedbackId, FeedbackIdError> {
-    const result = v.safeParse(schema, value);
-
-    if (result.success) {
-      return ok(new FeedbackId({ value: result.output }));
-    }
-
-    return err(new FeedbackIdInvalidFormatError());
+  public static create(value: string): R.Result<FeedbackId, FeedbackIdError> {
+    return R.pipe(
+      R.parse(schema, value),
+      R.map((value) => new FeedbackId({ value })),
+      R.mapError((error) => new FeedbackIdInvalidFormatError({ cause: error })),
+    );
   }
 
   public static reconstruct(value: string): FeedbackId {

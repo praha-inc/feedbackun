@@ -1,8 +1,8 @@
 import { database, schema } from '@feedbackun/package-database';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
 import DataLoader from 'dataloader';
 import { inArray } from 'drizzle-orm';
-import { ResultAsync } from 'neverthrow';
 
 import { serialize } from '../../../helpers/serialize';
 import { dataLoader } from '../../../plugins/dataloader';
@@ -26,7 +26,7 @@ export type UserSlackUsersError = (
 
 export type UserSlackUsers = (
   input: UserSlackUsersInput,
-) => ResultAsync<SlackUser[], UserSlackUsersError>;
+) => R.ResultAsync<SlackUser[], UserSlackUsersError>;
 
 export const userSlackUsers: UserSlackUsers = (input) => {
   const loader = dataLoader(symbol, () => new DataLoader<UserSlackUsersInput, SlackUser[], string>(async (inputs) => {
@@ -47,8 +47,8 @@ export const userSlackUsers: UserSlackUsers = (input) => {
     });
   }, { cacheKeyFn: serialize }));
 
-  return ResultAsync.fromThrowable(
-    () => loader.load(input),
-    (error) => new UserSlackUsersUnexpectedError({ cause: error }),
-  )();
+  return R.try({
+    try: () => loader.load(input),
+    catch: (error) => new UserSlackUsersUnexpectedError({ cause: error }),
+  });
 };

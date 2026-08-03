@@ -1,12 +1,25 @@
 import { database, schema } from '@feedbackun/package-database';
-import { doAsync } from '@feedbackun/package-neverthrow';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
-import { ok, ResultAsync } from 'neverthrow';
 
 import { UserId } from '../../users';
 import { UserSessionRequest } from '../models/user-session-request';
 import { UserSessionRequestId } from '../models/user-session-request-id';
 import { UserSessionRequestToken } from '../models/user-session-request-token';
+
+const insertUserSessionRequest = R.fn({
+  try: (userSessionRequest: UserSessionRequest) => database()
+    .insert(schema.userSessionRequests)
+    .values({
+      id: userSessionRequest.id.value,
+      userId: userSessionRequest.userId.value,
+      token: userSessionRequest.token.value,
+      createdAt: userSessionRequest.createdAt,
+    })
+    .returning()
+    .get(),
+  catch: (error) => new SaveUserSessionRequestUnexpectedError({ cause: error }),
+});
 
 export type SaveUserSessionRequestInput = UserSessionRequest;
 
@@ -21,31 +34,18 @@ export type SaveUserSessionRequestError = (
 
 export type SaveUserSessionRequest = (
   input: SaveUserSessionRequestInput,
-) => ResultAsync<UserSessionRequest, SaveUserSessionRequestError>;
-
-const insertUserSessionRequest = (userSessionRequest: UserSessionRequest) => ResultAsync.fromPromise(
-  database()
-    .insert(schema.userSessionRequests)
-    .values({
-      id: userSessionRequest.id.value,
-      userId: userSessionRequest.userId.value,
-      token: userSessionRequest.token.value,
-      createdAt: userSessionRequest.createdAt,
-    })
-    .returning()
-    .get(),
-  (error) => new SaveUserSessionRequestUnexpectedError({ cause: error }),
-);
+) => R.ResultAsync<UserSessionRequest, SaveUserSessionRequestError>;
 
 export const saveUserSessionRequest: SaveUserSessionRequest = (input) => {
-  return doAsync
-    .andThen(() => insertUserSessionRequest(input))
-    .andThen((row) => {
-      return ok(new UserSessionRequest({
+  return R.pipe(
+    insertUserSessionRequest(input),
+    R.andThen((row) => {
+      return R.succeed(new UserSessionRequest({
         id: UserSessionRequestId.reconstruct(row.id),
         userId: UserId.reconstruct(row.userId),
         token: UserSessionRequestToken.reconstruct(row.token),
         createdAt: row.createdAt,
       }));
-    });
+    }),
+  );
 };

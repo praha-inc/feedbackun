@@ -1,6 +1,7 @@
 import { AsyncLocalStorage } from 'node:async_hooks';
 
 import { findUserSession, UserSessionToken } from '@feedbackun/package-domain';
+import { R } from '@praha/byethrow';
 import { cookies } from 'next/headers';
 
 import type { Plugin } from '@envelop/core';
@@ -21,10 +22,10 @@ export const useAuth = (): Plugin => ({
         throw new Error('Unauthorized');
       }
 
-      const session = await findUserSession({
+      const session = await R.unwrap(findUserSession({
         type: 'token',
         token: UserSessionToken.reconstruct(token.value),
-      }).unwrapOr(null);
+      }), null);
 
       if (!session || session.isExpired()) {
         throw new Error('Unauthorized');

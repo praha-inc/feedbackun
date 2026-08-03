@@ -1,3 +1,5 @@
+import { R } from '@praha/byethrow';
+
 import { builder } from '../../../core/builder';
 import { slackMessageSlackChannel } from '../../../usecases/slack-message/fields/slack-channel';
 import { SlackChannel } from '../../slack-channels/types/slack-channel';
@@ -7,14 +9,11 @@ builder.objectField(SlackMessage, 'slackChannel', (t) => t.field({
   type: SlackChannel,
   description: 'Slackメッセージが投稿されたSlackチャンネル',
   resolve: async (slackMessage) => {
-    const result = await slackMessageSlackChannel({
-      slackMessageId: slackMessage.id,
-    });
-
-    if (result.isOk()) {
-      return result.value;
-    }
-
-    throw result.error;
+    return R.pipe(
+      slackMessageSlackChannel({
+        slackMessageId: slackMessage.id,
+      }),
+      R.unwrap(),
+    );
   },
 }));

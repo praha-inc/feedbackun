@@ -1,8 +1,8 @@
 import { database, schema } from '@feedbackun/package-database';
+import { R } from '@praha/byethrow';
 import { ErrorFactory } from '@praha/error-factory';
 import DataLoader from 'dataloader';
 import { and, desc, eq, lt, or } from 'drizzle-orm';
-import { ResultAsync } from 'neverthrow';
 
 import { serialize } from '../../../helpers/serialize';
 import { dataLoader } from '../../../plugins/dataloader';
@@ -35,7 +35,7 @@ export type UserSentFeedbacksNode = Feedback & { cursor: UserSentFeedbacksCursor
 
 export type UserSentFeedbacks = (
   input: UserSentFeedbacksInput,
-) => ResultAsync<UserSentFeedbacksNode[], UserSentFeedbacksError>;
+) => R.ResultAsync<UserSentFeedbacksNode[], UserSentFeedbacksError>;
 
 export const userSentFeedbacks: UserSentFeedbacks = (input) => {
   const loader = dataLoader(symbol, () => new DataLoader<UserSentFeedbacksInput, UserSentFeedbacksNode[], string>(async (inputs) => {
@@ -79,8 +79,8 @@ export const userSentFeedbacks: UserSentFeedbacks = (input) => {
     return await Promise.all(inputs.map((input) => execute(input)));
   }, { cacheKeyFn: serialize }));
 
-  return ResultAsync.fromThrowable(
-    () => loader.load(input),
-    (error) => new UserSentFeedbacksUnexpectedError({ cause: error }),
-  )();
+  return R.try({
+    try: () => loader.load(input),
+    catch: (error) => new UserSentFeedbacksUnexpectedError({ cause: error }),
+  });
 };
