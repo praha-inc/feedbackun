@@ -1,7 +1,7 @@
 import { database, schema } from '@feedbackun/package-database';
 import { R } from '@praha/byethrow';
 import { UnexpectedError } from '@praha/error-factory/presets';
-import { asc, eq } from 'drizzle-orm';
+import { and, asc, eq, isNull } from 'drizzle-orm';
 
 import type { SlackChannel, SlackMessage, SlackUser } from '@feedbackun/package-domain';
 import type { SlackAPIClient } from 'slack-edge';
@@ -35,13 +35,17 @@ export const postQuestion = R.fn({
       .from(schema.skills)
       .innerJoin(schema.skillElements, eq(schema.skills.id, schema.skillElements.skillId))
       .where(
-        eq(
-          schema.skills.type,
-          database()
-            .select({ type: schema.users.type })
-            .from(schema.users)
-            .innerJoin(schema.slackUsers, eq(schema.users.id, schema.slackUsers.userId))
-            .where(eq(schema.slackUsers.id, messageUser.id.value)),
+        and(
+          eq(
+            schema.skills.type,
+            database()
+              .select({ type: schema.users.type })
+              .from(schema.users)
+              .innerJoin(schema.slackUsers, eq(schema.users.id, schema.slackUsers.userId))
+              .where(eq(schema.slackUsers.id, messageUser.id.value)),
+          ),
+          isNull(schema.skills.deprecatedAt),
+          isNull(schema.skillElements.deprecatedAt),
         ),
       )
       .orderBy(asc(schema.skills.level), asc(schema.skillElements.order))
