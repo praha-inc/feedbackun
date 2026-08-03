@@ -38,7 +38,7 @@
     "@vanilla-extract/recipes": "0.5.7",
     "clsx": "2.1.1",
     "dataloader": "2.2.3",
-    "date-fns": "4.1.0",
+    "date-fns": "4.4.0",
     "deepmerge": "4.3.1",
     "drizzle-orm": "0.45.2",
     "graphql": "16.12.0",
