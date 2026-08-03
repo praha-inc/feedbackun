@@ -2,7 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "main": "src/index.ts",
   "name": "feedbackun-slack",
-  "compatibility_date": "2024-12-30",
+  "compatibility_date": "2026-08-01",
   "compatibility_flags": [
     "nodejs_compat"
   ],
