@@ -20,7 +20,7 @@
     "drizzle-kit": "0.31.10",
     "oxlint": "1.76.0",
     "oxlint-tsgolint": "7.0.2001",
-    "typescript": "5.9.3",
+    "typescript": "7.0.2",
     "wrangler": "4.116.0"
   }
 }

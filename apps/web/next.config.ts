@@ -6,6 +6,9 @@ import type { NextConfig } from 'next';
 void initOpenNextCloudflareForDev();
 
 const nextConfig: NextConfig = {
+  experimental: {
+    useTypeScriptCli: true,
+  },
   typescript: {
     ignoreBuildErrors: true,
   },
