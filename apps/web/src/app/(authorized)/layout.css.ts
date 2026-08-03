@@ -1,10 +1,13 @@
 import { style } from '@vanilla-extract/css';
 
-export const wrapper = style({
+export const inset = style({
+  display: 'flex',
+  flexDirection: 'column',
   height: '100svh',
+  overflow: 'hidden',
 });
 
-export const container = style({
+export const main = style({
   width: '100%',
   maxWidth: '1024px',
   margin: '0 auto',

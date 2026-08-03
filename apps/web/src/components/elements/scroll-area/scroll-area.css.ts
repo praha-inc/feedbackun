@@ -9,8 +9,7 @@ import { theme } from '../../../themes';
 import type { StyleRule } from '@vanilla-extract/css';
 
 export const wrapper = style({
-  position: 'relative',
-  overflow: 'hidden',
+  minHeight: 0,
 });
 
 export const container = style({

@@ -16,11 +16,11 @@ const AuthorizedLayout: FC<AuthorizedLayoutProps> = ({
   return (
     <SidebarProvider>
       <AuthorizedSidebar />
-      <SidebarInset asChild>
-        <ScrollArea className={styles.wrapper}>
-          <ScrollAreaViewport vertical>
-            <ApplicationHeader />
-            <main className={styles.container}>
+      <SidebarInset className={styles.inset}>
+        <ApplicationHeader />
+        <ScrollArea vertical>
+          <ScrollAreaViewport>
+            <main className={styles.main}>
               {children}
             </main>
           </ScrollAreaViewport>
