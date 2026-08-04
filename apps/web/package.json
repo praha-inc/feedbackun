@@ -48,7 +48,7 @@
     "valibot": "1.4.2"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "5.20260731.1",
+    "@cloudflare/workers-types": "5.20260801.1",
     "@graphql-codegen/cli": "7.2.0",
     "@graphql-codegen/client-preset": "6.1.0",
     "@graphql-tools/utils": "11.2.2",
