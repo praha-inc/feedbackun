@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@types/node": "24.13.3",
-    "oxlint": "1.76.0",
+    "oxlint": "1.77.0",
     "oxlint-tsgolint": "7.0.2001",
     "typescript": "7.0.2"
   }
