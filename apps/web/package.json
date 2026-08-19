@@ -34,7 +34,7 @@
     "date-fns": "4.4.0",
     "deepmerge": "4.3.1",
     "drizzle-orm": "0.45.2",
-    "graphql": "16.14.2",
+    "graphql": "17.0.2",
     "graphql-scalars": "1.26.0",
     "graphql-yoga": "5.21.3",
     "lucide-react": "1.31.0",
