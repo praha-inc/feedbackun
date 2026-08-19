@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@praha/oxlint-config-standard':
-        specifier: 1.0.0-beta.7
-        version: 1.0.0-beta.7(@praha/byethrow@0.12.0(typescript@7.0.2))(@typescript-eslint/utils@8.67.0(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@7.0.2))(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(oxlint-tsgolint@7.0.2001)(oxlint@1.78.0(oxlint-tsgolint@7.0.2001))(supports-color@10.2.2)
+        specifier: 1.0.0
+        version: 1.0.0(@praha/byethrow@0.12.0(typescript@7.0.2))(@typescript-eslint/utils@8.67.0(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@7.0.2))(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(oxlint-tsgolint@7.0.2001)(oxlint@1.78.0(oxlint-tsgolint@7.0.2001))(supports-color@10.2.2)
       '@tsconfig/strictest':
         specifier: 2.0.8
         version: 2.0.8
@@ -179,8 +179,8 @@ importers:
         specifier: 1.20.2
         version: 1.20.2(next@16.3.1(@babel/core@7.29.7(supports-color@10.2.2))(@types/node@24.13.3)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(supports-color@10.2.2)(wrangler@4.123.0(@cloudflare/workers-types@5.20260804.1))
       '@praha/oxlint-config-react':
-        specifier: 1.0.0-beta.7
-        version: 1.0.0-beta.7(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(oxlint-tsgolint@7.0.2001)(oxlint@1.78.0(oxlint-tsgolint@7.0.2001))(storybook@10.5.8(@types/react@19.2.18)(react@19.2.8))(supports-color@10.2.2)(typescript@7.0.2)
+        specifier: 1.0.0
+        version: 1.0.0(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(oxlint-tsgolint@7.0.2001)(oxlint@1.78.0(oxlint-tsgolint@7.0.2001))(storybook@10.5.8(@types/react@19.2.18)(react@19.2.8))(supports-color@10.2.2)(typescript@7.0.2)
       '@tsconfig/next':
         specifier: 2.0.6
         version: 2.0.6
@@ -2852,24 +2852,24 @@ packages:
   '@praha/error-factory@1.4.1':
     resolution: {integrity: sha512-HA+y+xwmQIl9EPvZonRk1/hsSAvAlpDjlpruyW8kTAQ++Oq5Fi7hFV0Y84TLHXJ6SciYHlKGqrekrS5wzkD5+Q==}
 
-  '@praha/oxlint-config-internal@1.0.0-beta.7':
-    resolution: {integrity: sha512-qjjAldizWDSRcxdawA9zlpQpOXBraJK65HDtdpBdowgppRE9wgxQoOGYWFX46HKI4hyglf2RqMioP8GeRf6+Vw==}
+  '@praha/oxlint-config-internal@1.0.0':
+    resolution: {integrity: sha512-Nys+y/iFjpuuKVLFOTegdjLHI8cDJn39e2FH67lTGAK19uQQia6MvRgdEBREj08VZ96IJW4OqdOXUH1A76kViQ==}
     peerDependencies:
       oxlint: ^1.0.0
       oxlint-tsgolint: '>=0.20.0'
 
-  '@praha/oxlint-config-react@1.0.0-beta.7':
-    resolution: {integrity: sha512-qtoNKLv4TlQanje5/zwRI34rHbZVr+Gc5hT5QtbzjpnAnOkV6o9lImhkWvgqM25hkdDWNojEbVnjezjWkTmHFw==}
+  '@praha/oxlint-config-react@1.0.0':
+    resolution: {integrity: sha512-RT7hCJDBut5DVbWnlCdsncPXZlauQNK1Rzy+NobRJYy/AENjOfEv91f3NxEzQJrwZcXqUelzVF5KxUoKKFl+hg==}
     peerDependencies:
       oxlint: ^1.0.0
       oxlint-tsgolint: '>=0.20.0'
       storybook: ^10.3.5
 
-  '@praha/oxlint-config-standard@1.0.0-beta.7':
-    resolution: {integrity: sha512-CbaSU8m2xooxf/aov0kbAaZuD/0wJXCnla1dO6ZUNOPYnogpfo3tyb92uJ7rw/uekDwKhkz6rXDzSH2TrrZp4g==}
+  '@praha/oxlint-config-standard@1.0.0':
+    resolution: {integrity: sha512-XiFDdWHYVhGwAb0O8YOxqn+h/mjzn7zS5I1g9uaov1ieYLpFbZw0ZcWiNop8TaI7FEHq4gy27a0WCGe47ZLEyw==}
     peerDependencies:
       oxlint: ^1.0.0
-      oxlint-tsgolint: '>=0.20.0'
+      oxlint-tsgolint: ^7.0.0
 
   '@radix-ui/number@1.1.3':
     resolution: {integrity: sha512-Road2bidD0uu/1BGDOWNdPI06g0lIRy6IF9GZcIrDK2KGItfor8IQwQa+yM2ERgHM1MmHxaxpTzk0/Jp42lNfA==}
@@ -9285,14 +9285,14 @@ snapshots:
 
   '@praha/error-factory@1.4.1': {}
 
-  '@praha/oxlint-config-internal@1.0.0-beta.7(oxlint-tsgolint@7.0.2001)(oxlint@1.78.0(oxlint-tsgolint@7.0.2001))':
+  '@praha/oxlint-config-internal@1.0.0(oxlint-tsgolint@7.0.2001)(oxlint@1.78.0(oxlint-tsgolint@7.0.2001))':
     dependencies:
       oxlint: 1.78.0(oxlint-tsgolint@7.0.2001)
       oxlint-tsgolint: 7.0.2001
 
-  '@praha/oxlint-config-react@1.0.0-beta.7(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(oxlint-tsgolint@7.0.2001)(oxlint@1.78.0(oxlint-tsgolint@7.0.2001))(storybook@10.5.8(@types/react@19.2.18)(react@19.2.8))(supports-color@10.2.2)(typescript@7.0.2)':
+  '@praha/oxlint-config-react@1.0.0(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(oxlint-tsgolint@7.0.2001)(oxlint@1.78.0(oxlint-tsgolint@7.0.2001))(storybook@10.5.8(@types/react@19.2.18)(react@19.2.8))(supports-color@10.2.2)(typescript@7.0.2)':
     dependencies:
-      '@praha/oxlint-config-internal': 1.0.0-beta.7(oxlint-tsgolint@7.0.2001)(oxlint@1.78.0(oxlint-tsgolint@7.0.2001))
+      '@praha/oxlint-config-internal': 1.0.0(oxlint-tsgolint@7.0.2001)(oxlint@1.78.0(oxlint-tsgolint@7.0.2001))
       eslint-plugin-storybook: 10.5.8(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(storybook@10.5.8(@types/react@19.2.18)(react@19.2.8))(supports-color@10.2.2)(typescript@7.0.2)
       oxlint: 1.78.0(oxlint-tsgolint@7.0.2001)
       oxlint-tsgolint: 7.0.2001
@@ -9302,10 +9302,10 @@ snapshots:
       - supports-color
       - typescript
 
-  '@praha/oxlint-config-standard@1.0.0-beta.7(@praha/byethrow@0.12.0(typescript@7.0.2))(@typescript-eslint/utils@8.67.0(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@7.0.2))(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(oxlint-tsgolint@7.0.2001)(oxlint@1.78.0(oxlint-tsgolint@7.0.2001))(supports-color@10.2.2)':
+  '@praha/oxlint-config-standard@1.0.0(@praha/byethrow@0.12.0(typescript@7.0.2))(@typescript-eslint/utils@8.67.0(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@7.0.2))(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(oxlint-tsgolint@7.0.2001)(oxlint@1.78.0(oxlint-tsgolint@7.0.2001))(supports-color@10.2.2)':
     dependencies:
       '@praha/byethrow-oxlint': 0.12.0(@praha/byethrow@0.12.0(typescript@7.0.2))(oxlint@1.78.0(oxlint-tsgolint@7.0.2001))
-      '@praha/oxlint-config-internal': 1.0.0-beta.7(oxlint-tsgolint@7.0.2001)(oxlint@1.78.0(oxlint-tsgolint@7.0.2001))
+      '@praha/oxlint-config-internal': 1.0.0(oxlint-tsgolint@7.0.2001)(oxlint@1.78.0(oxlint-tsgolint@7.0.2001))
       '@stylistic/eslint-plugin': 5.10.0(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))
       eslint-plugin-import-x: 4.17.1(@typescript-eslint/utils@8.67.0(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@7.0.2))(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)
       eslint-plugin-unicorn: 64.0.0(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))
