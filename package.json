@@ -9,7 +9,7 @@
     "lint:type": "turbo lint:type"
   },
   "devDependencies": {
-    "@praha/oxlint-config-standard": "1.0.0-beta.7",
+    "@praha/oxlint-config-standard": "1.0.2",
     "@tsconfig/strictest": "2.0.8",
     "oxlint": "1.80.0",
     "oxlint-tsgolint": "7.0.2001",
