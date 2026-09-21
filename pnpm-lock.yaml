@@ -73,8 +73,8 @@ importers:
         specifier: 1.5.0
         version: 1.5.0
       '@envelop/core':
-        specifier: 5.6.0
-        version: 5.6.0
+        specifier: 5.6.1
+        version: 5.6.1
       '@feedbackun/package-database':
         specifier: workspace:*
         version: link:../../packages/database
@@ -717,8 +717,8 @@ packages:
   '@emotion/hash@0.9.2':
     resolution: {integrity: sha512-MyqliTZGuOm3+5ZRSaaBGP3USLw6+EGykkwZns2EPC5g8jJ4z9OrdZY9apkl3+UP9+sdz76YYkwCKP5gh8iY3g==}
 
-  '@envelop/core@5.6.0':
-    resolution: {integrity: sha512-cD7HNfAzJVw/0Pxneu51UAKzUGLvkctk9rr9DVJ9b7FDe4nSa9kAGMRxx145H6ooELIUMjTd2buk3PuvjJmp/A==}
+  '@envelop/core@5.6.1':
+    resolution: {integrity: sha512-KEbJ7yrAA+W7IY9MZzpZJ77w/72ndaV/16+hhPapd+0Ohjqffl0mmF3QWy62/m3nRP4qidD+1eiEjJhS/O38Tg==}
     engines: {node: '>=18.0.0'}
 
   '@envelop/instrumentation@1.0.1':
@@ -7515,7 +7515,7 @@ snapshots:
 
   '@emotion/hash@0.9.2': {}
 
-  '@envelop/core@5.6.0':
+  '@envelop/core@5.6.1':
     dependencies:
       '@envelop/instrumentation': 1.0.1
       '@envelop/types': 5.2.2
@@ -8160,7 +8160,7 @@ snapshots:
 
   '@graphql-tools/executor-common@1.1.0(graphql@16.14.2)':
     dependencies:
-      '@envelop/core': 5.6.0
+      '@envelop/core': 5.6.1
       '@graphql-tools/utils': 12.0.1(graphql@16.14.2)
       graphql: 16.14.2
 
@@ -11692,7 +11692,7 @@ snapshots:
 
   graphql-yoga@5.23.0(graphql@16.14.2):
     dependencies:
-      '@envelop/core': 5.6.0
+      '@envelop/core': 5.6.1
       '@envelop/instrumentation': 1.0.1
       '@graphql-tools/executor': 2.0.1(graphql@16.14.2)
       '@graphql-tools/schema': 10.1.1(graphql@16.14.2)
