@@ -61,7 +61,7 @@
     "@types/react-dom": "19.3.0",
     "@vanilla-extract/next-plugin": "2.5.2",
     "oxlint": "1.83.0",
-    "oxlint-tsgolint": "7.0.2001",
+    "oxlint-tsgolint": "7.0.2002",
     "tsx": "4.23.13",
     "typescript": "7.0.2",
     "wrangler": "4.131.2"
