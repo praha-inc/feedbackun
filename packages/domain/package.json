@@ -21,7 +21,7 @@
     "valibot": "1.5.0"
   },
   "devDependencies": {
-    "@types/node": "24.13.4",
+    "@types/node": "24.13.5",
     "oxlint": "1.83.0",
     "oxlint-tsgolint": "7.0.2001",
     "typescript": "7.0.2"
