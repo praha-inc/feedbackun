@@ -130,8 +130,8 @@ importers:
         specifier: 1.26.0
         version: 1.26.0(graphql@16.14.2)
       graphql-yoga:
-        specifier: 5.23.0
-        version: 5.23.0(graphql@16.14.2)
+        specifier: 5.24.1
+        version: 5.24.1(graphql@16.14.2)
       lucide-react:
         specifier: 1.46.0
         version: 1.46.0(react@19.3.0)
@@ -5253,8 +5253,8 @@ packages:
       ws:
         optional: true
 
-  graphql-yoga@5.23.0:
-    resolution: {integrity: sha512-TsgX8y4oXY6oPrzHEyYci7cFprkZ2VuwNvlZN/52PwlBGbUOm6Ewmgwhe1e1HX/b4/SzG89e/BHoGBVvMBlGMQ==}
+  graphql-yoga@5.24.1:
+    resolution: {integrity: sha512-NA2aQ4sZvR/bniCCLOlMG6OSZf5hPg3mUf3Phm33ObqRMZEq6WtZrj2hTcHfT2ZEFVV5FRCbcMb4NB1w7BIKaA==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       graphql: ^15.2.0 || ^16.0.0 || ^17.0.0
@@ -11690,7 +11690,7 @@ snapshots:
     optionalDependencies:
       ws: 8.21.3
 
-  graphql-yoga@5.23.0(graphql@16.14.2):
+  graphql-yoga@5.24.1(graphql@16.14.2):
     dependencies:
       '@envelop/core': 5.6.1
       '@envelop/instrumentation': 1.0.1
