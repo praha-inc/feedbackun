@@ -12,7 +12,7 @@
     "@praha/oxlint-config-standard": "1.0.0-beta.7",
     "@tsconfig/strictest": "2.0.8",
     "oxlint": "1.83.0",
-    "oxlint-tsgolint": "7.0.2001",
+    "oxlint-tsgolint": "7.0.2002",
     "turbo": "2.10.13"
   },
   "packageManager": "pnpm@11.27.0"
