@@ -62,7 +62,7 @@
     "@vanilla-extract/next-plugin": "2.5.2",
     "oxlint": "1.83.0",
     "oxlint-tsgolint": "7.0.2002",
-    "tsx": "4.23.13",
+    "tsx": "4.23.15",
     "typescript": "7.0.2",
     "wrangler": "4.135.0"
   }
