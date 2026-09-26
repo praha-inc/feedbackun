@@ -20,7 +20,7 @@
     "valibot": "1.5.0"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "5.20260804.1",
+    "@cloudflare/workers-types": "5.20260923.1",
     "@types/node": "24.13.6",
     "oxlint": "1.83.0",
     "oxlint-tsgolint": "7.0.2002",
