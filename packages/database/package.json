@@ -19,7 +19,7 @@
     "@types/node": "24.13.6",
     "drizzle-kit": "0.31.11",
     "oxlint": "1.83.0",
-    "oxlint-tsgolint": "7.0.2002",
+    "oxlint-tsgolint": "7.0.2003",
     "typescript": "7.0.2",
     "wrangler": "4.135.0"
   }

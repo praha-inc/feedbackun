@@ -10,16 +10,16 @@ importers:
     devDependencies:
       '@praha/oxlint-config-standard':
         specifier: 1.0.0-beta.7
-        version: 1.0.0-beta.7(@praha/byethrow@0.12.0(typescript@7.0.2))(@typescript-eslint/utils@8.70.0(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@7.0.2))(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(oxlint-tsgolint@7.0.2002)(oxlint@1.83.0(oxlint-tsgolint@7.0.2002))(supports-color@10.2.2)
+        version: 1.0.0-beta.7(@praha/byethrow@0.12.0(typescript@7.0.2))(@typescript-eslint/utils@8.70.0(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@7.0.2))(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(oxlint-tsgolint@7.0.2003)(oxlint@1.83.0(oxlint-tsgolint@7.0.2003))(supports-color@10.2.2)
       '@tsconfig/strictest':
         specifier: 2.0.8
         version: 2.0.8
       oxlint:
         specifier: 1.83.0
-        version: 1.83.0(oxlint-tsgolint@7.0.2002)
+        version: 1.83.0(oxlint-tsgolint@7.0.2003)
       oxlint-tsgolint:
-        specifier: 7.0.2002
-        version: 7.0.2002
+        specifier: 7.0.2003
+        version: 7.0.2003
       turbo:
         specifier: 2.11.2
         version: 2.11.2
@@ -56,10 +56,10 @@ importers:
         version: 24.13.6
       oxlint:
         specifier: 1.83.0
-        version: 1.83.0(oxlint-tsgolint@7.0.2002)
+        version: 1.83.0(oxlint-tsgolint@7.0.2003)
       oxlint-tsgolint:
-        specifier: 7.0.2002
-        version: 7.0.2002
+        specifier: 7.0.2003
+        version: 7.0.2003
       typescript:
         specifier: 7.0.2
         version: 7.0.2
@@ -180,7 +180,7 @@ importers:
         version: 1.20.6(next@16.3.6(@babel/core@7.29.7(supports-color@10.2.2))(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(supports-color@10.2.2)(wrangler@4.135.0(@cloudflare/workers-types@5.20260804.1)(@types/node@24.13.6))
       '@praha/oxlint-config-react':
         specifier: 1.0.0-beta.7
-        version: 1.0.0-beta.7(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(oxlint-tsgolint@7.0.2002)(oxlint@1.83.0(oxlint-tsgolint@7.0.2002))(storybook@10.6.0(@types/react@19.3.0)(react@19.3.0))(supports-color@10.2.2)(typescript@7.0.2)
+        version: 1.0.0-beta.7(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(oxlint-tsgolint@7.0.2003)(oxlint@1.83.0(oxlint-tsgolint@7.0.2003))(storybook@10.6.0(@types/react@19.3.0)(react@19.3.0))(supports-color@10.2.2)(typescript@7.0.2)
       '@tsconfig/next':
         specifier: 2.0.6
         version: 2.0.6
@@ -198,10 +198,10 @@ importers:
         version: 2.5.2(@swc/helpers@0.5.23)(@types/node@24.13.6)(esbuild@0.28.2)(jiti@2.7.0)(next@16.3.6(@babel/core@7.29.7(supports-color@10.2.2))(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(supports-color@10.2.2)(terser@5.51.2)(tsx@4.23.15)(webpack@5.111.1(@swc/core@1.16.2(@swc/helpers@0.5.23))(esbuild@0.28.2)(lightningcss@1.33.0)(postcss@8.5.28)(sharp@0.35.4(@types/node@24.13.6)))(yaml@2.9.1)
       oxlint:
         specifier: 1.83.0
-        version: 1.83.0(oxlint-tsgolint@7.0.2002)
+        version: 1.83.0(oxlint-tsgolint@7.0.2003)
       oxlint-tsgolint:
-        specifier: 7.0.2002
-        version: 7.0.2002
+        specifier: 7.0.2003
+        version: 7.0.2003
       tsx:
         specifier: 4.23.15
         version: 4.23.15
@@ -226,10 +226,10 @@ importers:
         version: 0.31.11
       oxlint:
         specifier: 1.83.0
-        version: 1.83.0(oxlint-tsgolint@7.0.2002)
+        version: 1.83.0(oxlint-tsgolint@7.0.2003)
       oxlint-tsgolint:
-        specifier: 7.0.2002
-        version: 7.0.2002
+        specifier: 7.0.2003
+        version: 7.0.2003
       typescript:
         specifier: 7.0.2
         version: 7.0.2
@@ -272,10 +272,10 @@ importers:
         version: 24.13.6
       oxlint:
         specifier: 1.83.0
-        version: 1.83.0(oxlint-tsgolint@7.0.2002)
+        version: 1.83.0(oxlint-tsgolint@7.0.2003)
       oxlint-tsgolint:
-        specifier: 7.0.2002
-        version: 7.0.2002
+        specifier: 7.0.2003
+        version: 7.0.2003
       typescript:
         specifier: 7.0.2
         version: 7.0.2
@@ -2503,33 +2503,33 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@oxlint-tsgolint/darwin-arm64@7.0.2002':
-    resolution: {integrity: sha512-E3yYb/tI+5M3SqGgKwrwUD0nmjA2FMGD1xFbma46qi8Y7+nPTlGY6bZk/hqxijc9Vda/tdtUxQ2d5zGIEX9qlg==}
+  '@oxlint-tsgolint/darwin-arm64@7.0.2003':
+    resolution: {integrity: sha512-TgV33rXr6ueXBwvc+0nssUkTBSXHJxv77I8p4RCjDjCnvexHtmoPiudVRDfj3S3puMDdeQdHW6jdUgUPy3nr/w==}
     cpu: [arm64]
     os: [darwin]
 
-  '@oxlint-tsgolint/darwin-x64@7.0.2002':
-    resolution: {integrity: sha512-qEaMySdvzs8faaJwMO4dFtPFCa+degFCz+HbkFQ0REcIJqJ16KmC0smt30FAI9TeEHCoAtz6sU/6acJvi4uaxg==}
+  '@oxlint-tsgolint/darwin-x64@7.0.2003':
+    resolution: {integrity: sha512-hY3FMAjIaPDdK3FNxyRXRfHPOFeoBn6dmnLyKZgQ2IbTTD1adXhl6PfCIqHhCPvurigv7nf7mYuWZZ19MmJzmg==}
     cpu: [x64]
     os: [darwin]
 
-  '@oxlint-tsgolint/linux-arm64@7.0.2002':
-    resolution: {integrity: sha512-bqPObCNIR6tDQSc0Xn9Nu7EfWRXFB+qFzADRl/q6YA8zT9YUg3pGUbmicV2hV91uLpiot74so9ocGjx35SaX6w==}
+  '@oxlint-tsgolint/linux-arm64@7.0.2003':
+    resolution: {integrity: sha512-eAET4JpyfBbg8SO0K74o4R55tEjVC292pIyxGOw2XGf8x/HrPNyxwQ478jMYOM54FIVOHc8sJ6VRHxluy6lucw==}
     cpu: [arm64]
     os: [linux]
 
-  '@oxlint-tsgolint/linux-x64@7.0.2002':
-    resolution: {integrity: sha512-E5CcRALAYdiQMbdYjEqlLOiYuEdt21RtXiyxIoD8bfypdfkpWppacijKOR4i0DtLXFRVwCGQggZBWk5bOIpU1A==}
+  '@oxlint-tsgolint/linux-x64@7.0.2003':
+    resolution: {integrity: sha512-GXdyO/XyqDJ3s/llR/oOktLsYNjZtWSQBy0JMc+/0gsNPvTcseKPhn9c6KcFyWmnr6H4vljYALbujonqSzzEGw==}
     cpu: [x64]
     os: [linux]
 
-  '@oxlint-tsgolint/win32-arm64@7.0.2002':
-    resolution: {integrity: sha512-L+ul0ZFDiz/ZmTwCQ1J/qS7S6s45ktiaFqb+ZIzx+1sSdtdRxm8/H0+p4VDQYrCKBFzKNb6VjUlm48bNEe3BUg==}
+  '@oxlint-tsgolint/win32-arm64@7.0.2003':
+    resolution: {integrity: sha512-TWauXnPfet0VgpmrstoAK58eJ4gbuwPUuUTQmYQAzE/RG1CpnxXtrKUJULf6lyerPE4KN3gM+DflIA1hOH+38Q==}
     cpu: [arm64]
     os: [win32]
 
-  '@oxlint-tsgolint/win32-x64@7.0.2002':
-    resolution: {integrity: sha512-zkZeJfo4UmYiCzj77u85eCDpdxOiQiSAsV6j9Pvj5e7Vu5+MvwLtK1xmVutE77tJmUJ3eBOSXHR6WgY4AwHHGQ==}
+  '@oxlint-tsgolint/win32-x64@7.0.2003':
+    resolution: {integrity: sha512-DoRmfe7j8VqNlukp8liRVW45GQDhzRccNenjD/pdzelgtffW47pCMd1xbJLkPaPbKnTwID3onn3VZlL7JbebEA==}
     cpu: [x64]
     os: [win32]
 
@@ -5894,8 +5894,8 @@ packages:
   oxc-resolver@11.21.2:
     resolution: {integrity: sha512-w5tLwYN3Zo24w5EeWJjJWZOwhYqTtC8PS2B1tIt7BZUuqTIcU07sQValbDw+rq7+AuAGzOHklgK+ifsy4lpXfw==}
 
-  oxlint-tsgolint@7.0.2002:
-    resolution: {integrity: sha512-rQAj2RAQM57nCwTd3PhtnAkREGW2StqI47tzudNlJF8WwGommM7rVpeP4O1O8/ZiuDZ9f2GnTESzLHGTluwkvQ==}
+  oxlint-tsgolint@7.0.2003:
+    resolution: {integrity: sha512-VnK4zlqgmgq/7ZcjzCk/WpN8kKFsYGcB85Io9qT3wL4K8Un3RKmJkp793crNETieMusPMKOA4a+Mw2wbteI6TQ==}
     hasBin: true
 
   oxlint@1.83.0:
@@ -8937,22 +8937,22 @@ snapshots:
   '@oxc-resolver/binding-win32-x64-msvc@11.21.2':
     optional: true
 
-  '@oxlint-tsgolint/darwin-arm64@7.0.2002':
+  '@oxlint-tsgolint/darwin-arm64@7.0.2003':
     optional: true
 
-  '@oxlint-tsgolint/darwin-x64@7.0.2002':
+  '@oxlint-tsgolint/darwin-x64@7.0.2003':
     optional: true
 
-  '@oxlint-tsgolint/linux-arm64@7.0.2002':
+  '@oxlint-tsgolint/linux-arm64@7.0.2003':
     optional: true
 
-  '@oxlint-tsgolint/linux-x64@7.0.2002':
+  '@oxlint-tsgolint/linux-x64@7.0.2003':
     optional: true
 
-  '@oxlint-tsgolint/win32-arm64@7.0.2002':
+  '@oxlint-tsgolint/win32-arm64@7.0.2003':
     optional: true
 
-  '@oxlint-tsgolint/win32-x64@7.0.2002':
+  '@oxlint-tsgolint/win32-x64@7.0.2003':
     optional: true
 
   '@oxlint/binding-android-arm-eabi@1.83.0':
@@ -9046,11 +9046,11 @@ snapshots:
       '@pothos/core': 4.15.1(graphql@16.14.2)
       graphql: 16.14.2
 
-  '@praha/byethrow-oxlint@0.12.0(@praha/byethrow@0.12.0(typescript@7.0.2))(oxlint@1.83.0(oxlint-tsgolint@7.0.2002))':
+  '@praha/byethrow-oxlint@0.12.0(@praha/byethrow@0.12.0(typescript@7.0.2))(oxlint@1.83.0(oxlint-tsgolint@7.0.2003))':
     dependencies:
       '@oxlint/plugins': 1.83.0
       '@praha/byethrow': 0.12.0(typescript@7.0.2)
-      oxlint: 1.83.0(oxlint-tsgolint@7.0.2002)
+      oxlint: 1.83.0(oxlint-tsgolint@7.0.2003)
 
   '@praha/byethrow@0.12.0(typescript@7.0.2)':
     dependencies:
@@ -9059,33 +9059,33 @@ snapshots:
 
   '@praha/error-factory@1.4.1': {}
 
-  '@praha/oxlint-config-internal@1.0.0-beta.7(oxlint-tsgolint@7.0.2002)(oxlint@1.83.0(oxlint-tsgolint@7.0.2002))':
+  '@praha/oxlint-config-internal@1.0.0-beta.7(oxlint-tsgolint@7.0.2003)(oxlint@1.83.0(oxlint-tsgolint@7.0.2003))':
     dependencies:
-      oxlint: 1.83.0(oxlint-tsgolint@7.0.2002)
-      oxlint-tsgolint: 7.0.2002
+      oxlint: 1.83.0(oxlint-tsgolint@7.0.2003)
+      oxlint-tsgolint: 7.0.2003
 
-  '@praha/oxlint-config-react@1.0.0-beta.7(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(oxlint-tsgolint@7.0.2002)(oxlint@1.83.0(oxlint-tsgolint@7.0.2002))(storybook@10.6.0(@types/react@19.3.0)(react@19.3.0))(supports-color@10.2.2)(typescript@7.0.2)':
+  '@praha/oxlint-config-react@1.0.0-beta.7(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(oxlint-tsgolint@7.0.2003)(oxlint@1.83.0(oxlint-tsgolint@7.0.2003))(storybook@10.6.0(@types/react@19.3.0)(react@19.3.0))(supports-color@10.2.2)(typescript@7.0.2)':
     dependencies:
-      '@praha/oxlint-config-internal': 1.0.0-beta.7(oxlint-tsgolint@7.0.2002)(oxlint@1.83.0(oxlint-tsgolint@7.0.2002))
+      '@praha/oxlint-config-internal': 1.0.0-beta.7(oxlint-tsgolint@7.0.2003)(oxlint@1.83.0(oxlint-tsgolint@7.0.2003))
       eslint-plugin-storybook: 10.6.0(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@7.0.2)
-      oxlint: 1.83.0(oxlint-tsgolint@7.0.2002)
-      oxlint-tsgolint: 7.0.2002
+      oxlint: 1.83.0(oxlint-tsgolint@7.0.2003)
+      oxlint-tsgolint: 7.0.2003
       storybook: 10.6.0(@types/react@19.3.0)(react@19.3.0)
     transitivePeerDependencies:
       - eslint
       - supports-color
       - typescript
 
-  '@praha/oxlint-config-standard@1.0.0-beta.7(@praha/byethrow@0.12.0(typescript@7.0.2))(@typescript-eslint/utils@8.70.0(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@7.0.2))(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(oxlint-tsgolint@7.0.2002)(oxlint@1.83.0(oxlint-tsgolint@7.0.2002))(supports-color@10.2.2)':
+  '@praha/oxlint-config-standard@1.0.0-beta.7(@praha/byethrow@0.12.0(typescript@7.0.2))(@typescript-eslint/utils@8.70.0(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@7.0.2))(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(oxlint-tsgolint@7.0.2003)(oxlint@1.83.0(oxlint-tsgolint@7.0.2003))(supports-color@10.2.2)':
     dependencies:
-      '@praha/byethrow-oxlint': 0.12.0(@praha/byethrow@0.12.0(typescript@7.0.2))(oxlint@1.83.0(oxlint-tsgolint@7.0.2002))
-      '@praha/oxlint-config-internal': 1.0.0-beta.7(oxlint-tsgolint@7.0.2002)(oxlint@1.83.0(oxlint-tsgolint@7.0.2002))
+      '@praha/byethrow-oxlint': 0.12.0(@praha/byethrow@0.12.0(typescript@7.0.2))(oxlint@1.83.0(oxlint-tsgolint@7.0.2003))
+      '@praha/oxlint-config-internal': 1.0.0-beta.7(oxlint-tsgolint@7.0.2003)(oxlint@1.83.0(oxlint-tsgolint@7.0.2003))
       '@stylistic/eslint-plugin': 5.10.0(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))
       eslint-plugin-import-x: 4.17.1(@typescript-eslint/utils@8.70.0(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@7.0.2))(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)
       eslint-plugin-unicorn: 64.0.0(eslint@10.11.0(jiti@2.7.0)(supports-color@10.2.2))
       globals: 17.12.0
-      oxlint: 1.83.0(oxlint-tsgolint@7.0.2002)
-      oxlint-tsgolint: 7.0.2002
+      oxlint: 1.83.0(oxlint-tsgolint@7.0.2003)
+      oxlint-tsgolint: 7.0.2003
     transitivePeerDependencies:
       - '@praha/byethrow'
       - '@typescript-eslint/utils'
@@ -12238,16 +12238,16 @@ snapshots:
       '@oxc-resolver/binding-win32-arm64-msvc': 11.21.2
       '@oxc-resolver/binding-win32-x64-msvc': 11.21.2
 
-  oxlint-tsgolint@7.0.2002:
+  oxlint-tsgolint@7.0.2003:
     optionalDependencies:
-      '@oxlint-tsgolint/darwin-arm64': 7.0.2002
-      '@oxlint-tsgolint/darwin-x64': 7.0.2002
-      '@oxlint-tsgolint/linux-arm64': 7.0.2002
-      '@oxlint-tsgolint/linux-x64': 7.0.2002
-      '@oxlint-tsgolint/win32-arm64': 7.0.2002
-      '@oxlint-tsgolint/win32-x64': 7.0.2002
+      '@oxlint-tsgolint/darwin-arm64': 7.0.2003
+      '@oxlint-tsgolint/darwin-x64': 7.0.2003
+      '@oxlint-tsgolint/linux-arm64': 7.0.2003
+      '@oxlint-tsgolint/linux-x64': 7.0.2003
+      '@oxlint-tsgolint/win32-arm64': 7.0.2003
+      '@oxlint-tsgolint/win32-x64': 7.0.2003
 
-  oxlint@1.83.0(oxlint-tsgolint@7.0.2002):
+  oxlint@1.83.0(oxlint-tsgolint@7.0.2003):
     optionalDependencies:
       '@oxlint/binding-android-arm-eabi': 1.83.0
       '@oxlint/binding-android-arm64': 1.83.0
@@ -12268,7 +12268,7 @@ snapshots:
       '@oxlint/binding-win32-arm64-msvc': 1.83.0
       '@oxlint/binding-win32-ia32-msvc': 1.83.0
       '@oxlint/binding-win32-x64-msvc': 1.83.0
-      oxlint-tsgolint: 7.0.2002
+      oxlint-tsgolint: 7.0.2003
 
   p-limit@3.1.0:
     dependencies:
