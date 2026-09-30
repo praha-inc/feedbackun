@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "5.20260804.1",
-    "@types/node": "24.13.6",
+    "@types/node": "24.19.0",
     "oxlint": "1.83.0",
     "oxlint-tsgolint": "7.0.2003",
     "typescript": "7.0.2",
