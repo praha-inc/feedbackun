@@ -13,7 +13,7 @@
     "@tsconfig/strictest": "2.0.8",
     "oxlint": "1.83.0",
     "oxlint-tsgolint": "7.0.2003",
-    "turbo": "2.11.4"
+    "turbo": "2.11.5"
   },
   "packageManager": "pnpm@11.27.0"
 }
