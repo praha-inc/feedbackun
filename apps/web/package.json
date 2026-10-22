@@ -64,6 +64,6 @@
     "oxlint-tsgolint": "7.0.2004",
     "tsx": "4.23.15",
     "typescript": "7.0.2",
-    "wrangler": "4.149.0"
+    "wrangler": "4.151.2"
   }
 }
