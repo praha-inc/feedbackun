@@ -18,7 +18,7 @@
   "devDependencies": {
     "@types/node": "24.19.2",
     "drizzle-kit": "0.31.11",
-    "oxlint": "1.88.0",
+    "oxlint": "1.89.0",
     "oxlint-tsgolint": "7.0.2004",
     "typescript": "7.0.2",
     "wrangler": "4.151.2"
