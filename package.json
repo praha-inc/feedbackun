@@ -15,5 +15,5 @@
     "oxlint-tsgolint": "7.0.2004",
     "turbo": "2.11.9"
   },
-  "packageManager": "pnpm@11.28.6"
+  "packageManager": "pnpm@12.15.0"
 }
