@@ -16,7 +16,7 @@
     "drizzle-orm": "0.45.4"
   },
   "devDependencies": {
-    "@types/node": "24.19.2",
+    "@types/node": "26.6.5",
     "drizzle-kit": "0.31.11",
     "oxlint": "1.90.0",
     "oxlint-tsgolint": "7.0.2005",
