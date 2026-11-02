@@ -12,7 +12,7 @@
   "dependencies": {
     "@feedbackun/package-database": "workspace:*",
     "@paralleldrive/cuid2": "3.3.0",
-    "@praha/byethrow": "0.12.0",
+    "@praha/byethrow": "0.13.0",
     "@praha/error-factory": "1.4.1",
     "date-fns": "4.4.0",
     "drizzle-orm": "0.45.4",

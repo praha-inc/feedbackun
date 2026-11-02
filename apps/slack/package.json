@@ -13,7 +13,7 @@
   "dependencies": {
     "@feedbackun/package-database": "workspace:*",
     "@feedbackun/package-domain": "workspace:*",
-    "@praha/byethrow": "0.12.0",
+    "@praha/byethrow": "0.13.0",
     "@praha/error-factory": "1.4.1",
     "drizzle-orm": "0.45.4",
     "slack-edge": "1.3.17",
