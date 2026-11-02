@@ -33,8 +33,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/domain
       '@praha/byethrow':
-        specifier: 0.12.0
-        version: 0.12.0(typescript@7.0.2)
+        specifier: 0.13.0
+        version: 0.13.0(typescript@7.0.2)
       '@praha/error-factory':
         specifier: 1.4.1
         version: 1.4.1
@@ -94,8 +94,8 @@ importers:
         specifier: 4.1.4
         version: 4.1.4(@pothos/core@4.16.0(graphql@16.14.2))(graphql@16.14.2)
       '@praha/byethrow':
-        specifier: 0.12.0
-        version: 0.12.0(typescript@7.0.2)
+        specifier: 0.13.0
+        version: 0.13.0(typescript@7.0.2)
       '@praha/error-factory':
         specifier: 1.4.1
         version: 1.4.1
@@ -246,8 +246,8 @@ importers:
         specifier: 3.3.0
         version: 3.3.0
       '@praha/byethrow':
-        specifier: 0.12.0
-        version: 0.12.0(typescript@7.0.2)
+        specifier: 0.13.0
+        version: 0.13.0(typescript@7.0.2)
       '@praha/error-factory':
         specifier: 1.4.1
         version: 1.4.1
@@ -2393,6 +2393,11 @@ packages:
 
   '@praha/byethrow@0.12.0':
     resolution: {integrity: sha512-Q3dRHW8aGqYbEe/W5YKrik6GbtfLGdCrCVcDcP/YJe4uhhbbrkEw9XoRuPZhfMb4uLrUXk27h4phK3I8+cAdRw==}
+    peerDependencies:
+      typescript: '>=5.0.0'
+
+  '@praha/byethrow@0.13.0':
+    resolution: {integrity: sha512-YbmTlWzvtwiaK1ZhUOzXleJFju6XvBILxkL3AmvHona7zalABaQsPIGwc6YkugirpwG3n4Sc2iKGSwnTEv/hsQ==}
     peerDependencies:
       typescript: '>=5.0.0'
 
@@ -8604,6 +8609,11 @@ snapshots:
       oxlint: 1.90.0(oxlint-tsgolint@7.0.2005)
 
   '@praha/byethrow@0.12.0(typescript@7.0.2)':
+    dependencies:
+      '@standard-schema/spec': 1.1.0
+      typescript: 7.0.2
+
+  '@praha/byethrow@0.13.0(typescript@7.0.2)':
     dependencies:
       '@standard-schema/spec': 1.1.0
       typescript: 7.0.2
