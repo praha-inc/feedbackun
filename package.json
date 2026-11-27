@@ -11,7 +11,7 @@
   "devDependencies": {
     "@praha/oxlint-config-standard": "1.0.0-beta.7",
     "@tsconfig/strictest": "2.0.9",
-    "oxlint": "1.94.0",
+    "oxlint": "1.95.0",
     "oxlint-tsgolint": "7.0.2008",
     "turbo": "2.11.13"
   },
